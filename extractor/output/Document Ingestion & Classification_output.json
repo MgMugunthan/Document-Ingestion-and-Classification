@@ -1,0 +1,65 @@
+{
+  "type": "technical_document",
+  "title": "Document Ingestion & Classification",
+  "sections": [
+    {
+      "title": "Problem Statement",
+      "content": "Enterprises generate hundreds of thousands of unstructured documents daily—PDFs, Word files, scanned images, emails. Manual sorting and routing is: Slow & Costly, Error-Prone, Unscalable. Goal: Build an AI-powered MAS that automatically ingests, extracts, classifies, and routes documents at scale—reducing manual work, cutting errors, and providing full visibility on processing status."
+    },
+    {
+      "title": "Solution Overview",
+      "content": "We decompose the pipeline into four collaborating agents on the opensource agentic framework. Each agent reasons over its inputs, may leverage Generative AI/LLMs for hard NLP tasks, and emits structured events. A central Message Bus connects them; stateful agents track progress per document."
+    },
+    {
+      "title": "Agents",
+      "table": {
+        "headers": [
+          "Agent",
+          "Inputs",
+          "Outputs",
+          "Reasoning / Generative AI Use"
+        ],
+        "rows": [
+          [
+            "Ingestor Agent",
+            "File-share events, email hooks, upload API calls",
+            "Raw document payload + metadata event (doc.received)",
+            "Reasoning: Decide priority based on sender, file size, or folder. LLM-Optional: Summarize email bodies to extract subject/context."
+          ],
+          [
+            "Extractor Agent",
+            "doc.received event; document binary",
+            "Text + structured entities (doc.text, doc.entities)",
+            "OCR/NLP: Use OCR engines → LLM to clean up noisy text. Entity Extraction: LLM prompts to pull dates, parties, amounts."
+          ],
+          [
+            "Classifier Agent",
+            "Extracted text & entities",
+            "Document type label + confidence (doc.type, score)",
+            "Model Inference: Fine-tuned classifier (or LLM zero-shot) to tag invoice/contract/etc. Reasoning: If low confidence, flag for human review."
+          ],
+          [
+            "Router Agent",
+            "Classified document event (doc.type)",
+            "Delivery commands (ERP API call, DMS upload, email alert)",
+            "Routing Logic: Map types → systems (e.g. invoice → accounting ERP). Fallback Reasoning: If target system down, enqueue retry or send Slack alert."
+          ]
+        ]
+      }
+    },
+    {
+      "title": "Web UI Design",
+      "subsections": [
+        {
+          "title": "Operator Dashboard",
+          "items": [
+            "Upload/Ingestion Panel: Drag-and-drop or “Connect Mailbox” button.",
+            "Workflow Progress Bar: Nodes: Ingested, Extracted, Classified, Routed. Each lights up with timestamp as agents complete their steps. Hover reveals details (e.g. “OCR took 3.2s,” “Type=Contract (94% confidence)”).",
+            "Document List & Status: Table of recent docs with columns: Name, Type, Status, Last Updated. Click row to expand the live progress bar and metadata panel.",
+            "Manual Overrides: Buttons to “Re-extract,” “Re-classify,” or “Route to…” if human intervention is needed."
+          ]
+        }
+      ]
+    }
+  ]
+}
