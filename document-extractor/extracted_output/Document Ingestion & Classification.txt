@@ -1,0 +1,54 @@
+Document Ingestion & Classification
+Problem Statement
+Enterprises generate hundreds of thousands of unstructured documents daily—PDFs,
+Word files, scanned images, emails. Manual sorting and routing is:
+• Slow & Costly: Human reviewers become a bottleneck.
+• Error-Prone: Mis-tagged contracts slip through compliance gaps.
+• Unscalable: Growing volume overwhelms static workflows.
+Goal: Build an AI-powered MAS that automatically ingests, extracts, classifies, and routes
+documents at scale—reducing manual work, cutting errors, and providing full visibility on
+processing status.
+2. Solution Overview
+We decompose the pipeline into four collaborating agents on the opensource agentic
+framework. Each agent reasons over its inputs, may leverage Generative AI/LLMs for hard
+NLP tasks, and emits structured events. A central Message Bus connects them; stateful
+agents track progress per document. Here we are give example agents and its reasoning.
+Agent Inputs Outputs Reasoning / Generative AI Use
+Ingestor File-share events, Raw document payload + • Reasoning: Decide priority based on
+Agent email hooks, upload metadata event sender, file size, or folder.
+API calls (doc.received) • LLM-Optional: Summarize email
+bodies to extract subject/context.
+Extractor doc.received event; Text + structured entities • OCR/NLP: Use OCR engines → LLM
+Agent document binary (doc.text, doc.entities) to clean up noisy text.
+• Entity Extraction: LLM prompts to
+pull dates, parties, amounts.
+Classifier Extracted text & Document type label + • Model Inference: Fine-tuned
+Agent entities confidence (doc.type, classifier (or LLM zero-shot) to tag
+score) invoice/contract/etc.
+• Reasoning: If low confidence, flag
+for human review.
+Router Classified document Delivery commands (ERP • Routing Logic: Map types → systems
+Agent event (doc.type) API call, DMS upload, (e.g. invoice → accounting ERP).
+email alert) • Fallback Reasoning: If target
+system down, enqueue retry or send
+Slack alert.
+© 2023 Hexaware Technologies Limited. All rights reserved www.Hexaware.com3. Web UI Design
+A webUI gives both operators and admins live visibility into every document’s journey:
+3.1 Operator Dashboard
+1. Upload/Ingestion Panel
+o Drag-and-drop or “Connect Mailbox” button.
+2. Workflow Progress Bar
+o Nodes:
+1. Ingested
+2. Extracted
+3. Classified
+4. Routed
+o Each lights up with timestamp as agents complete their steps.
+o Hover reveals details (e.g. “OCR took 3.2s,” “Type=Contract (94%
+confidence)”).
+3. Document List & Status
+o Table of recent docs with columns: Name, Type, Status, Last Updated.
+o Click row to expand the live progress bar and metadata panel.
+4. Manual Overrides
+Buttons to “Re-extract,” “Re-classify,” or “Route to…” if human intervention is needed
+© 2023 Hexaware Technologies Limited. All rights reserved www.Hexaware.com
