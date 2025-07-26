@@ -1,0 +1,43 @@
+**Document Ingestion & Classification**
+
+**1. Problem Statement:**
+
+* Enterprises face challenges processing vast volumes of unstructured documents (PDFs, Word files, images, emails).
+* Manual processing is slow, costly, error-prone, and unscalable.
+* Manual review creates bottlenecks and risks compliance issues (e.g., misclassified contracts).
+
+
+**2. Solution Overview:**
+
+An AI-powered, multi-agent system (MAS) is proposed to automate document ingestion, extraction, classification, and routing.  The system uses an open-source agentic framework with four collaborating agents:
+
+* **Ingestor Agent:**
+    * **Inputs:** File-share events, email hooks, API calls.
+    * **Outputs:** Raw document payload and metadata (doc.received event).
+    * **Reasoning:** Prioritizes documents based on sender, file size, or folder.  May optionally use LLMs to summarize email bodies for context.
+* **Extractor Agent:**
+    * **Inputs:** doc.received event, document binary.
+    * **Outputs:** Extracted text and structured entities (doc.text, doc.entities).
+    * **Reasoning:** Uses OCR and NLP, potentially with LLMs for text cleanup and entity extraction (dates, parties, amounts).
+* **Classifier Agent:**
+    * **Inputs:** Extracted text and entities.
+    * **Outputs:** Document type label and confidence score (doc.type, score).
+    * **Reasoning:** Uses a fine-tuned classifier or LLM for zero-shot classification. Flags low-confidence classifications for human review.
+* **Router Agent:**
+    * **Inputs:** Classified document event (doc.type).
+    * **Outputs:** Delivery commands (API calls, DMS uploads, email alerts).
+    * **Reasoning:** Maps document types to target systems (e.g., invoices to accounting ERP). Includes fallback logic for system failures (retry or alerts).
+
+A central message bus connects the agents, and stateful agents track document progress.
+
+
+**3. Web UI Design:**
+
+A web UI provides real-time visibility for operators and administrators:
+
+**3.1 Operator Dashboard:**
+
+* **Upload/Ingestion Panel:** Drag-and-drop or "Connect Mailbox" functionality.
+* **Workflow Progress Bar:** Visualizes document progress through stages (Ingested, Extracted, Classified, Routed).  Timestamps and details (e.g., processing times, confidence scores) are available on hover.
+* **Document List & Status:** Table displaying recent documents with name, type, status, and last updated timestamp.  Rows expand to show progress bar and metadata.
+* **Manual Overrides:** Buttons for re-extraction, re-classification, or manual routing.

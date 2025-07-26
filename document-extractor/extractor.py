@@ -1,99 +1,154 @@
 import os
+import json
 import pdfplumber
 from docx import Document
 from PIL import Image
 import pytesseract
-from pptx import Presentation
-from openpyxl import load_workbook
+import requests
+from datetime import datetime
 
-# Define folders
-input_folder = "input_files"
-output_folder = "extracted_output"
+# Set API keys and models directly
+GOOGLE_API_KEY = "#YOUR_GOOGLE_API_KEY#"
+GEMINI_MODEL = "models/gemini-1.5-flash-latest"
+GROQ_API_KEY = "#YOUR_GROQ_API_KEY#"
+GROQ_MODEL = "llama3-70b-8192"
+OPENROUTER_API_KEY = "#YOUR_OPENROUTER_API_KEY#"
+OPENROUTER_MODEL = "openchat/openchat-7b:free"
 
-# Create output folder if not exist
-os.makedirs(output_folder, exist_ok=True)
+INPUT_DIR = "input_files"
+OUTPUT_DIR = "output_files"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# Extract from PDF
-def extract_text_from_pdf(path):
-    text = ""
+
+def extract_text(file_path):
+    ext = os.path.splitext(file_path)[1].lower()
     try:
-        with pdfplumber.open(path) as pdf:
-            for page in pdf.pages:
-                text += page.extract_text() or ""
+        if ext == ".pdf":
+            with pdfplumber.open(file_path) as pdf:
+                return "\n".join(page.extract_text() or "" for page in pdf.pages)
+        elif ext == ".docx":
+            doc = Document(file_path)
+            return "\n".join(p.text for p in doc.paragraphs)
+        elif ext in [".png", ".jpg", ".jpeg"]:
+            image = Image.open(file_path)
+            return pytesseract.image_to_string(image)
     except Exception as e:
-        print(f"PDF Error [{path}]: {e}")
-    return text.strip()
+        return f"❌ Failed to extract: {e}"
+    return ""
 
-# Extract from DOCX
-def extract_text_from_docx(path):
-    try:
-        doc = Document(path)
-        return "\n".join(para.text for para in doc.paragraphs).strip()
-    except Exception as e:
-        print(f"DOCX Error [{path}]: {e}")
-        return ""
 
-# Extract from image
-def extract_text_from_image(path):
-    try:
-        image = Image.open(path)
-        return pytesseract.image_to_string(image).strip()
-    except Exception as e:
-        print(f"Image Error [{path}]: {e}")
-        return ""
+def format_with_prompt(raw_text):
+    return f"""
+Clean and structure the following document content into readable bullet points or organized sections for a human reader.
+Avoid JSON format. Use plain English in a structured, clear .txt layout:
 
-# Extract from PPTX
-def extract_text_from_pptx(path):
-    text = ""
-    try:
-        prs = Presentation(path)
-        for slide in prs.slides:
-            for shape in slide.shapes:
-                if hasattr(shape, "text"):
-                    text += shape.text + "\n"
-    except Exception as e:
-        print(f"PPTX Error [{path}]: {e}")
-    return text.strip()
+---
+{raw_text}
+---
+"""
 
-# Extract from XLSX
-def extract_text_from_xlsx(path):
-    text = ""
-    try:
-        wb = load_workbook(path, data_only=True)
-        for sheet in wb.worksheets:
-            for row in sheet.iter_rows(values_only=True):
-                row_text = " | ".join([str(cell) if cell is not None else "" for cell in row])
-                text += row_text.strip() + "\n"
-    except Exception as e:
-        print(f"XLSX Error [{path}]: {e}")
-    return text.strip()
 
-# Loop through all files
-for filename in os.listdir(input_folder):
-    input_path = os.path.join(input_folder, filename)
-    base_name, ext = os.path.splitext(filename)
-    ext = ext.lower()
-    output_path = os.path.join(output_folder, base_name + ".txt")
+def def_format_gemini(prompt):
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GOOGLE_API_KEY}"
+    headers = {"Content-Type": "application/json"}
+    data = {
+        "contents": [{"parts": [{"text": prompt}]}]
+    }
+    res = requests.post(url, headers=headers, json=data)
+    if res.ok:
+        return res.json()["candidates"][0]["content"]["parts"][0]["text"]
+    raise Exception(res.text)
 
-    extracted_text = ""
 
-    if ext == ".pdf":
-        extracted_text = extract_text_from_pdf(input_path)
-    elif ext == ".docx":
-        extracted_text = extract_text_from_docx(input_path)
-    elif ext in [".jpg", ".jpeg", ".png"]:
-        extracted_text = extract_text_from_image(input_path)
-    elif ext == ".pptx":
-        extracted_text = extract_text_from_pptx(input_path)
-    elif ext == ".xlsx":
-        extracted_text = extract_text_from_xlsx(input_path)
-    else:
-        print(f"❌ Skipped unsupported file: {filename}")
-        continue
+def def_format_groq(prompt):
+    url = "https://api.groq.com/openai/v1/chat/completions"
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {GROQ_API_KEY}"
+    }
+    data = {
+        "model": GROQ_MODEL,
+        "messages": [
+            {"role": "user", "content": prompt}
+        ]
+    }
+    res = requests.post(url, headers=headers, json=data)
+    if res.ok:
+        return res.json()["choices"][0]["message"]["content"]
+    raise Exception(res.text)
 
-    if extracted_text:
-        with open(output_path, "w", encoding="utf-8") as f:
-            f.write(extracted_text)
-        print(f"✅ Extracted: {filename} → {output_path}")
-    else:
-        print(f"⚠️ No text found in: {filename}")
+
+def def_format_openrouter(prompt):
+    url = "https://openrouter.ai/api/v1/chat/completions"
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}"
+    }
+    data = {
+        "model": OPENROUTER_MODEL,
+        "messages": [
+            {"role": "user", "content": prompt}
+        ]
+    }
+    res = requests.post(url, headers=headers, json=data)
+    if res.ok:
+        return res.json()["choices"][0]["message"]["content"]
+    raise Exception(res.text)
+
+
+def get_metadata_priority(file_name):
+    meta_path = os.path.join(INPUT_DIR, os.path.splitext(file_name)[0] + ".json")
+    if os.path.exists(meta_path):
+        try:
+            with open(meta_path, "r") as f:
+                metadata = json.load(f)
+            return metadata.get("priority", "low")
+        except:
+            return "low"
+    return "low"
+
+
+def process_files():
+    all_files = os.listdir(INPUT_DIR)
+    doc_files = [f for f in all_files if os.path.splitext(f)[1].lower() in [".pdf", ".docx", ".jpg", ".jpeg", ".png"]]
+
+    # Sort based on priority in metadata
+    priority_order = {"high": 0, "medium": 1, "low": 2}
+    sorted_docs = sorted(doc_files, key=lambda f: priority_order.get(get_metadata_priority(f), 2))
+
+    for file in sorted_docs:
+        file_path = os.path.join(INPUT_DIR, file)
+        print(f"🔍 Processing: {file}")
+        raw_text = extract_text(file_path)
+
+        if not raw_text.strip():
+            print(f"⚠️ Skipped empty or unsupported file: {file}")
+            continue
+
+        prompt = format_with_prompt(raw_text)
+        output_text = None
+
+        try:
+            output_text = def_format_gemini(prompt)
+        except Exception as e1:
+            print(f"⚠️ Gemini failed: {e1}")
+            try:
+                output_text = def_format_groq(prompt)
+            except Exception as e2:
+                print(f"⚠️ Groq failed: {e2}")
+                try:
+                    output_text = def_format_openrouter(prompt)
+                except Exception as e3:
+                    print(f"⚠️ OpenRouter failed: {e3}")
+                    print(f"❌ All APIs failed for {file}")
+                    continue
+
+        # Save structured output to .txt file
+        txt_path = os.path.join(OUTPUT_DIR, os.path.splitext(file)[0] + ".txt")
+        with open(txt_path, "w", encoding="utf-8") as f:
+            f.write(output_text or "Unable to extract content")
+        print(f"✅ Saved to: {txt_path}\n")
+
+
+if __name__ == "__main__":
+    process_files()
