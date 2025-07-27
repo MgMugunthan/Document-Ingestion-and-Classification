@@ -7,12 +7,14 @@ import pytesseract
 import requests
 from datetime import datetime
 
-GOOGLE_API_KEY = "#YOUR_GOOGLE_API_KEY#"
-GEMINI_MODEL = "models/gemini-1.5-flash-latest"
-GROQ_API_KEY = "#YOUR_GROQ_ API_KEY#"
-GROQ_MODEL = "llama3-70b-8192"
-OPENROUTER_API_KEY = "#YOUR_OPENROUTER_API_KEY#"
-OPENROUTER_MODEL = "mistralai/mistral-small-3.2-24b-instruct:free"
+GOOGLE_API_KEY="#YOUR_GOOGLE_API_KEY#"
+GEMINI_MODEL="models/gemini-1.5-flash-latest"
+
+GROQ_API_KEY=" #YOUR_GROQ_API_KEY#"
+GROQ_MODEL="mixtral-8x7b-32768"
+
+OPENROUTER_API_KEY="#YOUR_OPENROUTER_API_KEY#"
+OPENROUTER_MODEL="mistralai/mistral-small-3.2-24b-instruct:free"
 
 INPUT_DIR = "input_files"
 OUTPUT_DIR = "output_files"
@@ -32,7 +34,7 @@ def extract_text(file_path):
             image = Image.open(file_path)
             return pytesseract.image_to_string(image)
     except Exception as e:
-        return f"❌ Failed to extract: {e}"
+        return f" Failed to extract: {e}"
     return ""
 
 
@@ -45,7 +47,14 @@ Avoid JSON format. Use plain English in a structured, clear .txt layout:
 {raw_text}
 ---
 """
-
+def fallback_text_cleaning(raw_text):
+    lines = raw_text.splitlines()
+    cleaned_lines = []
+    for line in lines:
+        line = line.strip()
+        if line:
+            cleaned_lines.append(f"- {line.capitalize()}")
+    return "\n".join(cleaned_lines) if cleaned_lines else "No meaningful content extracted."
 
 def def_format_gemini(prompt):
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GOOGLE_API_KEY}"
@@ -88,17 +97,6 @@ def def_format_openrouter(prompt):
         return res.json()["choices"][0]["message"]["content"]
     raise Exception(res.text)
 
-
-def fallback_text_cleaning(raw_text):
-    lines = raw_text.splitlines()
-    cleaned_lines = []
-    for line in lines:
-        line = line.strip()
-        if line:
-            cleaned_lines.append(f"- {line.capitalize()}")
-    return "\n".join(cleaned_lines) if cleaned_lines else "No meaningful content extracted."
-
-
 def get_metadata_priority(file_name):
     meta_path = os.path.join(INPUT_DIR, os.path.splitext(file_name)[0] + ".json")
     if os.path.exists(meta_path):
@@ -119,12 +117,12 @@ def process_files():
 
     for file in sorted_docs:
         file_path = os.path.join(INPUT_DIR, file)
-        print(f"🔍 Processing: {file}")
+        print(f" Processing: {file}....")
         raw_text = extract_text(file_path)
 
         if not raw_text.strip():
-            print(f"❌ No text extracted from {file}")
-            output_text = "⚠️ Text extraction failed or unsupported file format."
+            print(f" No text extracted from {file}")
+            output_text = " Text extraction failed or unsupported file format."
         else:
             prompt = f"""You are an expert document extraction system. Extract and cleanly format the important content from the following raw text:
 
@@ -132,25 +130,25 @@ def process_files():
 
 Return only clean, readable content suitable for saving as .txt file."""
             try:
-                output_text = def_format_gemini(prompt)
+                print(" Formatting with Fallback...")
+                output_text = fallback_text_cleaning(raw_text)
             except Exception as e1:
-                print(f"⚠️ Gemini failed: {e1}")
+                print(f" Fallback failed: {e1}")
                 try:
-                    output_text = def_format_groq(prompt)
+                    output_text = def_format_gemini(prompt)
                 except Exception as e2:
-                    print(f"⚠️ Groq failed: {e2}")
+                    print(" Gemini failed: {e2}")
                     try:
                         output_text = def_format_openrouter(prompt)
                     except Exception as e3:
-                        print(f"⚠️ OpenRouter failed: {e3}")
-                        print("🔁 Using rule-based fallback formatting.")
-                        output_text = fallback_text_cleaning(raw_text)
+                        print(f" Openrouter failed: {e3}")
+                        output_text = def_format_groq(prompt)
 
         base_filename = os.path.splitext(file)[0]
         output_path = os.path.join(OUTPUT_DIR, base_filename + ".txt")
         with open(output_path, "w", encoding="utf-8") as out_f:
             out_f.write(output_text.strip())
-        print(f"✅ Output saved to: {output_path}")
+        print(f"Output saved to: {output_path}")
 
 
 if __name__ == "__main__":
