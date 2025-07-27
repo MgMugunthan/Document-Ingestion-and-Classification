@@ -1,63 +1,53 @@
-Here’s the extracted and formatted content in a clean, readable format:
-
----
-
 **MUGUNTHAN S**
-**Address:** 47, Old Street, Karukku, Ambattur, Chennai - 600053
-**Phone:** +91 6379142491
-**Email:** smugunthan0312@gmail.com
-**LinkedIn:** http://www.linkedin.com/in/mugunthansakthivel
 
-### **SUMMARY**
-Detail-oriented and analytical computer science and engineering student at Rajalakshmi Institute of Technology, with experience in Power BI, Excel, SQL, and Weka. Has real-world experience with datasets through academic projects focused on fake news detection and data mining. Seeking an entry-level data analyst position to strengthen data interpretation and visualization skills in guiding data-driven decisions.
+**Contact:**
 
-### **ACADEMIC PROFILE**
-**Rajalakshmi Institute of Technology**
-*Jan 2022 - Present*
-B.E Computer Science and Engineering | CGPA: 8.04/10
+* Address: 47, Oldstreet Karukku Ambattur Chennai-600053
+* Phone: +91 6379142491
+* Email: smugunthan0312@gmail.com
+* Linkedin: http://www.linkedin.com/in/mugunthansakthivel
 
-**Sethu Bhaskara Matriculation Higher Secondary School**
-*Higher Secondary*
-Percentage: 78%
 
-*Secondary*
-Percentage: 61%
+**Summary:**
 
-### **CERTIFICATIONS**
-- INTRODUCTION TO PYTHON (Sololearn)
-- INTRODUCTION TO MONGODB (MongoDB)
-- CAREER ESSENTIALS IN DATA ANALYSIS (Microsoft + LinkedIn)
-- ADVANCED MS WORD EXCEL POWERPOINT (Udemy)
-- BUSINESS ANALYTICS WITH EXCEL (Simplilearn)
-- ORACLE SQL (Great Learning)
+Detail-oriented and analytical computer science and engineering student with experience in Power BI, Excel, SQL, and Weka.  Experience with real-world datasets through academic projects focused on fake news detection and data mining. Seeking an entry-level data analyst position.
 
-### **TECHNICAL SKILLS**
-**Programming Languages:** Python, SQL, Java, C
-**Tools & Platforms:** MS Excel, Word, PowerPoint, Power BI, Weka
-**Statistical Methods:** ANOVA, T-test, Z-test, Regression, Correlation
-**Visualization:** Bar Chart, Line Chart, Heatmap, Scatter Plot, Pie Chart
-**Concepts:** Data Cleaning, DAX, BI Reporting, OLAP, KPI, ETL
 
-### **PROJECTS**
-**Fake News Detection using Machine Learning**
-- Developed a machine learning model using Weka to identify and classify fake news articles.
-- Implemented J48 and M5P algorithms on a Kaggle dataset to improve prediction accuracy.
+**Academic Profile:**
 
-**Power BI Paginated Reports**
-- Created professional, printable reports in Power BI Report Builder using Excel data.
-- Applied filters, grouping, and dynamic layout features for data-driven reporting.
+* **Rajalakshmi Institute of Technology:** Jan 2022 - Present, B.E Computer Science and Engineering, CGPA 8.04/10
+* **Sethu Bhaskara Matriculation Higher Secondary School:** Higher Secondary, Percentage: 78%
+* **Sethu Bhaskara Matriculation Higher Secondary School:** Secondary, Percentage: 61%
 
-**Sales Analysis Dashboard using MS Excel**
-- Built an interactive sales dashboard using Pivot Tables and Charts.
-- Analyzed monthly performance and visualized key trends with slicers and conditional formatting.
 
-### **ACHIEVEMENTS & EXTRA-CURRICULAR ACTIVITIES**
-- Completed NCC Training (National Cadet Corps)
-  - Gained leadership, discipline, and teamwork experience.
-- Typewriting – Junior and Senior Grade (English)
-  - Certified speed and accuracy in formal typing.
-- Volunteered in college cultural events.
+**Certifications:**
 
----
+* INTRODUCTION TO PYTHON (Sololearn)
+* INTRODUCTION TO MONGODB (MongoDB)
+* CAREER ESSENTIALS IN DATA ANALYSIS (Microsoft and LinkedIn)
+* ADVANCED MS WORD EXCEL POWERPOINT (Udemy)
+* BUSINESS ANALYTICS WITH EXCEL (Simplilearn)
+* ORACLE SQL (Great Learning)
 
-This format is suitable for saving as a `.txt` file.
+
+**Technical Skills:**
+
+* **Programming Languages:** Python, SQL, Java, C
+* **Tools & Platforms:** MS Excel, Word, PowerPoint, Power BI, Weka
+* **Statistical Methods:** ANOVA, T-test, Z-test, Regression, Correlation
+* **Visualization:** Bar Chart, Line Chart, Heatmap, Scatter Plot, Pie Chart
+* **Concepts:** Data Cleaning, DAX, BI Reporting, OLAP, KPI, ETL
+
+
+**Projects:**
+
+* **Fake News Detection using Machine Learning:** Developed a machine learning model using Weka to identify and classify fake news articles. Implemented J48 and M5P algorithms on a Kaggle dataset.
+* **Power BI Paginated Reports:** Created professional, printable reports in Power BI Report Builder using Excel data. Applied filters, grouping, and dynamic layout features.
+* **Sales Analysis Dashboard using MS Excel:** Built an interactive sales dashboard using Pivot Tables and Charts in Excel. Analyzed monthly performance and visualized key trends.
+
+
+**Achievements & Extra-curricular Activities:**
+
+* Completed NCC Training
+* Typewriting – Junior and Senior Grade (English)
+* Volunteered in college cultural events

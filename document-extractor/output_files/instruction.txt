@@ -1,14 +1,8 @@
-Here's the cleanly formatted content extracted from the raw text:
+Hexaware Mavericks Hackathon: How to Win
 
-```
-HEXAWARE
-
-How to Win the Mavericks Hackathon
-
-Follow these 3 key steps to stand out and succeed!
+Follow these 3 key steps to stand out and succeed:
 
 1. Identify the Right Solution
 2. Craft a Compelling Presentation
 
 Phase 1 Submission Deadline: July 29, 2025
-```
