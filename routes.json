@@ -1,0 +1,6 @@
+{
+    "invoice": "routed/invoices/",
+    "receipt": "routed/receipts/",
+    "resume": "routed/resumes/",
+    "default": "routed/others/"
+}
