@@ -23,12 +23,15 @@ def classify(filename):
     else:
         return "default"
 
-# Loop through files and send them to Kafka
+# Track how many messages sent
+count = 0
+
+# Loop through all files regardless of extension
 for fname in os.listdir(SAMPLES_DIR):
-    if fname.endswith(".pdf"):
-        file_path = os.path.join(SAMPLES_DIR, fname)
+    file_path = os.path.join(SAMPLES_DIR, fname)
+    if os.path.isfile(file_path):  # Just in case there are subfolders
         doc_type = classify(fname)
-        doc_id = fname.replace(".pdf", "")
+        doc_id = os.path.splitext(fname)[0]  # removes extension
 
         msg = {
             "document_id": doc_id,
@@ -38,6 +41,8 @@ for fname in os.listdir(SAMPLES_DIR):
 
         print(f"📤 Sending: {doc_id} as {doc_type}")
         producer.send("doc.classified", value=msg)
+        count += 1
 
 producer.flush()
+print(f"[✓] Sent {count} documents")
 print("✅ All documents sent to 'doc.classified'")

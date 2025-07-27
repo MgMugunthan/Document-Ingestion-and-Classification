@@ -6,13 +6,15 @@ import json
 from kafka import KafkaConsumer
 
 def load_routes():
-    routes_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'routes.json'))
+    routes_path =os.path.join(os.path.dirname(__file__), 'routes.json')
     with open(routes_path) as f:
         return json.load(f)
     
 def log_action(data):
-    os.makedirs('logs', exist_ok=True)
-    with open('logs/routing_json','a') as f:
+    log_dir= os.path.join(os.path.dirname(__file__),'logs')
+    os.makedirs(log_dir, exist_ok=True)
+    log_file =os.path.join(log_dir, 'routing_log.json')
+    with open(log_file,'a') as f:
         json.dump(data,f)
         f.write('\n')
 

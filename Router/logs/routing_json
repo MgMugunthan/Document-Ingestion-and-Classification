@@ -1,8 +1,0 @@
-{"document_id": "invoice1", "type": "invoice", "routed_to": "routed/invoices/", "timestamp": "2025-07-27T16:56:11.274409", "status": "Copied to folder"}
-{"document_id": "invoice3", "type": "invoice", "routed_to": "routed/invoices/", "timestamp": "2025-07-27T16:56:11.284881", "status": "Copied to folder"}
-{"document_id": "resume", "type": "resume", "routed_to": "routed/resumes/", "timestamp": "2025-07-27T16:56:11.287885", "status": "Copied to folder"}
-{"document_id": "resume2", "type": "resume", "routed_to": "routed/resumes/", "timestamp": "2025-07-27T16:56:11.291163", "status": "Copied to folder"}
-{"document_id": "invoice1", "type": "invoice", "routed_to": "routed/invoices/", "timestamp": "2025-07-27T16:57:57.859450", "status": "Copied to folder"}
-{"document_id": "invoice3", "type": "invoice", "routed_to": "routed/invoices/", "timestamp": "2025-07-27T16:57:57.864573", "status": "Copied to folder"}
-{"document_id": "resume", "type": "resume", "routed_to": "routed/resumes/", "timestamp": "2025-07-27T16:57:57.865573", "status": "Copied to folder"}
-{"document_id": "resume2", "type": "resume", "routed_to": "routed/resumes/", "timestamp": "2025-07-27T16:57:57.867896", "status": "Copied to folder"}
