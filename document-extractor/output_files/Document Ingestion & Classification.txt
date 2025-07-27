@@ -1,43 +1,59 @@
-**Document Ingestion & Classification**
+Here is the cleaned and formatted content extracted from the provided raw text:
 
-**1. Problem Statement:**
+---
 
-* Enterprises face challenges processing vast volumes of unstructured documents (PDFs, Word files, images, emails).
-* Manual processing is slow, costly, error-prone, and unscalable.
-* Manual review creates bottlenecks and risks compliance issues (e.g., misclassified contracts).
+### Document Ingestion & Classification
 
+#### Problem Statement
+Enterprises generate hundreds of thousands of unstructured documents daily—PDFs, Word files, scanned images, emails. Manual sorting and routing is:
+- **Slow & Costly:** Human reviewers become a bottleneck.
+- **Error-Prone:** Mis-tagged contracts slip through compliance gaps.
+- **Unscalable:** Growing volume overwhelms static workflows.
 
-**2. Solution Overview:**
+**Goal:** Build an AI-powered MAS that automatically ingests, extracts, classifies, and routes documents at scale—reducing manual work, cutting errors, and providing full visibility on processing status.
 
-An AI-powered, multi-agent system (MAS) is proposed to automate document ingestion, extraction, classification, and routing.  The system uses an open-source agentic framework with four collaborating agents:
+---
 
-* **Ingestor Agent:**
-    * **Inputs:** File-share events, email hooks, API calls.
-    * **Outputs:** Raw document payload and metadata (doc.received event).
-    * **Reasoning:** Prioritizes documents based on sender, file size, or folder.  May optionally use LLMs to summarize email bodies for context.
-* **Extractor Agent:**
-    * **Inputs:** doc.received event, document binary.
-    * **Outputs:** Extracted text and structured entities (doc.text, doc.entities).
-    * **Reasoning:** Uses OCR and NLP, potentially with LLMs for text cleanup and entity extraction (dates, parties, amounts).
-* **Classifier Agent:**
-    * **Inputs:** Extracted text and entities.
-    * **Outputs:** Document type label and confidence score (doc.type, score).
-    * **Reasoning:** Uses a fine-tuned classifier or LLM for zero-shot classification. Flags low-confidence classifications for human review.
-* **Router Agent:**
-    * **Inputs:** Classified document event (doc.type).
-    * **Outputs:** Delivery commands (API calls, DMS uploads, email alerts).
-    * **Reasoning:** Maps document types to target systems (e.g., invoices to accounting ERP). Includes fallback logic for system failures (retry or alerts).
+### Solution Overview
+We decompose the pipeline into four collaborating agents on the open-source agentic framework. Each agent reasons over its inputs, may leverage Generative AI/LLMs for hard NLP tasks, and emits structured events. A central Message Bus connects them; stateful agents track progress per document. Here are example agents and their reasoning:
 
-A central message bus connects the agents, and stateful agents track document progress.
+| **Agent**       | **Inputs**                          | **Outputs**                                     | **Reasoning / Generative AI Use**                                                                                       |
+|-----------------|-------------------------------------|-------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| **Ingestor**    | File-share events, Raw document payload, email hooks, upload metadata, API calls (doc.received) | • doc.received event                          | • Reasoning: Decide priority based on event sender, file size, or folder.                                               |
+|                 |                                     |                                                 | • LLM-Optional: Summarize email bodies to extract subject/context.                                                     |
+| **Extractor**   | doc.received event, Document binary | Text + structured entities (doc.text, doc.entities) | • OCR/NLP: Use OCR engines → LLM to clean up noisy text.                                                                |
+|                 |                                     |                                                 | • Entity Extraction: LLM prompts to pull dates, parties, amounts.                                                      |
+| **Classifier**  | Extracted text & entities           | Document type label + confidence (doc.type, score) | • Model Inference: Fine-tuned classifier (or LLM zero-shot) to tag invoice/contract/etc.                               |
+|                 |                                     |                                                 | • Reasoning: If low confidence, flag for human review.                                                                 |
+| **Router**      | Classified document event (doc.type) | Delivery commands (ERP API call, DMS upload, email alert) | • Routing Logic: Map types → systems (e.g., invoice → accounting ERP).                                                 |
+|                 |                                     |                                                 | • Fallback Reasoning: If target system down, enqueue retry or send Slack alert.                                       |
 
+---
 
-**3. Web UI Design:**
+### Web UI Design
+A web UI gives both operators and admins live visibility into every document’s journey:
 
-A web UI provides real-time visibility for operators and administrators:
+#### Operator Dashboard
+1. **Upload/Ingestion Panel**
+   - Drag-and-drop or “Connect Mailbox” button.
 
-**3.1 Operator Dashboard:**
+2. **Workflow Progress Bar**
+   - Nodes:
+     1. Ingested
+     2. Extracted
+     3. Classified
+     4. Routed
+   - Each lights up with timestamp as agents complete their steps.
+   - Hover reveals details (e.g., “OCR took 3.2s,” “Type=Contract (94% confidence)”).
 
-* **Upload/Ingestion Panel:** Drag-and-drop or "Connect Mailbox" functionality.
-* **Workflow Progress Bar:** Visualizes document progress through stages (Ingested, Extracted, Classified, Routed).  Timestamps and details (e.g., processing times, confidence scores) are available on hover.
-* **Document List & Status:** Table displaying recent documents with name, type, status, and last updated timestamp.  Rows expand to show progress bar and metadata.
-* **Manual Overrides:** Buttons for re-extraction, re-classification, or manual routing.
+3. **Document List & Status**
+   - Table of recent docs with columns: Name, Type, Status, Last Updated.
+   - Click row to expand the live progress bar and metadata panel.
+
+4. **Manual Overrides**
+   - Buttons to “Re-extract,” “Re-classify,” or “Route to…” if human intervention is needed.
+
+© 2023 Hexaware Technologies Limited. All rights reserved. [www.Hexaware.com](http://www.Hexaware.com)
+
+---
+**Note:** The content is formatted for readability and removed repetitive copyright notices. You can save this as a `.txt` file.
