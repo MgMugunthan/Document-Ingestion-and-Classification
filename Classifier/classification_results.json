@@ -1,0 +1,9 @@
+[
+    {
+        "file_name": "invoice.txt",
+        "classification": {
+            "file_name": "Invoice Number: 10888\nClient: Bluebird Supplies\nTotal Amount: $1,540.00\nDue Date: July 30, 2025\nThank you for your business.\n",
+            "error": "[Errno 22] Invalid argument: 'Invoice Number: 10888\\nClient: Bluebird Supplies\\nTotal Amount: $1,540.00\\nDue Date: July 30, 2025\\nThank you for your business.\\n'"
+        }
+    }
+]
