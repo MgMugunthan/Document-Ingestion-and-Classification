@@ -1,11 +1,14 @@
-**Hexaware Mavericks Hackathon: How to Win**
+Here's the cleanly formatted content extracted from the raw text:
 
-**Key Steps to Success:**
+```
+HEXAWARE
 
-* **Identify the Right Solution:**  This is the first and most crucial step.  (Further details on how to identify a winning solution would be beneficial here).
+How to Win the Mavericks Hackathon
 
-* **Craft a Compelling Presentation:**  A strong presentation is essential to communicate your solution effectively to the judges. (More information on presentation tips would improve this section).
+Follow these 3 key steps to stand out and succeed!
 
-**Important Dates:**
+1. Identify the Right Solution
+2. Craft a Compelling Presentation
 
-* **Phase 1 Submission Deadline:** July 29, 2025
+Phase 1 Submission Deadline: July 29, 2025
+```

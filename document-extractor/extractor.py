@@ -7,13 +7,12 @@ import pytesseract
 import requests
 from datetime import datetime
 
-# Set API keys and models directly
 GOOGLE_API_KEY = "#YOUR_GOOGLE_API_KEY#"
 GEMINI_MODEL = "models/gemini-1.5-flash-latest"
-GROQ_API_KEY = "#YOUR_GROQ_API_KEY#"
+GROQ_API_KEY = "#YOUR_GROQ_ API_KEY#"
 GROQ_MODEL = "llama3-70b-8192"
 OPENROUTER_API_KEY = "#YOUR_OPENROUTER_API_KEY#"
-OPENROUTER_MODEL = "openchat/openchat-7b:free"
+OPENROUTER_MODEL = "mistralai/mistral-small-3.2-24b-instruct:free"
 
 INPUT_DIR = "input_files"
 OUTPUT_DIR = "output_files"
@@ -51,9 +50,7 @@ Avoid JSON format. Use plain English in a structured, clear .txt layout:
 def def_format_gemini(prompt):
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GOOGLE_API_KEY}"
     headers = {"Content-Type": "application/json"}
-    data = {
-        "contents": [{"parts": [{"text": prompt}]}]
-    }
+    data = {"contents": [{"parts": [{"text": prompt}]}]}
     res = requests.post(url, headers=headers, json=data)
     if res.ok:
         return res.json()["candidates"][0]["content"]["parts"][0]["text"]
@@ -68,9 +65,7 @@ def def_format_groq(prompt):
     }
     data = {
         "model": GROQ_MODEL,
-        "messages": [
-            {"role": "user", "content": prompt}
-        ]
+        "messages": [{"role": "user", "content": prompt}]
     }
     res = requests.post(url, headers=headers, json=data)
     if res.ok:
@@ -86,14 +81,22 @@ def def_format_openrouter(prompt):
     }
     data = {
         "model": OPENROUTER_MODEL,
-        "messages": [
-            {"role": "user", "content": prompt}
-        ]
+        "messages": [{"role": "user", "content": prompt}]
     }
     res = requests.post(url, headers=headers, json=data)
     if res.ok:
         return res.json()["choices"][0]["message"]["content"]
     raise Exception(res.text)
+
+
+def fallback_text_cleaning(raw_text):
+    lines = raw_text.splitlines()
+    cleaned_lines = []
+    for line in lines:
+        line = line.strip()
+        if line:
+            cleaned_lines.append(f"- {line.capitalize()}")
+    return "\n".join(cleaned_lines) if cleaned_lines else "No meaningful content extracted."
 
 
 def get_metadata_priority(file_name):
@@ -111,8 +114,6 @@ def get_metadata_priority(file_name):
 def process_files():
     all_files = os.listdir(INPUT_DIR)
     doc_files = [f for f in all_files if os.path.splitext(f)[1].lower() in [".pdf", ".docx", ".jpg", ".jpeg", ".png"]]
-
-    # Sort based on priority in metadata
     priority_order = {"high": 0, "medium": 1, "low": 2}
     sorted_docs = sorted(doc_files, key=lambda f: priority_order.get(get_metadata_priority(f), 2))
 
@@ -122,32 +123,34 @@ def process_files():
         raw_text = extract_text(file_path)
 
         if not raw_text.strip():
-            print(f"⚠️ Skipped empty or unsupported file: {file}")
-            continue
+            print(f"❌ No text extracted from {file}")
+            output_text = "⚠️ Text extraction failed or unsupported file format."
+        else:
+            prompt = f"""You are an expert document extraction system. Extract and cleanly format the important content from the following raw text:
 
-        prompt = format_with_prompt(raw_text)
-        output_text = None
+{raw_text}
 
-        try:
-            output_text = def_format_gemini(prompt)
-        except Exception as e1:
-            print(f"⚠️ Gemini failed: {e1}")
+Return only clean, readable content suitable for saving as .txt file."""
             try:
-                output_text = def_format_groq(prompt)
-            except Exception as e2:
-                print(f"⚠️ Groq failed: {e2}")
+                output_text = def_format_gemini(prompt)
+            except Exception as e1:
+                print(f"⚠️ Gemini failed: {e1}")
                 try:
-                    output_text = def_format_openrouter(prompt)
-                except Exception as e3:
-                    print(f"⚠️ OpenRouter failed: {e3}")
-                    print(f"❌ All APIs failed for {file}")
-                    continue
+                    output_text = def_format_groq(prompt)
+                except Exception as e2:
+                    print(f"⚠️ Groq failed: {e2}")
+                    try:
+                        output_text = def_format_openrouter(prompt)
+                    except Exception as e3:
+                        print(f"⚠️ OpenRouter failed: {e3}")
+                        print("🔁 Using rule-based fallback formatting.")
+                        output_text = fallback_text_cleaning(raw_text)
 
-        # Save structured output to .txt file
-        txt_path = os.path.join(OUTPUT_DIR, os.path.splitext(file)[0] + ".txt")
-        with open(txt_path, "w", encoding="utf-8") as f:
-            f.write(output_text or "Unable to extract content")
-        print(f"✅ Saved to: {txt_path}\n")
+        base_filename = os.path.splitext(file)[0]
+        output_path = os.path.join(OUTPUT_DIR, base_filename + ".txt")
+        with open(output_path, "w", encoding="utf-8") as out_f:
+            out_f.write(output_text.strip())
+        print(f"✅ Output saved to: {output_path}")
 
 
 if __name__ == "__main__":

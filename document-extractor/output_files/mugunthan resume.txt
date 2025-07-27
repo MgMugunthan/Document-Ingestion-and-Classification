@@ -1,47 +1,63 @@
+Here’s the extracted and formatted content in a clean, readable format:
+
+---
+
 **MUGUNTHAN S**
+**Address:** 47, Old Street, Karukku, Ambattur, Chennai - 600053
+**Phone:** +91 6379142491
+**Email:** smugunthan0312@gmail.com
+**LinkedIn:** http://www.linkedin.com/in/mugunthansakthivel
 
-**Contact:**
+### **SUMMARY**
+Detail-oriented and analytical computer science and engineering student at Rajalakshmi Institute of Technology, with experience in Power BI, Excel, SQL, and Weka. Has real-world experience with datasets through academic projects focused on fake news detection and data mining. Seeking an entry-level data analyst position to strengthen data interpretation and visualization skills in guiding data-driven decisions.
 
-* Address: 47, Old Street, Karukku Ambattur, Chennai-600053
-* Phone: +91 6379142491
-* Email: smugunthan0312@gmail.com (Corrected email address)
-* LinkedIn: http://www.linkedin.com/in/mugunthansakthivel
+### **ACADEMIC PROFILE**
+**Rajalakshmi Institute of Technology**
+*Jan 2022 - Present*
+B.E Computer Science and Engineering | CGPA: 8.04/10
 
-**Summary:**
+**Sethu Bhaskara Matriculation Higher Secondary School**
+*Higher Secondary*
+Percentage: 78%
 
-A detail-oriented and analytical Computer Science and Engineering student at Rajalakshmi Institute of Technology seeking an entry-level data analyst position.  Experienced in Power BI, Excel, SQL, and Weka, with proven ability in data interpretation and visualization through academic projects focusing on fake news detection and data mining.
+*Secondary*
+Percentage: 61%
 
-**Education:**
+### **CERTIFICATIONS**
+- INTRODUCTION TO PYTHON (Sololearn)
+- INTRODUCTION TO MONGODB (MongoDB)
+- CAREER ESSENTIALS IN DATA ANALYSIS (Microsoft + LinkedIn)
+- ADVANCED MS WORD EXCEL POWERPOINT (Udemy)
+- BUSINESS ANALYTICS WITH EXCEL (Simplilearn)
+- ORACLE SQL (Great Learning)
 
-* **Rajalakshmi Institute of Technology (Jan 2022 - Present):** B.E. Computer Science and Engineering, CGPA 8.04/10
-* **Sethu Bhaskara Matriculation Higher Secondary School:** Higher Secondary, 78%
-* **Sethu Bhaskara Matriculation Higher Secondary School:** Secondary, 61%
+### **TECHNICAL SKILLS**
+**Programming Languages:** Python, SQL, Java, C
+**Tools & Platforms:** MS Excel, Word, PowerPoint, Power BI, Weka
+**Statistical Methods:** ANOVA, T-test, Z-test, Regression, Correlation
+**Visualization:** Bar Chart, Line Chart, Heatmap, Scatter Plot, Pie Chart
+**Concepts:** Data Cleaning, DAX, BI Reporting, OLAP, KPI, ETL
 
-**Certifications:**
+### **PROJECTS**
+**Fake News Detection using Machine Learning**
+- Developed a machine learning model using Weka to identify and classify fake news articles.
+- Implemented J48 and M5P algorithms on a Kaggle dataset to improve prediction accuracy.
 
-* Introduction to Python (Sololearn)
-* Introduction to MongoDB (MongoDB)
-* Career Essentials in Data Analysis (Microsoft & LinkedIn)
-* Advanced MS Word, Excel, PowerPoint (Udemy)
-* Business Analytics with Excel (Simplilearn)
-* Oracle SQL (Great Learning)
+**Power BI Paginated Reports**
+- Created professional, printable reports in Power BI Report Builder using Excel data.
+- Applied filters, grouping, and dynamic layout features for data-driven reporting.
 
-**Technical Skills:**
+**Sales Analysis Dashboard using MS Excel**
+- Built an interactive sales dashboard using Pivot Tables and Charts.
+- Analyzed monthly performance and visualized key trends with slicers and conditional formatting.
 
-* **Programming Languages:** Python, SQL, Java, C
-* **Tools & Platforms:** MS Excel, Word, PowerPoint, Power BI, Weka
-* **Statistical Methods:** ANOVA, T-test, Z-test, Regression, Correlation
-* **Data Visualization:** Bar Chart, Line Chart, Heatmap, Scatter Plot, Pie Chart
-* **Data Concepts:** Data Cleaning, DAX, BI Reporting, OLAP, KPI, ETL
+### **ACHIEVEMENTS & EXTRA-CURRICULAR ACTIVITIES**
+- Completed NCC Training (National Cadet Corps)
+  - Gained leadership, discipline, and teamwork experience.
+- Typewriting – Junior and Senior Grade (English)
+  - Certified speed and accuracy in formal typing.
+- Volunteered in college cultural events.
 
-**Projects:**
+---
 
-* **Fake News Detection using Machine Learning:** Developed a machine learning model using Weka's J48 and M5P algorithms on a Kaggle dataset to improve fake news prediction accuracy.
-* **Power BI Paginated Reports:** Created professional, printable reports in Power BI Report Builder using Excel data, incorporating filters, grouping, and dynamic layout features.
-* **Sales Analysis Dashboard using MS Excel:** Built an interactive sales dashboard using Pivot Tables and Charts in Excel, analyzing monthly performance and visualizing key trends with slicers and conditional formatting.
-
-**Achievements & Extracurricular Activities:**
-
-* Completed NCC Training (National Cadet Corps), gaining leadership, discipline, and teamwork experience.
-* Certified in Typewriting (Junior and Senior Grade, English), demonstrating speed and accuracy.
-* Volunteered in college cultural events.
+This format is suitable for saving as a `.txt` file.
