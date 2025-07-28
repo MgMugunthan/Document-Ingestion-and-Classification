@@ -4,3 +4,4 @@ beautifulsoup4
 imapclient
 email
 python-dotenv
+kafka-python
