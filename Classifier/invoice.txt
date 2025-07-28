@@ -1,0 +1,5 @@
+Invoice Number: 10888
+Client: Bluebird Supplies
+Total Amount: $1,540.00
+Due Date: July 30, 2025
+Thank you for your business.
