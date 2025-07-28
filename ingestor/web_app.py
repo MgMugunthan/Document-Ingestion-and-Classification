@@ -1,41 +1,47 @@
+import os
+import threading
 from flask import Flask, request, render_template, jsonify
 from werkzeug.utils import secure_filename
-import os
 from event_emitter import emit_event
-from email_ingestor import fetch_emails_from_user
+from gmail_ingestor import fetch_emails_and_ingest_loop
 
 app = Flask(__name__)
-UPLOAD_FOLDER = "./watched"
-app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
-if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-@app.route("/")
-def home():
-    return render_template("index.html")
+@app.route('/upload', methods=['POST'])
+def upload():
+    if 'files' not in request.files:
+        return jsonify({'error': 'No files uploaded'}), 400
 
-@app.route("/upload", methods=["POST"])
-def upload_file():
-    file = request.files["file"]
-    if file:
+    uploaded_files = request.files.getlist('files')
+    for file in uploaded_files:
+        if file.filename == '':
+            continue
+
         filename = secure_filename(file.filename)
-        file_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
-        file.save(file_path)
+        content = file.read()  # Read content directly without saving manually
 
-        with open(file_path, "rb") as f:
-            content = f.read()
-            emit_event(filename, source="folder", content_bytes=content)
+        emit_event(
+            file_name=filename,
+            source="upload",
+            content_bytes=content,
+            summary="Uploaded via drag-drop UI",
+            sender="N/A"
+        )
 
-        return jsonify({"status": "success", "message": "File uploaded and event emitted"})
-    return jsonify({"status": "error", "message": "No file found"})
+    return jsonify({'message': f'{len(uploaded_files)} file(s) uploaded successfully'})
 
-@app.route("/connect_mailbox", methods=["POST"])
-def connect_mailbox():
-    email = request.form.get("email")
-    password = request.form.get("password")
-    success = fetch_emails_from_user(email, password)
-    return jsonify({"status": "done" if success else "failed"})
+@app.route('/connect_gmail', methods=['POST'])
+def connect_gmail():
+    try:
+        thread = threading.Thread(target=fetch_emails_and_ingest_loop, daemon=True)
+        thread.start()
+        return jsonify({'message': 'Gmail connected. Fetcher started.'})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,18 @@
+<!-- ingestor/templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document Upload</title>
+</head>
+<body>
+  <h1>Upload Documents</h1>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="files" multiple>
+    <button type="submit">Upload</button>
+  </form>
+
+  <form action="/connect_gmail" method="post">
+    <button type="submit">Connect Gmail</button>
+  </form>
+</body>
+</html>

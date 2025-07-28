@@ -1,72 +1,51 @@
 import os
 import json
-import requests
+import uuid
 from datetime import datetime
+from kafka import KafkaProducer
 
-# Paths
-QUEUE_FILE = "event_queue.json"
-STORED_FOLDER = "stored_docs"
+# Kafka Setup
+producer = KafkaProducer(
+    bootstrap_servers='localhost:9092',
+    value_serializer=lambda v: json.dumps(v).encode('utf-8')
+)
 
-# Extractor Agent IP (change this to the real IP of the extractor machine)
-EXTRACTOR_URL = "http://10.195.206.230:5001/receive"  # 🔁 Replace with correct IP
+# Default save location
+FILE_SAVE_DIR = os.path.join(os.path.dirname(__file__), "files")
+os.makedirs(FILE_SAVE_DIR, exist_ok=True)
 
-# Ensure folders exist
-if not os.path.exists(STORED_FOLDER):
-    os.makedirs(STORED_FOLDER)
+def emit_event(file_name, source, content_bytes=None, summary="No summary", sender="N/A"):
+    # Save file if content is provided
+    full_path = os.path.abspath(os.path.join(FILE_SAVE_DIR, file_name))
 
-def emit_event(file_name, source, content_bytes, summary=None):
-    # Save the actual document to disk
-    save_path = os.path.join(STORED_FOLDER, file_name)
-    with open(save_path, "wb") as f:
-        f.write(content_bytes)
+    if content_bytes:
+        with open(full_path, "wb") as f:
+            f.write(content_bytes)
 
-    # Prepare metadata event
-    event = {
-        "event_type": "doc.received",
+    # Prepare metadata
+    metadata = {
+        "document_id": str(uuid.uuid4()),
+        "document_name": file_name,
+        "path": full_path,
+        "file_size": os.path.getsize(full_path) if os.path.exists(full_path) else 0,
+        "upload_timestamp": datetime.now().isoformat(timespec='seconds'),
         "source": source,
-        "file_name": file_name,
-        "timestamp": datetime.now().isoformat(),
-        "summary": summary or "No summary",
-        "file_path": save_path,
-        "metadata": {
-            "size_kb": round(len(content_bytes) / 1024, 2)
-        }
+        "summary": summary,
+        "sender": sender
     }
 
-    # Ensure the queue file is a valid JSON list
-    if not os.path.exists(QUEUE_FILE) or os.path.getsize(QUEUE_FILE) == 0:
-        with open(QUEUE_FILE, 'w') as f:
-            json.dump([], f)
+    # Send to Kafka
+    producer.send("doc.ingested", value=metadata)
+    print(f"[Kafka 🚀] Sent to topic 'doc.ingested': {file_name}")
 
+    # Log to event_queue.json
+    queue_path = os.path.join(os.path.dirname(__file__), "event_queue.json")
     try:
-        with open(QUEUE_FILE, 'r') as f:
-            data = json.load(f)
-            if not isinstance(data, list):
-                data = []
-    except (json.JSONDecodeError, FileNotFoundError):
-        data = []
+        with open(queue_path, "r") as f:
+            queue = json.load(f)
+    except:
+        queue = []
 
-    data.append(event)
-
-    with open(QUEUE_FILE, 'w') as f:
-        json.dump(data, f, indent=2)
-
-    print(f"[INFO] Event written locally: {file_name} from {source}")
-
-    # Send to extractor agent
-    send_to_extractor(save_path, event)
-
-
-def send_to_extractor(file_path, metadata):
-    try:
-        with open(file_path, "rb") as f:
-            files = {
-                "file": (os.path.basename(file_path), f, "application/octet-stream")
-            }
-            data = {
-                "event": json.dumps(metadata)
-            }
-            response = requests.post(EXTRACTOR_URL, data=data, files=files)
-            print(f"[INFO] Sent to extractor: {response.json()}")
-    except Exception as e:
-        print(f"[ERROR] Failed to send to extractor: {str(e)}")
+    queue.append(metadata)
+    with open(queue_path, "w") as f:
+        json.dump(queue, f, indent=2)

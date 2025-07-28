@@ -151,5 +151,1082 @@
     "metadata": {
       "size_kb": 578.23
     }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "folder",
+    "file_name": "Document_Ingestion__Classification.pdf",
+    "timestamp": "2025-07-28T08:23:32.663938",
+    "summary": "No summary",
+    "file_path": "stored_docs\\Document_Ingestion__Classification.pdf",
+    "metadata": {
+      "size_kb": 85.18
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "folder",
+    "file_name": "12th_marksheet.pdf",
+    "timestamp": "2025-07-28T08:26:15.157292",
+    "summary": "No summary",
+    "file_path": "stored_docs\\12th_marksheet.pdf",
+    "metadata": {
+      "size_kb": 578.23
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "folder",
+    "file_name": "Document_Ingestion__Classification.pdf",
+    "timestamp": "2025-07-28T08:37:52.467327",
+    "summary": "No summary",
+    "file_path": "stored_docs\\Document_Ingestion__Classification.pdf",
+    "metadata": {
+      "size_kb": 85.18
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "folder",
+    "file_name": "license.pdf",
+    "timestamp": "2025-07-28T08:40:33.898060",
+    "summary": "No summary",
+    "file_path": "stored_docs\\license.pdf",
+    "metadata": {
+      "size_kb": 94.61
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "folder",
+    "file_name": "Project_-Zeroth_review_ppt_1.pdf",
+    "timestamp": "2025-07-28T08:41:15.197389",
+    "summary": "No summary",
+    "file_path": "stored_docs\\Project_-Zeroth_review_ppt_1.pdf",
+    "metadata": {
+      "size_kb": 199.91
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "folder",
+    "file_name": "Mavericks_Gen_AI_Designathon_-_July_2025_2.pptx",
+    "timestamp": "2025-07-28T09:10:26.935421",
+    "summary": "No summary",
+    "file_path": "stored_docs\\Mavericks_Gen_AI_Designathon_-_July_2025_2.pptx",
+    "metadata": {
+      "size_kb": 4826.38
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "folder",
+    "file_name": "Prototype_Phase_1_-_Submission_Template_1.pptx",
+    "timestamp": "2025-07-28T09:11:25.471406",
+    "summary": "No summary",
+    "file_path": "stored_docs\\Prototype_Phase_1_-_Submission_Template_1.pptx",
+    "metadata": {
+      "size_kb": 8945.54
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "folder",
+    "file_name": "SentinexAI_summary.docx",
+    "timestamp": "2025-07-28T09:12:47.229120",
+    "summary": "No summary",
+    "file_path": "stored_docs\\SentinexAI_summary.docx",
+    "metadata": {
+      "size_kb": 10.67
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "folder",
+    "file_name": "sentinexAI_report.docx",
+    "timestamp": "2025-07-28T09:13:11.321908",
+    "summary": "No summary",
+    "file_path": "stored_docs\\sentinexAI_report.docx",
+    "metadata": {
+      "size_kb": 180.74
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "folder",
+    "file_name": "SentinexAI_summary.pdf",
+    "timestamp": "2025-07-28T09:37:21.153412",
+    "summary": "No summary",
+    "file_path": "stored_docs\\SentinexAI_summary.pdf",
+    "metadata": {
+      "size_kb": 88.3
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "Final Resume 37.pdf",
+    "timestamp": "2025-07-28T10:09:02.062156",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\Final Resume 37.pdf",
+    "metadata": {
+      "size_kb": 50.39
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "Final Resume 37.pdf",
+    "timestamp": "2025-07-28T10:22:06.719725",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\Final Resume 37.pdf",
+    "metadata": {
+      "size_kb": 50.39
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "Final Resume 37.pdf",
+    "timestamp": "2025-07-28T10:24:52.511780",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\Final Resume 37.pdf",
+    "metadata": {
+      "size_kb": 50.39
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image001.jpg",
+    "timestamp": "2025-07-28T10:24:57.520444",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image001.jpg",
+    "metadata": {
+      "size_kb": 130.56
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image002.png",
+    "timestamp": "2025-07-28T10:24:59.584920",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image002.png",
+    "metadata": {
+      "size_kb": 9.7
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image003.png",
+    "timestamp": "2025-07-28T10:25:01.674114",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image003.png",
+    "metadata": {
+      "size_kb": 6.7
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image001.png",
+    "timestamp": "2025-07-28T10:25:06.166721",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image001.png",
+    "metadata": {
+      "size_kb": 9.7
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image002.png",
+    "timestamp": "2025-07-28T10:25:08.234261",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image002.png",
+    "metadata": {
+      "size_kb": 6.7
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image003.jpg",
+    "timestamp": "2025-07-28T10:25:10.289396",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image003.jpg",
+    "metadata": {
+      "size_kb": 138.62
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image001.jpg",
+    "timestamp": "2025-07-28T10:25:14.856078",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image001.jpg",
+    "metadata": {
+      "size_kb": 130.56
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image002.png",
+    "timestamp": "2025-07-28T10:25:16.908184",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image002.png",
+    "metadata": {
+      "size_kb": 9.7
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image003.png",
+    "timestamp": "2025-07-28T10:25:18.976252",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image003.png",
+    "metadata": {
+      "size_kb": 6.7
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image001.jpg",
+    "timestamp": "2025-07-28T10:25:23.674365",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image001.jpg",
+    "metadata": {
+      "size_kb": 130.56
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image002.png",
+    "timestamp": "2025-07-28T10:25:25.737787",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image002.png",
+    "metadata": {
+      "size_kb": 9.7
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image003.png",
+    "timestamp": "2025-07-28T10:25:27.795095",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image003.png",
+    "metadata": {
+      "size_kb": 6.7
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image001.jpg",
+    "timestamp": "2025-07-28T10:25:32.486935",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image001.jpg",
+    "metadata": {
+      "size_kb": 130.56
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image002.png",
+    "timestamp": "2025-07-28T10:25:34.566131",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image002.png",
+    "metadata": {
+      "size_kb": 9.7
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image003.png",
+    "timestamp": "2025-07-28T10:25:36.628319",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image003.png",
+    "metadata": {
+      "size_kb": 6.7
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image001.png",
+    "timestamp": "2025-07-28T10:25:40.858800",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image001.png",
+    "metadata": {
+      "size_kb": 867.8
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image001.jpg",
+    "timestamp": "2025-07-28T10:25:46.685572",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image001.jpg",
+    "metadata": {
+      "size_kb": 130.56
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image002.png",
+    "timestamp": "2025-07-28T10:25:48.752206",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image002.png",
+    "metadata": {
+      "size_kb": 9.7
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image003.png",
+    "timestamp": "2025-07-28T10:25:50.815182",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image003.png",
+    "metadata": {
+      "size_kb": 6.7
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "email",
+    "file_name": "image005.png",
+    "timestamp": "2025-07-28T10:25:52.833575",
+    "summary": "Fetched from Gmail",
+    "file_path": "stored_docs\\image005.png",
+    "metadata": {
+      "size_kb": 490.7
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "invite.ics",
+    "source": "email",
+    "timestamp": "2025-07-28T11:07:13.758719",
+    "summary": "From Green Internship <greeninternship@onemoneb.org>",
+    "metadata": {
+      "size_kb": 1.41
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/0054082041800098_70970dd7-d45d-4243-bb32-ebbb8b76be78.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:32.953854",
+    "summary": "From Swiggy <noreply@swiggy.in>",
+    "metadata": {
+      "size_kb": 31.34
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/0054082030900082_b852a56a-1774-4a86-9073-369d92ab2f10.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:34.785787",
+    "summary": "From Swiggy <noreply@swiggy.in>",
+    "metadata": {
+      "size_kb": 31.34
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "invite.ics",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:36.827413",
+    "summary": "From Zoom <no-reply@zoom.us>",
+    "metadata": {
+      "size_kb": 2.67
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "invite.ics",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:38.176320",
+    "summary": "From Zoom <no-reply@zoom.us>",
+    "metadata": {
+      "size_kb": 2.67
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/0054082112700158_38bd8483-beed-4f00-a2ea-369bbd222f61.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:38.892668",
+    "summary": "From Swiggy <noreply@swiggy.in>",
+    "metadata": {
+      "size_kb": 31.34
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/0054082112700158_38bd8483-beed-4f00-a2ea-369bbd222f61.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:40.013726",
+    "summary": "From Swiggy <noreply@swiggy.in>",
+    "metadata": {
+      "size_kb": 31.34
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/0199096112000088_664a546b-5433-4406-918d-e29f3a4c5052.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:40.823923",
+    "summary": "From Swiggy <noreply@swiggy.in>",
+    "metadata": {
+      "size_kb": 31.27
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/0199096112000088_664a546b-5433-4406-918d-e29f3a4c5052.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:41.858292",
+    "summary": "From Swiggy <noreply@swiggy.in>",
+    "metadata": {
+      "size_kb": 31.27
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/0054082103000095_83a65110-1890-4703-84d3-17bdd1a958d7.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:42.775728",
+    "summary": "From Swiggy <noreply@swiggy.in>",
+    "metadata": {
+      "size_kb": 31.32
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/0054082103000095_83a65110-1890-4703-84d3-17bdd1a958d7.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:43.692708",
+    "summary": "From Swiggy <noreply@swiggy.in>",
+    "metadata": {
+      "size_kb": 31.32
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Confirmation.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:45.069762",
+    "summary": "From Townscript <tickets@townscript.com>",
+    "metadata": {
+      "size_kb": 49.76
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Confirmation.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:46.098444",
+    "summary": "From Townscript <tickets@townscript.com>",
+    "metadata": {
+      "size_kb": 49.76
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/241025BF00015233_20563d62-32bf-41f8-8a26-775c9908e3cc.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:46.969916",
+    "summary": "From Swiggy Dineout <noreply@swiggy.in>",
+    "metadata": {
+      "size_kb": 31.42
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/241025BF00015233_20563d62-32bf-41f8-8a26-775c9908e3cc.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:48.100181",
+    "summary": "From Swiggy Dineout <noreply@swiggy.in>",
+    "metadata": {
+      "size_kb": 31.42
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/0054082091500274_0acba5ed-31a2-44e6-81ea-b1501799aeaf.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:56.205332",
+    "summary": "From Swiggy <noreply@swiggy.in>",
+    "metadata": {
+      "size_kb": 31.28
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/0054082091500274_0acba5ed-31a2-44e6-81ea-b1501799aeaf.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:57.207588",
+    "summary": "From Swiggy <noreply@swiggy.in>",
+    "metadata": {
+      "size_kb": 31.28
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/240915SU00045650_6ee81158-9b11-49f8-98ed-0c6cb8fdd28f.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:58.028830",
+    "summary": "From noreply@swiggy.in",
+    "metadata": {
+      "size_kb": 31.44
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/240915SU00045650_6ee81158-9b11-49f8-98ed-0c6cb8fdd28f.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:12:58.890871",
+    "summary": "From noreply@swiggy.in",
+    "metadata": {
+      "size_kb": 31.44
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/0199096081100163_1b76e260-d70f-40a8-a55d-1a6559531ec1.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:13:02.434016",
+    "summary": "From Swiggy <noreply@swiggy.in>",
+    "metadata": {
+      "size_kb": 31.26
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/0199096081100163_1b76e260-d70f-40a8-a55d-1a6559531ec1.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:13:02.891326",
+    "summary": "From Swiggy <noreply@swiggy.in>",
+    "metadata": {
+      "size_kb": 31.26
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Report-240361103748131_Mrs.BAVANIB_21Jul2024_075553.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:13:04.927905",
+    "summary": "From Hitech-GKS TOWERS <HitechDiagnostic.Report@hitechlabsindia.in>",
+    "metadata": {
+      "size_kb": 721.9
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Report-240361103748131_Mrs.BAVANIB_21Jul2024_075553.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:13:05.473009",
+    "summary": "From Hitech-GKS TOWERS <HitechDiagnostic.Report@hitechlabsindia.in>",
+    "metadata": {
+      "size_kb": 721.9
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "38604701.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:13:06.731559",
+    "summary": "From HiTech <hitechdiagnostic.report@hitechlabsindia.in>",
+    "metadata": {
+      "size_kb": 22.28
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "38604701.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:13:07.144984",
+    "summary": "From HiTech <hitechdiagnostic.report@hitechlabsindia.in>",
+    "metadata": {
+      "size_kb": 22.28
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/0054082070700332_bde03d47-65dc-4480-b9c4-a063041ae264.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:13:08.521181",
+    "summary": "From Swiggy <noreply@swiggy.in>",
+    "metadata": {
+      "size_kb": 31.27
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/0054082070700332_bde03d47-65dc-4480-b9c4-a063041ae264.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:13:08.881520",
+    "summary": "From Swiggy <noreply@swiggy.in>",
+    "metadata": {
+      "size_kb": 31.27
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Dhivijesh Babu_CCR240529CR389057630.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:13:10.523970",
+    "summary": "From alerts@crifhighmark.com",
+    "metadata": {
+      "size_kb": 54.15
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Dhivijesh Babu_CCR240529CR389057630.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:13:10.957550",
+    "summary": "From alerts@crifhighmark.com",
+    "metadata": {
+      "size_kb": 54.15
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Dhivijesh Babu_CCR240518CR369153750.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:13:12.337506",
+    "summary": "From alerts@crifhighmark.com",
+    "metadata": {
+      "size_kb": 54.16
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Dhivijesh Babu_CCR240518CR369153750.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:13:12.812582",
+    "summary": "From alerts@crifhighmark.com",
+    "metadata": {
+      "size_kb": 54.16
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Dhivijesh Babu_CCR240518CR369102713.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:13:14.254713",
+    "summary": "From alerts@crifhighmark.com",
+    "metadata": {
+      "size_kb": 53.96
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Dhivijesh Babu_CCR240518CR369102713.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:13:14.610028",
+    "summary": "From alerts@crifhighmark.com",
+    "metadata": {
+      "size_kb": 53.96
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Dhivijesh Babu_CCR240518CR369139330.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:13:16.215861",
+    "summary": "From alerts@crifhighmark.com",
+    "metadata": {
+      "size_kb": 63.58
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Dhivijesh Babu_CCR240518CR369139330.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:13:16.623710",
+    "summary": "From alerts@crifhighmark.com",
+    "metadata": {
+      "size_kb": 63.58
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "taco/0054082051200188_fe4d49cc-1d98-4d80-bfa1-e57bbeba1e09.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:14:00.115576",
+    "summary": "Fetched from Gmail",
+    "metadata": {
+      "size_kb": 101.89
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Webex_webinar.ics",
+    "source": "email",
+    "timestamp": "2025-07-28T11:14:02.234952",
+    "summary": "Fetched from Gmail",
+    "metadata": {
+      "size_kb": 7.62
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "WQMQ582.jpg",
+    "source": "email",
+    "timestamp": "2025-07-28T11:14:05.005322",
+    "summary": "Fetched from Gmail",
+    "metadata": {
+      "size_kb": 78.14
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "WQMQ582_GST_Invoice.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:14:05.063170",
+    "summary": "Fetched from Gmail",
+    "metadata": {
+      "size_kb": 43.24
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "INV-TN-B1-86548983-103586155819-DECEMBER-2022.html",
+    "source": "email",
+    "timestamp": "2025-07-28T11:14:08.280616",
+    "summary": "Fetched from Gmail",
+    "metadata": {
+      "size_kb": 14.22
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "INV-TN-B1-85667570-103586155819-NOVEMBER-2022.html",
+    "source": "email",
+    "timestamp": "2025-07-28T11:14:10.255834",
+    "summary": "Fetched from Gmail",
+    "metadata": {
+      "size_kb": 29.7
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "INV-TN-B1-84632618-103586155819-NOVEMBER-2022.html",
+    "source": "email",
+    "timestamp": "2025-07-28T11:14:12.378518",
+    "summary": "Fetched from Gmail",
+    "metadata": {
+      "size_kb": 31.85
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "INV-TN-B1-82717630-103586155819-OCTOBER-2022.html",
+    "source": "email",
+    "timestamp": "2025-07-28T11:14:14.312882",
+    "summary": "Fetched from Gmail",
+    "metadata": {
+      "size_kb": 31.84
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "April 2022 to june  2022 Nil Return filers list.xlsx",
+    "source": "email",
+    "timestamp": "2025-07-28T11:14:16.482702",
+    "summary": "Fetched from Gmail",
+    "metadata": {
+      "size_kb": 266.59
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "April 2022 to june  2022 Nil Return filers list.xlsx",
+    "source": "email",
+    "timestamp": "2025-07-28T11:14:18.670406",
+    "summary": "Fetched from Gmail",
+    "metadata": {
+      "size_kb": 266.59
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "INV-TN-B1-78393367-103586155819-AUGUST-2022.html",
+    "source": "email",
+    "timestamp": "2025-07-28T11:14:20.562787",
+    "summary": "Fetched from Gmail",
+    "metadata": {
+      "size_kb": 29.28
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "INV-TN-B1-76493656-103586155819-JULY-2022.html",
+    "source": "email",
+    "timestamp": "2025-07-28T11:14:22.612379",
+    "summary": "Fetched from Gmail",
+    "metadata": {
+      "size_kb": 31.86
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Final Resume 37.pdf",
+    "source": "email",
+    "timestamp": "2025-07-28T11:50:46.432481",
+    "summary": "From \"Dhivijesh .B\" <dhivijesh10@gmail.com>",
+    "metadata": {
+      "size_kb": 50.39
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "IMG-20201216-WA0048.jpg",
+    "source": "email",
+    "timestamp": "2025-07-28T12:02:50.062169",
+    "summary": "From \"Dhivijesh .B\" <dhivijesh10@gmail.com>",
+    "metadata": {
+      "size_kb": 95.41
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "IMG-20201216-WA0048.jpg",
+    "source": "email",
+    "timestamp": "2025-07-28T12:02:50.583900",
+    "summary": "From \"Dhivijesh .B\" <dhivijesh10@gmail.com>",
+    "metadata": {
+      "size_kb": 95.41
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "IMG-20201216-WA0048.jpg",
+    "source": "email",
+    "timestamp": "2025-07-28T12:02:50.998718",
+    "summary": "From \"Dhivijesh .B\" <dhivijesh10@gmail.com>",
+    "metadata": {
+      "size_kb": 95.41
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "IMG-20201216-WA0048.jpg",
+    "source": "email",
+    "timestamp": "2025-07-28T12:02:51.022107",
+    "summary": "From \"Dhivijesh .B\" <dhivijesh10@gmail.com>",
+    "metadata": {
+      "size_kb": 95.41
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "IMG-20201216-WA0048.jpg",
+    "source": "email",
+    "timestamp": "2025-07-28T12:02:51.436861",
+    "summary": "From \"Dhivijesh .B\" <dhivijesh10@gmail.com>",
+    "metadata": {
+      "size_kb": 95.41
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "IMG-20201216-WA0048.jpg",
+    "source": "email",
+    "timestamp": "2025-07-28T12:02:51.746496",
+    "summary": "From \"Dhivijesh .B\" <dhivijesh10@gmail.com>",
+    "metadata": {
+      "size_kb": 95.41
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "IMG-20201216-WA0048.jpg",
+    "source": "email",
+    "timestamp": "2025-07-28T12:02:52.238209",
+    "summary": "From \"Dhivijesh .B\" <dhivijesh10@gmail.com>",
+    "metadata": {
+      "size_kb": 95.41
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "IMG-20201216-WA0048.jpg",
+    "source": "email",
+    "timestamp": "2025-07-28T12:02:52.544633",
+    "summary": "From \"Dhivijesh .B\" <dhivijesh10@gmail.com>",
+    "metadata": {
+      "size_kb": 95.41
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "IMG-20201216-WA0048.jpg",
+    "source": "email",
+    "timestamp": "2025-07-28T12:02:52.664369",
+    "summary": "From \"Dhivijesh .B\" <dhivijesh10@gmail.com>",
+    "metadata": {
+      "size_kb": 95.41
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "IMG-20201216-WA0048.jpg",
+    "source": "email",
+    "timestamp": "2025-07-28T12:02:52.976252",
+    "summary": "From \"Dhivijesh .B\" <dhivijesh10@gmail.com>",
+    "metadata": {
+      "size_kb": 95.41
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "IMG-20201216-WA0048.jpg",
+    "source": "email",
+    "timestamp": "2025-07-28T12:02:53.448653",
+    "summary": "From \"Dhivijesh .B\" <dhivijesh10@gmail.com>",
+    "metadata": {
+      "size_kb": 95.41
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "IMG-20201216-WA0048.jpg",
+    "source": "email",
+    "timestamp": "2025-07-28T12:02:54.311784",
+    "summary": "From \"Dhivijesh .B\" <dhivijesh10@gmail.com>",
+    "metadata": {
+      "size_kb": 95.41
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "IMG-20201216-WA0048.jpg",
+    "source": "email",
+    "timestamp": "2025-07-28T12:02:54.465776",
+    "summary": "From \"Dhivijesh .B\" <dhivijesh10@gmail.com>",
+    "metadata": {
+      "size_kb": 95.41
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "IMG-20201216-WA0048.jpg",
+    "source": "email",
+    "timestamp": "2025-07-28T12:02:54.772282",
+    "summary": "From \"Dhivijesh .B\" <dhivijesh10@gmail.com>",
+    "metadata": {
+      "size_kb": 95.41
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "IMG-20201216-WA0048.jpg",
+    "source": "email",
+    "timestamp": "2025-07-28T12:02:54.823342",
+    "summary": "From \"Dhivijesh .B\" <dhivijesh10@gmail.com>",
+    "metadata": {
+      "size_kb": 95.41
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "IMG-20201216-WA0048.jpg",
+    "source": "email",
+    "timestamp": "2025-07-28T12:02:55.219154",
+    "summary": "From \"Dhivijesh .B\" <dhivijesh10@gmail.com>",
+    "metadata": {
+      "size_kb": 95.41
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "source": "upload",
+    "file_name": "Prototype_Phase_1_-_Submission_Template_1.pptx",
+    "timestamp": "2025-07-28T13:07:31.367016",
+    "summary": "Uploaded via UI",
+    "file_path": "stored_docs\\Prototype_Phase_1_-_Submission_Template_1.pptx",
+    "metadata": {
+      "size_kb": 8907.52
+    }
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Document Ingestion & Classification.pdf",
+    "file_path": "stored_docs\\Document Ingestion & Classification.pdf",
+    "source": "email",
+    "summary": "From \"NAVEEN KUMAR S .\" <naveenkumar.s.2022.cse@ritchennai.edu.in>",
+    "timestamp": "2025-07-28T14:38:37.830203"
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Mugunthan_Resume.pdf",
+    "file_path": "stored_docs\\Mugunthan_Resume.pdf",
+    "source": "email",
+    "summary": "From \"MUGUNTHAN S .\" <mugunthan.s.2022.cse@ritchennai.edu.in>",
+    "timestamp": "2025-07-28T14:40:31.544061"
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Mugunthan_Resume.pdf",
+    "file_path": "stored_docs\\Mugunthan_Resume.pdf",
+    "source": "email",
+    "summary": "From \"MUGUNTHAN S .\" <mugunthan.s.2022.cse@ritchennai.edu.in>",
+    "timestamp": "2025-07-28T14:44:34.303584"
+  },
+  {
+    "event_type": "doc.received",
+    "file_name": "Project_-Zeroth_review_ppt_template.pdf",
+    "file_path": "stored_docs\\Project_-Zeroth_review_ppt_template.pdf",
+    "source": "email",
+    "sender": "\"MUGUNTHAN S .\" <mugunthan.s.2022.cse@ritchennai.edu.in>",
+    "summary": "Fetched from \"MUGUNTHAN S .\" <mugunthan.s.2022.cse@ritchennai.edu.in>",
+    "timestamp": "2025-07-28T14:52:47.949170"
+  },
+  {
+    "document_id": "bb475bac-83ca-44d7-bbe3-5823a40a8e74",
+    "document_name": "Naveen_Resume.pdf",
+    "path": "D:\\Langs\\Team_Docs\\Document-Ingestion-and-Classification\\ingestor\\files\\Naveen_Resume.pdf",
+    "file_size": 159187,
+    "upload_timestamp": "2025-07-29T02:17:16",
+    "source": "upload",
+    "summary": "Uploaded via drag-drop UI",
+    "sender": "N/A"
+  },
+  {
+    "document_id": "1167417b-ebe2-41f5-8564-8447c72ac74d",
+    "document_name": "NEW_RESUME1.pdf",
+    "path": "D:\\Langs\\Team_Docs\\Document-Ingestion-and-Classification\\ingestor\\files\\NEW_RESUME1.pdf",
+    "file_size": 160738,
+    "upload_timestamp": "2025-07-29T02:18:52",
+    "source": "upload",
+    "summary": "Uploaded via drag-drop UI",
+    "sender": "N/A"
+  },
+  {
+    "document_id": "98933d9e-acf2-4ae7-9777-7ba9dba1cfcf",
+    "document_name": "NEW_RESUME1.pdf",
+    "path": "D:\\Langs\\Team_Docs\\Document-Ingestion-and-Classification\\ingestor\\files\\NEW_RESUME1.pdf",
+    "file_size": 160738,
+    "upload_timestamp": "2025-07-29T02:25:12",
+    "source": "upload",
+    "summary": "Uploaded via drag-drop UI",
+    "sender": "N/A"
   }
 ]
