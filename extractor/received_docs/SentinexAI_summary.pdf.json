@@ -1,0 +1,11 @@
+{
+  "event_type": "doc.received",
+  "source": "folder",
+  "file_name": "SentinexAI_summary.pdf",
+  "timestamp": "2025-07-28T09:37:21.153412",
+  "summary": "No summary",
+  "file_path": "stored_docs\\SentinexAI_summary.pdf",
+  "metadata": {
+    "size_kb": 88.3
+  }
+}
