@@ -13,7 +13,7 @@ def load_routes():
 def log_action(data):
     log_dir= os.path.join(os.path.dirname(__file__),'logs')
     os.makedirs(log_dir, exist_ok=True)
-    log_file =os.path.join(log_dir, 'routing_log.json')
+    log_file = os.path.join(log_dir, f"routing_log_{datetime.date.today()}.json")
     with open(log_file,'a') as f:
         json.dump(data,f)
         f.write('\n')
@@ -39,8 +39,9 @@ def route_document(doc_data,routes):
             print(f"[DEBUG] Copying from {source_path} to {destination}")
             print(f"[DEBUG] File exists: {os.path.exists(source_path)}")
             shutil.move(source_path, os.path.join(destination, os.path.basename(source_path)))
-            log_data["status"] = "Copied to folder"
+            log_data["status"] = f"Moved to '{doc_type}' folder → {destination}"
     except Exception as e:
+        print(f"[ERROR] Failed to route {doc_data.get('document_id')}: {str(e)}")
         log_data["status"] = f"Failed:{str(e)}"
 
     log_action(log_data)
