@@ -56,8 +56,16 @@ def gemini_format(text):
     payload = {
         "contents": [{"parts": [{"text": f"Clean this text:\n{text}"}]}]
     }
-    r = requests.post(url, json=payload)
-    return r.json()["candidates"][0]["content"]["parts"][0]["text"]
+    try:
+        r = requests.post(url, json=payload, timeout=10)
+        r.raise_for_status()  # Raise an HTTPError for bad responses (4xx and 5xx)
+        response_json = r.json()
+        return response_json["candidates"][0]["content"]["parts"][0]["text"]
+    except requests.exceptions.RequestException as e:
+        print(f"[Extractor ❌] HTTP request failed: {e}")
+    except (KeyError, TypeError) as e:
+        print(f"[Extractor ❌] Unexpected response structure: {e}")
+    return "[Unformatted] " + text
 
 def process_metadata(metadata_file_path):
     try:
