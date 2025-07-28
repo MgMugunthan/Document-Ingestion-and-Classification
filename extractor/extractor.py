@@ -1,99 +1,117 @@
 import os
 import json
-import fitz  # from PyMuPDF
-from PIL import Image
+import pdfplumber
 import pytesseract
+from PIL import Image
 from docx import Document
 import openpyxl
-from utils.genai_utils import extract_entities_with_fallback
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-INGESTED_DIR = os.path.join(BASE_DIR, "ingested")
-OUTPUT_DIR = os.path.join(BASE_DIR, "output")
-def extract_text_from_pdf(file_path):
-    try:
-        doc = fitz.open(file_path)
-        return "\n".join([page.get_text() for page in doc])
-    except Exception as e:
-        print(" PDF Error:", e)
-        return ""
-def extract_text_from_image(file_path):
-    try:
-        image = Image.open(file_path)
-        return pytesseract.image_to_string(image)
-    except Exception as e:
-        print(" OCR Error:", e)
-        return ""
-def extract_text_from_txt(file_path):
-    try:
-        with open(file_path, "r", encoding="utf-8") as f:
-            return f.read()
-    except Exception as e:
-        print(" TXT Error:", e)
-        return ""
-def extract_text_from_docx(file_path):
-    try:
-        doc = Document(file_path)
-        return "\n".join([para.text for para in doc.paragraphs])
-    except Exception as e:
-        print(" DOCX Error:", e)
-        return ""
-def extract_text_from_xlsx(file_path):
-    try:
-        wb = openpyxl.load_workbook(file_path)
-        text = ""
-        for sheet in wb.worksheets:
-            for row in sheet.iter_rows():
-                for cell in row:
-                    if cell.value:
-                        text += str(cell.value) + "\n"
-        return text
-    except Exception as e:
-        print(" XLSX Error:", e)
-        return ""
-def extract_text_from_file(file_path):
-    ext = os.path.splitext(file_path)[-1].lower()
-    if ext == ".pdf":
-        return extract_text_from_pdf(file_path)
-    elif ext in [".png", ".jpg", ".jpeg", ".webp"]:
-        return extract_text_from_image(file_path)
-    elif ext == ".txt":
-        return extract_text_from_txt(file_path)
-    elif ext == ".docx":
-        return extract_text_from_docx(file_path)
-    elif ext == ".xlsx":
-        return extract_text_from_xlsx(file_path)
-    else:
-        print(" Unsupported file type:", ext)
-        return ""
-def process_file(file_path):
-    print("\n Document Extractor Agent (Gemini Flash + Rule Fallback)")
-    print(f" Processing: {os.path.basename(file_path)}")
+import requests
 
-    text = extract_text_from_file(file_path)
-    if not text.strip():
-        print(" No text extracted.")
+GOOGLE_API_KEY="#YOUR_GOOGLE_API_KEY#"
+GEMINI_MODEL="models/gemini-1.5-flash-latest"
+
+GROQ_API_KEY="#YOUR_GROQ_API_KEY#"
+GROQ_MODEL="mixtral-8x7b-32768"
+
+OPENROUTER_API_KEY="#YOUR_OPENROUTER_API_KEY#"
+OPENROUTER_MODEL="mistralai/mistral-small-3.2-24b-instruct:free"
+
+def extract_text(file_path):
+    ext = file_path.lower().split(".")[-1]
+    try:
+        if ext == "pdf":
+            with pdfplumber.open(file_path) as pdf:
+                return "\n".join(page.extract_text() or "" for page in pdf.pages)
+
+        elif ext in ["png", "jpg", "jpeg"]:
+            return pytesseract.image_to_string(Image.open(file_path))
+
+        elif ext == "docx":
+            doc = Document(file_path)
+            return "\n".join(p.text for p in doc.paragraphs)
+
+        elif ext in ["xlsx", "xls"]:
+            wb = openpyxl.load_workbook(file_path)
+            text = ""
+            for sheet in wb:
+                for row in sheet.iter_rows(values_only=True):
+                    text += "\t".join([str(cell) if cell else "" for cell in row]) + "\n"
+            return text
+
+        elif ext == "txt":
+            with open(file_path, "r", encoding="utf-8") as f:
+                return f.read()
+
+        else:
+            return ""
+    except Exception as e:
+        print(f"[Extractor ❌] Failed to extract from {file_path}: {e}")
+        return ""
+
+def fallback_format(text):
+    return f"[Formatted]\n{text.strip()}"
+
+def gemini_format(text):
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent?key={GOOGLE_API_KEY}"
+    payload = {
+        "contents": [{"parts": [{"text": f"Clean this text:\n{text}"}]}]
+    }
+    try:
+        r = requests.post(url, json=payload, timeout=10)
+        r.raise_for_status()  # Raise an HTTPError for bad responses (4xx and 5xx)
+        response_json = r.json()
+        return response_json["candidates"][0]["content"]["parts"][0]["text"]
+    except requests.exceptions.RequestException as e:
+        print(f"[Extractor ❌] HTTP request failed: {e}")
+    except (KeyError, TypeError) as e:
+        print(f"[Extractor ❌] Unexpected response structure: {e}")
+    return "[Unformatted] " + text
+
+def process_metadata(metadata_file_path):
+    try:
+        with open(metadata_file_path) as f:
+            meta = json.load(f)
+    except Exception as e:
+        print(f"[Extractor ❌] Failed to load JSON {metadata_file_path}: {e}")
         return
 
-    result = extract_entities_with_fallback(text)
+    path = meta.get("file_path") or meta.get("path")  # Support both
+    if not path or not os.path.exists(path):
+        print(f"[Extractor ⚠️] File not found at path: {path}")
+        return
 
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-    output_name = os.path.splitext(os.path.basename(file_path))[0] + "_output.json"
-    output_path = os.path.join(OUTPUT_DIR, output_name)
+    text = extract_text(path)
+    if not text.strip():
+        print(f"[Extractor ⚠️] No text extracted from: {path}")
+        return
 
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(result, f, indent=2, ensure_ascii=False)
+    try:
+        formatted = fallback_format(text)
+    except:
+        try:
+            formatted = gemini_format(text)
+        except:
+            formatted = "[Unformatted] " + text
 
-    print(f" Output saved: {output_path}")
+    file_base = os.path.splitext(os.path.basename(path))[0]
+    out_txt = os.path.join("extracted_output", file_base + ".txt")
+    out_json = os.path.join("extracted_output", file_base + ".json")
+
+    with open(out_txt, "w", encoding="utf-8") as f:
+        f.write(formatted)
+    with open(out_json, "w") as f:
+        json.dump(meta, f, indent=4)
+
+    print(f"[Extractor ✅] Extracted and saved: {out_txt} and {out_json}")
+
 if __name__ == "__main__":
-    if not os.path.exists(INGESTED_DIR):
-        print(" 'ingested/' folder not found.")
-    else:
-        files = os.listdir(INGESTED_DIR)
-        if not files:
-            print(" No files found in 'ingested/' folder.")
-        else:
-            for file_name in files:
-                file_path = os.path.join(INGESTED_DIR, file_name)
-                if os.path.isfile(file_path):
-                    process_file(file_path)
+    os.makedirs("extracted_output", exist_ok=True)
+    json_files = [f for f in os.listdir("received_docs") if f.endswith(".json")]
+
+    if not json_files:
+        print("[Extractor] No metadata files found in received_docs/")
+    for file in json_files:
+        full_path = os.path.join("received_docs", file)
+        process_metadata(full_path)
+
+    print("[Extractor ✅] Done.")
