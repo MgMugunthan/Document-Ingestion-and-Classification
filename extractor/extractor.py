@@ -6,30 +6,34 @@ from PIL import Image
 from docx import Document
 import openpyxl
 import requests
+from kafka import KafkaProducer, KafkaConsumer
 
-GOOGLE_API_KEY="#YOUR_GOOGLE_API_KEY#"
-GEMINI_MODEL="models/gemini-1.5-flash-latest"
+# API Keys and Model Info
+GOOGLE_API_KEY = "#YOUR_GOOGLE_API_KEY#"
+GEMINI_MODEL = "models/gemini-1.5-flash-latest"
+GROQ_API_KEY = "#YOUR_GROQ_API_KEY#"
+GROQ_MODEL = "mixtral-8x7b-32768"
+OPENROUTER_API_KEY = "#YOUR_OPENROUTER_API_KEY#"
+OPENROUTER_MODEL = "mistralai/mistral-small-3.2-24b-instruct:free"
 
-GROQ_API_KEY="#YOUR_GROQ_API_KEY#"
-GROQ_MODEL="mixtral-8x7b-32768"
+# Kafka Producer
+producer = KafkaProducer(
+    bootstrap_servers='localhost:9092',
+    value_serializer=lambda v: json.dumps(v).encode('utf-8')
+)
 
-OPENROUTER_API_KEY="#YOUR_OPENROUTER_API_KEY#"
-OPENROUTER_MODEL="mistralai/mistral-small-3.2-24b-instruct:free"
-
+# -------- TEXT EXTRACTION -------- #
 def extract_text(file_path):
     ext = file_path.lower().split(".")[-1]
     try:
         if ext == "pdf":
             with pdfplumber.open(file_path) as pdf:
                 return "\n".join(page.extract_text() or "" for page in pdf.pages)
-
         elif ext in ["png", "jpg", "jpeg"]:
             return pytesseract.image_to_string(Image.open(file_path))
-
         elif ext == "docx":
             doc = Document(file_path)
             return "\n".join(p.text for p in doc.paragraphs)
-
         elif ext in ["xlsx", "xls"]:
             wb = openpyxl.load_workbook(file_path)
             text = ""
@@ -37,11 +41,9 @@ def extract_text(file_path):
                 for row in sheet.iter_rows(values_only=True):
                     text += "\t".join([str(cell) if cell else "" for cell in row]) + "\n"
             return text
-
         elif ext == "txt":
             with open(file_path, "r", encoding="utf-8") as f:
                 return f.read()
-
         else:
             return ""
     except Exception as e:
@@ -58,24 +60,16 @@ def gemini_format(text):
     }
     try:
         r = requests.post(url, json=payload, timeout=10)
-        r.raise_for_status()  # Raise an HTTPError for bad responses (4xx and 5xx)
+        r.raise_for_status()
         response_json = r.json()
         return response_json["candidates"][0]["content"]["parts"][0]["text"]
-    except requests.exceptions.RequestException as e:
-        print(f"[Extractor ❌] HTTP request failed: {e}")
-    except (KeyError, TypeError) as e:
-        print(f"[Extractor ❌] Unexpected response structure: {e}")
-    return "[Unformatted] " + text
-
-def process_metadata(metadata_file_path):
-    try:
-        with open(metadata_file_path) as f:
-            meta = json.load(f)
     except Exception as e:
-        print(f"[Extractor ❌] Failed to load JSON {metadata_file_path}: {e}")
-        return
+        print(f"[Extractor ❌] Gemini formatting failed: {e}")
+        return "[Unformatted] " + text
 
-    path = meta.get("file_path") or meta.get("path")  # Support both
+# -------- METADATA PROCESSING -------- #
+def process_metadata(meta):
+    path = meta.get("file_path") or meta.get("path")
     if not path or not os.path.exists(path):
         print(f"[Extractor ⚠️] File not found at path: {path}")
         return
@@ -93,25 +87,24 @@ def process_metadata(metadata_file_path):
         except:
             formatted = "[Unformatted] " + text
 
+    meta["extracted_text"] = formatted
     file_base = os.path.splitext(os.path.basename(path))[0]
-    out_txt = os.path.join("extracted_output", file_base + ".txt")
-    out_json = os.path.join("extracted_output", file_base + ".json")
 
-    with open(out_txt, "w", encoding="utf-8") as f:
-        f.write(formatted)
-    with open(out_json, "w") as f:
-        json.dump(meta, f, indent=4)
+    producer.send("doc.extracted", value=meta)
+    print(f"[Extractor 📤] Sent to Kafka topic 'doc.extracted': {file_base}")
 
-    print(f"[Extractor ✅] Extracted and saved: {out_txt} and {out_json}")
-
+# -------- KAFKA CONSUMER -------- #
 if __name__ == "__main__":
-    os.makedirs("extracted_output", exist_ok=True)
-    json_files = [f for f in os.listdir("received_docs") if f.endswith(".json")]
+    consumer = KafkaConsumer(
+        "doc.ingested",
+        bootstrap_servers="localhost:9092",
+        auto_offset_reset="earliest",
+        group_id="extractor-group",
+        value_deserializer=lambda m: json.loads(m.decode("utf-8"))
+    )
 
-    if not json_files:
-        print("[Extractor] No metadata files found in received_docs/")
-    for file in json_files:
-        full_path = os.path.join("received_docs", file)
-        process_metadata(full_path)
+    print("[Extractor 🔄] Listening to Kafka topic 'doc.ingested'...")
 
-    print("[Extractor ✅] Done.")
+    for message in consumer:
+        metadata = message.value
+        process_metadata(metadata)
