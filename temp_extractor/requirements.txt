@@ -1,5 +1,0 @@
-pytesseract
-Pillow
-PyMuPDF
-openai
-python-dotenv
