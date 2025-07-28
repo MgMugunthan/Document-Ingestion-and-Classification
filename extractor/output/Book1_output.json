@@ -1,0 +1,173 @@
+{
+  "document_type": "sales_data",
+  "data": [
+    {
+      "RegNo": 1,
+      "Name": "MUGU",
+      "Sales": 900,
+      "Location": "CHN"
+    },
+    {
+      "RegNo": 2,
+      "Name": "ierjpw",
+      "Sales": 455,
+      "Location": "MAD"
+    },
+    {
+      "RegNo": 3,
+      "Name": "oiewtwo",
+      "Sales": 545,
+      "Location": "PONDI"
+    },
+    {
+      "RegNo": 4,
+      "Name": "ewt",
+      "Sales": 444,
+      "Location": "SALEM"
+    },
+    {
+      "RegNo": 5,
+      "Name": "ewtw",
+      "Sales": 554,
+      "Location": "SIVAGANGA"
+    },
+    {
+      "RegNo": 6,
+      "Name": "ete",
+      "Sales": 145,
+      "Location": "THRICHY"
+    },
+    {
+      "RegNo": 7,
+      "Name": "trt",
+      "Sales": 2455,
+      "Location": "PERMABUR"
+    },
+    {
+      "RegNo": 8,
+      "Name": "dfd",
+      "Sales": 5455,
+      "Location": "PONDI"
+    },
+    {
+      "RegNo": 9,
+      "Name": "wer",
+      "Sales": 2555,
+      "Location": "SALEM"
+    },
+    {
+      "RegNo": 10,
+      "Name": "ere",
+      "Sales": 5555,
+      "Location": "CHN"
+    },
+    {
+      "RegNo": 11,
+      "Name": "wrew",
+      "Sales": 5555,
+      "Location": "CHN"
+    },
+    {
+      "RegNo": 12,
+      "Name": "wer4",
+      "Sales": 54585,
+      "Location": "MAD"
+    },
+    {
+      "RegNo": 13,
+      "Name": "fetr",
+      "Sales": 8525,
+      "Location": "PONDI"
+    },
+    {
+      "RegNo": 14,
+      "Name": "eetefs",
+      "Sales": 5,
+      "Location": "SALEM"
+    },
+    {
+      "RegNo": 15,
+      "Name": null,
+      "Sales": null,
+      "Location": "SIVAGANGA"
+    },
+    {
+      "RegNo": 16,
+      "Name": "erwtery",
+      "Sales": 548,
+      "Location": "THRICHY"
+    },
+    {
+      "RegNo": 17,
+      "Name": "rtwerjnkel",
+      "Sales": 55488,
+      "Location": "PERMABUR"
+    },
+    {
+      "RegNo": 18,
+      "Name": null,
+      "Sales": null,
+      "Location": "PONDI"
+    },
+    {
+      "RegNo": 19,
+      "Name": "ejfls",
+      "Sales": 58599,
+      "Location": "SALEM"
+    },
+    {
+      "RegNo": 20,
+      "Name": "nsfljnsl",
+      "Sales": 5586,
+      "Location": "CHN"
+    },
+    {
+      "RegNo": 21,
+      "Name": "dkfnld",
+      "Sales": 5999,
+      "Location": "MAD"
+    },
+    {
+      "RegNo": 22,
+      "Name": "ljfOFIJWE",
+      "Sales": null,
+      "Location": "PONDI"
+    },
+    {
+      "RegNo": 23,
+      "Name": "UOEFHOE",
+      "Sales": 555,
+      "Location": "SALEM"
+    },
+    {
+      "RegNo": 24,
+      "Name": "uelthowr",
+      "Sales": 54585,
+      "Location": "SIVAGANGA"
+    },
+    {
+      "RegNo": 25,
+      "Name": "lentkwrjn",
+      "Sales": 4552,
+      "Location": "THRICHY"
+    },
+    {
+      "RegNo": 26,
+      "Name": "uhfrwf",
+      "Sales": 7747,
+      "Location": "PERMABUR"
+    },
+    {
+      "RegNo": 27,
+      "Name": "fiwufh",
+      "Sales": 254,
+      "Location": "PONDI"
+    },
+    {
+      "RegNo": 28,
+      "Name": "fwfw",
+      "Sales": 555,
+      "Location": "SALEM"
+    }
+  ]
+}
