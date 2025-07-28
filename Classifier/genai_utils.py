@@ -1,87 +1,104 @@
-import sys
 import os
-import json
-import uuid
-from datetime import datetime
+import re
+from dotenv import load_dotenv
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+load_dotenv()
 
-from genai_mas.utils.genai_utils import classify_document
+KNOWN_TYPES = [
+    "invoice", "contract", "report", "resume", "email",
+    "notice", "letter", "application", "agreement", "receipt"
+]
 
 
-def classify_single_document(file_path):
-    """
-    Classify a single document using LLM.
-    """
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+
+
+try:
+    import google.generativeai as genai
+    genai.configure(api_key=GEMINI_API_KEY)
+    gemini_model = genai.GenerativeModel("models/gemini-1.5-flash")
+except Exception as e:
+    print(f"Could not initialize Gemini: {e}")
+    gemini_model = None
+
+
+def local_fallback_classifier(text):
+    text_lower = text.lower()
+    if "invoice" in text_lower or "total amount" in text_lower:
+        return "invoice"
+    elif "resume" in text_lower or "curriculum vitae" in text_lower:
+        return "resume"
+    elif "agreement" in text_lower:
+        return "agreement"
+    elif "contract" in text_lower:
+        return "contract"
+    elif "report" in text_lower:
+        return "report"
+    elif "dear" in text_lower and "sincerely" in text_lower:
+        return "letter"
+    else:
+        return "unknown"
+
+
+def classify_document(document_text):
+    prompt = f"""You are a document classifier. Classify this document into one of the following types:
+Invoice, Contract, Report, Resume, Email, Notice, Letter, Application, Agreement, Receipt.
+
+Document Content:
+{document_text}
+
+Only output the label."""
+
+
+    if gemini_model:
+        try:
+            response = gemini_model.generate_content(prompt)
+            label = response.text.strip().lower()
+            if label in KNOWN_TYPES:
+                return {
+                    "document_type": label,
+                    "confidence_score": "high",
+                    "classification_by": "Gemini API"
+                }
+        except Exception as e:
+            print(f" Gemini failed: {e}")
+
+    # 2. Try Groq
     try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            content = f.read()
+        import openai
+        openai.api_key = GROQ_API_KEY
+        openai.base_url = "https://api.groq.com/openai/v1"
 
-        classification_result = classify_document(content)
+        chat_completion = openai.ChatCompletion.create(
+            model="mixtral-8x7b-32768", 
+            messages=[
+                {"role": "system", "content": "You are a document classifier."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.3
+        )
+        label = chat_completion.choices[0].message["content"].strip().lower()
+        if label in KNOWN_TYPES:
+            return {
+                "document_type": label,
+                "confidence_score": "medium",
+                "classification_by": "Groq API"
+            }
+    except Exception as e:
+        print(f"Groq failed: {e}")
+
+   
+    try:
+        label = local_fallback_classifier(document_text)
         return {
-            "file_name": os.path.basename(file_path),
-            "classification": classification_result
+            "document_type": label,
+            "confidence_score": "low",
+            "classification_by": "Local Fallback Classifier"
         }
-
     except Exception as e:
         return {
-            "file_name": os.path.basename(file_path),
-            "error": str(e)
+            "document_type": "unknown",
+            "error": f"Local fallback failed: {e}"
         }
 
-
-def classify_documents_in_folder(input_folder, output_folder):
-    """
-    Classifies all .txt documents in a folder and saves results as individual JSON files.
-    Now outputs MAS-compatible metadata format.
-    """
-    os.makedirs(output_folder, exist_ok=True)
-    summary = []
-
-    for file_name in os.listdir(input_folder):
-        if file_name.endswith(".txt"):
-            file_path = os.path.join(input_folder, file_name)
-
-            print(f"\nProcessing: {file_name}")
-            result = classify_single_document(file_path)
-
-            if "classification" in result:
-                category = result["classification"].get("document_type", "Unknown")
-                print(f"Classified as: {category}")
-            else:
-                print(f"Error: {result['error']}")
-                category = "Error"
-
-            mas_result = {
-                "document_id": str(uuid.uuid4()),
-                "type": category.lower() if category != "Unknown" else "unknown",
-                "path": file_path.replace("genai_mas\\ingested\\", "samples/").replace("\\", "/").replace(".txt", ".pdf"),
-                "size": os.path.getsize(file_path),
-                "file_extension": "application/pdf", 
-                "upload_timestamp": datetime.now().isoformat(timespec='seconds')
-            }
-
-            out_filename = f"{os.path.splitext(file_name)[0]}.json"
-            output_path = os.path.join(output_folder, out_filename)
-
-            with open(output_path, "w", encoding="utf-8") as f:
-                json.dump(mas_result, f, indent=4)
-
-            raw_debug_path = os.path.join(output_folder, f"{os.path.splitext(file_name)[0]}.meta.json")
-            with open(raw_debug_path, "w", encoding="utf-8") as f:
-                json.dump(result, f, indent=4)
-
-            print(f"Saved: {output_path}")
-            summary.append(mas_result)
-
-    summary_path = os.path.join(output_folder, "classification_results.json")
-    with open(summary_path, "w", encoding="utf-8") as f:
-        json.dump(summary, f, indent=4)
-
-    print(f"\n Classification completed! Summary saved to {summary_path}")
-
-
-if __name__ == "__main__":
-    INPUT_FOLDER = "genai_mas/ingested"
-    OUTPUT_FOLDER = "genai_mas/output"
-    classify_documents_in_folder(INPUT_FOLDER, OUTPUT_FOLDER)
