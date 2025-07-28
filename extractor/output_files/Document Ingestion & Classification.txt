@@ -1,0 +1,30 @@
+**Document Ingestion & Classification**
+
+**Problem Statement**
+
+Enterprises face challenges with manual document sorting and routing due to:
+
+* Slow & Costly processes (human bottleneck)
+* Error-Prone (mis-tagged documents)
+* Unscalability (overwhelmed workflows)
+
+**Goal:** Develop an AI-powered system for automated ingestion, extraction, classification, and routing of documents to reduce manual work, errors, and improve visibility.
+
+
+**Solution Overview**
+
+A four-agent pipeline using an open-source agentic framework:
+
+* **Ingestor Agent:**  Prioritizes documents based on sender, size, or folder; optionally summarizes email bodies.
+* **Extractor Agent:** Uses OCR/NLP for text extraction and LLM prompts for entity extraction (dates, parties, amounts).
+* **Classifier Agent:** Uses a fine-tuned classifier (or LLM) for document type tagging; flags low-confidence documents.
+* **Router Agent:** Maps document types to target systems (e.g., invoice to accounting ERP); handles system failures.
+
+
+**Web UI Design**
+
+* **Operator Dashboard:**
+    * Upload/Ingestion Panel (drag-and-drop or mailbox connection)
+    * Workflow Progress Bar (Ingested, Extracted, Classified, Routed stages with timestamps and details)
+    * Document List & Status (Name, Type, Status, Last Updated)
+    * Manual Overrides (Re-extract, Re-classify, Route to…)

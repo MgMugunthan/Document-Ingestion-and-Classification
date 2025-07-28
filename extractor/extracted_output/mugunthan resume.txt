@@ -1,0 +1,48 @@
+MUGUNTHAN S
+Address:47,Oldstreet Karukku Ambattur Chennai-600053
+Phone: +91 6379142491
+Email:smugunthan0312gmail.com
+Linkedin: http://www.linkedin.com/in/mugunthansakthivel
+SUMMARY
+Detail-oriented and analytical computer science and engineering student at Rajalakshmi Institute of
+Technology, with experience in Power BI, Excel, SQL, and Weka. And has real-world in datasets
+through academic projects focused on fake news detection and data mining. Seeking an entry-level
+data analyst position that allows me to become strong in data interpretation and visualization skills
+in guiding data-driven decision
+ACADEMIC PROFILE
+Rajalakshmi Insitute of Technology
+Jan 2022 - Present
+B.E Computer Science and Engineering CGPA 8.04/10
+Sethu Bhaskara Matriculation Higher Secondary School
+Percentage:78%
+Higher Secondary
+Sethu Bhaskara Matriculation Higher Secondary School Percentage:61%
+Secondary
+CERTIFICATIONS
+INTRODUCTION TO PYTHON in Sololearn
+INTRODUCTION TO MONGODB by MongoDB
+CAREER ESSENTIALS IN DATA ANALYSIS by Microsoft and Linkedin
+ADVANCED MS WORD EXCEL POWERPOINT by Udemy
+BUSINESS ANALYTICS WITH EXCEL by Simplilearn
+ORACLE SQL by Great Learning
+TECHNICAL SKILLS
+Programming Languages: Python, SQL, Java, C
+Tools & Platforms: Ms Excel, Word, Powerpoint , PowerBi , Weka
+Statistical Methods: ANOVA, T-test, Z-test, Regression, Correlation
+Visualization: Bar Chart, Line Chart, Heatmap, Scatter Plot, Pie Chart
+Concepts: Data Cleaning, DAX, BI Reporting, OLAP, KPI, ETL
+PROJECTS
+Fake News Detection using Machine Learning
+Developed a machine learning model using Weka to identify and classify the fake news articles.
+Implemented on J48 and M5P algorithms on a Kaggle dataset to improve prediction accuracy.
+Power BI Paginated Reports
+Created professional, printable reports in Power BI Report Builder using Excel data. Applied
+filters, grouping, and dynamic layout features to support data-driven reporting.
+Sales Analysis Dashboard using MS Excel
+Built an interactive sales dashboard using Pivot Tables and Charts in Excel. Analyzed monthly
+performance and visualized key trends with slicers and conditional formatting.
+ACHIEVEMENTS & EXTRA-CURRICULAR ACTIVITIES
+Completed NCC Training – Gained leadership, discipline, and teamwork experience through National
+Cadet Corps.
+Typewriting – Junior and Senior Grade (English) – Certified speed and accuracy in formal typing.
+Volunteered in college cultural events

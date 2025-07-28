@@ -1,0 +1,30 @@
+|  |  |  |  |  |
+|  |  | RegNo | Name | Sales | Location
+|  |  | 1 | MUGU | 900 | CHN
+|  |  | 2 | ierjpw | 455 | MAD
+|  |  | 3 | oiewtwo | 545 | PONDI
+|  |  | 4 | ewt | 444 | SALEM
+|  |  | 5 | ewtw | 554 | SIVAGANGA
+|  |  | 6 | ete | 145 | THRICHY
+|  |  | 7 | trt | 2455 | PERMABUR
+|  |  | 8 | dfd | 5455 | PONDI
+|  |  | 9 | wer | 2555 | SALEM
+|  |  | 10 | ere | 5555 | CHN
+|  |  | 11 | wrew | 5555 | CHN
+|  |  | 12 | wer4 | 54585 | MAD
+|  |  | 13 | fetr | 8525 | PONDI
+|  |  | 14 | eetefs | 5 | SALEM
+|  |  | 15 |  |  | SIVAGANGA
+|  |  | 16 | erwtery | 548 | THRICHY
+|  |  | 17 | rtwerjnkel | 55488 | PERMABUR
+|  |  | 18 |  |  | PONDI
+|  |  | 19 | ejfls | 58599 | SALEM
+|  |  | 20 | nsfljnsl | 5586 | CHN
+|  |  | 21 | dkfnld | 5999 | MAD
+|  |  | 22 | ljfOFIJWE |  | PONDI
+|  |  | 23 | UOEFHOE | 555 | SALEM
+|  |  | 24 | uelthowr | 54585 | SIVAGANGA
+|  |  | 25 | lentkwrjn | 4552 | THRICHY
+|  |  | 26 | uhfrwf | 7747 | PERMABUR
+|  |  | 27 | fiwufh | 254 | PONDI
+|  |  | 28 | fwfw | 555 | SALEM
