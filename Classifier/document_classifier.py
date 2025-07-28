@@ -85,3 +85,4 @@ if __name__ == "__main__":
     INPUT_FOLDER = "genai_mas/ingested"
     OUTPUT_FOLDER = "genai_mas/output"
     classify_documents_in_folder(INPUT_FOLDER, OUTPUT_FOLDER)
+
