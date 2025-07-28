@@ -1,0 +1,6 @@
+Flask
+watchdog
+beautifulsoup4
+imapclient
+email
+python-dotenv
