@@ -1,3 +1,4 @@
+[Formatted]
 Document Ingestion & Classification
 Problem Statement
 Enterprises generate hundreds of thousands of unstructured documents daily—PDFs,
@@ -32,7 +33,8 @@ Agent event (doc.type) API call, DMS upload, (e.g. invoice → accounting ERP).
 email alert) • Fallback Reasoning: If target
 system down, enqueue retry or send
 Slack alert.
-© 2023 Hexaware Technologies Limited. All rights reserved www.Hexaware.com3. Web UI Design
+© 2023 Hexaware Technologies Limited. All rights reserved www.Hexaware.com
+3. Web UI Design
 A webUI gives both operators and admins live visibility into every document’s journey:
 3.1 Operator Dashboard
 1. Upload/Ingestion Panel
