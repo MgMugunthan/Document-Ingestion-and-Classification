@@ -6,6 +6,9 @@ from event_emitter import emit_event
 from gmail_ingestor import fetch_emails_and_ingest_loop
 
 app = Flask(__name__)
+UPLOAD_FOLDER = os.path.join("ingestor", "files")
+
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @app.route('/')
 def index():
@@ -22,15 +25,17 @@ def upload():
             continue
 
         filename = secure_filename(file.filename)
-        content = file.read()  # Read content directly without saving manually
+        filepath = os.path.join(UPLOAD_FOLDER, filename)
+        file.save(filepath)
 
-        emit_event(
-            file_name=filename,
-            source="upload",
-            content_bytes=content,
-            summary="Uploaded via drag-drop UI",
-            sender="N/A"
-        )
+        with open(filepath, 'rb') as f:
+            emit_event(
+                file_name=filename,
+                source="upload",
+                content_bytes=f.read(),
+                summary="Uploaded via drag-drop UI",
+                sender="N/A"
+            )
 
     return jsonify({'message': f'{len(uploaded_files)} file(s) uploaded successfully'})
 
