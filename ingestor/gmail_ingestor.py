@@ -9,32 +9,22 @@ from googleapiclient.discovery import build
 from event_emitter import emit_event
 
 SCOPES = ['https://mail.google.com/']
-FILES_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), 'files'))  # ingestor/files
 
-def authenticate():
-    creds = None
+def authenticate_always():
     if os.path.exists('token.json'):
-        creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
-            creds = flow.run_local_server(port=0)
-        with open('token.json', 'w') as token:
-            token.write(creds.to_json())
+        os.remove('token.json')
+    flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
+    creds = flow.run_local_server(port=0)
+    with open('token.json', 'w') as token:
+        token.write(creds.to_json())
     return creds
 
-
 def fetch_emails_and_ingest_loop():
-    creds = authenticate()
+    creds = authenticate_always()
     service = build('gmail', 'v1', credentials=creds)
 
     print("[INFO] 🔁 Gmail fetcher started. Polling every 30 seconds...")
     seen_ids = set()
-
-    os.makedirs(FILES_DIR, exist_ok=True)
 
     while True:
         try:
@@ -67,12 +57,7 @@ def fetch_emails_and_ingest_loop():
                         ).execute()
                         data = base64.urlsafe_b64decode(attachment['data'].encode('UTF-8'))
 
-                        file_path = os.path.join(FILES_DIR, filename)
-                        with open(file_path, 'wb') as f:
-                            f.write(data)
-
                         print(f"[INFO] 📩 From: {sender} -> {filename}")
-
                         emit_event(
                             file_name=filename,
                             source="email",
@@ -94,7 +79,3 @@ def fetch_emails_and_ingest_loop():
             traceback.print_exc()
 
         time.sleep(30)
-
-
-if __name__ == "__main__":
-    fetch_emails_and_ingest_loop()
