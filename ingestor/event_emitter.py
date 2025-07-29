@@ -11,7 +11,9 @@ producer = KafkaProducer(
 )
 
 # Default save location
-FILE_SAVE_DIR = os.path.join(os.path.dirname(__file__), "files")
+from config import FILES_DIR
+FILE_SAVE_DIR = FILES_DIR
+
 os.makedirs(FILE_SAVE_DIR, exist_ok=True)
 
 def emit_event(file_name, source, content_bytes=None, summary="No summary", sender="N/A"):

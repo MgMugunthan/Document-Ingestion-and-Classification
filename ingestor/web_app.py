@@ -6,7 +6,8 @@ from event_emitter import emit_event
 from gmail_ingestor import fetch_emails_and_ingest_loop
 
 app = Flask(__name__)
-UPLOAD_FOLDER = os.path.join("ingestor", "files")
+from config import FILES_DIR
+UPLOAD_FOLDER = FILES_DIR
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 

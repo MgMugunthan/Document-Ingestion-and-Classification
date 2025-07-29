@@ -3,10 +3,11 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from event_emitter import emit_event
 from utils import is_valid_document
+from config import FILES_DIR  # ✅ Use shared config
 import os
 
-# Path to the actual folder to be watched and where files stay
-FILES_FOLDER = os.path.join(os.path.dirname(__file__), "files")
+# Use shared files folder
+FILES_FOLDER = FILES_DIR
 
 def read_file_bytes(file_path):
     with open(file_path, "rb") as f:
@@ -23,8 +24,10 @@ class DocumentHandler(FileSystemEventHandler):
             emit_event(
                 file_name=file_name,
                 source="folder",
-                content_bytes=content
+                content_bytes=content,
+             
             )
+
 
 def start_watching():
     print(f"[INFO] Watching folder: {FILES_FOLDER}")

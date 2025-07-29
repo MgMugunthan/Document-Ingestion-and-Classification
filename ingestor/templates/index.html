@@ -127,7 +127,10 @@
 
     <div class="gmail-section">
       <form method="POST" action="/connect_gmail" onsubmit="connectGmail(); return false;">
-        <button type="submit" class="gmail-btn">📬 Connect Gmail</button>
+        <button type="submit" class="gmail-btn">📬 Connect Gmail</button> <br>
+        
+        <img src="{{ url_for('static', filename='images/gmail-promo.jpg') }}" alt="Gmail Connection Visual" style="width: 100%; max-width: 600px; margin-top: 15px;">
+        
       </form>
     </div>
   </div>
@@ -138,31 +141,48 @@
     const fileList = document.getElementById('fileList');
     let filesToUpload = [];
 
-    dropArea.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      dropArea.classList.add('highlight');
+    // Prevent default drag behaviors
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+      dropArea.addEventListener(eventName, preventDefaults, false);
+      document.body.addEventListener(eventName, preventDefaults, false);
     });
 
-    dropArea.addEventListener('dragleave', () => {
-      dropArea.classList.remove('highlight');
+    // Highlight drop area when item is dragged over it
+    ['dragenter', 'dragover'].forEach(eventName => {
+      dropArea.addEventListener(eventName, () => dropArea.classList.add('highlight'), false);
     });
 
+    ['dragleave', 'drop'].forEach(eventName => {
+      dropArea.addEventListener(eventName, () => dropArea.classList.remove('highlight'), false);
+    });
+
+    // Handle dropped files
     dropArea.addEventListener('drop', (e) => {
-      e.preventDefault();
-      dropArea.classList.remove('highlight');
       filesToUpload = [...e.dataTransfer.files];
       displayFileNames();
     });
 
+    // Handle file selection via click
     fileInput.addEventListener('change', (e) => {
       filesToUpload = [...e.target.files];
       displayFileNames();
     });
 
+    function preventDefaults(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
     function displayFileNames() {
-      fileList.innerHTML = "<strong>Files selected:</strong><ul>" +
-        filesToUpload.map(file => `<li>${file.name}</li>`).join("") +
-        "</ul>";
+      if (filesToUpload.length > 0) {
+        fileList.innerHTML = `
+          <strong>Files selected:</strong>
+          <ul>
+            ${filesToUpload.map(file => `<li>${file.name}</li>`).join('')}
+          </ul>`;
+      } else {
+        fileList.innerHTML = "";
+      }
     }
 
     function uploadFiles() {
@@ -184,16 +204,17 @@
           alert(data.message || data.error);
           filesToUpload = [];
           fileList.innerHTML = "";
-          fileInput.value = "";
+          fileInput.value = ""; // Reset the file input
         })
-        .catch(err => alert('Upload failed'));
+        .catch(err => alert('Upload failed. See console for details.'));
     }
 
     function connectGmail() {
       fetch('/connect_gmail', {
         method: 'POST'
       }).then(res => res.json())
-        .then(data => alert(data.message || data.error));
+        .then(data => alert(data.message || data.error))
+        .catch(err => alert('Connection failed. See console for details.'));
     }
   </script>
 </body>

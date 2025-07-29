@@ -71,6 +71,7 @@ def consume_and_classify():
         doc_name = metadata.get("document_name", "unknown")
 
         print(f"\n📄 Received: {doc_name}")
+        print(f"\n📄 Processing...:{doc_name}")
 
         mas_result, debug_result = classify_single_document(metadata)
 

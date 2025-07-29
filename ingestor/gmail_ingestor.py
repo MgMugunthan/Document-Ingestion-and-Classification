@@ -7,6 +7,8 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from event_emitter import emit_event
+from config import FILES_DIR
+
 
 SCOPES = ['https://mail.google.com/']
 

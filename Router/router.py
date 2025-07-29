@@ -33,7 +33,7 @@ def route_document(doc_data,routes):
     try:
         if destination.startswith("http"):
             response = requests.post(destination, json = doc_data)
-            log_data["status"] = f"Sent to API, Response: {response.status.code}"
+            log_data["status"] = f"Sent to API, Response: {response.status_code}"
         else:
             os.makedirs(destination, exist_ok=True)
             print(f"[DEBUG] Copying from {source_path} to {destination}")
