@@ -1,6 +1,6 @@
-shutil   # built-in, no need to include
-os       # built-in
-datetime # built-in
-json     # built-in
-kafka-python
-requests
+certifi==2025.7.14
+charset-normalizer==3.4.2
+idna==3.10
+kafka-python==2.2.15
+requests==2.32.4
+urllib3==2.5.0
