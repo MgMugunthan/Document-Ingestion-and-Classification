@@ -1,100 +1,85 @@
-import sys
 import os
 import json
-import uuid
-from datetime import datetime
-from kafka import KafkaProducer, KafkaConsumer
+import requests
+from kafka import KafkaConsumer, KafkaProducer
+from configfile import GOOGLE_API_KEY
 
-# Add path to import genai_utils.py
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from genai_utils import classify_document
-
-# Kafka producer setup
+# Kafka Setup
 producer = KafkaProducer(
-    bootstrap_servers='localhost:9092',
+    bootstrap_servers='kafka:9092',
     value_serializer=lambda v: json.dumps(v).encode('utf-8')
 )
 
-# Kafka consumer setup
-consumer = KafkaConsumer(
-    "doc.extracted",  # Topic to listen to
-    bootstrap_servers="localhost:9092",
-    auto_offset_reset="earliest",
-    group_id="classifier-group",
-    value_deserializer=lambda m: json.loads(m.decode("utf-8"))
-)
+# Track processed documents
+processed_ids = set()
 
-DEBUG_OUTPUT_FOLDER = "Classifier/output"
-os.makedirs(DEBUG_OUTPUT_FOLDER, exist_ok=True)
+def classify_with_gemini(text):
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GOOGLE_API_KEY}"
+    prompt = {
+        "contents": [
+            {
+                "parts": [
+                    {
+                        "text": (
+                            "Classify the type of document shown below using one or two words only "
+                            '(e.g., "invoice", "resume", "contract", "report", etc). '
+                            "Do not explain your answer. Just respond with the label.\n\n"
+                            f"Document content:\n{text}"
+                        )
+                    }
+                ]
+            }
+        ]
+    }
 
-
-def classify_single_document(metadata):
-    """
-    Classify a single document and return MAS-compatible metadata.
-    """
     try:
-        content = metadata.get("extracted_text","")
-        if not content.strip():
-            raise ValueError("No extracted_text found in JSON.")
-
-        result = classify_document(content)
-
-        category = result.get("document_type", "unknown").lower()
-        confidence = result.get("confidence", 0.0)
-
-        print(f"✔️ {metadata.get('document_name', 'unknown')} → {category}")
-
-        mas_result = {
-            "document_id": str(uuid.uuid4()),
-            "type": category,
-            "confidence":confidence,
-            "path": metadata.get("path") or metadata.get("file_path"),  # Use original path
-            "size": metadata.get("size", 0),
-            "file_extension": "application/pdf",
-            "upload_timestamp": datetime.now().isoformat(timespec='seconds')
-        }
-
-        return mas_result, result
-
+        response = requests.post(url, json=prompt)
+        response.raise_for_status()
+        candidates = response.json().get("candidates", [])
+        return candidates[0]["content"]["parts"][0]["text"].strip() if candidates else "unknown"
     except Exception as e:
-        print(f"❌ Failed to classify {file_path}: {e}")
-        return None, {"error": str(e)}
+        print(f"[⚠️] Gemini classification failed: {e}")
+        return "unknown"
 
+def process_document(metadata):
+    """Process a document from Kafka message"""
+    doc_id = metadata.get("document_id")
+    if doc_id in processed_ids:
+        print(f"[Classifier ⚠️] Skipping duplicate: {doc_id}")
+        return
+    processed_ids.add(doc_id)
 
-def consume_and_classify():
-    print("📥 Waiting for extracted documents from 'doc.extracted' topic...")
-    summary = []
+    # Get the extracted text from the message
+    extracted_text = metadata.get("extracted_text", "")
+    if not extracted_text.strip():
+        print(f"[Classifier ⚠️] No text found for: {doc_id}")
+        return
+
+    print(f"[Classifier 📥] Processing: {metadata.get('document_name', 'unknown')} ({doc_id})")
+
+    # Classify the document
+    doc_type = classify_with_gemini(extracted_text)
+    
+    # Add classification to metadata
+    metadata["type"] = doc_type.lower()
+
+    # Send to next stage (Router)
+    producer.send("doc.classified", value=metadata)
+    print(f"[Classifier 📤] Classified as '{doc_type}' → sent to router")
+
+if __name__ == "__main__":
+    # Listen to Kafka for documents from extractor
+    consumer = KafkaConsumer(
+        "doc.extracted",  # This is where extractor sends data
+        bootstrap_servers="kafka:9092",
+        group_id="classifier-group",
+        auto_offset_reset="earliest",
+        enable_auto_commit=True,
+        value_deserializer=lambda m: json.loads(m.decode("utf-8"))
+    )
+
+    print("[Classifier 🔄] Listening to Kafka topic 'doc.extracted'...")
 
     for message in consumer:
         metadata = message.value
-        doc_name = metadata.get("document_name", "unknown")
-
-        print(f"\n📄 Received: {doc_name}")
-        print(f"\n📄 Processing...:{doc_name}")
-
-        mas_result, debug_result = classify_single_document(metadata)
-
-        if mas_result:
-            producer.send("doc.classified", value=mas_result)
-            print(f"📤 Sent to Kafka topic 'doc.classified': {mas_result['document_id']}")
-            summary.append(mas_result)
-
-            # Save debug output (optional)
-            base_name = os.path.splitext(doc_name)[0].replace(" ", "_")
-            debug_path = os.path.join(DEBUG_OUTPUT_FOLDER, f"{base_name}.meta.json")
-            with open(debug_path, "w", encoding="utf-8") as f:
-                json.dump(debug_result, f, indent=4)
-
-
-    producer.flush()
-    print(f"\n✅ Classification complete. {len(summary)} documents sent to Kafka.")
-
-    # Save summary (optional)
-    summary_path = os.path.join(DEBUG_OUTPUT_FOLDER, "classification_results.json")
-    with open(summary_path, "w", encoding="utf-8") as f:
-        json.dump(summary, f, indent=4)
-
-
-if __name__ == "__main__":
-    consume_and_classify()
+        process_document(metadata)
