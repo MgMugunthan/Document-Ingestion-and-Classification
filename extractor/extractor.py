@@ -3,11 +3,14 @@ import json
 import pdfplumber
 import pytesseract
 from PIL import Image
+import sys
+import time
 from docx import Document
 import openpyxl
 import requests
 from kafka import KafkaProducer, KafkaConsumer
-
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from logger import log_agent_action  # ✅ Log function
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'  # Windows example
 
 GOOGLE_API_KEY=""
@@ -72,49 +75,77 @@ def gemini_format(text):
         return response_json["candidates"][0]["content"]["parts"][0]["text"]
     except Exception as e:
         print(f"[Extractor ❌] Gemini formatting failed: {e}")
+        # Optional fallback log:
+        # log_agent_action("extractor", "unknown", "fallback", "Gemini formatting failed")
         return "[Unformatted] " + text
 
 # -------- METADATA PROCESSING -------- #
 def process_metadata(meta):
     doc_id = meta.get("document_id")
+    doc_name = meta.get("document_name", "unknown")
+
     if doc_id in processed_ids:
         print(f"[Extractor ⚠️] Skipping duplicate document: {doc_id}")
+        log_agent_action("extractor", doc_id, "skipped", f"Duplicate document: {doc_name}")
         return
+
     processed_ids.add(doc_id)
-
     path = meta.get("file_path") or meta.get("path")
+
     if not path or not os.path.exists(path):
-        print(f"[Extractor ⚠️] File not found at path: {path}")
+        msg = f"File not found at path: {path}"
+        print(f"[Extractor ⚠️] {msg}")
+        log_agent_action("extractor", doc_id, "error", msg)
         return
 
-    print(f"[Extractor 📥] Processing: {meta['document_name']} ({doc_id})")
+    print(f"[Extractor 📥] Processing: {doc_name} ({doc_id})")
 
     text = extract_text(path)
+
     if not text.strip():
-        print(f"[Extractor ⚠️] No text extracted from: {path}")
+        print(f"\n[⚠️] No text extracted from: {path}")
+        log_agent_action("extractor", doc_id, "warning", f"No text in {doc_name}")
+
+        # Prompt user for action
+        print("Options: [d]elete | [r]oute to 'others' | [s]kip")
+        choice = input("👉 What do you want to do with this blank document? ").strip().lower()
+
+        if choice == "d":
+            os.remove(path)
+            print(f"🗑️ Deleted file: {path}")
+            log_agent_action("extractor", doc_id, "deleted", f"Deleted blank file: {doc_name}")
+        elif choice == "r":
+            others_dir = os.path.join("routed_documents", "others")
+            os.makedirs(others_dir, exist_ok=True)
+            new_path = os.path.join(others_dir, os.path.basename(path))
+            os.rename(path, new_path)
+            print(f"📁 Routed to 'others': {new_path}")
+            log_agent_action("extractor", doc_id, "routed", f"Blank file routed to 'others': {doc_name}")
+        else:
+            print("⏭️ Skipped. File kept as is.")
+            log_agent_action("extractor", doc_id, "skipped", f"User skipped blank file: {doc_name}")
         return
+
+    log_agent_action("extractor", doc_id, "success", f"Raw text extracted from {doc_name}")
 
     try:
         formatted = fallback_format(text)
-    except:
-        try:
-            formatted = gemini_format(text)
-        except:
-            formatted = "[Unformatted] " + text
+    except Exception as e:
+        print(f"[Extractor ⚠️] Fallback formatting failed: {e}")
+        formatted = "[Unformatted] " + text
 
     meta["extracted_text"] = formatted
-    file_base = os.path.splitext(os.path.basename(path))[0]
-
     producer.send("doc.extracted", value=meta)
-    print(f"[Extractor 📤] Sent to Kafka topic 'doc.extracted': {file_base}")
 
+    print(f"[Extractor 📤] Sent to Kafka topic 'doc.extracted': {doc_name}")
+    log_agent_action("extractor", doc_id, "completed", f"Extracted and sent {doc_name}")
 # -------- KAFKA CONSUMER -------- #
 if __name__ == "__main__":
     consumer = KafkaConsumer(
         "doc.ingested",
         bootstrap_servers="localhost:9092",
         group_id="extractor-group",
-        auto_offset_reset="latest",  # Only consume new messages
+        auto_offset_reset="latest",
         enable_auto_commit=True,
         value_deserializer=lambda m: json.loads(m.decode("utf-8"))
     )

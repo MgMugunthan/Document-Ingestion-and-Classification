@@ -1,0 +1,53 @@
+[2025-08-02 08:55:34] [ROUTER] [STARTED] Doc ID: - - Router agent active and listening.
+[2025-08-02 08:55:40] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-02 08:57:01] [EXTRACTOR] [WARNING] Doc ID: 8c16b7bc-79cb-471c-9bf9-8d54e4faf6be - No text extracted from: D:\Dokmanic\Back-end\Document-Ingestion-and-classification\ingestor\folder\Untitled_document.pdf
+[2025-08-02 08:57:01] [EXTRACTOR] [WARNING] Doc ID: c252d4e1-3c30-4ede-8054-c4157ca9c81a - No text extracted from: D:\Dokmanic\Back-end\Document-Ingestion-and-Classification\Ingestor\folder\Untitled_document.pdf
+[2025-08-02 08:58:26] [EXTRACTOR] [WARNING] Doc ID: 27020fd6-fe63-4bcc-836e-26ba49a947d8 - No text extracted from: D:\Dokmanic\Back-end\Document-Ingestion-and-Classification\Ingestor\folder\Results.pdf
+[2025-08-02 08:58:26] [EXTRACTOR] [WARNING] Doc ID: e4a75445-9b22-4185-ad8d-4ac642d70a36 - No text extracted from: D:\Dokmanic\Back-end\Document-Ingestion-and-classification\ingestor\folder\Results.pdf
+[2025-08-02 08:58:27] [EXTRACTOR] [SUCCESS] Doc ID: 8c891e7f-a693-4ff2-86e3-03b3281ecc38 - Raw text extracted from sample-invoice.pdf
+[2025-08-02 08:58:27] [EXTRACTOR] [COMPLETED] Doc ID: 8c891e7f-a693-4ff2-86e3-03b3281ecc38 - Extracted and sent sample-invoice.pdf
+[2025-08-02 08:58:27] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: sample-invoice.pdf
+[2025-08-02 08:58:27] [EXTRACTOR] [SUCCESS] Doc ID: 3802f45c-a4ae-4067-a404-2760c5bef155 - Raw text extracted from sample-invoice.pdf
+[2025-08-02 08:58:27] [EXTRACTOR] [COMPLETED] Doc ID: 3802f45c-a4ae-4067-a404-2760c5bef155 - Extracted and sent sample-invoice.pdf
+[2025-08-02 08:58:28] [CLASSIFIER] [COMPLETED] Doc ID: 8c891e7f-a693-4ff2-86e3-03b3281ecc38 - Classified as 'invoice' using Gemini (trusted)
+[2025-08-02 08:58:28] [CLASSIFIER] [EMITTED] Doc ID: 8c891e7f-a693-4ff2-86e3-03b3281ecc38 - Sent classified result to topic
+[2025-08-02 08:58:28] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: sample-invoice.pdf
+[2025-08-02 08:58:28] [ROUTER] [COMPLETED] Doc ID: 8c891e7f-a693-4ff2-86e3-03b3281ecc38 - High confidence (0.95), routed to 'invoice'
+[2025-08-02 08:58:29] [CLASSIFIER] [COMPLETED] Doc ID: 3802f45c-a4ae-4067-a404-2760c5bef155 - Classified as 'invoice' using Gemini (trusted)
+[2025-08-02 08:58:29] [CLASSIFIER] [EMITTED] Doc ID: 3802f45c-a4ae-4067-a404-2760c5bef155 - Sent classified result to topic
+[2025-08-02 08:58:29] [ROUTER] [ERROR] Doc ID: 3802f45c-a4ae-4067-a404-2760c5bef155 - Source file missing.
+[2025-08-02 09:12:37] [📥 INGESTOR] [STARTED] Doc ID: - - 📥 Ingestor started via main.py
+[2025-08-02 09:12:37] [📄 EXTRACTOR] [STARTED] Doc ID: - - 📄 Extractor started via main.py
+[2025-08-02 09:12:37] [LOGGER ] [STARTED] Doc ID: - - logger 🔁 started via main.py
+[2025-08-02 09:12:37] [📁 ROUTER] [STARTED] Doc ID: - - 📁 Router started via main.py
+[2025-08-02 09:12:37] [🧠 CLASSIFIER] [STARTED] Doc ID: - - 🧠 Classifier started via main.py
+[2025-08-02 09:12:39] [ROUTER] [STARTED] Doc ID: - - Router agent active and listening.
+[2025-08-02 09:12:45] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-02 09:13:53] [📥 INGESTOR] [STARTED] Doc ID: - - 📥 Ingestor started via main.py
+[2025-08-02 09:13:53] [📄 EXTRACTOR] [STARTED] Doc ID: - - 📄 Extractor started via main.py
+[2025-08-02 09:13:53] [LOGGER ] [STARTED] Doc ID: - - logger 🔁 started via main.py
+[2025-08-02 09:13:53] [📁 ROUTER] [STARTED] Doc ID: - - 📁 Router started via main.py
+[2025-08-02 09:13:53] [🧠 CLASSIFIER] [STARTED] Doc ID: - - 🧠 Classifier started via main.py
+[2025-08-02 09:13:55] [ROUTER] [STARTED] Doc ID: - - Router agent active and listening.
+[2025-08-02 09:13:58] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-02 09:23:59] [📥 INGESTOR] [STARTED] Doc ID: - - 📥 Ingestor started via main.py
+[2025-08-02 09:23:59] [📄 EXTRACTOR] [STARTED] Doc ID: - - 📄 Extractor started via main.py
+[2025-08-02 09:23:59] [🧠 CLASSIFIER] [STARTED] Doc ID: - - 🧠 Classifier started via main.py
+[2025-08-02 09:23:59] [LOGGER ] [STARTED] Doc ID: - - logger 🔁 started via main.py
+[2025-08-02 09:24:00] [ROUTER] [STARTED] Doc ID: - - Router agent active and listening.
+[2025-08-02 09:24:03] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-02 09:24:18] [EXTRACTOR] [SUCCESS] Doc ID: f864dff2-be48-4c61-91cc-231f5b5fd280 - Raw text extracted from sample-invoice.pdf
+[2025-08-02 09:24:18] [EXTRACTOR] [COMPLETED] Doc ID: f864dff2-be48-4c61-91cc-231f5b5fd280 - Extracted and sent sample-invoice.pdf
+[2025-08-02 09:24:18] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: sample-invoice.pdf
+[2025-08-02 09:24:19] [EXTRACTOR] [SUCCESS] Doc ID: 127b28a5-35d1-4aac-b126-85c5481bfbb9 - Raw text extracted from sample-invoice.pdf
+[2025-08-02 09:24:19] [EXTRACTOR] [COMPLETED] Doc ID: 127b28a5-35d1-4aac-b126-85c5481bfbb9 - Extracted and sent sample-invoice.pdf
+[2025-08-02 09:24:19] [EXTRACTOR] [WARNING] Doc ID: 17a94954-e588-449a-b459-5915be192a83 - No text in Untitled_document.pdf
+[2025-08-02 09:24:20] [CLASSIFIER] [COMPLETED] Doc ID: f864dff2-be48-4c61-91cc-231f5b5fd280 - Classified as 'invoice' using Gemini (trusted)
+[2025-08-02 09:24:20] [CLASSIFIER] [EMITTED] Doc ID: f864dff2-be48-4c61-91cc-231f5b5fd280 - Sent classified result to topic
+[2025-08-02 09:24:20] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: sample-invoice.pdf
+[2025-08-02 09:24:20] [ROUTER] [COMPLETED] Doc ID: f864dff2-be48-4c61-91cc-231f5b5fd280 - High confidence (0.95), routed to 'invoice'
+[2025-08-02 09:24:21] [CLASSIFIER] [COMPLETED] Doc ID: 127b28a5-35d1-4aac-b126-85c5481bfbb9 - Classified as 'invoice' using Gemini (trusted)
+[2025-08-02 09:24:21] [CLASSIFIER] [EMITTED] Doc ID: 127b28a5-35d1-4aac-b126-85c5481bfbb9 - Sent classified result to topic
+[2025-08-02 09:24:21] [ROUTER] [ERROR] Doc ID: 127b28a5-35d1-4aac-b126-85c5481bfbb9 - Source file missing.
+[2025-08-02 09:24:37] [EXTRACTOR] [DELETED] Doc ID: 17a94954-e588-449a-b459-5915be192a83 - Deleted blank file: Untitled_document.pdf
+[2025-08-02 09:24:37] [EXTRACTOR] [ERROR] Doc ID: 055bcb29-ed90-4cf3-a67b-fd73b19bce8f - File not found at path: D:\Dokmanic\Back-end\Document-Ingestion-and-classification\ingestor\folder\Untitled_document.pdf
