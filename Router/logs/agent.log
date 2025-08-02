@@ -104,3 +104,6 @@
 [2025-08-01 23:46:39] [ROUTER] [COMPLETED] Doc ID: c58ffdab-6a82-4b9b-a907-aa6cd2335e21 - High confidence (0.95), routed to 'invoice'
 [2025-08-01 23:46:42] [ROUTER] [COMPLETED] Doc ID: 97cc1e3d-34fd-4564-ac2f-16f9c6d63ab5 - High confidence (0.95), routed to 'business proposal'
 [2025-08-01 23:46:43] [ROUTER] [ERROR] Doc ID: 8328da45-b2d1-43f6-a006-bb0046255bed - Source file missing.
+[2025-08-02 09:20:47] [ROUTER] [STARTED] Doc ID: - - Router agent active and listening.
+[2025-08-02 09:22:45] [ROUTER] [COMPLETED] Doc ID: 69a1bb92-c2aa-468c-99e9-62b685ec7bf1 - High confidence (0.95), routed to 'marksheet'
+[2025-08-02 09:22:46] [ROUTER] [ERROR] Doc ID: 5bb9f619-89dc-490d-bb81-5e85679288a2 - Source file missing.
