@@ -294,3 +294,10 @@
 [2025-08-01 23:46:42] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
 [2025-08-01 23:46:43] [CLASSIFIER] [COMPLETED] Doc ID: 8328da45-b2d1-43f6-a006-bb0046255bed - Classified as 'business proposal' using Gemini (trusted)
 [2025-08-01 23:46:43] [CLASSIFIER] [EMITTED] Doc ID: 8328da45-b2d1-43f6-a006-bb0046255bed - Sent classified result to topic
+[2025-08-02 09:20:44] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-02 09:22:43] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Results.pdf
+[2025-08-02 09:22:45] [CLASSIFIER] [COMPLETED] Doc ID: 69a1bb92-c2aa-468c-99e9-62b685ec7bf1 - Classified as 'marksheet' using Gemini (trusted)
+[2025-08-02 09:22:45] [CLASSIFIER] [EMITTED] Doc ID: 69a1bb92-c2aa-468c-99e9-62b685ec7bf1 - Sent classified result to topic
+[2025-08-02 09:22:45] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Results.pdf
+[2025-08-02 09:22:46] [CLASSIFIER] [COMPLETED] Doc ID: 5bb9f619-89dc-490d-bb81-5e85679288a2 - Classified as 'marksheet' using Gemini (trusted)
+[2025-08-02 09:22:46] [CLASSIFIER] [EMITTED] Doc ID: 5bb9f619-89dc-490d-bb81-5e85679288a2 - Sent classified result to topic
