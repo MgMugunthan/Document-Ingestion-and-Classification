@@ -5,20 +5,22 @@ import uuid
 from datetime import datetime
 from kafka import KafkaProducer, KafkaConsumer
 
-# Add path to import genai_utils.py
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# Add parent directory to sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from genai_utils import classify_document
+from logger import get_logger, log_agent_action
+from genai_utils import classify_document  # ✅ Uses Gemini + Local ML fallback
 
-# Kafka producer setup
+logger = get_logger("classifier")
+
+# Kafka setup
 producer = KafkaProducer(
     bootstrap_servers='localhost:9092',
     value_serializer=lambda v: json.dumps(v).encode('utf-8')
 )
 
-# Kafka consumer setup
 consumer = KafkaConsumer(
-    "doc.extracted",  # Topic to listen to
+    "doc.extracted",
     bootstrap_servers="localhost:9092",
     auto_offset_reset="earliest",
     group_id="classifier-group",
@@ -28,42 +30,49 @@ consumer = KafkaConsumer(
 DEBUG_OUTPUT_FOLDER = "Classifier/output"
 os.makedirs(DEBUG_OUTPUT_FOLDER, exist_ok=True)
 
-
 def classify_single_document(metadata):
-    """
-    Classify a single document and return MAS-compatible metadata.
-    """
     try:
-        content = metadata.get("extracted_text","")
+        content = metadata.get("extracted_text", "")
         if not content.strip():
-            raise ValueError("No extracted_text found in JSON.")
+            raise ValueError("No extracted_text found in metadata.")
 
+        doc_name = metadata.get("document_name", "unknown")
+        file_name = metadata.get("file_name", doc_name)
+
+        # ✅ Use your Gemini + Local model classification
         result = classify_document(content)
 
         category = result.get("document_type", "unknown").lower()
-        confidence = result.get("confidence", 0.0)
+        confidence = float(result.get("confidence", 0.0))  # ✅ Make sure it's a float
 
-        print(f"✔️ {metadata.get('document_name', 'unknown')} → {category}")
+        logger.info(f"[✅] {doc_name} classified as '{category}' ({result.get('classification_by')}, confidence={confidence})")
+        log_agent_action("classifier", metadata["document_id"], "completed", f"Classified as '{category}' using {result.get('classification_by')}")
 
         mas_result = {
-            "document_id": str(uuid.uuid4()),
+            "document_id": metadata.get("document_id", str(uuid.uuid4())),
+            "document_name": doc_name,
+            "file_name": file_name,
             "type": category,
-            "confidence":confidence,
-            "path": metadata.get("path") or metadata.get("file_path"),  # Use original path
+            "confidence": confidence,  # ✅ Include actual confidence from genai_utils
+            "path": metadata.get("path") or metadata.get("file_path"),
             "size": metadata.get("size", 0),
-            "file_extension": "application/pdf",
-            "upload_timestamp": datetime.now().isoformat(timespec='seconds')
+            "file_extension": metadata.get("file_extension", "application/pdf"),
+            "upload_timestamp": metadata.get("timestamp", datetime.now().isoformat(timespec='seconds'))
         }
 
         return mas_result, result
 
     except Exception as e:
-        print(f"❌ Failed to classify {file_path}: {e}")
+        msg = f"❌ Failed to classify {metadata.get('document_name', 'unknown')}: {e}"
+        logger.error(msg)
+        log_agent_action("classifier", metadata.get("document_id", "unknown"), "error", msg)
         return None, {"error": str(e)}
 
-
 def consume_and_classify():
+    logger.info("Classifier agent started, waiting for documents from 'doc.extracted'")
+    log_agent_action("classifier", "-", "started", "Classifier agent started and awaiting messages")
     print("📥 Waiting for extracted documents from 'doc.extracted' topic...")
+
     summary = []
 
     for message in consumer:
@@ -71,30 +80,32 @@ def consume_and_classify():
         doc_name = metadata.get("document_name", "unknown")
 
         print(f"\n📄 Received: {doc_name}")
-        print(f"\n📄 Processing...:{doc_name}")
+        print(f"📄 Processing...: {doc_name}")
+        logger.info(f"Received extracted document: {doc_name}")
+        log_agent_action("classifier", "-", "received", f"Document received for classification: {doc_name}")
 
         mas_result, debug_result = classify_single_document(metadata)
 
         if mas_result:
             producer.send("doc.classified", value=mas_result)
             print(f"📤 Sent to Kafka topic 'doc.classified': {mas_result['document_id']}")
+            logger.info(f"Sent classified metadata to 'doc.classified' for {doc_name}")
+            log_agent_action("classifier", mas_result["document_id"], "emitted", "Sent classified result to topic")
             summary.append(mas_result)
 
-            # Save debug output (optional)
             base_name = os.path.splitext(doc_name)[0].replace(" ", "_")
             debug_path = os.path.join(DEBUG_OUTPUT_FOLDER, f"{base_name}.meta.json")
             with open(debug_path, "w", encoding="utf-8") as f:
                 json.dump(debug_result, f, indent=4)
 
-
     producer.flush()
     print(f"\n✅ Classification complete. {len(summary)} documents sent to Kafka.")
+    logger.info(f"Classification complete. {len(summary)} documents sent to Kafka.")
+    log_agent_action("classifier", "-", "completed", f"Classifier finished. {len(summary)} documents classified.")
 
-    # Save summary (optional)
     summary_path = os.path.join(DEBUG_OUTPUT_FOLDER, "classification_results.json")
     with open(summary_path, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=4)
-
 
 if __name__ == "__main__":
     consume_and_classify()

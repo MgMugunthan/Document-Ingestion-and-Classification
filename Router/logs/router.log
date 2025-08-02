@@ -1,0 +1,16 @@
+[2025-08-01 16:20:16,285] INFO - Router agent started.
+[2025-08-01 16:20:16,287] INFO - Loaded routing rules: {'invoice': 'routed/invoices/', 'receipt': 'routed/receipts/', 'resume': 'routed/resumes/', 'default': 'routed/others/'}
+[2025-08-01 16:40:50,008] INFO - Received document from Kafka: db2dba63-12ba-4048-8c6e-368407262fff
+[2025-08-01 18:25:04,280] INFO - Router agent started.
+[2025-08-01 18:25:04,283] INFO - Loaded routing rules: {'invoice': 'routed/invoices/', 'receipt': 'routed/receipts/', 'resume': 'routed/resumes/', 'default': 'routed/others/'}
+[2025-08-01 18:26:35,273] INFO - Received document from Kafka: c56e0947-b1b1-4322-9888-9aa9a28d1fcf
+[2025-08-01 18:39:12,250] INFO - Router agent started.
+[2025-08-01 18:39:15,562] INFO - Received document from Kafka: c56e0947-b1b1-4322-9888-9aa9a28d1fcf
+[2025-08-01 18:39:30,316] INFO - Router agent started.
+[2025-08-01 18:39:33,608] INFO - Received document from Kafka: c56e0947-b1b1-4322-9888-9aa9a28d1fcf
+[2025-08-01 18:46:43,906] INFO - Router agent started.
+[2025-08-01 18:50:01,863] INFO - Router agent started.
+[2025-08-01 18:50:05,266] INFO - Received document from Kafka: c56e0947-b1b1-4322-9888-9aa9a28d1fcf
+[2025-08-01 18:50:05,293] INFO - Received document from Kafka: 1b1ef838-edb7-4cea-8c58-5e913199737b
+[2025-08-01 18:50:05,309] INFO - Received document from Kafka: 0a3b9d3d-4598-409f-a49f-17eece856951
+[2025-08-01 18:50:05,329] INFO - Received document from Kafka: b0620547-ad2b-45c3-b001-ab0368b89475

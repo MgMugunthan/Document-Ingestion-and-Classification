@@ -1,0 +1,109 @@
+[2025-08-01T16:20:16.285552] [ROUTER] Document: - | Status: started | Message: Router agent started and waiting for classified docs
+[2025-08-01T16:40:50.056415] [ROUTER] Document: db2dba63-12ba-4048-8c6e-368407262fff | Status: received | Message: Received for routing as 'resume'
+[2025-08-01T18:25:04.281902] [ROUTER] Document: - | Status: started | Message: Router agent started and waiting for classified docs
+[2025-08-01T18:26:35.315557] [ROUTER] Document: c56e0947-b1b1-4322-9888-9aa9a28d1fcf | Status: received | Message: Received for routing as 'report'
+[2025-08-01T18:39:12.251918] [ROUTER] Document: - | Status: started | Message: Router agent waiting for classified docs
+[2025-08-01T18:39:15.575371] [ROUTER] Document: c56e0947-b1b1-4322-9888-9aa9a28d1fcf | Status: received | Message: Classified as 'default' with confidence 90.0%
+[2025-08-01T18:39:30.317718] [ROUTER] Document: - | Status: started | Message: Router agent waiting for classified docs
+[2025-08-01T18:39:33.617639] [ROUTER] Document: c56e0947-b1b1-4322-9888-9aa9a28d1fcf | Status: received | Message: Classified as 'default' with confidence 90.0%
+[2025-08-01 18:50:01] [ROUTER] [STARTED] Doc ID: - - Router agent waiting for classified docs
+[2025-08-01 18:50:05] [ROUTER] [RECEIVED] Doc ID: c56e0947-b1b1-4322-9888-9aa9a28d1fcf - Classified as 'default' with confidence 90.0%
+[2025-08-01 18:50:05] [ROUTER] [ERROR] Doc ID: c56e0947-b1b1-4322-9888-9aa9a28d1fcf - ❌ Routing failed for c56e0947-b1b1-4322-9888-9aa9a28d1fcf: Source file not found: D:\Dokmanic\Back-end\Document-Ingestion-and-Classification\ingestor\folder\Document_Ingestion__Classification.pdf
+[2025-08-01 18:50:05] [ROUTER] [RECEIVED] Doc ID: 1b1ef838-edb7-4cea-8c58-5e913199737b - Classified as 'default' with confidence 90.0%
+[2025-08-01 18:50:05] [ROUTER] [ERROR] Doc ID: 1b1ef838-edb7-4cea-8c58-5e913199737b - ❌ Routing failed for 1b1ef838-edb7-4cea-8c58-5e913199737b: Source file not found: D:\Dokmanic\Back-end\Document-Ingestion-and-Classification\ingestor\folder\Document_Ingestion__Classification.pdf
+[2025-08-01 18:50:05] [ROUTER] [RECEIVED] Doc ID: 0a3b9d3d-4598-409f-a49f-17eece856951 - Classified as 'default' with confidence 90.0%
+[2025-08-01 18:50:05] [ROUTER] [COMPLETED] Doc ID: 0a3b9d3d-4598-409f-a49f-17eece856951 - Moved to default
+[2025-08-01 18:50:05] [ROUTER] [RECEIVED] Doc ID: b0620547-ad2b-45c3-b001-ab0368b89475 - Classified as 'default' with confidence 90.0%
+[2025-08-01 18:50:05] [ROUTER] [ERROR] Doc ID: b0620547-ad2b-45c3-b001-ab0368b89475 - ❌ Routing failed for b0620547-ad2b-45c3-b001-ab0368b89475: Source file not found: D:\Dokmanic\Back-end\Document-Ingestion-and-Classification\ingestor\folder\APPA_employment_renewal.pdf
+[2025-08-01 18:53:56] [ROUTER] [STARTED] Doc ID: - - Router agent waiting for classified docs
+[2025-08-01 18:55:04] [ROUTER] [RECEIVED] Doc ID: 4634edf5-0688-4b91-8522-507c6ef9f878 - Classified as 'default' with confidence 90.0%
+[2025-08-01 18:55:04] [ROUTER] [COMPLETED] Doc ID: 4634edf5-0688-4b91-8522-507c6ef9f878 - Moved to default
+[2025-08-01 18:55:05] [ROUTER] [RECEIVED] Doc ID: 87e6cdcb-4924-4bbf-886e-6ed2c4310b99 - Classified as 'default' with confidence 90.0%
+[2025-08-01 18:55:05] [ROUTER] [ERROR] Doc ID: 87e6cdcb-4924-4bbf-886e-6ed2c4310b99 - ❌ Routing failed for 87e6cdcb-4924-4bbf-886e-6ed2c4310b99: Source file not found: D:\Dokmanic\Back-end\Document-Ingestion-and-Classification\ingestor\folder\WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 18:55:32] [ROUTER] [RECEIVED] Doc ID: 9a2cc264-8589-4bd7-aef7-ba80d7640448 - Classified as 'default' with confidence 90.0%
+[2025-08-01 18:55:32] [ROUTER] [ERROR] Doc ID: 9a2cc264-8589-4bd7-aef7-ba80d7640448 - ❌ Routing failed for 9a2cc264-8589-4bd7-aef7-ba80d7640448: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Dokmanic\\Back-end\\Document-Ingestion-and-Classification\\ingestor\\folder\\MUGUNTHAN_S.pdf'
+[2025-08-01 18:55:34] [ROUTER] [RECEIVED] Doc ID: a25272df-d145-49f9-be12-e7002c53596b - Classified as 'default' with confidence 90.0%
+[2025-08-01 18:55:34] [ROUTER] [COMPLETED] Doc ID: a25272df-d145-49f9-be12-e7002c53596b - Moved to default
+[2025-08-01 19:01:44] [ROUTER] [STARTED] Doc ID: - - Router agent active and listening.
+[2025-08-01 19:02:26] [ROUTER] [COMPLETED] Doc ID: b986a06d-3f89-4a32-8951-9616dd51941b - High confidence (0.90), routed to 'resume'
+[2025-08-01 19:02:27] [ROUTER] [ERROR] Doc ID: bc826262-faa3-4e45-994f-fcb6acdbf7f6 - Source file missing.
+[2025-08-01 19:02:29] [ROUTER] [COMPLETED] Doc ID: 21151303-7fc5-4f25-a87a-f9499ed99444 - High confidence (0.90), routed to 'report'
+[2025-08-01 19:02:30] [ROUTER] [ERROR] Doc ID: 5b177d4f-1f33-4daf-9ce7-c9134ea7da33 - Source file missing.
+[2025-08-01 19:03:08] [ROUTER] [COMPLETED] Doc ID: fdc03cc4-0392-494c-a3c4-c15fb346f8ff - High confidence (0.90), routed to 'resume'
+[2025-08-01 19:03:09] [ROUTER] [ERROR] Doc ID: c682a534-423f-4617-9d4a-6eecf8b57bee - Source file missing.
+[2025-08-01 19:43:45] [ROUTER] [COMPLETED] Doc ID: cf65d1fe-f8eb-41e6-81da-f328f0490c8b - High confidence (0.90), routed to 'report'
+[2025-08-01 19:43:47] [ROUTER] [ERROR] Doc ID: b5b87da8-fe0c-4a2d-b4f0-a77cc93b7e76 - Source file missing.
+[2025-08-01 19:45:38] [ROUTER] [COMPLETED] Doc ID: dd10981e-88f0-4368-90a3-c587da25077e - High confidence (0.90), routed to 'email'
+[2025-08-01 19:45:40] [ROUTER] [ERROR] Doc ID: c3351448-d2e4-4aea-b8bf-5982a6342a10 - Source file missing.
+[2025-08-01 19:46:56] [ROUTER] [COMPLETED] Doc ID: 5f6503e8-ccb3-4acb-914d-0d898dde6fd9 - High confidence (0.90), routed to 'report'
+[2025-08-01 19:46:57] [ROUTER] [ERROR] Doc ID: f2ef426a-9b4d-42ae-95d5-14e04914214a - Source file missing.
+[2025-08-01 19:57:42] [ROUTER] [STARTED] Doc ID: - - Router agent active and listening.
+[2025-08-01 20:19:15] [ROUTER] [COMPLETED] Doc ID: 555e951b-7173-429d-ad56-8a235d4cb5b6 - Low confidence (0.00), routed to 'other'
+[2025-08-01 20:19:16] [ROUTER] [ERROR] Doc ID: 148b6f59-6401-4842-8d95-6c1a09d71473 - Source file missing.
+[2025-08-01 20:20:09] [ROUTER] [COMPLETED] Doc ID: 636b117f-63b8-4127-b378-7a0d0ba04671 - Low confidence (0.00), routed to 'other'
+[2025-08-01 20:20:10] [ROUTER] [ERROR] Doc ID: 828e33be-ebbb-4c74-bb30-174373063767 - Source file missing.
+[2025-08-01 20:21:00] [ROUTER] [COMPLETED] Doc ID: 30f62728-ba59-479a-9201-ffe68b5f1ab6 - Low confidence (0.00), routed to 'other'
+[2025-08-01 20:21:05] [ROUTER] [ERROR] Doc ID: bc073dc0-ed47-4766-82b2-3a25417caa85 - Source file missing.
+[2025-08-01 21:00:20] [ROUTER] [COMPLETED] Doc ID: bdc29daf-5fe0-41ce-818f-d807a5f6fe39 - Low confidence (0.00), routed to 'other'
+[2025-08-01 21:00:21] [ROUTER] [ERROR] Doc ID: 68c60439-71be-432e-a046-12b0c2e38689 - Source file missing.
+[2025-08-01 21:26:27] [ROUTER] [COMPLETED] Doc ID: 76831993-58a7-44cf-9360-42fcc497172b - Low confidence (0.00), routed to 'other'
+[2025-08-01 21:26:45] [ROUTER] [ERROR] Doc ID: 205c7457-4a50-4588-b44a-0d9fb054ba4b - Source file missing.
+[2025-08-01 21:30:11] [ROUTER] [COMPLETED] Doc ID: ee689bdd-dc63-44b8-8c14-2d52edd70279 - Low confidence (0.00), routed to 'other'
+[2025-08-01 21:30:12] [ROUTER] [ERROR] Doc ID: fce7a166-e078-484f-b4b2-7271be0e5c40 - Source file missing.
+[2025-08-01 21:30:41] [ROUTER] [ERROR] Doc ID: 6946d6dc-c1ae-4135-9f2f-aa911120e4ae - [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Dokmanic\\Back-end\\Document-Ingestion-and-Classification\\ingestor\\folder\\Mugunthan_Resume.pdf'
+[2025-08-01 21:30:44] [ROUTER] [COMPLETED] Doc ID: 2b85fb88-78de-4640-a3a7-a60793756c14 - Low confidence (0.00), routed to 'other'
+[2025-08-01 22:07:43] [ROUTER] [COMPLETED] Doc ID: 00109d6a-9c41-435b-aadd-b084a98b964d - Low confidence (0.00), routed to 'other'
+[2025-08-01 22:07:45] [ROUTER] [ERROR] Doc ID: f57533c4-ed2c-45d6-961b-3e246dc3474a - Source file missing.
+[2025-08-01 22:09:03] [ROUTER] [STARTED] Doc ID: - - Router agent active and listening.
+[2025-08-01 22:18:52] [ROUTER] [COMPLETED] Doc ID: 7e7b9e45-ab71-46b6-bd56-ab50c9f2003f - Low confidence (0.00), routed to 'other'
+[2025-08-01 22:18:53] [ROUTER] [ERROR] Doc ID: c4e7aa51-16d2-40e7-ac97-e26ba6404282 - Source file missing.
+[2025-08-01 22:32:55] [ROUTER] [COMPLETED] Doc ID: 9829b56e-9e6c-4ab4-92a7-85b475eeab56 - Low confidence (0.00), routed to 'other'
+[2025-08-01 22:32:57] [ROUTER] [ERROR] Doc ID: ef410160-46e6-42a6-82e5-193e50e739b9 - Source file missing.
+[2025-08-01 22:52:46] [ROUTER] [COMPLETED] Doc ID: f1c0ca84-6916-4e72-92ba-5d09c465b3f0 - Low confidence (0.05), routed to 'other'
+[2025-08-01 22:58:47] [ROUTER] [COMPLETED] Doc ID: ad6d4d63-6641-4607-916d-624672a99870 - Low confidence (0.05), routed to 'other'
+[2025-08-01 22:58:49] [ROUTER] [ERROR] Doc ID: 4baf8403-cd85-4932-bcbf-102300220585 - Source file missing.
+[2025-08-01 22:59:09] [ROUTER] [COMPLETED] Doc ID: 34c27da1-81a0-4811-9b29-5f358c08697a - Low confidence (0.05), routed to 'other'
+[2025-08-01 22:59:10] [ROUTER] [ERROR] Doc ID: 051f5aab-d317-49c5-bcb1-05d163ed155f - Source file missing.
+[2025-08-01 22:59:29] [ROUTER] [COMPLETED] Doc ID: a7029dd7-6436-4736-801a-322a95050556 - Low confidence (0.04), routed to 'other'
+[2025-08-01 22:59:30] [ROUTER] [ERROR] Doc ID: d0c591e5-d4e0-4899-bf6a-e21fdbbf3d05 - Source file missing.
+[2025-08-01 22:59:47] [ROUTER] [COMPLETED] Doc ID: 979391b3-628c-4191-9082-ca801850d050 - Low confidence (0.05), routed to 'other'
+[2025-08-01 22:59:48] [ROUTER] [ERROR] Doc ID: 8cdb8dc8-f917-40dc-842e-458136d0c38b - Source file missing.
+[2025-08-01 23:05:44] [ROUTER] [COMPLETED] Doc ID: 80647e95-51e6-4002-90cb-d89cd986abe4 - High confidence (0.90), routed to 'resume'
+[2025-08-01 23:05:45] [ROUTER] [ERROR] Doc ID: d7689d9f-cbaf-470b-aacd-c7e2a13c1c55 - Source file missing.
+[2025-08-01 23:06:25] [ROUTER] [COMPLETED] Doc ID: 47665542-b313-4e16-b4b9-20f73587078c - Low confidence (0.00), routed to 'other'
+[2025-08-01 23:06:26] [ROUTER] [ERROR] Doc ID: 5b3a7eb3-55ed-4b67-bad1-dfc5644b4531 - Source file missing.
+[2025-08-01 23:14:00] [ROUTER] [COMPLETED] Doc ID: ae4f21f1-aca6-45f8-a014-5dbb4cfd7431 - Low confidence (0.05), routed to 'other'
+[2025-08-01 23:14:34] [ROUTER] [COMPLETED] Doc ID: 3f077ae4-8331-4495-8b4a-fadc9efae75c - Low confidence (0.05), routed to 'other'
+[2025-08-01 23:14:35] [ROUTER] [ERROR] Doc ID: f38cc254-d2d1-4e63-954f-fbd0c0332ba1 - Source file missing.
+[2025-08-01 23:14:58] [ROUTER] [COMPLETED] Doc ID: 9aad1cec-a82f-4efe-80d9-cb37bfa559f1 - High confidence (1.00), routed to 'resume'
+[2025-08-01 23:14:59] [ROUTER] [ERROR] Doc ID: 6eb70bb9-229c-4125-bdca-7f6ddfeca965 - Source file missing.
+[2025-08-01 23:18:54] [ROUTER] [COMPLETED] Doc ID: c7aae782-fe7c-44fc-97f7-803009452935 - High confidence (1.00), routed to 'resume'
+[2025-08-01 23:18:55] [ROUTER] [ERROR] Doc ID: 4e4920ab-a0bd-46a9-b4f5-3d59e6cea322 - Source file missing.
+[2025-08-01 23:19:25] [ROUTER] [COMPLETED] Doc ID: 85824468-55fb-47f2-8a7f-1617ca5f1963 - High confidence (1.00), routed to 'boarding pass'
+[2025-08-01 23:19:26] [ROUTER] [ERROR] Doc ID: 1314f1bc-6713-4e13-973f-e35d3fbefda5 - Source file missing.
+[2025-08-01 23:20:05] [ROUTER] [COMPLETED] Doc ID: 920f8fb3-8e96-456d-ab44-fbda88282bde - Low confidence (0.60), routed to 'other'
+[2025-08-01 23:20:06] [ROUTER] [ERROR] Doc ID: 226418eb-0aaf-4719-b342-c096380045bf - Source file missing.
+[2025-08-01 23:21:12] [ROUTER] [COMPLETED] Doc ID: 50c9bbc9-4dca-4c60-9f1c-c3eab84a4700 - High confidence (1.00), routed to 'resume'
+[2025-08-01 23:21:13] [ROUTER] [ERROR] Doc ID: 0829797e-37d6-479f-82c1-33b72086280b - Source file missing.
+[2025-08-01 23:21:54] [ROUTER] [COMPLETED] Doc ID: 5e2c7993-f1f2-40e7-adfd-b21ac42a0860 - High confidence (1.00), routed to 'resume'
+[2025-08-01 23:21:56] [ROUTER] [ERROR] Doc ID: 62c0556a-db6b-47fc-8f31-4f6dd0290749 - Source file missing.
+[2025-08-01 23:27:01] [ROUTER] [COMPLETED] Doc ID: 078631d2-bdca-4f26-b226-1bb23fc8ece1 - High confidence (1.00), routed to 'resume'
+[2025-08-01 23:27:02] [ROUTER] [ERROR] Doc ID: c7bf3af0-3c95-443c-9163-fc4ac47fdd02 - Source file missing.
+[2025-08-01 23:33:58] [ROUTER] [COMPLETED] Doc ID: a92b58d7-0625-4e5c-a82a-4808e2045d12 - High confidence (1.00), routed to 'relieving letter'
+[2025-08-01 23:33:58] [ROUTER] [ERROR] Doc ID: 8e3b667d-16fb-4aa4-b3d6-e2a0f9381a14 - Source file missing.
+[2025-08-01 23:39:15] [ROUTER] [COMPLETED] Doc ID: 99a3fb4a-0e0f-4506-b72a-f30f65711d8a - Low confidence (0.00), routed to 'other'
+[2025-08-01 23:39:17] [ROUTER] [ERROR] Doc ID: fb447d23-ab3b-4dfb-ac93-a0f81e02a71a - Source file missing.
+[2025-08-01 23:40:13] [ROUTER] [COMPLETED] Doc ID: 0ec7528e-0886-4270-9b65-a32e330937e0 - Low confidence (0.05), routed to 'other'
+[2025-08-01 23:40:15] [ROUTER] [ERROR] Doc ID: 2558b5bf-5ac2-4d51-905e-c25b14082c8c - Source file missing.
+[2025-08-01 23:40:16] [ROUTER] [COMPLETED] Doc ID: dcd606a6-d038-4f41-b1a8-ce4cfbc83f44 - High confidence (1.00), routed to 'invoice'
+[2025-08-01 23:40:18] [ROUTER] [ERROR] Doc ID: a091167f-e918-4bb1-ab47-3a0895285d5a - Source file missing.
+[2025-08-01 23:40:19] [ROUTER] [COMPLETED] Doc ID: b554d8af-5ece-4bd1-aa2e-22b51048f285 - Low confidence (0.03), routed to 'other'
+[2025-08-01 23:40:20] [ROUTER] [ERROR] Doc ID: d4f65005-01e2-42bb-94b1-f6df74040556 - Source file missing.
+[2025-08-01 23:46:36] [ROUTER] [COMPLETED] Doc ID: 304cc337-c430-44d9-ab6b-7bfee8128f3c - High confidence (0.95), routed to 'marksheet'
+[2025-08-01 23:46:38] [ROUTER] [ERROR] Doc ID: 4f8f0cc9-dc7a-4c7d-8acd-0854755a0717 - Source file missing.
+[2025-08-01 23:46:39] [ROUTER] [COMPLETED] Doc ID: c58ffdab-6a82-4b9b-a907-aa6cd2335e21 - High confidence (0.95), routed to 'invoice'
+[2025-08-01 23:46:42] [ROUTER] [COMPLETED] Doc ID: 97cc1e3d-34fd-4564-ac2f-16f9c6d63ab5 - High confidence (0.95), routed to 'business proposal'
+[2025-08-01 23:46:43] [ROUTER] [ERROR] Doc ID: 8328da45-b2d1-43f6-a006-bb0046255bed - Source file missing.
+[2025-08-02 09:20:47] [ROUTER] [STARTED] Doc ID: - - Router agent active and listening.
+[2025-08-02 09:22:45] [ROUTER] [COMPLETED] Doc ID: 69a1bb92-c2aa-468c-99e9-62b685ec7bf1 - High confidence (0.95), routed to 'marksheet'
+[2025-08-02 09:22:46] [ROUTER] [ERROR] Doc ID: 5bb9f619-89dc-490d-bb81-5e85679288a2 - Source file missing.
