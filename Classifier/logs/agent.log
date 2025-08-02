@@ -1,0 +1,296 @@
+[2025-08-01T16:03:54.855575] [CLASSIFIER] Document: - | Status: started | Message: Classifier agent started and awaiting messages
+[2025-08-01T16:40:48.163417] [CLASSIFIER] Document: - | Status: received | Message: Document received for classification: Mugunthan_Resume.pdf
+[2025-08-01T16:40:49.912050] [CLASSIFIER] Document: db2dba63-12ba-4048-8c6e-368407262fff | Status: completed | Message: Classified as 'resume' using Gemini API
+[2025-08-01T16:40:49.942985] [CLASSIFIER] Document: db2dba63-12ba-4048-8c6e-368407262fff | Status: emitted | Message: Sent classified result to topic
+[2025-08-01T18:24:54.112695] [CLASSIFIER] Document: - | Status: started | Message: Classifier agent started and awaiting messages
+[2025-08-01T18:26:26.019094] [CLASSIFIER] Document: - | Status: received | Message: Document received for classification: Document_Ingestion__Classification.pdf
+[2025-08-01T18:26:35.186437] [CLASSIFIER] Document: c56e0947-b1b1-4322-9888-9aa9a28d1fcf | Status: completed | Message: Classified as 'report' using Gemini API
+[2025-08-01T18:26:35.247512] [CLASSIFIER] Document: c56e0947-b1b1-4322-9888-9aa9a28d1fcf | Status: emitted | Message: Sent classified result to topic
+[2025-08-01T18:26:35.272847] [CLASSIFIER] Document: - | Status: received | Message: Document received for classification: Document_Ingestion__Classification.pdf
+[2025-08-01T18:26:39.448325] [CLASSIFIER] Document: 1b1ef838-edb7-4cea-8c58-5e913199737b | Status: completed | Message: Classified as 'report' using Gemini API
+[2025-08-01T18:26:39.450959] [CLASSIFIER] Document: 1b1ef838-edb7-4cea-8c58-5e913199737b | Status: emitted | Message: Sent classified result to topic
+[2025-08-01T18:39:08.944563] [CLASSIFIER] Document: - | Status: started | Message: Classifier agent started and awaiting messages
+[2025-08-01T18:41:34.200454] [CLASSIFIER] Document: - | Status: received | Message: Document received for classification: APPA_employment_renewal.pdf
+[2025-08-01T18:41:36.948190] [CLASSIFIER] Document: 0a3b9d3d-4598-409f-a49f-17eece856951 | Status: completed | Message: Classified as 'notice' using Gemini API
+[2025-08-01T18:41:36.985070] [CLASSIFIER] Document: 0a3b9d3d-4598-409f-a49f-17eece856951 | Status: emitted | Message: Sent classified result to topic
+[2025-08-01T18:41:37.003543] [CLASSIFIER] Document: - | Status: received | Message: Document received for classification: APPA_employment_renewal.pdf
+[2025-08-01T18:41:38.370444] [CLASSIFIER] Document: b0620547-ad2b-45c3-b001-ab0368b89475 | Status: completed | Message: Classified as 'notice' using Gemini API
+[2025-08-01T18:41:38.376087] [CLASSIFIER] Document: b0620547-ad2b-45c3-b001-ab0368b89475 | Status: emitted | Message: Sent classified result to topic
+[2025-08-01T18:55:02.706974] [CLASSIFIER] Document: - | Status: received | Message: Document received for classification: WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01T18:55:04.804397] [CLASSIFIER] Document: 4634edf5-0688-4b91-8522-507c6ef9f878 | Status: completed | Message: Classified as 'report' using Gemini API
+[2025-08-01T18:55:04.845145] [CLASSIFIER] Document: 4634edf5-0688-4b91-8522-507c6ef9f878 | Status: emitted | Message: Sent classified result to topic
+[2025-08-01T18:55:04.866628] [CLASSIFIER] Document: - | Status: received | Message: Document received for classification: WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01T18:55:05.579858] [CLASSIFIER] Document: 87e6cdcb-4924-4bbf-886e-6ed2c4310b99 | Status: completed | Message: Classified as 'report' using Gemini API
+[2025-08-01T18:55:05.586762] [CLASSIFIER] Document: 87e6cdcb-4924-4bbf-886e-6ed2c4310b99 | Status: emitted | Message: Sent classified result to topic
+[2025-08-01T18:55:31.298175] [CLASSIFIER] Document: - | Status: received | Message: Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01T18:55:32.361531] [CLASSIFIER] Document: 9a2cc264-8589-4bd7-aef7-ba80d7640448 | Status: completed | Message: Classified as 'resume' using Gemini API
+[2025-08-01T18:55:32.371929] [CLASSIFIER] Document: 9a2cc264-8589-4bd7-aef7-ba80d7640448 | Status: emitted | Message: Sent classified result to topic
+[2025-08-01T18:55:33.359990] [CLASSIFIER] Document: - | Status: received | Message: Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01T18:55:34.316756] [CLASSIFIER] Document: a25272df-d145-49f9-be12-e7002c53596b | Status: completed | Message: Classified as 'resume' using Gemini API
+[2025-08-01T18:55:34.322928] [CLASSIFIER] Document: a25272df-d145-49f9-be12-e7002c53596b | Status: emitted | Message: Sent classified result to topic
+[2025-08-01 19:01:36] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 19:02:23] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 19:02:26] [CLASSIFIER] [COMPLETED] Doc ID: b986a06d-3f89-4a32-8951-9616dd51941b - Classified as 'resume' using Gemini API
+[2025-08-01 19:02:26] [CLASSIFIER] [EMITTED] Doc ID: b986a06d-3f89-4a32-8951-9616dd51941b - Sent classified result to topic
+[2025-08-01 19:02:26] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 19:02:27] [CLASSIFIER] [COMPLETED] Doc ID: bc826262-faa3-4e45-994f-fcb6acdbf7f6 - Classified as 'resume' using Gemini API
+[2025-08-01 19:02:27] [CLASSIFIER] [EMITTED] Doc ID: bc826262-faa3-4e45-994f-fcb6acdbf7f6 - Sent classified result to topic
+[2025-08-01 19:02:28] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 19:02:29] [CLASSIFIER] [COMPLETED] Doc ID: 21151303-7fc5-4f25-a87a-f9499ed99444 - Classified as 'report' using Gemini API
+[2025-08-01 19:02:29] [CLASSIFIER] [EMITTED] Doc ID: 21151303-7fc5-4f25-a87a-f9499ed99444 - Sent classified result to topic
+[2025-08-01 19:02:29] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 19:02:30] [CLASSIFIER] [COMPLETED] Doc ID: 5b177d4f-1f33-4daf-9ce7-c9134ea7da33 - Classified as 'report' using Gemini API
+[2025-08-01 19:02:30] [CLASSIFIER] [EMITTED] Doc ID: 5b177d4f-1f33-4daf-9ce7-c9134ea7da33 - Sent classified result to topic
+[2025-08-01 19:03:07] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 19:03:08] [CLASSIFIER] [COMPLETED] Doc ID: fdc03cc4-0392-494c-a3c4-c15fb346f8ff - Classified as 'resume' using Gemini API
+[2025-08-01 19:03:08] [CLASSIFIER] [EMITTED] Doc ID: fdc03cc4-0392-494c-a3c4-c15fb346f8ff - Sent classified result to topic
+[2025-08-01 19:03:08] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 19:03:09] [CLASSIFIER] [COMPLETED] Doc ID: c682a534-423f-4617-9d4a-6eecf8b57bee - Classified as 'resume' using Gemini API
+[2025-08-01 19:03:09] [CLASSIFIER] [EMITTED] Doc ID: c682a534-423f-4617-9d4a-6eecf8b57bee - Sent classified result to topic
+[2025-08-01 19:43:42] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 19:43:45] [CLASSIFIER] [COMPLETED] Doc ID: cf65d1fe-f8eb-41e6-81da-f328f0490c8b - Classified as 'report' using Gemini API
+[2025-08-01 19:43:45] [CLASSIFIER] [EMITTED] Doc ID: cf65d1fe-f8eb-41e6-81da-f328f0490c8b - Sent classified result to topic
+[2025-08-01 19:43:45] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 19:43:47] [CLASSIFIER] [COMPLETED] Doc ID: b5b87da8-fe0c-4a2d-b4f0-a77cc93b7e76 - Classified as 'report' using Gemini API
+[2025-08-01 19:43:47] [CLASSIFIER] [EMITTED] Doc ID: b5b87da8-fe0c-4a2d-b4f0-a77cc93b7e76 - Sent classified result to topic
+[2025-08-01 19:45:37] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-08-01_194500.png
+[2025-08-01 19:45:38] [CLASSIFIER] [COMPLETED] Doc ID: dd10981e-88f0-4368-90a3-c587da25077e - Classified as 'email' using Gemini API
+[2025-08-01 19:45:38] [CLASSIFIER] [EMITTED] Doc ID: dd10981e-88f0-4368-90a3-c587da25077e - Sent classified result to topic
+[2025-08-01 19:45:38] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-08-01_194500.png
+[2025-08-01 19:45:40] [CLASSIFIER] [COMPLETED] Doc ID: c3351448-d2e4-4aea-b8bf-5982a6342a10 - Classified as 'email' using Gemini API
+[2025-08-01 19:45:40] [CLASSIFIER] [EMITTED] Doc ID: c3351448-d2e4-4aea-b8bf-5982a6342a10 - Sent classified result to topic
+[2025-08-01 19:46:55] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-07-07_202245.png
+[2025-08-01 19:46:56] [CLASSIFIER] [COMPLETED] Doc ID: 5f6503e8-ccb3-4acb-914d-0d898dde6fd9 - Classified as 'report' using Gemini API
+[2025-08-01 19:46:56] [CLASSIFIER] [EMITTED] Doc ID: 5f6503e8-ccb3-4acb-914d-0d898dde6fd9 - Sent classified result to topic
+[2025-08-01 19:46:56] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-07-07_202245.png
+[2025-08-01 19:46:57] [CLASSIFIER] [COMPLETED] Doc ID: f2ef426a-9b4d-42ae-95d5-14e04914214a - Classified as 'report' using Gemini API
+[2025-08-01 19:46:57] [CLASSIFIER] [EMITTED] Doc ID: f2ef426a-9b4d-42ae-95d5-14e04914214a - Sent classified result to topic
+[2025-08-01 19:57:14] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 19:58:12] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-07-28_143826.png
+[2025-08-01 19:58:12] [CLASSIFIER] [ERROR] Doc ID: 5159d209-2e0c-4798-a44e-5f13fc4980f2 - ❌ Failed to classify Screenshot_2025-07-28_143826.png: classify_document() takes 1 positional argument but 2 were given
+[2025-08-01 19:58:12] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-07-28_143826.png
+[2025-08-01 19:58:12] [CLASSIFIER] [ERROR] Doc ID: 0f9fe3c9-b8f3-4fc5-b5a6-1f7b4c154100 - ❌ Failed to classify Screenshot_2025-07-28_143826.png: classify_document() takes 1 positional argument but 2 were given
+[2025-08-01 20:15:58] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 20:19:11] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-07-30_183534.png
+[2025-08-01 20:19:15] [CLASSIFIER] [COMPLETED] Doc ID: 555e951b-7173-429d-ad56-8a235d4cb5b6 - Classified as 'other' using Gemini + Local Confidence
+[2025-08-01 20:19:15] [CLASSIFIER] [EMITTED] Doc ID: 555e951b-7173-429d-ad56-8a235d4cb5b6 - Sent classified result to topic
+[2025-08-01 20:19:15] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-07-30_183534.png
+[2025-08-01 20:19:16] [CLASSIFIER] [COMPLETED] Doc ID: 148b6f59-6401-4842-8d95-6c1a09d71473 - Classified as 'other' using Gemini + Local Confidence
+[2025-08-01 20:19:16] [CLASSIFIER] [EMITTED] Doc ID: 148b6f59-6401-4842-8d95-6c1a09d71473 - Sent classified result to topic
+[2025-08-01 20:20:07] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 20:20:09] [CLASSIFIER] [COMPLETED] Doc ID: 636b117f-63b8-4127-b378-7a0d0ba04671 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 20:20:09] [CLASSIFIER] [EMITTED] Doc ID: 636b117f-63b8-4127-b378-7a0d0ba04671 - Sent classified result to topic
+[2025-08-01 20:20:09] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 20:20:10] [CLASSIFIER] [COMPLETED] Doc ID: 828e33be-ebbb-4c74-bb30-174373063767 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 20:20:10] [CLASSIFIER] [EMITTED] Doc ID: 828e33be-ebbb-4c74-bb30-174373063767 - Sent classified result to topic
+[2025-08-01 20:20:58] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Resume.pdf
+[2025-08-01 20:21:00] [CLASSIFIER] [COMPLETED] Doc ID: 30f62728-ba59-479a-9201-ffe68b5f1ab6 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 20:21:00] [CLASSIFIER] [EMITTED] Doc ID: 30f62728-ba59-479a-9201-ffe68b5f1ab6 - Sent classified result to topic
+[2025-08-01 20:21:00] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Resume.pdf
+[2025-08-01 20:21:05] [CLASSIFIER] [COMPLETED] Doc ID: bc073dc0-ed47-4766-82b2-3a25417caa85 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 20:21:05] [CLASSIFIER] [EMITTED] Doc ID: bc073dc0-ed47-4766-82b2-3a25417caa85 - Sent classified result to topic
+[2025-08-01 21:00:17] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 21:00:20] [CLASSIFIER] [COMPLETED] Doc ID: bdc29daf-5fe0-41ce-818f-d807a5f6fe39 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 21:00:20] [CLASSIFIER] [EMITTED] Doc ID: bdc29daf-5fe0-41ce-818f-d807a5f6fe39 - Sent classified result to topic
+[2025-08-01 21:00:20] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 21:00:21] [CLASSIFIER] [COMPLETED] Doc ID: 68c60439-71be-432e-a046-12b0c2e38689 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 21:00:21] [CLASSIFIER] [EMITTED] Doc ID: 68c60439-71be-432e-a046-12b0c2e38689 - Sent classified result to topic
+[2025-08-01 21:16:54] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 21:26:16] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 21:26:27] [CLASSIFIER] [COMPLETED] Doc ID: 76831993-58a7-44cf-9360-42fcc497172b - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 21:26:27] [CLASSIFIER] [EMITTED] Doc ID: 76831993-58a7-44cf-9360-42fcc497172b - Sent classified result to topic
+[2025-08-01 21:26:27] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 21:26:45] [CLASSIFIER] [COMPLETED] Doc ID: 205c7457-4a50-4588-b44a-0d9fb054ba4b - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 21:26:45] [CLASSIFIER] [EMITTED] Doc ID: 205c7457-4a50-4588-b44a-0d9fb054ba4b - Sent classified result to topic
+[2025-08-01 21:30:08] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 21:30:11] [CLASSIFIER] [COMPLETED] Doc ID: ee689bdd-dc63-44b8-8c14-2d52edd70279 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 21:30:11] [CLASSIFIER] [EMITTED] Doc ID: ee689bdd-dc63-44b8-8c14-2d52edd70279 - Sent classified result to topic
+[2025-08-01 21:30:11] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 21:30:12] [CLASSIFIER] [COMPLETED] Doc ID: fce7a166-e078-484f-b4b2-7271be0e5c40 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 21:30:12] [CLASSIFIER] [EMITTED] Doc ID: fce7a166-e078-484f-b4b2-7271be0e5c40 - Sent classified result to topic
+[2025-08-01 21:30:41] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Resume.pdf
+[2025-08-01 21:30:41] [CLASSIFIER] [COMPLETED] Doc ID: 6946d6dc-c1ae-4135-9f2f-aa911120e4ae - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 21:30:41] [CLASSIFIER] [EMITTED] Doc ID: 6946d6dc-c1ae-4135-9f2f-aa911120e4ae - Sent classified result to topic
+[2025-08-01 21:30:42] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Resume.pdf
+[2025-08-01 21:30:43] [CLASSIFIER] [COMPLETED] Doc ID: 2b85fb88-78de-4640-a3a7-a60793756c14 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 21:30:43] [CLASSIFIER] [EMITTED] Doc ID: 2b85fb88-78de-4640-a3a7-a60793756c14 - Sent classified result to topic
+[2025-08-01 22:07:40] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 22:07:43] [CLASSIFIER] [COMPLETED] Doc ID: 00109d6a-9c41-435b-aadd-b084a98b964d - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 22:07:43] [CLASSIFIER] [EMITTED] Doc ID: 00109d6a-9c41-435b-aadd-b084a98b964d - Sent classified result to topic
+[2025-08-01 22:07:43] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 22:07:45] [CLASSIFIER] [COMPLETED] Doc ID: f57533c4-ed2c-45d6-961b-3e246dc3474a - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 22:07:45] [CLASSIFIER] [EMITTED] Doc ID: f57533c4-ed2c-45d6-961b-3e246dc3474a - Sent classified result to topic
+[2025-08-01 22:11:44] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 22:18:36] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 22:18:52] [CLASSIFIER] [COMPLETED] Doc ID: 7e7b9e45-ab71-46b6-bd56-ab50c9f2003f - Classified as 'other' using Gemini Error
+[2025-08-01 22:18:52] [CLASSIFIER] [EMITTED] Doc ID: 7e7b9e45-ab71-46b6-bd56-ab50c9f2003f - Sent classified result to topic
+[2025-08-01 22:18:52] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 22:18:53] [CLASSIFIER] [COMPLETED] Doc ID: c4e7aa51-16d2-40e7-ac97-e26ba6404282 - Classified as 'other' using Gemini Error
+[2025-08-01 22:18:53] [CLASSIFIER] [EMITTED] Doc ID: c4e7aa51-16d2-40e7-ac97-e26ba6404282 - Sent classified result to topic
+[2025-08-01 22:31:29] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 22:32:42] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 22:32:55] [CLASSIFIER] [COMPLETED] Doc ID: 9829b56e-9e6c-4ab4-92a7-85b475eeab56 - Classified as 'other' using Gemini Error
+[2025-08-01 22:32:55] [CLASSIFIER] [EMITTED] Doc ID: 9829b56e-9e6c-4ab4-92a7-85b475eeab56 - Sent classified result to topic
+[2025-08-01 22:32:55] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 22:32:57] [CLASSIFIER] [COMPLETED] Doc ID: ef410160-46e6-42a6-82e5-193e50e739b9 - Classified as 'other' using Gemini Error
+[2025-08-01 22:32:57] [CLASSIFIER] [EMITTED] Doc ID: ef410160-46e6-42a6-82e5-193e50e739b9 - Sent classified result to topic
+[2025-08-01 22:41:17] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 22:46:11] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 22:46:29] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 22:46:32] [CLASSIFIER] [ERROR] Doc ID: 23b0578c-32f5-4063-a7e8-6c9ab22e4f22 - ❌ Failed to classify MUGUNTHAN_S.pdf: 'NoneType' object has no attribute 'get'
+[2025-08-01 22:46:32] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 22:46:33] [CLASSIFIER] [ERROR] Doc ID: 7aa9e315-fdfe-4b40-b505-7dcfb37d1fbd - ❌ Failed to classify MUGUNTHAN_S.pdf: 'NoneType' object has no attribute 'get'
+[2025-08-01 22:52:27] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 22:52:43] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 22:52:46] [CLASSIFIER] [COMPLETED] Doc ID: f1c0ca84-6916-4e72-92ba-5d09c465b3f0 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 22:52:46] [CLASSIFIER] [EMITTED] Doc ID: f1c0ca84-6916-4e72-92ba-5d09c465b3f0 - Sent classified result to topic
+[2025-08-01 22:58:46] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 22:58:47] [CLASSIFIER] [COMPLETED] Doc ID: ad6d4d63-6641-4607-916d-624672a99870 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 22:58:47] [CLASSIFIER] [EMITTED] Doc ID: ad6d4d63-6641-4607-916d-624672a99870 - Sent classified result to topic
+[2025-08-01 22:58:47] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 22:58:49] [CLASSIFIER] [COMPLETED] Doc ID: 4baf8403-cd85-4932-bcbf-102300220585 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 22:58:49] [CLASSIFIER] [EMITTED] Doc ID: 4baf8403-cd85-4932-bcbf-102300220585 - Sent classified result to topic
+[2025-08-01 22:59:08] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 22:59:08] [CLASSIFIER] [COMPLETED] Doc ID: 34c27da1-81a0-4811-9b29-5f358c08697a - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 22:59:08] [CLASSIFIER] [EMITTED] Doc ID: 34c27da1-81a0-4811-9b29-5f358c08697a - Sent classified result to topic
+[2025-08-01 22:59:09] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 22:59:10] [CLASSIFIER] [COMPLETED] Doc ID: 051f5aab-d317-49c5-bcb1-05d163ed155f - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 22:59:10] [CLASSIFIER] [EMITTED] Doc ID: 051f5aab-d317-49c5-bcb1-05d163ed155f - Sent classified result to topic
+[2025-08-01 22:59:28] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Resume.pdf
+[2025-08-01 22:59:29] [CLASSIFIER] [COMPLETED] Doc ID: a7029dd7-6436-4736-801a-322a95050556 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 22:59:29] [CLASSIFIER] [EMITTED] Doc ID: a7029dd7-6436-4736-801a-322a95050556 - Sent classified result to topic
+[2025-08-01 22:59:29] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Resume.pdf
+[2025-08-01 22:59:30] [CLASSIFIER] [COMPLETED] Doc ID: d0c591e5-d4e0-4899-bf6a-e21fdbbf3d05 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 22:59:30] [CLASSIFIER] [EMITTED] Doc ID: d0c591e5-d4e0-4899-bf6a-e21fdbbf3d05 - Sent classified result to topic
+[2025-08-01 22:59:46] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 22:59:47] [CLASSIFIER] [COMPLETED] Doc ID: 979391b3-628c-4191-9082-ca801850d050 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 22:59:47] [CLASSIFIER] [EMITTED] Doc ID: 979391b3-628c-4191-9082-ca801850d050 - Sent classified result to topic
+[2025-08-01 22:59:47] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 22:59:48] [CLASSIFIER] [COMPLETED] Doc ID: 8cdb8dc8-f917-40dc-842e-458136d0c38b - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 22:59:48] [CLASSIFIER] [EMITTED] Doc ID: 8cdb8dc8-f917-40dc-842e-458136d0c38b - Sent classified result to topic
+[2025-08-01 23:05:36] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 23:05:41] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:05:44] [CLASSIFIER] [COMPLETED] Doc ID: 80647e95-51e6-4002-90cb-d89cd986abe4 - Classified as 'resume' using Gemini (trusted)
+[2025-08-01 23:05:44] [CLASSIFIER] [EMITTED] Doc ID: 80647e95-51e6-4002-90cb-d89cd986abe4 - Sent classified result to topic
+[2025-08-01 23:05:44] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:05:45] [CLASSIFIER] [COMPLETED] Doc ID: d7689d9f-cbaf-470b-aacd-c7e2a13c1c55 - Classified as 'resume' using Gemini (trusted)
+[2025-08-01 23:05:45] [CLASSIFIER] [EMITTED] Doc ID: d7689d9f-cbaf-470b-aacd-c7e2a13c1c55 - Sent classified result to topic
+[2025-08-01 23:06:19] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 23:06:23] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:06:25] [CLASSIFIER] [COMPLETED] Doc ID: 47665542-b313-4e16-b4b9-20f73587078c - Classified as 'other' using Gemini Error
+[2025-08-01 23:06:25] [CLASSIFIER] [EMITTED] Doc ID: 47665542-b313-4e16-b4b9-20f73587078c - Sent classified result to topic
+[2025-08-01 23:06:25] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:06:26] [CLASSIFIER] [COMPLETED] Doc ID: 5b3a7eb3-55ed-4b67-bad1-dfc5644b4531 - Classified as 'other' using Gemini Error
+[2025-08-01 23:06:26] [CLASSIFIER] [EMITTED] Doc ID: 5b3a7eb3-55ed-4b67-bad1-dfc5644b4531 - Sent classified result to topic
+[2025-08-01 23:07:45] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 23:07:48] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:07:52] [CLASSIFIER] [ERROR] Doc ID: a3254c01-04fb-40a9-8296-bba373f50c7c - ❌ Failed to classify Mugunthan_Dataanalyst_Resume.pdf: cannot access local variable 'label' where it is not associated with a value
+[2025-08-01 23:07:52] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:07:54] [CLASSIFIER] [ERROR] Doc ID: 7c4c04ae-861b-4a70-8326-f7561e0165ab - ❌ Failed to classify Mugunthan_Dataanalyst_Resume.pdf: cannot access local variable 'label' where it is not associated with a value
+[2025-08-01 23:08:15] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 23:08:16] [CLASSIFIER] [ERROR] Doc ID: 4713e3c3-5c7a-4f4a-ad2f-7448719ea390 - ❌ Failed to classify MUGUNTHAN_S.pdf: cannot access local variable 'label' where it is not associated with a value
+[2025-08-01 23:08:16] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 23:08:17] [CLASSIFIER] [ERROR] Doc ID: 62734fe8-e6be-4499-b2fb-fe9796db56d7 - ❌ Failed to classify MUGUNTHAN_S.pdf: cannot access local variable 'label' where it is not associated with a value
+[2025-08-01 23:13:42] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 23:13:59] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 23:14:00] [CLASSIFIER] [COMPLETED] Doc ID: ae4f21f1-aca6-45f8-a014-5dbb4cfd7431 - Classified as 'resume' using Local ML fallback
+[2025-08-01 23:14:00] [CLASSIFIER] [EMITTED] Doc ID: ae4f21f1-aca6-45f8-a014-5dbb4cfd7431 - Sent classified result to topic
+[2025-08-01 23:14:34] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 23:14:34] [CLASSIFIER] [COMPLETED] Doc ID: 3f077ae4-8331-4495-8b4a-fadc9efae75c - Classified as 'resume' using Local ML fallback
+[2025-08-01 23:14:34] [CLASSIFIER] [EMITTED] Doc ID: 3f077ae4-8331-4495-8b4a-fadc9efae75c - Sent classified result to topic
+[2025-08-01 23:14:34] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 23:14:35] [CLASSIFIER] [COMPLETED] Doc ID: f38cc254-d2d1-4e63-954f-fbd0c0332ba1 - Classified as 'resume' using Local ML fallback
+[2025-08-01 23:14:35] [CLASSIFIER] [EMITTED] Doc ID: f38cc254-d2d1-4e63-954f-fbd0c0332ba1 - Sent classified result to topic
+[2025-08-01 23:14:54] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 23:14:57] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 23:14:58] [CLASSIFIER] [COMPLETED] Doc ID: 9aad1cec-a82f-4efe-80d9-cb37bfa559f1 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 23:14:58] [CLASSIFIER] [EMITTED] Doc ID: 9aad1cec-a82f-4efe-80d9-cb37bfa559f1 - Sent classified result to topic
+[2025-08-01 23:14:58] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 23:14:59] [CLASSIFIER] [COMPLETED] Doc ID: 6eb70bb9-229c-4125-bdca-7f6ddfeca965 - Classified as 'resume' using Local ML fallback
+[2025-08-01 23:14:59] [CLASSIFIER] [EMITTED] Doc ID: 6eb70bb9-229c-4125-bdca-7f6ddfeca965 - Sent classified result to topic
+[2025-08-01 23:18:43] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 23:18:50] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 23:18:54] [CLASSIFIER] [COMPLETED] Doc ID: c7aae782-fe7c-44fc-97f7-803009452935 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 23:18:54] [CLASSIFIER] [EMITTED] Doc ID: c7aae782-fe7c-44fc-97f7-803009452935 - Sent classified result to topic
+[2025-08-01 23:18:54] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: MUGUNTHAN_S.pdf
+[2025-08-01 23:18:55] [CLASSIFIER] [COMPLETED] Doc ID: 4e4920ab-a0bd-46a9-b4f5-3d59e6cea322 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 23:18:55] [CLASSIFIER] [EMITTED] Doc ID: 4e4920ab-a0bd-46a9-b4f5-3d59e6cea322 - Sent classified result to topic
+[2025-08-01 23:19:24] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Boarding_Pass_Template_-_Jotform_PDF_Editor.txt
+[2025-08-01 23:19:24] [CLASSIFIER] [COMPLETED] Doc ID: 85824468-55fb-47f2-8a7f-1617ca5f1963 - Classified as 'boarding pass' using Gemini + Local Confidence
+[2025-08-01 23:19:24] [CLASSIFIER] [EMITTED] Doc ID: 85824468-55fb-47f2-8a7f-1617ca5f1963 - Sent classified result to topic
+[2025-08-01 23:19:25] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Boarding_Pass_Template_-_Jotform_PDF_Editor.txt
+[2025-08-01 23:19:26] [CLASSIFIER] [COMPLETED] Doc ID: 1314f1bc-6713-4e13-973f-e35d3fbefda5 - Classified as 'boarding pass' using Gemini + Local Confidence
+[2025-08-01 23:19:26] [CLASSIFIER] [EMITTED] Doc ID: 1314f1bc-6713-4e13-973f-e35d3fbefda5 - Sent classified result to topic
+[2025-08-01 23:20:03] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Example-of-a-self-service-transcript.txt
+[2025-08-01 23:20:05] [CLASSIFIER] [COMPLETED] Doc ID: 920f8fb3-8e96-456d-ab44-fbda88282bde - Classified as 'lab report' using Gemini + Local Confidence
+[2025-08-01 23:20:05] [CLASSIFIER] [EMITTED] Doc ID: 920f8fb3-8e96-456d-ab44-fbda88282bde - Sent classified result to topic
+[2025-08-01 23:20:05] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Example-of-a-self-service-transcript.txt
+[2025-08-01 23:20:06] [CLASSIFIER] [COMPLETED] Doc ID: 226418eb-0aaf-4719-b342-c096380045bf - Classified as 'lab report' using Gemini + Local Confidence
+[2025-08-01 23:20:06] [CLASSIFIER] [EMITTED] Doc ID: 226418eb-0aaf-4719-b342-c096380045bf - Sent classified result to topic
+[2025-08-01 23:21:11] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-07-14_095212.png
+[2025-08-01 23:21:12] [CLASSIFIER] [COMPLETED] Doc ID: 50c9bbc9-4dca-4c60-9f1c-c3eab84a4700 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 23:21:12] [CLASSIFIER] [EMITTED] Doc ID: 50c9bbc9-4dca-4c60-9f1c-c3eab84a4700 - Sent classified result to topic
+[2025-08-01 23:21:12] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-07-14_095212.png
+[2025-08-01 23:21:13] [CLASSIFIER] [COMPLETED] Doc ID: 0829797e-37d6-479f-82c1-33b72086280b - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 23:21:13] [CLASSIFIER] [EMITTED] Doc ID: 0829797e-37d6-479f-82c1-33b72086280b - Sent classified result to topic
+[2025-08-01 23:21:54] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-07-07_170940.png
+[2025-08-01 23:21:54] [CLASSIFIER] [COMPLETED] Doc ID: 5e2c7993-f1f2-40e7-adfd-b21ac42a0860 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 23:21:54] [CLASSIFIER] [EMITTED] Doc ID: 5e2c7993-f1f2-40e7-adfd-b21ac42a0860 - Sent classified result to topic
+[2025-08-01 23:21:55] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-07-07_170940.png
+[2025-08-01 23:21:56] [CLASSIFIER] [COMPLETED] Doc ID: 62c0556a-db6b-47fc-8f31-4f6dd0290749 - Classified as 'resume' using Gemini + Local Confidence
+[2025-08-01 23:21:56] [CLASSIFIER] [EMITTED] Doc ID: 62c0556a-db6b-47fc-8f31-4f6dd0290749 - Sent classified result to topic
+[2025-08-01 23:26:50] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 23:26:57] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-07-07_170940.png
+[2025-08-01 23:27:01] [CLASSIFIER] [COMPLETED] Doc ID: 078631d2-bdca-4f26-b226-1bb23fc8ece1 - Classified as 'resume' using Gemini (trusted)
+[2025-08-01 23:27:01] [CLASSIFIER] [EMITTED] Doc ID: 078631d2-bdca-4f26-b226-1bb23fc8ece1 - Sent classified result to topic
+[2025-08-01 23:27:01] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-07-07_170940.png
+[2025-08-01 23:27:02] [CLASSIFIER] [COMPLETED] Doc ID: c7bf3af0-3c95-443c-9163-fc4ac47fdd02 - Classified as 'resume' using Gemini (trusted)
+[2025-08-01 23:27:02] [CLASSIFIER] [EMITTED] Doc ID: c7bf3af0-3c95-443c-9163-fc4ac47fdd02 - Sent classified result to topic
+[2025-08-01 23:33:48] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 23:33:54] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-07-07_170940.png
+[2025-08-01 23:33:57] [CLASSIFIER] [COMPLETED] Doc ID: a92b58d7-0625-4e5c-a82a-4808e2045d12 - Classified as 'relieving letter' using Gemini + Local fallback
+[2025-08-01 23:33:58] [CLASSIFIER] [EMITTED] Doc ID: a92b58d7-0625-4e5c-a82a-4808e2045d12 - Sent classified result to topic
+[2025-08-01 23:33:58] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-07-07_170940.png
+[2025-08-01 23:33:58] [CLASSIFIER] [COMPLETED] Doc ID: 8e3b667d-16fb-4aa4-b3d6-e2a0f9381a14 - Classified as 'relieving letter' using Gemini + Local fallback
+[2025-08-01 23:33:58] [CLASSIFIER] [EMITTED] Doc ID: 8e3b667d-16fb-4aa4-b3d6-e2a0f9381a14 - Sent classified result to topic
+[2025-08-01 23:39:05] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 23:39:12] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-07-07_170940.png
+[2025-08-01 23:39:15] [CLASSIFIER] [COMPLETED] Doc ID: 99a3fb4a-0e0f-4506-b72a-f30f65711d8a - Classified as 'other' using Rejected (low content quality)
+[2025-08-01 23:39:15] [CLASSIFIER] [EMITTED] Doc ID: 99a3fb4a-0e0f-4506-b72a-f30f65711d8a - Sent classified result to topic
+[2025-08-01 23:39:15] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Screenshot_2025-07-07_170940.png
+[2025-08-01 23:39:17] [CLASSIFIER] [COMPLETED] Doc ID: fb447d23-ab3b-4dfb-ac93-a0f81e02a71a - Classified as 'other' using Rejected (low content quality)
+[2025-08-01 23:39:17] [CLASSIFIER] [EMITTED] Doc ID: fb447d23-ab3b-4dfb-ac93-a0f81e02a71a - Sent classified result to topic
+[2025-08-01 23:40:12] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Results.pdf
+[2025-08-01 23:40:13] [CLASSIFIER] [COMPLETED] Doc ID: 0ec7528e-0886-4270-9b65-a32e330937e0 - Classified as 'marksheet' using Local ML fallback
+[2025-08-01 23:40:13] [CLASSIFIER] [EMITTED] Doc ID: 0ec7528e-0886-4270-9b65-a32e330937e0 - Sent classified result to topic
+[2025-08-01 23:40:13] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Results.pdf
+[2025-08-01 23:40:15] [CLASSIFIER] [COMPLETED] Doc ID: 2558b5bf-5ac2-4d51-905e-c25b14082c8c - Classified as 'marksheet' using Local ML fallback
+[2025-08-01 23:40:15] [CLASSIFIER] [EMITTED] Doc ID: 2558b5bf-5ac2-4d51-905e-c25b14082c8c - Sent classified result to topic
+[2025-08-01 23:40:15] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: sample-invoice.pdf
+[2025-08-01 23:40:16] [CLASSIFIER] [COMPLETED] Doc ID: dcd606a6-d038-4f41-b1a8-ce4cfbc83f44 - Classified as 'invoice' using Gemini (trusted)
+[2025-08-01 23:40:16] [CLASSIFIER] [EMITTED] Doc ID: dcd606a6-d038-4f41-b1a8-ce4cfbc83f44 - Sent classified result to topic
+[2025-08-01 23:40:16] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: sample-invoice.pdf
+[2025-08-01 23:40:18] [CLASSIFIER] [COMPLETED] Doc ID: a091167f-e918-4bb1-ab47-3a0895285d5a - Classified as 'invoice' using Gemini (trusted)
+[2025-08-01 23:40:18] [CLASSIFIER] [EMITTED] Doc ID: a091167f-e918-4bb1-ab47-3a0895285d5a - Sent classified result to topic
+[2025-08-01 23:40:18] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 23:40:19] [CLASSIFIER] [COMPLETED] Doc ID: b554d8af-5ece-4bd1-aa2e-22b51048f285 - Classified as 'research paper' using Local ML fallback
+[2025-08-01 23:40:19] [CLASSIFIER] [EMITTED] Doc ID: b554d8af-5ece-4bd1-aa2e-22b51048f285 - Sent classified result to topic
+[2025-08-01 23:40:19] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 23:40:20] [CLASSIFIER] [COMPLETED] Doc ID: d4f65005-01e2-42bb-94b1-f6df74040556 - Classified as 'research paper' using Local ML fallback
+[2025-08-01 23:40:20] [CLASSIFIER] [EMITTED] Doc ID: d4f65005-01e2-42bb-94b1-f6df74040556 - Sent classified result to topic
+[2025-08-01 23:46:27] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-01 23:46:35] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Results.pdf
+[2025-08-01 23:46:36] [CLASSIFIER] [COMPLETED] Doc ID: 304cc337-c430-44d9-ab6b-7bfee8128f3c - Classified as 'marksheet' using Gemini (trusted)
+[2025-08-01 23:46:36] [CLASSIFIER] [EMITTED] Doc ID: 304cc337-c430-44d9-ab6b-7bfee8128f3c - Sent classified result to topic
+[2025-08-01 23:46:36] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Results.pdf
+[2025-08-01 23:46:38] [CLASSIFIER] [COMPLETED] Doc ID: 4f8f0cc9-dc7a-4c7d-8acd-0854755a0717 - Classified as 'marksheet' using Gemini (trusted)
+[2025-08-01 23:46:38] [CLASSIFIER] [EMITTED] Doc ID: 4f8f0cc9-dc7a-4c7d-8acd-0854755a0717 - Sent classified result to topic
+[2025-08-01 23:46:38] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: sample-invoice.pdf
+[2025-08-01 23:46:39] [CLASSIFIER] [COMPLETED] Doc ID: c58ffdab-6a82-4b9b-a907-aa6cd2335e21 - Classified as 'invoice' using Gemini (trusted)
+[2025-08-01 23:46:39] [CLASSIFIER] [EMITTED] Doc ID: c58ffdab-6a82-4b9b-a907-aa6cd2335e21 - Sent classified result to topic
+[2025-08-01 23:46:41] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 23:46:42] [CLASSIFIER] [COMPLETED] Doc ID: 97cc1e3d-34fd-4564-ac2f-16f9c6d63ab5 - Classified as 'business proposal' using Gemini (trusted)
+[2025-08-01 23:46:42] [CLASSIFIER] [EMITTED] Doc ID: 97cc1e3d-34fd-4564-ac2f-16f9c6d63ab5 - Sent classified result to topic
+[2025-08-01 23:46:42] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 23:46:43] [CLASSIFIER] [COMPLETED] Doc ID: 8328da45-b2d1-43f6-a006-bb0046255bed - Classified as 'business proposal' using Gemini (trusted)
+[2025-08-01 23:46:43] [CLASSIFIER] [EMITTED] Doc ID: 8328da45-b2d1-43f6-a006-bb0046255bed - Sent classified result to topic

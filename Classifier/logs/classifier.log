@@ -1,0 +1,22 @@
+[2025-08-01 16:00:48,688] INFO - Classifier agent started, waiting for documents from 'doc.extracted'
+[2025-08-01 16:03:54,853] INFO - Classifier agent started, waiting for documents from 'doc.extracted'
+[2025-08-01 16:40:48,143] INFO - Received extracted document: Mugunthan_Resume.pdf
+[2025-08-01 16:40:49,942] INFO - Sent classified metadata to 'doc.classified' for Mugunthan_Resume.pdf
+[2025-08-01 18:24:54,111] INFO - Classifier agent started, waiting for documents from 'doc.extracted'
+[2025-08-01 18:26:26,005] INFO - Received extracted document: Document_Ingestion__Classification.pdf
+[2025-08-01 18:26:35,244] INFO - Sent classified metadata to 'doc.classified' for Document_Ingestion__Classification.pdf
+[2025-08-01 18:26:35,271] INFO - Received extracted document: Document_Ingestion__Classification.pdf
+[2025-08-01 18:26:39,449] INFO - Sent classified metadata to 'doc.classified' for Document_Ingestion__Classification.pdf
+[2025-08-01 18:39:08,942] INFO - Classifier agent started, waiting for documents from 'doc.extracted'
+[2025-08-01 18:41:34,190] INFO - Received extracted document: APPA_employment_renewal.pdf
+[2025-08-01 18:41:36,984] INFO - Sent classified metadata to 'doc.classified' for APPA_employment_renewal.pdf
+[2025-08-01 18:41:37,001] INFO - Received extracted document: APPA_employment_renewal.pdf
+[2025-08-01 18:41:38,375] INFO - Sent classified metadata to 'doc.classified' for APPA_employment_renewal.pdf
+[2025-08-01 18:55:02,683] INFO - Received extracted document: WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 18:55:04,843] INFO - Sent classified metadata to 'doc.classified' for WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 18:55:04,865] INFO - Received extracted document: WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 18:55:05,585] INFO - Sent classified metadata to 'doc.classified' for WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 18:55:31,296] INFO - Received extracted document: MUGUNTHAN_S.pdf
+[2025-08-01 18:55:32,369] INFO - Sent classified metadata to 'doc.classified' for MUGUNTHAN_S.pdf
+[2025-08-01 18:55:33,358] INFO - Received extracted document: MUGUNTHAN_S.pdf
+[2025-08-01 18:55:34,321] INFO - Sent classified metadata to 'doc.classified' for MUGUNTHAN_S.pdf
