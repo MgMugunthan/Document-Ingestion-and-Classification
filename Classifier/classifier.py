@@ -1,9 +1,10 @@
-import sys
 import os
 import json
 import uuid
 from datetime import datetime
-from kafka import KafkaProducer, KafkaConsumer
+import sys
+
+from kafka import KafkaConsumer, KafkaProducer
 
 # Add parent directory to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -13,19 +14,24 @@ from genai_utils import classify_document  # ✅ Uses Gemini + Local ML fallback
 
 logger = get_logger("classifier")
 
-# Kafka setup
+# Kafka Setup
+# Using 'kafka:9092' from the dev branch for better container compatibility
 producer = KafkaProducer(
-    bootstrap_servers='localhost:9092',
+    bootstrap_servers='kafka:9092',
     value_serializer=lambda v: json.dumps(v).encode('utf-8')
 )
 
+# Using 'kafka:9092' from the dev branch
 consumer = KafkaConsumer(
     "doc.extracted",
-    bootstrap_servers="localhost:9092",
+    bootstrap_servers="kafka:9092",
     auto_offset_reset="earliest",
     group_id="classifier-group",
     value_deserializer=lambda m: json.loads(m.decode("utf-8"))
 )
+
+# ✅ Feature from `dev` branch to handle duplicate messages
+processed_ids = set()
 
 DEBUG_OUTPUT_FOLDER = "Classifier/output"
 os.makedirs(DEBUG_OUTPUT_FOLDER, exist_ok=True)
@@ -39,21 +45,22 @@ def classify_single_document(metadata):
         doc_name = metadata.get("document_name", "unknown")
         file_name = metadata.get("file_name", doc_name)
 
-        # ✅ Use your Gemini + Local model classification
+        # ✅ Use your Gemini + Local model classification from the Extractor branch
         result = classify_document(content)
 
         category = result.get("document_type", "unknown").lower()
-        confidence = float(result.get("confidence", 0.0))  # ✅ Make sure it's a float
+        confidence = float(result.get("confidence", 0.0))
 
         logger.info(f"[✅] {doc_name} classified as '{category}' ({result.get('classification_by')}, confidence={confidence})")
         log_agent_action("classifier", metadata["document_id"], "completed", f"Classified as '{category}' using {result.get('classification_by')}")
 
+        # ✅ Rich metadata structure from the Extractor branch
         mas_result = {
             "document_id": metadata.get("document_id", str(uuid.uuid4())),
             "document_name": doc_name,
             "file_name": file_name,
             "type": category,
-            "confidence": confidence,  # ✅ Include actual confidence from genai_utils
+            "confidence": confidence,
             "path": metadata.get("path") or metadata.get("file_path"),
             "size": metadata.get("size", 0),
             "file_extension": metadata.get("file_extension", "application/pdf"),
@@ -77,12 +84,19 @@ def consume_and_classify():
 
     for message in consumer:
         metadata = message.value
+        doc_id = metadata.get("document_id")
         doc_name = metadata.get("document_name", "unknown")
 
+        # ✅ Integrate duplicate check from the dev branch
+        if doc_id in processed_ids:
+            logger.warning(f"Skipping duplicate document: {doc_name} ({doc_id})")
+            print(f"[⚠️] Skipping duplicate: {doc_name}")
+            continue
+        processed_ids.add(doc_id)
+
         print(f"\n📄 Received: {doc_name}")
-        print(f"📄 Processing...: {doc_name}")
         logger.info(f"Received extracted document: {doc_name}")
-        log_agent_action("classifier", "-", "received", f"Document received for classification: {doc_name}")
+        log_agent_action("classifier", doc_id, "received", f"Document received for classification: {doc_name}")
 
         mas_result, debug_result = classify_single_document(metadata)
 
