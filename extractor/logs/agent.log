@@ -1,0 +1,190 @@
+[2025-08-01T16:40:47.992501] [EXTRACTOR] Document: db2dba63-12ba-4048-8c6e-368407262fff | Status: success | Message: Raw text extracted from Mugunthan_Resume.pdf
+[2025-08-01T16:40:48.016161] [EXTRACTOR] Document: db2dba63-12ba-4048-8c6e-368407262fff | Status: completed | Message: Extracted and sent Mugunthan_Resume.pdf
+[2025-08-01T18:26:25.875609] [EXTRACTOR] Document: c56e0947-b1b1-4322-9888-9aa9a28d1fcf | Status: success | Message: Raw text extracted from Document_Ingestion__Classification.pdf
+[2025-08-01T18:26:25.929550] [EXTRACTOR] Document: c56e0947-b1b1-4322-9888-9aa9a28d1fcf | Status: completed | Message: Extracted and sent Document_Ingestion__Classification.pdf
+[2025-08-01T18:26:26.794257] [EXTRACTOR] Document: 1b1ef838-edb7-4cea-8c58-5e913199737b | Status: success | Message: Raw text extracted from Document_Ingestion__Classification.pdf
+[2025-08-01T18:26:26.802589] [EXTRACTOR] Document: 1b1ef838-edb7-4cea-8c58-5e913199737b | Status: completed | Message: Extracted and sent Document_Ingestion__Classification.pdf
+[2025-08-01T18:40:07.786460] [EXTRACTOR] Document: 23a064b8-80d5-4f0e-bdd5-db9715b79998 | Status: warning | Message: No text extracted from: D:\Dokmanic\Back-end\Document-Ingestion-and-Classification\ingestor\folder\TeamDocs_Hackathon.pptx
+[2025-08-01T18:41:34.118421] [EXTRACTOR] Document: 0a3b9d3d-4598-409f-a49f-17eece856951 | Status: success | Message: Raw text extracted from APPA_employment_renewal.pdf
+[2025-08-01T18:41:34.148219] [EXTRACTOR] Document: 0a3b9d3d-4598-409f-a49f-17eece856951 | Status: completed | Message: Extracted and sent APPA_employment_renewal.pdf
+[2025-08-01T18:41:34.581802] [EXTRACTOR] Document: b0620547-ad2b-45c3-b001-ab0368b89475 | Status: success | Message: Raw text extracted from APPA_employment_renewal.pdf
+[2025-08-01T18:41:34.590476] [EXTRACTOR] Document: b0620547-ad2b-45c3-b001-ab0368b89475 | Status: completed | Message: Extracted and sent APPA_employment_renewal.pdf
+[2025-08-01T18:55:02.568076] [EXTRACTOR] Document: 4634edf5-0688-4b91-8522-507c6ef9f878 | Status: success | Message: Raw text extracted from WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01T18:55:02.587245] [EXTRACTOR] Document: 4634edf5-0688-4b91-8522-507c6ef9f878 | Status: completed | Message: Extracted and sent WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01T18:55:03.404428] [EXTRACTOR] Document: 87e6cdcb-4924-4bbf-886e-6ed2c4310b99 | Status: success | Message: Raw text extracted from WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01T18:55:03.415582] [EXTRACTOR] Document: 87e6cdcb-4924-4bbf-886e-6ed2c4310b99 | Status: completed | Message: Extracted and sent WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01T18:55:31.242939] [EXTRACTOR] Document: 9a2cc264-8589-4bd7-aef7-ba80d7640448 | Status: success | Message: Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01T18:55:31.257252] [EXTRACTOR] Document: 9a2cc264-8589-4bd7-aef7-ba80d7640448 | Status: completed | Message: Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01T18:55:33.331290] [EXTRACTOR] Document: a25272df-d145-49f9-be12-e7002c53596b | Status: success | Message: Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01T18:55:33.337821] [EXTRACTOR] Document: a25272df-d145-49f9-be12-e7002c53596b | Status: completed | Message: Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 19:02:23] [EXTRACTOR] [SUCCESS] Doc ID: b986a06d-3f89-4a32-8951-9616dd51941b - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 19:02:23] [EXTRACTOR] [COMPLETED] Doc ID: b986a06d-3f89-4a32-8951-9616dd51941b - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 19:02:24] [EXTRACTOR] [SUCCESS] Doc ID: bc826262-faa3-4e45-994f-fcb6acdbf7f6 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 19:02:24] [EXTRACTOR] [COMPLETED] Doc ID: bc826262-faa3-4e45-994f-fcb6acdbf7f6 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 19:02:28] [EXTRACTOR] [SUCCESS] Doc ID: 21151303-7fc5-4f25-a87a-f9499ed99444 - Raw text extracted from WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 19:02:28] [EXTRACTOR] [COMPLETED] Doc ID: 21151303-7fc5-4f25-a87a-f9499ed99444 - Extracted and sent WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 19:02:29] [EXTRACTOR] [SUCCESS] Doc ID: 5b177d4f-1f33-4daf-9ce7-c9134ea7da33 - Raw text extracted from WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 19:02:29] [EXTRACTOR] [COMPLETED] Doc ID: 5b177d4f-1f33-4daf-9ce7-c9134ea7da33 - Extracted and sent WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 19:03:06] [EXTRACTOR] [SUCCESS] Doc ID: fdc03cc4-0392-494c-a3c4-c15fb346f8ff - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 19:03:06] [EXTRACTOR] [COMPLETED] Doc ID: fdc03cc4-0392-494c-a3c4-c15fb346f8ff - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 19:03:07] [EXTRACTOR] [SUCCESS] Doc ID: c682a534-423f-4617-9d4a-6eecf8b57bee - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 19:03:07] [EXTRACTOR] [COMPLETED] Doc ID: c682a534-423f-4617-9d4a-6eecf8b57bee - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 19:43:42] [EXTRACTOR] [SUCCESS] Doc ID: cf65d1fe-f8eb-41e6-81da-f328f0490c8b - Raw text extracted from WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 19:43:42] [EXTRACTOR] [COMPLETED] Doc ID: cf65d1fe-f8eb-41e6-81da-f328f0490c8b - Extracted and sent WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 19:43:42] [EXTRACTOR] [SUCCESS] Doc ID: b5b87da8-fe0c-4a2d-b4f0-a77cc93b7e76 - Raw text extracted from WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 19:43:42] [EXTRACTOR] [COMPLETED] Doc ID: b5b87da8-fe0c-4a2d-b4f0-a77cc93b7e76 - Extracted and sent WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 19:45:37] [EXTRACTOR] [SUCCESS] Doc ID: dd10981e-88f0-4368-90a3-c587da25077e - Raw text extracted from Screenshot_2025-08-01_194500.png
+[2025-08-01 19:45:37] [EXTRACTOR] [COMPLETED] Doc ID: dd10981e-88f0-4368-90a3-c587da25077e - Extracted and sent Screenshot_2025-08-01_194500.png
+[2025-08-01 19:45:38] [EXTRACTOR] [SUCCESS] Doc ID: c3351448-d2e4-4aea-b8bf-5982a6342a10 - Raw text extracted from Screenshot_2025-08-01_194500.png
+[2025-08-01 19:45:38] [EXTRACTOR] [COMPLETED] Doc ID: c3351448-d2e4-4aea-b8bf-5982a6342a10 - Extracted and sent Screenshot_2025-08-01_194500.png
+[2025-08-01 19:46:55] [EXTRACTOR] [SUCCESS] Doc ID: 5f6503e8-ccb3-4acb-914d-0d898dde6fd9 - Raw text extracted from Screenshot_2025-07-07_202245.png
+[2025-08-01 19:46:55] [EXTRACTOR] [COMPLETED] Doc ID: 5f6503e8-ccb3-4acb-914d-0d898dde6fd9 - Extracted and sent Screenshot_2025-07-07_202245.png
+[2025-08-01 19:46:55] [EXTRACTOR] [SUCCESS] Doc ID: f2ef426a-9b4d-42ae-95d5-14e04914214a - Raw text extracted from Screenshot_2025-07-07_202245.png
+[2025-08-01 19:46:55] [EXTRACTOR] [COMPLETED] Doc ID: f2ef426a-9b4d-42ae-95d5-14e04914214a - Extracted and sent Screenshot_2025-07-07_202245.png
+[2025-08-01 19:58:12] [EXTRACTOR] [SUCCESS] Doc ID: 5159d209-2e0c-4798-a44e-5f13fc4980f2 - Raw text extracted from Screenshot_2025-07-28_143826.png
+[2025-08-01 19:58:12] [EXTRACTOR] [COMPLETED] Doc ID: 5159d209-2e0c-4798-a44e-5f13fc4980f2 - Extracted and sent Screenshot_2025-07-28_143826.png
+[2025-08-01 19:58:12] [EXTRACTOR] [SUCCESS] Doc ID: 0f9fe3c9-b8f3-4fc5-b5a6-1f7b4c154100 - Raw text extracted from Screenshot_2025-07-28_143826.png
+[2025-08-01 19:58:12] [EXTRACTOR] [COMPLETED] Doc ID: 0f9fe3c9-b8f3-4fc5-b5a6-1f7b4c154100 - Extracted and sent Screenshot_2025-07-28_143826.png
+[2025-08-01 20:19:11] [EXTRACTOR] [SUCCESS] Doc ID: 555e951b-7173-429d-ad56-8a235d4cb5b6 - Raw text extracted from Screenshot_2025-07-30_183534.png
+[2025-08-01 20:19:11] [EXTRACTOR] [COMPLETED] Doc ID: 555e951b-7173-429d-ad56-8a235d4cb5b6 - Extracted and sent Screenshot_2025-07-30_183534.png
+[2025-08-01 20:19:13] [EXTRACTOR] [SUCCESS] Doc ID: 148b6f59-6401-4842-8d95-6c1a09d71473 - Raw text extracted from Screenshot_2025-07-30_183534.png
+[2025-08-01 20:19:13] [EXTRACTOR] [COMPLETED] Doc ID: 148b6f59-6401-4842-8d95-6c1a09d71473 - Extracted and sent Screenshot_2025-07-30_183534.png
+[2025-08-01 20:20:07] [EXTRACTOR] [SUCCESS] Doc ID: 636b117f-63b8-4127-b378-7a0d0ba04671 - Raw text extracted from Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 20:20:07] [EXTRACTOR] [COMPLETED] Doc ID: 636b117f-63b8-4127-b378-7a0d0ba04671 - Extracted and sent Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 20:20:08] [EXTRACTOR] [SUCCESS] Doc ID: 828e33be-ebbb-4c74-bb30-174373063767 - Raw text extracted from Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 20:20:08] [EXTRACTOR] [COMPLETED] Doc ID: 828e33be-ebbb-4c74-bb30-174373063767 - Extracted and sent Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 20:20:58] [EXTRACTOR] [SUCCESS] Doc ID: 30f62728-ba59-479a-9201-ffe68b5f1ab6 - Raw text extracted from Mugunthan_Resume.pdf
+[2025-08-01 20:20:58] [EXTRACTOR] [COMPLETED] Doc ID: 30f62728-ba59-479a-9201-ffe68b5f1ab6 - Extracted and sent Mugunthan_Resume.pdf
+[2025-08-01 20:20:58] [EXTRACTOR] [SUCCESS] Doc ID: bc073dc0-ed47-4766-82b2-3a25417caa85 - Raw text extracted from Mugunthan_Resume.pdf
+[2025-08-01 20:20:58] [EXTRACTOR] [COMPLETED] Doc ID: bc073dc0-ed47-4766-82b2-3a25417caa85 - Extracted and sent Mugunthan_Resume.pdf
+[2025-08-01 21:00:17] [EXTRACTOR] [SUCCESS] Doc ID: bdc29daf-5fe0-41ce-818f-d807a5f6fe39 - Raw text extracted from Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 21:00:17] [EXTRACTOR] [COMPLETED] Doc ID: bdc29daf-5fe0-41ce-818f-d807a5f6fe39 - Extracted and sent Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 21:00:18] [EXTRACTOR] [SUCCESS] Doc ID: 68c60439-71be-432e-a046-12b0c2e38689 - Raw text extracted from Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 21:00:18] [EXTRACTOR] [COMPLETED] Doc ID: 68c60439-71be-432e-a046-12b0c2e38689 - Extracted and sent Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 21:26:15] [EXTRACTOR] [SUCCESS] Doc ID: 76831993-58a7-44cf-9360-42fcc497172b - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 21:26:15] [EXTRACTOR] [COMPLETED] Doc ID: 76831993-58a7-44cf-9360-42fcc497172b - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 21:26:16] [EXTRACTOR] [SUCCESS] Doc ID: 205c7457-4a50-4588-b44a-0d9fb054ba4b - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 21:26:16] [EXTRACTOR] [COMPLETED] Doc ID: 205c7457-4a50-4588-b44a-0d9fb054ba4b - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 21:30:08] [EXTRACTOR] [SUCCESS] Doc ID: ee689bdd-dc63-44b8-8c14-2d52edd70279 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 21:30:08] [EXTRACTOR] [COMPLETED] Doc ID: ee689bdd-dc63-44b8-8c14-2d52edd70279 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 21:30:08] [EXTRACTOR] [SUCCESS] Doc ID: fce7a166-e078-484f-b4b2-7271be0e5c40 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 21:30:08] [EXTRACTOR] [COMPLETED] Doc ID: fce7a166-e078-484f-b4b2-7271be0e5c40 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 21:30:41] [EXTRACTOR] [SUCCESS] Doc ID: 6946d6dc-c1ae-4135-9f2f-aa911120e4ae - Raw text extracted from Mugunthan_Resume.pdf
+[2025-08-01 21:30:41] [EXTRACTOR] [COMPLETED] Doc ID: 6946d6dc-c1ae-4135-9f2f-aa911120e4ae - Extracted and sent Mugunthan_Resume.pdf
+[2025-08-01 21:30:42] [EXTRACTOR] [SUCCESS] Doc ID: 2b85fb88-78de-4640-a3a7-a60793756c14 - Raw text extracted from Mugunthan_Resume.pdf
+[2025-08-01 21:30:42] [EXTRACTOR] [COMPLETED] Doc ID: 2b85fb88-78de-4640-a3a7-a60793756c14 - Extracted and sent Mugunthan_Resume.pdf
+[2025-08-01 22:07:40] [EXTRACTOR] [SUCCESS] Doc ID: 00109d6a-9c41-435b-aadd-b084a98b964d - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 22:07:40] [EXTRACTOR] [COMPLETED] Doc ID: 00109d6a-9c41-435b-aadd-b084a98b964d - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 22:07:41] [EXTRACTOR] [SUCCESS] Doc ID: f57533c4-ed2c-45d6-961b-3e246dc3474a - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 22:07:41] [EXTRACTOR] [COMPLETED] Doc ID: f57533c4-ed2c-45d6-961b-3e246dc3474a - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 22:18:35] [EXTRACTOR] [SUCCESS] Doc ID: 7e7b9e45-ab71-46b6-bd56-ab50c9f2003f - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 22:18:35] [EXTRACTOR] [COMPLETED] Doc ID: 7e7b9e45-ab71-46b6-bd56-ab50c9f2003f - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 22:18:37] [EXTRACTOR] [SUCCESS] Doc ID: c4e7aa51-16d2-40e7-ac97-e26ba6404282 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 22:18:37] [EXTRACTOR] [COMPLETED] Doc ID: c4e7aa51-16d2-40e7-ac97-e26ba6404282 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 22:32:42] [EXTRACTOR] [SUCCESS] Doc ID: 9829b56e-9e6c-4ab4-92a7-85b475eeab56 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 22:32:42] [EXTRACTOR] [COMPLETED] Doc ID: 9829b56e-9e6c-4ab4-92a7-85b475eeab56 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 22:32:43] [EXTRACTOR] [SUCCESS] Doc ID: ef410160-46e6-42a6-82e5-193e50e739b9 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 22:32:43] [EXTRACTOR] [COMPLETED] Doc ID: ef410160-46e6-42a6-82e5-193e50e739b9 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 22:46:29] [EXTRACTOR] [SUCCESS] Doc ID: 23b0578c-32f5-4063-a7e8-6c9ab22e4f22 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 22:46:29] [EXTRACTOR] [COMPLETED] Doc ID: 23b0578c-32f5-4063-a7e8-6c9ab22e4f22 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 22:46:30] [EXTRACTOR] [SUCCESS] Doc ID: 7aa9e315-fdfe-4b40-b505-7dcfb37d1fbd - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 22:46:30] [EXTRACTOR] [COMPLETED] Doc ID: 7aa9e315-fdfe-4b40-b505-7dcfb37d1fbd - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 22:52:43] [EXTRACTOR] [SUCCESS] Doc ID: f1c0ca84-6916-4e72-92ba-5d09c465b3f0 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 22:52:43] [EXTRACTOR] [COMPLETED] Doc ID: f1c0ca84-6916-4e72-92ba-5d09c465b3f0 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 22:58:46] [EXTRACTOR] [SUCCESS] Doc ID: ad6d4d63-6641-4607-916d-624672a99870 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 22:58:46] [EXTRACTOR] [COMPLETED] Doc ID: ad6d4d63-6641-4607-916d-624672a99870 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 22:58:46] [EXTRACTOR] [SUCCESS] Doc ID: 4baf8403-cd85-4932-bcbf-102300220585 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 22:58:46] [EXTRACTOR] [COMPLETED] Doc ID: 4baf8403-cd85-4932-bcbf-102300220585 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 22:59:08] [EXTRACTOR] [SUCCESS] Doc ID: 34c27da1-81a0-4811-9b29-5f358c08697a - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 22:59:08] [EXTRACTOR] [COMPLETED] Doc ID: 34c27da1-81a0-4811-9b29-5f358c08697a - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 22:59:08] [EXTRACTOR] [SUCCESS] Doc ID: 051f5aab-d317-49c5-bcb1-05d163ed155f - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 22:59:08] [EXTRACTOR] [COMPLETED] Doc ID: 051f5aab-d317-49c5-bcb1-05d163ed155f - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 22:59:28] [EXTRACTOR] [SUCCESS] Doc ID: a7029dd7-6436-4736-801a-322a95050556 - Raw text extracted from Mugunthan_Resume.pdf
+[2025-08-01 22:59:28] [EXTRACTOR] [COMPLETED] Doc ID: a7029dd7-6436-4736-801a-322a95050556 - Extracted and sent Mugunthan_Resume.pdf
+[2025-08-01 22:59:28] [EXTRACTOR] [SUCCESS] Doc ID: d0c591e5-d4e0-4899-bf6a-e21fdbbf3d05 - Raw text extracted from Mugunthan_Resume.pdf
+[2025-08-01 22:59:28] [EXTRACTOR] [COMPLETED] Doc ID: d0c591e5-d4e0-4899-bf6a-e21fdbbf3d05 - Extracted and sent Mugunthan_Resume.pdf
+[2025-08-01 22:59:46] [EXTRACTOR] [SUCCESS] Doc ID: 979391b3-628c-4191-9082-ca801850d050 - Raw text extracted from Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 22:59:46] [EXTRACTOR] [COMPLETED] Doc ID: 979391b3-628c-4191-9082-ca801850d050 - Extracted and sent Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 22:59:47] [EXTRACTOR] [SUCCESS] Doc ID: 8cdb8dc8-f917-40dc-842e-458136d0c38b - Raw text extracted from Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 22:59:47] [EXTRACTOR] [COMPLETED] Doc ID: 8cdb8dc8-f917-40dc-842e-458136d0c38b - Extracted and sent Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:05:41] [EXTRACTOR] [SUCCESS] Doc ID: 80647e95-51e6-4002-90cb-d89cd986abe4 - Raw text extracted from Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:05:41] [EXTRACTOR] [COMPLETED] Doc ID: 80647e95-51e6-4002-90cb-d89cd986abe4 - Extracted and sent Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:05:42] [EXTRACTOR] [SUCCESS] Doc ID: d7689d9f-cbaf-470b-aacd-c7e2a13c1c55 - Raw text extracted from Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:05:42] [EXTRACTOR] [COMPLETED] Doc ID: d7689d9f-cbaf-470b-aacd-c7e2a13c1c55 - Extracted and sent Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:06:23] [EXTRACTOR] [SUCCESS] Doc ID: 47665542-b313-4e16-b4b9-20f73587078c - Raw text extracted from Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:06:23] [EXTRACTOR] [COMPLETED] Doc ID: 47665542-b313-4e16-b4b9-20f73587078c - Extracted and sent Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:06:24] [EXTRACTOR] [SUCCESS] Doc ID: 5b3a7eb3-55ed-4b67-bad1-dfc5644b4531 - Raw text extracted from Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:06:24] [EXTRACTOR] [COMPLETED] Doc ID: 5b3a7eb3-55ed-4b67-bad1-dfc5644b4531 - Extracted and sent Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:07:48] [EXTRACTOR] [SUCCESS] Doc ID: a3254c01-04fb-40a9-8296-bba373f50c7c - Raw text extracted from Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:07:48] [EXTRACTOR] [COMPLETED] Doc ID: a3254c01-04fb-40a9-8296-bba373f50c7c - Extracted and sent Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:07:49] [EXTRACTOR] [SUCCESS] Doc ID: 7c4c04ae-861b-4a70-8326-f7561e0165ab - Raw text extracted from Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:07:49] [EXTRACTOR] [COMPLETED] Doc ID: 7c4c04ae-861b-4a70-8326-f7561e0165ab - Extracted and sent Mugunthan_Dataanalyst_Resume.pdf
+[2025-08-01 23:08:15] [EXTRACTOR] [SUCCESS] Doc ID: 4713e3c3-5c7a-4f4a-ad2f-7448719ea390 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 23:08:15] [EXTRACTOR] [COMPLETED] Doc ID: 4713e3c3-5c7a-4f4a-ad2f-7448719ea390 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 23:08:16] [EXTRACTOR] [SUCCESS] Doc ID: 62734fe8-e6be-4499-b2fb-fe9796db56d7 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 23:08:16] [EXTRACTOR] [COMPLETED] Doc ID: 62734fe8-e6be-4499-b2fb-fe9796db56d7 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 23:13:59] [EXTRACTOR] [SUCCESS] Doc ID: ae4f21f1-aca6-45f8-a014-5dbb4cfd7431 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 23:13:59] [EXTRACTOR] [COMPLETED] Doc ID: ae4f21f1-aca6-45f8-a014-5dbb4cfd7431 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 23:14:34] [EXTRACTOR] [SUCCESS] Doc ID: 3f077ae4-8331-4495-8b4a-fadc9efae75c - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 23:14:34] [EXTRACTOR] [COMPLETED] Doc ID: 3f077ae4-8331-4495-8b4a-fadc9efae75c - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 23:14:34] [EXTRACTOR] [SUCCESS] Doc ID: f38cc254-d2d1-4e63-954f-fbd0c0332ba1 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 23:14:34] [EXTRACTOR] [COMPLETED] Doc ID: f38cc254-d2d1-4e63-954f-fbd0c0332ba1 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 23:14:57] [EXTRACTOR] [SUCCESS] Doc ID: 9aad1cec-a82f-4efe-80d9-cb37bfa559f1 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 23:14:57] [EXTRACTOR] [COMPLETED] Doc ID: 9aad1cec-a82f-4efe-80d9-cb37bfa559f1 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 23:14:57] [EXTRACTOR] [SUCCESS] Doc ID: 6eb70bb9-229c-4125-bdca-7f6ddfeca965 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 23:14:57] [EXTRACTOR] [COMPLETED] Doc ID: 6eb70bb9-229c-4125-bdca-7f6ddfeca965 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 23:18:50] [EXTRACTOR] [SUCCESS] Doc ID: c7aae782-fe7c-44fc-97f7-803009452935 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 23:18:50] [EXTRACTOR] [COMPLETED] Doc ID: c7aae782-fe7c-44fc-97f7-803009452935 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 23:18:51] [EXTRACTOR] [SUCCESS] Doc ID: 4e4920ab-a0bd-46a9-b4f5-3d59e6cea322 - Raw text extracted from MUGUNTHAN_S.pdf
+[2025-08-01 23:18:51] [EXTRACTOR] [COMPLETED] Doc ID: 4e4920ab-a0bd-46a9-b4f5-3d59e6cea322 - Extracted and sent MUGUNTHAN_S.pdf
+[2025-08-01 23:19:24] [EXTRACTOR] [SUCCESS] Doc ID: 85824468-55fb-47f2-8a7f-1617ca5f1963 - Raw text extracted from Boarding_Pass_Template_-_Jotform_PDF_Editor.txt
+[2025-08-01 23:19:24] [EXTRACTOR] [COMPLETED] Doc ID: 85824468-55fb-47f2-8a7f-1617ca5f1963 - Extracted and sent Boarding_Pass_Template_-_Jotform_PDF_Editor.txt
+[2025-08-01 23:19:24] [EXTRACTOR] [SUCCESS] Doc ID: 1314f1bc-6713-4e13-973f-e35d3fbefda5 - Raw text extracted from Boarding_Pass_Template_-_Jotform_PDF_Editor.txt
+[2025-08-01 23:19:24] [EXTRACTOR] [COMPLETED] Doc ID: 1314f1bc-6713-4e13-973f-e35d3fbefda5 - Extracted and sent Boarding_Pass_Template_-_Jotform_PDF_Editor.txt
+[2025-08-01 23:20:03] [EXTRACTOR] [SUCCESS] Doc ID: 920f8fb3-8e96-456d-ab44-fbda88282bde - Raw text extracted from Example-of-a-self-service-transcript.txt
+[2025-08-01 23:20:03] [EXTRACTOR] [COMPLETED] Doc ID: 920f8fb3-8e96-456d-ab44-fbda88282bde - Extracted and sent Example-of-a-self-service-transcript.txt
+[2025-08-01 23:20:03] [EXTRACTOR] [SUCCESS] Doc ID: 226418eb-0aaf-4719-b342-c096380045bf - Raw text extracted from Example-of-a-self-service-transcript.txt
+[2025-08-01 23:20:03] [EXTRACTOR] [COMPLETED] Doc ID: 226418eb-0aaf-4719-b342-c096380045bf - Extracted and sent Example-of-a-self-service-transcript.txt
+[2025-08-01 23:21:11] [EXTRACTOR] [SUCCESS] Doc ID: 50c9bbc9-4dca-4c60-9f1c-c3eab84a4700 - Raw text extracted from Screenshot_2025-07-14_095212.png
+[2025-08-01 23:21:11] [EXTRACTOR] [COMPLETED] Doc ID: 50c9bbc9-4dca-4c60-9f1c-c3eab84a4700 - Extracted and sent Screenshot_2025-07-14_095212.png
+[2025-08-01 23:21:12] [EXTRACTOR] [SUCCESS] Doc ID: 0829797e-37d6-479f-82c1-33b72086280b - Raw text extracted from Screenshot_2025-07-14_095212.png
+[2025-08-01 23:21:12] [EXTRACTOR] [COMPLETED] Doc ID: 0829797e-37d6-479f-82c1-33b72086280b - Extracted and sent Screenshot_2025-07-14_095212.png
+[2025-08-01 23:21:54] [EXTRACTOR] [SUCCESS] Doc ID: 5e2c7993-f1f2-40e7-adfd-b21ac42a0860 - Raw text extracted from Screenshot_2025-07-07_170940.png
+[2025-08-01 23:21:54] [EXTRACTOR] [COMPLETED] Doc ID: 5e2c7993-f1f2-40e7-adfd-b21ac42a0860 - Extracted and sent Screenshot_2025-07-07_170940.png
+[2025-08-01 23:21:55] [EXTRACTOR] [SUCCESS] Doc ID: 62c0556a-db6b-47fc-8f31-4f6dd0290749 - Raw text extracted from Screenshot_2025-07-07_170940.png
+[2025-08-01 23:21:55] [EXTRACTOR] [COMPLETED] Doc ID: 62c0556a-db6b-47fc-8f31-4f6dd0290749 - Extracted and sent Screenshot_2025-07-07_170940.png
+[2025-08-01 23:26:57] [EXTRACTOR] [SUCCESS] Doc ID: 078631d2-bdca-4f26-b226-1bb23fc8ece1 - Raw text extracted from Screenshot_2025-07-07_170940.png
+[2025-08-01 23:26:57] [EXTRACTOR] [COMPLETED] Doc ID: 078631d2-bdca-4f26-b226-1bb23fc8ece1 - Extracted and sent Screenshot_2025-07-07_170940.png
+[2025-08-01 23:26:58] [EXTRACTOR] [SUCCESS] Doc ID: c7bf3af0-3c95-443c-9163-fc4ac47fdd02 - Raw text extracted from Screenshot_2025-07-07_170940.png
+[2025-08-01 23:26:58] [EXTRACTOR] [COMPLETED] Doc ID: c7bf3af0-3c95-443c-9163-fc4ac47fdd02 - Extracted and sent Screenshot_2025-07-07_170940.png
+[2025-08-01 23:33:54] [EXTRACTOR] [SUCCESS] Doc ID: a92b58d7-0625-4e5c-a82a-4808e2045d12 - Raw text extracted from Screenshot_2025-07-07_170940.png
+[2025-08-01 23:33:54] [EXTRACTOR] [COMPLETED] Doc ID: a92b58d7-0625-4e5c-a82a-4808e2045d12 - Extracted and sent Screenshot_2025-07-07_170940.png
+[2025-08-01 23:33:55] [EXTRACTOR] [SUCCESS] Doc ID: 8e3b667d-16fb-4aa4-b3d6-e2a0f9381a14 - Raw text extracted from Screenshot_2025-07-07_170940.png
+[2025-08-01 23:33:55] [EXTRACTOR] [COMPLETED] Doc ID: 8e3b667d-16fb-4aa4-b3d6-e2a0f9381a14 - Extracted and sent Screenshot_2025-07-07_170940.png
+[2025-08-01 23:39:12] [EXTRACTOR] [SUCCESS] Doc ID: 99a3fb4a-0e0f-4506-b72a-f30f65711d8a - Raw text extracted from Screenshot_2025-07-07_170940.png
+[2025-08-01 23:39:12] [EXTRACTOR] [COMPLETED] Doc ID: 99a3fb4a-0e0f-4506-b72a-f30f65711d8a - Extracted and sent Screenshot_2025-07-07_170940.png
+[2025-08-01 23:39:13] [EXTRACTOR] [SUCCESS] Doc ID: fb447d23-ab3b-4dfb-ac93-a0f81e02a71a - Raw text extracted from Screenshot_2025-07-07_170940.png
+[2025-08-01 23:39:13] [EXTRACTOR] [COMPLETED] Doc ID: fb447d23-ab3b-4dfb-ac93-a0f81e02a71a - Extracted and sent Screenshot_2025-07-07_170940.png
+[2025-08-01 23:40:12] [EXTRACTOR] [SUCCESS] Doc ID: 0ec7528e-0886-4270-9b65-a32e330937e0 - Raw text extracted from Results.pdf
+[2025-08-01 23:40:12] [EXTRACTOR] [COMPLETED] Doc ID: 0ec7528e-0886-4270-9b65-a32e330937e0 - Extracted and sent Results.pdf
+[2025-08-01 23:40:12] [EXTRACTOR] [SUCCESS] Doc ID: 2558b5bf-5ac2-4d51-905e-c25b14082c8c - Raw text extracted from Results.pdf
+[2025-08-01 23:40:12] [EXTRACTOR] [COMPLETED] Doc ID: 2558b5bf-5ac2-4d51-905e-c25b14082c8c - Extracted and sent Results.pdf
+[2025-08-01 23:40:13] [EXTRACTOR] [SUCCESS] Doc ID: dcd606a6-d038-4f41-b1a8-ce4cfbc83f44 - Raw text extracted from sample-invoice.pdf
+[2025-08-01 23:40:13] [EXTRACTOR] [COMPLETED] Doc ID: dcd606a6-d038-4f41-b1a8-ce4cfbc83f44 - Extracted and sent sample-invoice.pdf
+[2025-08-01 23:40:14] [EXTRACTOR] [SUCCESS] Doc ID: a091167f-e918-4bb1-ab47-3a0895285d5a - Raw text extracted from sample-invoice.pdf
+[2025-08-01 23:40:14] [EXTRACTOR] [COMPLETED] Doc ID: a091167f-e918-4bb1-ab47-3a0895285d5a - Extracted and sent sample-invoice.pdf
+[2025-08-01 23:40:15] [EXTRACTOR] [SUCCESS] Doc ID: b554d8af-5ece-4bd1-aa2e-22b51048f285 - Raw text extracted from WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 23:40:15] [EXTRACTOR] [COMPLETED] Doc ID: b554d8af-5ece-4bd1-aa2e-22b51048f285 - Extracted and sent WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 23:40:16] [EXTRACTOR] [SUCCESS] Doc ID: d4f65005-01e2-42bb-94b1-f6df74040556 - Raw text extracted from WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 23:40:16] [EXTRACTOR] [COMPLETED] Doc ID: d4f65005-01e2-42bb-94b1-f6df74040556 - Extracted and sent WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 23:46:35] [EXTRACTOR] [SUCCESS] Doc ID: 304cc337-c430-44d9-ab6b-7bfee8128f3c - Raw text extracted from Results.pdf
+[2025-08-01 23:46:35] [EXTRACTOR] [COMPLETED] Doc ID: 304cc337-c430-44d9-ab6b-7bfee8128f3c - Extracted and sent Results.pdf
+[2025-08-01 23:46:35] [EXTRACTOR] [SUCCESS] Doc ID: 4f8f0cc9-dc7a-4c7d-8acd-0854755a0717 - Raw text extracted from Results.pdf
+[2025-08-01 23:46:35] [EXTRACTOR] [COMPLETED] Doc ID: 4f8f0cc9-dc7a-4c7d-8acd-0854755a0717 - Extracted and sent Results.pdf
+[2025-08-01 23:46:36] [EXTRACTOR] [SUCCESS] Doc ID: c58ffdab-6a82-4b9b-a907-aa6cd2335e21 - Raw text extracted from sample-invoice.pdf
+[2025-08-01 23:46:36] [EXTRACTOR] [COMPLETED] Doc ID: c58ffdab-6a82-4b9b-a907-aa6cd2335e21 - Extracted and sent sample-invoice.pdf
+[2025-08-01 23:46:41] [EXTRACTOR] [SUCCESS] Doc ID: 97cc1e3d-34fd-4564-ac2f-16f9c6d63ab5 - Raw text extracted from WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 23:46:41] [EXTRACTOR] [COMPLETED] Doc ID: 97cc1e3d-34fd-4564-ac2f-16f9c6d63ab5 - Extracted and sent WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 23:46:41] [EXTRACTOR] [ERROR] Doc ID: 5f7658a3-a6f4-40de-9f7d-b122cbbcd8b7 - File not found at path: D:\Dokmanic\Back-end\Document-Ingestion-and-Classification\ingestor\folder\sample-invoice.pdf
+[2025-08-01 23:46:42] [EXTRACTOR] [SUCCESS] Doc ID: 8328da45-b2d1-43f6-a006-bb0046255bed - Raw text extracted from WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-01 23:46:42] [EXTRACTOR] [COMPLETED] Doc ID: 8328da45-b2d1-43f6-a006-bb0046255bed - Extracted and sent WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
