@@ -103,9 +103,27 @@ def process_metadata(meta):
     text = extract_text(path)
 
     if not text.strip():
-        msg = f"No text extracted from: {path}"
-        print(f"[Extractor ⚠️] {msg}")
-        log_agent_action("extractor", doc_id, "warning", msg)
+        print(f"\n[⚠️] No text extracted from: {path}")
+        log_agent_action("extractor", doc_id, "warning", f"No text in {doc_name}")
+
+        # Prompt user for action
+        print("Options: [d]elete | [r]oute to 'others' | [s]kip")
+        choice = input("👉 What do you want to do with this blank document? ").strip().lower()
+
+        if choice == "d":
+            os.remove(path)
+            print(f"🗑️ Deleted file: {path}")
+            log_agent_action("extractor", doc_id, "deleted", f"Deleted blank file: {doc_name}")
+        elif choice == "r":
+            others_dir = os.path.join("routed_documents", "others")
+            os.makedirs(others_dir, exist_ok=True)
+            new_path = os.path.join(others_dir, os.path.basename(path))
+            os.rename(path, new_path)
+            print(f"📁 Routed to 'others': {new_path}")
+            log_agent_action("extractor", doc_id, "routed", f"Blank file routed to 'others': {doc_name}")
+        else:
+            print("⏭️ Skipped. File kept as is.")
+            log_agent_action("extractor", doc_id, "skipped", f"User skipped blank file: {doc_name}")
         return
 
     log_agent_action("extractor", doc_id, "success", f"Raw text extracted from {doc_name}")
@@ -121,14 +139,13 @@ def process_metadata(meta):
 
     print(f"[Extractor 📤] Sent to Kafka topic 'doc.extracted': {doc_name}")
     log_agent_action("extractor", doc_id, "completed", f"Extracted and sent {doc_name}")
-
 # -------- KAFKA CONSUMER -------- #
 if __name__ == "__main__":
     consumer = KafkaConsumer(
         "doc.ingested",
         bootstrap_servers="localhost:9092",
         group_id="extractor-group",
-        auto_offset_reset="latest",  # Only consume new messages
+        auto_offset_reset="latest",
         enable_auto_commit=True,
         value_deserializer=lambda m: json.loads(m.decode("utf-8"))
     )

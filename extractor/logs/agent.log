@@ -188,3 +188,17 @@
 [2025-08-01 23:46:41] [EXTRACTOR] [ERROR] Doc ID: 5f7658a3-a6f4-40de-9f7d-b122cbbcd8b7 - File not found at path: D:\Dokmanic\Back-end\Document-Ingestion-and-Classification\ingestor\folder\sample-invoice.pdf
 [2025-08-01 23:46:42] [EXTRACTOR] [SUCCESS] Doc ID: 8328da45-b2d1-43f6-a006-bb0046255bed - Raw text extracted from WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
 [2025-08-01 23:46:42] [EXTRACTOR] [COMPLETED] Doc ID: 8328da45-b2d1-43f6-a006-bb0046255bed - Extracted and sent WhatsApp_Image_2025-07-31_at_16.13.25_2022d79c.jpg
+[2025-08-02 09:20:30] [EXTRACTOR] [WARNING] Doc ID: c8e68592-35e3-4749-8f92-ce45f7a78382 - No text in Untitled_document.pdf
+[2025-08-02 09:21:37] [EXTRACTOR] [DELETED] Doc ID: c8e68592-35e3-4749-8f92-ce45f7a78382 - Deleted blank file: Untitled_document.pdf
+[2025-08-02 09:21:37] [EXTRACTOR] [ERROR] Doc ID: 30634243-0017-4e47-b7b9-cac9731c5bbb - File not found at path: D:\Dokmanic\Back-end\Document-Ingestion-and-classification\ingestor\folder\Untitled_document.pdf
+[2025-08-02 09:21:37] [EXTRACTOR] [ERROR] Doc ID: 8f4aa8d7-a3d7-4bd1-ad41-8e833a966ede - File not found at path: D:\Dokmanic\Back-end\Document-Ingestion-and-Classification\ingestor\folder\Untitled_document.pdf
+[2025-08-02 09:22:08] [EXTRACTOR] [WARNING] Doc ID: d9b3e8a3-ab74-48b5-ae4e-8d1440b26bb3 - No text in Untitled_document.pdf
+[2025-08-02 09:22:19] [EXTRACTOR] [DELETED] Doc ID: d9b3e8a3-ab74-48b5-ae4e-8d1440b26bb3 - Deleted blank file: Untitled_document.pdf
+[2025-08-02 09:22:19] [EXTRACTOR] [ERROR] Doc ID: 5c9daa0f-568a-4c17-8850-e69b929512ee - File not found at path: D:\Dokmanic\Back-end\Document-Ingestion-and-Classification\ingestor\folder\Untitled_document.pdf
+[2025-08-02 09:22:37] [EXTRACTOR] [WARNING] Doc ID: 98b3f3e6-7191-4835-b1fa-d03f2722f56a - No text in Untitled_document.pdf
+[2025-08-02 09:22:42] [EXTRACTOR] [DELETED] Doc ID: 98b3f3e6-7191-4835-b1fa-d03f2722f56a - Deleted blank file: Untitled_document.pdf
+[2025-08-02 09:22:42] [EXTRACTOR] [ERROR] Doc ID: 479ecebe-fa2f-41cf-aaf4-077a7dc67181 - File not found at path: D:\Dokmanic\Back-end\Document-Ingestion-and-classification\ingestor\folder\Untitled_document.pdf
+[2025-08-02 09:22:43] [EXTRACTOR] [SUCCESS] Doc ID: 69a1bb92-c2aa-468c-99e9-62b685ec7bf1 - Raw text extracted from Results.pdf
+[2025-08-02 09:22:43] [EXTRACTOR] [COMPLETED] Doc ID: 69a1bb92-c2aa-468c-99e9-62b685ec7bf1 - Extracted and sent Results.pdf
+[2025-08-02 09:22:43] [EXTRACTOR] [SUCCESS] Doc ID: 5bb9f619-89dc-490d-bb81-5e85679288a2 - Raw text extracted from Results.pdf
+[2025-08-02 09:22:43] [EXTRACTOR] [COMPLETED] Doc ID: 5bb9f619-89dc-490d-bb81-5e85679288a2 - Extracted and sent Results.pdf
