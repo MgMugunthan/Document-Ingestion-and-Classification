@@ -1,20 +1,21 @@
 import threading
 import subprocess
 from logger import log_agent_action
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
 # Function to run a Python script in a thread with proper virtual environment
 def run_script(script_path: str, label: str):
     print(f"{label} Starting...")
-    log_agent_action(label.strip('🔁'), "-", "started", f"{label} started via main.py")
+    log_agent_action(label.strip(), "-", "started", f"{label} started via main.py")
     
     # Map each component to its virtual environment Python executable
     component_python_map = {
-        "Ingestor/Ingestor.py": "Ingestor/venv/Scripts/python.exe",
-        "Ingestor/web_app.py": "Ingestor/venv/Scripts/python.exe", 
-        "Extractor/Extractor.py": "Extractor/venv/Scripts/python.exe",
-        "Classifier/Classifier.py": "Classifier/venv/Scripts/python.exe",
-        "Router/Router.py": "Router/venv/Scripts/python.exe",
+        "ingestor/ingestor.py": "ingestor/venv/Scripts/python.exe",
+        "ingestor/web_app.py": "ingestor/venv/Scripts/python.exe", 
+        "extractor/extractor.py": "extractor/venv/Scripts/python.exe",
+        "classifier/classifier.py": "classifier/venv/Scripts/python.exe",
+        "router/router.py": "router/venv/Scripts/python.exe",
     }
     
     # Get the appropriate Python executable
@@ -45,11 +46,11 @@ if __name__ == "__main__":
 
     # These are the services that will be started by the orchestrator
     agents = [
-        ("Ingestor/Ingestor.py", " Ingestor"),
-        ("Extractor/Extractor.py", " Extractor"),
-        ("Classifier/Classifier.py", " Classifier"),
-        ("Router/Router.py", " Router"),
-        ("Ingestor/web_app.py", " Web App API"),
+        ("ingestor/ingestor.py", "Ingestor"),
+        ("extractor/extractor.py", "Extractor"),
+        ("classifier/classifier.py", "Classifier"),
+        ("router/router.py", "Router"),
+        ("ingestor/web_app.py", "Web App API"),
     ]
 
     for script, label in agents:
