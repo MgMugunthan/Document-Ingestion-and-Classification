@@ -2,10 +2,12 @@
 
 import type React from "react"
 
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect } from "react"
 import Layout from "@/components/Layout"
 import Chatbot from "@/components/Chatbot"
 import { Upload, X, Mail, CheckCircle, Clock, AlertCircle, FileText, Zap, Target, ArrowRight } from "lucide-react"
+import { documentApi, getAuthToken, getUserData } from "@/lib/api"
+import { useAuth } from "@/contexts/AuthContext"
 
 interface UploadedFile {
   id: string
@@ -20,7 +22,15 @@ interface Document {
   uploadedTime: string
   classification: string
   confidence: number
-  status: "completed" | "processing" | "failed"
+  status: "completed" | "processing" | "failed" | "uploaded" | "extracted" | "classified" | "routed"
+}
+
+interface ProcessingDocument {
+  document_id: string
+  fileName: string
+  currentStep: number
+  status: string
+  error?: string
 }
 
 export default function UploadPage() {
@@ -28,32 +38,49 @@ export default function UploadPage() {
   const [isDragOver, setIsDragOver] = useState(false)
   const [workflowStep, setWorkflowStep] = useState(0)
   const [isProcessing, setIsProcessing] = useState(false)
-  const [recentDocuments, setRecentDocuments] = useState<Document[]>([
-    {
-      id: "1",
-      fileName: "invoice_2024_001.pdf",
-      uploadedTime: "2024-01-15 10:30",
-      classification: "Invoice",
-      confidence: 95,
-      status: "completed",
-    },
-    {
-      id: "2",
-      fileName: "report_quarterly.docx",
-      uploadedTime: "2024-01-15 09:15",
-      classification: "Report",
-      confidence: 88,
-      status: "completed",
-    },
-    {
-      id: "3",
-      fileName: "resume_john_doe.pdf",
-      uploadedTime: "2024-01-15 08:45",
-      classification: "Resume",
-      confidence: 72,
-      status: "completed",
-    },
-  ])
+  const [processingDocuments, setProcessingDocuments] = useState<ProcessingDocument[]>([])
+  const [error, setError] = useState("")
+  const { user, token } = useAuth()
+  const [recentDocuments, setRecentDocuments] = useState<Document[]>([])
+
+  // Load recent documents on component mount
+  useEffect(() => {
+    loadRecentDocuments()
+  }, [user, token])
+
+  const loadRecentDocuments = async () => {
+    if (!user || !token) return
+
+    try {
+      const response = await documentApi.list(user.user_id, token, 10, 0)
+      const formattedDocs = response.documents.map((doc: any) => ({
+        id: doc.document_id,
+        fileName: doc.document_name,
+        uploadedTime: new Date(doc.upload_timestamp).toLocaleString(),
+        classification: doc.classification_type || "Pending",
+        confidence: Math.round(doc.confidence_score * 100) || 0,
+        status: mapBackendStatus(doc.processing_status)
+      }))
+      setRecentDocuments(formattedDocs)
+    } catch (error) {
+      console.error("Failed to load recent documents:", error)
+    }
+  }
+
+  const mapBackendStatus = (backendStatus: string): Document["status"] => {
+    switch (backendStatus) {
+      case "uploaded": return "uploaded"
+      case "extracting": return "processing"
+      case "extracted": return "extracted"
+      case "classifying": return "processing"
+      case "classified": return "classified"
+      case "routing": return "processing"
+      case "routed": return "completed"
+      case "completed": return "completed"
+      case "failed": return "failed"
+      default: return "processing"
+    }
+  }
 
   const workflowSteps = [
     { name: "Ingestion", icon: FileText, description: "Receiving documents" },
@@ -77,19 +104,15 @@ export default function UploadPage() {
     setIsDragOver(false)
 
     const files = Array.from(e.dataTransfer.files)
-    const newFiles = files.map((file) => ({
-      id: Math.random().toString(36).substr(2, 9),
-      name: file.name,
-      size: file.size,
-      type: file.type,
-    }))
-
-    setUploadedFiles((prev) => [...prev, ...newFiles])
-    startWorkflow(newFiles)
-  }, [])
+    handleFiles(files)
+  }, [user, token])
 
   const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || [])
+    handleFiles(files)
+  }
+
+  const handleFiles = (files: File[]) => {
     const newFiles = files.map((file) => ({
       id: Math.random().toString(36).substr(2, 9),
       name: file.name,
@@ -98,39 +121,116 @@ export default function UploadPage() {
     }))
 
     setUploadedFiles((prev) => [...prev, ...newFiles])
-    startWorkflow(newFiles)
+    uploadFilesToBackend(files)
+  }
+
+  const uploadFilesToBackend = async (files: File[]) => {
+    if (!user || !token) {
+      setError("Please log in to upload files")
+      return
+    }
+
+    setIsProcessing(true)
+    setWorkflowStep(1) // Start with ingestion
+    setError("")
+
+    try {
+      // Create FileList from files array
+      const fileList = files.reduce((dt, file) => {
+        dt.items.add(file)
+        return dt
+      }, new DataTransfer()).files
+
+      // Upload files to backend
+      const uploadResponse = await documentApi.upload(fileList, user.user_id, token)
+      
+      // Start monitoring the uploaded documents
+      const uploadedDocs = uploadResponse.documents.map((doc: any) => ({
+        document_id: doc.document_id,
+        fileName: doc.document_name,
+        currentStep: 1, // Starting with ingestion
+        status: "uploaded"
+      }))
+
+      setProcessingDocuments(uploadedDocs)
+      
+      // Start polling for status updates
+      uploadedDocs.forEach((doc: ProcessingDocument) => {
+        pollDocumentStatus(doc.document_id)
+      })
+
+    } catch (error) {
+      setError(`Upload failed: ${error instanceof Error ? error.message : 'Unknown error'}`)
+      setIsProcessing(false)
+    }
+  }
+
+  const pollDocumentStatus = async (documentId: string) => {
+    if (!token) return
+
+    const pollInterval = setInterval(async () => {
+      try {
+        const statusResponse = await documentApi.getStatus(documentId, token)
+        const status = statusResponse.processing_status
+
+        // Update processing documents
+        setProcessingDocuments(prev => 
+          prev.map(doc => 
+            doc.document_id === documentId 
+              ? { ...doc, status, currentStep: getStepFromStatus(status) }
+              : doc
+          )
+        )
+
+        // Update workflow step based on current processing
+        setWorkflowStep(getStepFromStatus(status))
+
+        // Stop polling when processing is complete
+        if (status === "completed" || status === "failed" || status === "routed") {
+          clearInterval(pollInterval)
+          setIsProcessing(false)
+          
+          // Clear uploaded files list after successful processing
+          if (status === "completed" || status === "routed") {
+            setUploadedFiles([])
+          }
+          
+          // Refresh recent documents
+          loadRecentDocuments()
+        }
+
+      } catch (error) {
+        console.error("Failed to poll document status:", error)
+        // Continue polling even if one request fails
+      }
+    }, 2000) // Poll every 2 seconds
+
+    // Stop polling after 5 minutes to prevent infinite polling
+    setTimeout(() => {
+      clearInterval(pollInterval)
+      setIsProcessing(false)
+    }, 300000)
+  }
+
+  const getStepFromStatus = (status: string): number => {
+    switch (status) {
+      case "uploaded": return 1
+      case "extracting": return 2
+      case "extracted": return 2
+      case "classifying": return 3
+      case "classified": return 3
+      case "routing": return 4
+      case "routed": return 4
+      case "completed": return 4
+      default: return 1
+    }
   }
 
   const startWorkflow = (files: UploadedFile[]) => {
-    if (files.length === 0) return
-
-    setIsProcessing(true)
-    setWorkflowStep(0)
-
-    // Simulate workflow progress
-    let step = 0
-    const interval = setInterval(() => {
-      step++
-      setWorkflowStep(step)
-
-      if (step >= workflowSteps.length) {
-        clearInterval(interval)
-        setIsProcessing(false)
-
-        // Update recent documents list when workflow completes
-        setTimeout(() => {
-          const newDoc = {
-            id: Date.now().toString(),
-            fileName: files[0]?.name || "processed_document.pdf",
-            uploadedTime: new Date().toLocaleString(),
-            classification: "Auto-classified",
-            confidence: Math.floor(Math.random() * 20) + 80, // 80-100%
-            status: "completed" as const,
-          }
-          setRecentDocuments((prev) => [newDoc, ...prev.slice(0, 2)])
-        }, 1000)
-      }
-    }, 2500) // 2.5 seconds per step
+    // This function is now replaced by uploadFilesToBackend
+    // but keeping it for backward compatibility
+    const fileObjects = files.map(f => new File([], f.name, { type: f.type }))
+    handleFiles(fileObjects)
   }
 
   const removeFile = (id: string) => {
@@ -188,6 +288,26 @@ export default function UploadPage() {
               Choose Files
             </label>
           </div>
+
+          {/* Error Message */}
+          {error && (
+            <div className="mt-6 bg-red-50 border border-red-200 rounded-lg p-4">
+              <div className="flex items-center">
+                <div className="flex-shrink-0">
+                  <AlertCircle className="h-5 w-5 text-red-400" />
+                </div>
+                <div className="ml-3">
+                  <p className="text-sm text-red-700">{error}</p>
+                </div>
+                <button
+                  onClick={() => setError("")}
+                  className="ml-auto text-red-400 hover:text-red-600"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Uploaded Files */}
           {uploadedFiles.length > 0 && (
