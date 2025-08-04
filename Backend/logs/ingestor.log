@@ -1,0 +1,381 @@
+2025-08-04 12:56:46 - ingestor - INFO - Ingestor service starting...
+2025-08-04 12:56:46 - ingestor - INFO - Setting up watcher for directory: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\folder
+2025-08-04 12:56:46 - ingestor - INFO - Watcher started. Monitoring for new documents...
+2025-08-04 13:03:08 - ingestor - INFO - Ingestor service stopped by user.
+2025-08-04 13:06:01 - ingestor - INFO - Ingestor service starting...
+2025-08-04 13:06:01 - ingestor - INFO - Setting up watcher for directory: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\folder
+2025-08-04 13:06:01 - ingestor - INFO - Watcher started. Monitoring for new documents...
+2025-08-04 13:07:09 - ingestor - INFO - New document detected: sample-invoice.pdf
+2025-08-04 13:07:09 - ingestor - ERROR - Failed to process or emit event for sample-invoice.pdf
+Traceback (most recent call last):
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\ingestor.py", line 45, in on_created
+    emit_event(
+TypeError: emit_event() got an unexpected keyword argument 'path'
+2025-08-04 13:11:25 - ingestor - INFO - Ingestor service stopped by user.
+2025-08-04 13:46:49 - ingestor - INFO - Ingestor service starting...
+2025-08-04 13:46:49 - ingestor - INFO - Setting up watcher for directory: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\folder
+2025-08-04 13:46:49 - ingestor - INFO - Watcher started. Monitoring for new documents...
+2025-08-04 13:47:15 - ingestor - INFO - New document detected: NEW_RESUME.pdf
+2025-08-04 13:47:15 - ingestor - ERROR - Failed to process or emit event for NEW_RESUME.pdf
+Traceback (most recent call last):
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\ingestor.py", line 45, in on_created
+    emit_event(
+TypeError: emit_event() got an unexpected keyword argument 'file_path'
+2025-08-04 13:52:38 - ingestor - INFO - Ingestor service stopped by user.
+2025-08-04 13:52:44 - ingestor - INFO - Ingestor service starting...
+2025-08-04 13:52:44 - ingestor - INFO - Setting up watcher for directory: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\folder
+2025-08-04 13:52:44 - ingestor - INFO - Watcher started. Monitoring for new documents...
+2025-08-04 13:53:22 - ingestor - INFO - Ingestor service stopped by user.
+2025-08-04 13:53:27 - ingestor - INFO - Ingestor service starting...
+2025-08-04 13:53:27 - ingestor - INFO - Setting up watcher for directory: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\folder
+2025-08-04 13:53:27 - ingestor - INFO - Watcher started. Monitoring for new documents...
+2025-08-04 13:53:46 - ingestor - INFO - New document detected: NEW_RESUME.pdf
+2025-08-04 13:53:46 - ingestor - ERROR - Failed to process or emit event for NEW_RESUME.pdf
+Traceback (most recent call last):
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\ingestor.py", line 45, in on_created
+    emit_event(
+TypeError: emit_event() got an unexpected keyword argument 'file_path'
+2025-08-04 13:54:20 - ingestor - INFO - New document detected: NEW_RESUME.pdf
+2025-08-04 13:54:20 - ingestor - ERROR - Failed to process or emit event for NEW_RESUME.pdf
+Traceback (most recent call last):
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\ingestor.py", line 45, in on_created
+    emit_event(
+TypeError: emit_event() got an unexpected keyword argument 'file_path'
+2025-08-04 13:54:28 - ingestor - INFO - New document detected: MUGUNTHAN_S.pdf
+2025-08-04 13:54:29 - ingestor - ERROR - Failed to process or emit event for MUGUNTHAN_S.pdf
+Traceback (most recent call last):
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\ingestor.py", line 45, in on_created
+    emit_event(
+TypeError: emit_event() got an unexpected keyword argument 'file_path'
+2025-08-04 14:02:16 - ingestor - INFO - Ingestor service stopped by user.
+2025-08-04 14:02:57 - ingestor - INFO - Ingestor service starting...
+2025-08-04 14:02:57 - ingestor - INFO - Setting up watcher for directory: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\folder
+2025-08-04 14:02:57 - ingestor - INFO - Watcher started. Monitoring for new documents...
+2025-08-04 14:03:08 - ingestor - INFO - New document detected: MUGUNTHAN_S.pdf
+2025-08-04 14:03:08 - ingestor - ERROR - Failed to process or emit event for MUGUNTHAN_S.pdf
+Traceback (most recent call last):
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\ingestor.py", line 45, in on_created
+    emit_event(
+TypeError: emit_event() got an unexpected keyword argument 'file_path'
+2025-08-04 14:08:08 - ingestor - INFO - Ingestor service stopped by user.
+2025-08-04 14:24:07 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 14:24:07 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 14:24:07 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 14:24:07 - ingestor - INFO - Gmail monitor started
+2025-08-04 14:24:07 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 14:24:07 - ingestor - ERROR - Gmail credentials file not found: credentials.json
+2025-08-04 14:24:07 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 14:24:07 - ingestor - ERROR - Gmail authentication failed
+2025-08-04 14:25:07 - ingestor - ERROR - Gmail credentials file not found: credentials.json
+2025-08-04 14:25:07 - ingestor - ERROR - Gmail authentication failed
+2025-08-04 14:26:07 - ingestor - ERROR - Gmail credentials file not found: credentials.json
+2025-08-04 14:26:07 - ingestor - ERROR - Gmail authentication failed
+2025-08-04 14:27:07 - ingestor - ERROR - Gmail credentials file not found: credentials.json
+2025-08-04 14:27:07 - ingestor - ERROR - Gmail authentication failed
+2025-08-04 14:28:07 - ingestor - ERROR - Gmail credentials file not found: credentials.json
+2025-08-04 14:28:07 - ingestor - ERROR - Gmail authentication failed
+2025-08-04 18:37:55 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 18:37:55 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 18:37:55 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 18:37:55 - ingestor - INFO - Gmail monitor started
+2025-08-04 18:37:55 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 18:37:55 - ingestor - ERROR - Gmail credentials file not found: credentials.json
+2025-08-04 18:37:55 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 18:37:55 - ingestor - ERROR - Gmail authentication failed
+2025-08-04 18:40:39 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 18:40:39 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 18:40:39 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 18:40:39 - ingestor - INFO - Gmail monitor started
+2025-08-04 18:40:39 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 18:40:39 - ingestor - ERROR - Gmail credentials file not found: credentials.json
+2025-08-04 18:40:39 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 18:40:39 - ingestor - ERROR - Gmail authentication failed
+2025-08-04 18:41:39 - ingestor - ERROR - Gmail credentials file not found: credentials.json
+2025-08-04 18:41:39 - ingestor - ERROR - Gmail authentication failed
+2025-08-04 18:43:41 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 18:43:41 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 18:43:41 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 18:43:41 - ingestor - INFO - Gmail monitor started
+2025-08-04 18:43:41 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 18:43:41 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 18:44:10 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 18:44:10 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 18:44:10 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 18:44:10 - ingestor - INFO - Gmail monitor started
+2025-08-04 18:44:10 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 18:44:10 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 18:47:00 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 18:47:00 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 18:47:00 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 18:47:00 - ingestor - INFO - Gmail monitor started
+2025-08-04 18:47:00 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 18:47:00 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 18:47:02 - ingestor - INFO - Found 100 unread emails with attachments
+2025-08-04 18:47:06 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': Donor_Diaries_1[1].pdf
+2025-08-04 18:47:06 - ingestor - INFO - Gmail attachment processed: Donor_Diaries_1[1].pdf
+2025-08-04 18:47:06 - ingestor - INFO - New document detected: Donor_Diaries_1[1].pdf
+2025-08-04 18:47:06 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': Donor_Diaries_1[1].pdf
+2025-08-04 18:47:08 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': SHIELDING WOMENLAWS & REALITY Final.pdf.pdf (3).pdf
+2025-08-04 18:47:08 - ingestor - INFO - Gmail attachment processed: SHIELDING WOMENLAWS & REALITY Final.pdf.pdf (3).pdf
+2025-08-04 18:47:09 - ingestor - INFO - New document detected: SHIELDING WOMENLAWS & REALITY Final.pdf.pdf (3).pdf
+2025-08-04 18:47:09 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': SHIELDING WOMENLAWS & REALITY Final.pdf.pdf (3).pdf
+2025-08-04 18:47:13 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': image001.jpg
+2025-08-04 18:47:13 - ingestor - INFO - Gmail attachment processed: image001.jpg
+2025-08-04 18:47:13 - ingestor - INFO - New document detected: image001.jpg
+2025-08-04 18:47:13 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': image001.jpg
+2025-08-04 18:47:15 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': image001.jpg
+2025-08-04 18:47:15 - ingestor - INFO - Gmail attachment processed: image001.jpg
+2025-08-04 18:47:17 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': HackWithInfy Practice Questions 2025_Part 1.pdf
+2025-08-04 18:47:17 - ingestor - INFO - Gmail attachment processed: HackWithInfy Practice Questions 2025_Part 1.pdf
+2025-08-04 18:47:18 - ingestor - INFO - New document detected: HackWithInfy Practice Questions 2025_Part 1.pdf
+2025-08-04 18:47:18 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': HackWithInfy Practice Questions 2025_Part 1.pdf
+2025-08-04 18:47:21 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': HackWithInfy Practice Questions 2025_Part 2.pdf
+2025-08-04 18:47:21 - ingestor - INFO - Gmail attachment processed: HackWithInfy Practice Questions 2025_Part 2.pdf
+2025-08-04 18:47:21 - ingestor - INFO - New document detected: HackWithInfy Practice Questions 2025_Part 2.pdf
+2025-08-04 18:47:21 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': HackWithInfy Practice Questions 2025_Part 2.pdf
+2025-08-04 18:47:22 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': Examination Guidelines - HWI 2025 Qualifiers.pdf
+2025-08-04 18:47:22 - ingestor - INFO - Gmail attachment processed: Examination Guidelines - HWI 2025 Qualifiers.pdf
+2025-08-04 18:47:22 - ingestor - INFO - New document detected: Examination Guidelines - HWI 2025 Qualifiers.pdf
+2025-08-04 18:47:22 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': Examination Guidelines - HWI 2025 Qualifiers.pdf
+2025-08-04 18:47:24 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': GD Allotment 23rd June'25 - Rajalakshmi Institute of Technology, Chennai all.xlsx
+2025-08-04 18:47:24 - ingestor - INFO - Gmail attachment processed: GD Allotment 23rd June'25 - Rajalakshmi Institute of Technology, Chennai all.xlsx
+2025-08-04 18:47:24 - ingestor - INFO - New document detected: GD Allotment 23rd June'25 - Rajalakshmi Institute of Technology, Chennai all.xlsx
+2025-08-04 18:47:24 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': GD Allotment 23rd June'25 - Rajalakshmi Institute of Technology, Chennai all.xlsx
+2025-08-04 18:47:26 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': CandidateDetails.xlsx
+2025-08-04 18:47:26 - ingestor - INFO - Gmail attachment processed: CandidateDetails.xlsx
+2025-08-04 18:47:26 - ingestor - INFO - New document detected: CandidateDetails.xlsx
+2025-08-04 18:47:26 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': CandidateDetails.xlsx
+2025-08-04 18:47:28 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (6).jpg
+2025-08-04 18:47:28 - ingestor - INFO - Gmail attachment processed: 1 (6).jpg
+2025-08-04 18:47:29 - ingestor - INFO - New document detected: 1 (6).jpg
+2025-08-04 18:47:29 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (6).jpg
+2025-08-04 18:47:29 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (11).jpg
+2025-08-04 18:47:29 - ingestor - INFO - Gmail attachment processed: 1 (11).jpg
+2025-08-04 18:47:29 - ingestor - INFO - New document detected: 1 (11).jpg
+2025-08-04 18:47:29 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (11).jpg
+2025-08-04 18:47:30 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (9).jpg
+2025-08-04 18:47:30 - ingestor - INFO - Gmail attachment processed: 1 (9).jpg
+2025-08-04 18:47:30 - ingestor - INFO - New document detected: 1 (9).jpg
+2025-08-04 18:47:30 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (9).jpg
+2025-08-04 18:47:31 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (7).jpg
+2025-08-04 18:47:31 - ingestor - INFO - Gmail attachment processed: 1 (7).jpg
+2025-08-04 18:47:31 - ingestor - INFO - New document detected: 1 (7).jpg
+2025-08-04 18:47:31 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (7).jpg
+2025-08-04 18:47:31 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (10).jpg
+2025-08-04 18:47:31 - ingestor - INFO - Gmail attachment processed: 1 (10).jpg
+2025-08-04 18:47:32 - ingestor - INFO - New document detected: 1 (10).jpg
+2025-08-04 18:47:32 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (10).jpg
+2025-08-04 18:47:32 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (3).jpg
+2025-08-04 18:47:32 - ingestor - INFO - Gmail attachment processed: 1 (3).jpg
+2025-08-04 18:47:33 - ingestor - INFO - New document detected: 1 (3).jpg
+2025-08-04 18:47:33 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (3).jpg
+2025-08-04 18:47:33 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (4).jpg
+2025-08-04 18:47:33 - ingestor - INFO - Gmail attachment processed: 1 (4).jpg
+2025-08-04 18:47:34 - ingestor - INFO - New document detected: 1 (4).jpg
+2025-08-04 18:47:34 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (4).jpg
+2025-08-04 18:47:34 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (2).jpg
+2025-08-04 18:47:34 - ingestor - INFO - Gmail attachment processed: 1 (2).jpg
+2025-08-04 18:47:34 - ingestor - INFO - New document detected: 1 (2).jpg
+2025-08-04 18:47:34 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (2).jpg
+2025-08-04 18:47:35 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (1) (1).jpg
+2025-08-04 18:47:35 - ingestor - INFO - Gmail attachment processed: 1 (1) (1).jpg
+2025-08-04 18:47:35 - ingestor - INFO - New document detected: 1 (1) (1).jpg
+2025-08-04 18:47:35 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (1) (1).jpg
+2025-08-04 18:47:35 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (5).jpg
+2025-08-04 18:47:35 - ingestor - INFO - Gmail attachment processed: 1 (5).jpg
+2025-08-04 18:47:36 - ingestor - INFO - New document detected: 1 (5).jpg
+2025-08-04 18:47:36 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': 1 (5).jpg
+2025-08-04 18:47:38 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': SSC_CGL_2023_Tier_1_14th-July-2023-Shift-1.pdf
+2025-08-04 18:47:38 - ingestor - INFO - Gmail attachment processed: SSC_CGL_2023_Tier_1_14th-July-2023-Shift-1.pdf
+2025-08-04 18:47:39 - ingestor - INFO - New document detected: SSC_CGL_2023_Tier_1_14th-July-2023-Shift-1.pdf
+2025-08-04 18:47:39 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': SSC_CGL_2023_Tier_1_14th-July-2023-Shift-1.pdf
+2025-08-04 18:47:40 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': SSC_CGL_2023_Tier_1_14th-July-2023-Shift-3 (1).pdf
+2025-08-04 18:47:40 - ingestor - INFO - Gmail attachment processed: SSC_CGL_2023_Tier_1_14th-July-2023-Shift-3 (1).pdf
+2025-08-04 18:47:41 - ingestor - INFO - New document detected: SSC_CGL_2023_Tier_1_14th-July-2023-Shift-3 (1).pdf
+2025-08-04 18:47:41 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': SSC_CGL_2023_Tier_1_14th-July-2023-Shift-3 (1).pdf
+2025-08-04 18:47:42 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': SSC_CGL_2023_Tier_1_14th-July-2023-Shift-3.pdf
+2025-08-04 18:47:42 - ingestor - INFO - Gmail attachment processed: SSC_CGL_2023_Tier_1_14th-July-2023-Shift-3.pdf
+2025-08-04 18:47:43 - ingestor - INFO - New document detected: SSC_CGL_2023_Tier_1_14th-July-2023-Shift-3.pdf
+2025-08-04 18:47:43 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': SSC_CGL_2023_Tier_1_14th-July-2023-Shift-3.pdf
+2025-08-04 18:47:44 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': SSC_CGL_2023_Tier_1_17th-July-2023-Shift-1.pdf
+2025-08-04 18:47:44 - ingestor - INFO - Gmail attachment processed: SSC_CGL_2023_Tier_1_17th-July-2023-Shift-1.pdf
+2025-08-04 18:47:44 - ingestor - INFO - New document detected: SSC_CGL_2023_Tier_1_17th-July-2023-Shift-1.pdf
+2025-08-04 18:47:44 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': SSC_CGL_2023_Tier_1_17th-July-2023-Shift-1.pdf
+2025-08-04 18:47:45 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': SSC_CGL_2023_Tier_1_17th-July-2023-Shift-2.pdf
+2025-08-04 18:47:45 - ingestor - INFO - Gmail attachment processed: SSC_CGL_2023_Tier_1_17th-July-2023-Shift-2.pdf
+2025-08-04 18:47:46 - ingestor - INFO - New document detected: SSC_CGL_2023_Tier_1_17th-July-2023-Shift-2.pdf
+2025-08-04 18:47:46 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': SSC_CGL_2023_Tier_1_17th-July-2023-Shift-2.pdf
+2025-08-04 19:05:52 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 19:05:52 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 19:05:52 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 19:05:52 - ingestor - INFO - Gmail monitor started
+2025-08-04 19:05:52 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 19:05:52 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 19:05:52 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:05:55 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:05:55 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:06:25 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 19:06:25 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 19:06:25 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 19:06:25 - ingestor - INFO - Gmail monitor started
+2025-08-04 19:06:25 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 19:06:25 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 19:06:25 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:06:27 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:06:27 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:07:27 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:07:28 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:07:28 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:08:28 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:09:08 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 19:09:08 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 19:09:08 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 19:09:08 - ingestor - INFO - Gmail monitor started
+2025-08-04 19:09:08 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 19:09:08 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 19:09:08 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:09:10 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:09:10 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:09:52 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 19:09:52 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 19:09:52 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 19:09:52 - ingestor - INFO - Gmail monitor started
+2025-08-04 19:09:52 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 19:09:52 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 19:09:52 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:09:54 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:09:54 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:10:54 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:10:56 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:10:56 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:11:56 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:11:58 - ingestor - INFO - Found 1 emails to process
+2025-08-04 19:12:00 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': Document Ingestion & Classification.pdf
+2025-08-04 19:12:00 - ingestor - INFO - Gmail attachment processed: Document Ingestion & Classification.pdf
+2025-08-04 19:12:01 - ingestor - WARNING - File too large, skipping: Document Ingestion & Classification.pdf
+2025-08-04 19:12:01 - ingestor - INFO - Processed 1 Gmail attachments
+2025-08-04 19:13:01 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:13:02 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:13:02 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:14:02 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:14:04 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:14:04 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:15:04 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:15:08 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:15:08 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:16:08 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:16:09 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:16:09 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:17:09 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:17:11 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:17:11 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:18:11 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:18:13 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:18:13 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:19:13 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:19:15 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:19:15 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:19:29 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': NEW_RESUME1.pdf
+2025-08-04 19:19:29 - ingestor - INFO - Web upload successful: NEW_RESUME1.pdf
+2025-08-04 19:19:30 - ingestor - WARNING - File too large, skipping: NEW_RESUME1.pdf
+2025-08-04 19:20:14 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 19:20:14 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 19:20:14 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 19:20:14 - ingestor - INFO - Gmail monitor started
+2025-08-04 19:20:14 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 19:20:14 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 19:20:14 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:20:15 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:20:15 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:20:43 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 19:20:43 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 19:20:43 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 19:20:43 - ingestor - INFO - Gmail monitor started
+2025-08-04 19:20:43 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 19:20:43 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 19:20:43 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:20:44 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:20:44 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:20:56 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': NEW_RESUME.pdf
+2025-08-04 19:20:56 - ingestor - INFO - Web upload successful: NEW_RESUME.pdf
+2025-08-04 19:21:44 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:21:46 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:21:46 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:25:52 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 19:25:52 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 19:25:52 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 19:25:52 - ingestor - INFO - Gmail monitor started
+2025-08-04 19:25:52 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 19:25:52 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 19:25:52 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:25:54 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:25:54 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:26:09 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 19:26:09 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 19:26:09 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 19:26:09 - ingestor - INFO - Gmail monitor started
+2025-08-04 19:26:09 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 19:26:09 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 19:26:09 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:26:11 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:26:11 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:26:14 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': NEW_RESUME.pdf
+2025-08-04 19:26:14 - ingestor - INFO - Web upload successful: NEW_RESUME.pdf
+2025-08-04 19:26:51 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 19:26:51 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 19:26:51 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 19:26:51 - ingestor - INFO - Gmail monitor started
+2025-08-04 19:26:51 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 19:26:51 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 19:26:51 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:26:52 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:26:52 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:30:53 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 19:30:53 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 19:30:53 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 19:30:53 - ingestor - INFO - Gmail monitor started
+2025-08-04 19:30:53 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 19:30:53 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 19:30:53 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:30:55 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:30:55 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:31:55 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:31:57 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:31:57 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:32:41 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 19:32:41 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 19:32:41 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 19:32:41 - ingestor - INFO - Gmail monitor started
+2025-08-04 19:32:41 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 19:32:41 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 19:32:41 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:32:43 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:32:43 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:33:13 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': test_document.txt
+2025-08-04 19:33:13 - ingestor - INFO - API upload successful: test_document.txt
+2025-08-04 19:33:43 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:33:44 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:33:44 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:34:45 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:34:46 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:34:46 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 19:35:14 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': NEW_RESUME.pdf
+2025-08-04 19:35:14 - ingestor - INFO - Web upload successful: NEW_RESUME.pdf
+2025-08-04 19:35:46 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 19:35:48 - ingestor - INFO - Found 0 emails to process
+2025-08-04 19:35:48 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 22:06:35 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 22:06:35 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 22:06:35 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 22:06:35 - ingestor - INFO - Gmail monitor started
+2025-08-04 22:06:35 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 22:06:35 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 22:06:36 - ingestor - INFO - Gmail credentials saved successfully
+2025-08-04 22:06:36 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 22:06:38 - ingestor - INFO - Found 0 emails to process
+2025-08-04 22:06:38 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 22:06:52 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': nationaltravels.co.in_booking-confirm.html_pnr_number5828329cms_status0emailkumar010370gmail.com.pdf
+2025-08-04 22:06:52 - ingestor - INFO - Web upload successful: nationaltravels.co.in_booking-confirm.html_pnr_number5828329cms_status0emailkumar010370gmail.com.pdf
+2025-08-04 22:07:39 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 22:07:40 - ingestor - INFO - Found 0 emails to process
+2025-08-04 22:07:40 - ingestor - INFO - No new Gmail attachments to process

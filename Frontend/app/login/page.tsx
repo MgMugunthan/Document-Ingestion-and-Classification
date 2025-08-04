@@ -3,7 +3,8 @@
 import type React from "react"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { Eye, EyeOff, Shield, Users, User, RefreshCw, Lock, Mail } from "lucide-react"
+import { Eye, EyeOff, Shield, Mail, RefreshCw, Lock } from "lucide-react"
+import { useAuth } from "@/contexts/AuthContext"
 
 export default function Login() {
   const [activeTab, setActiveTab] = useState("single")
@@ -12,7 +13,9 @@ export default function Login() {
   const [captcha, setCaptcha] = useState({ single: "", department: "" })
   const [showPassword, setShowPassword] = useState({ single: false, department: false })
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState("")
   const router = useRouter()
+  const { login } = useAuth()
 
   // Simple captcha generation
   const generateCaptcha = () => {
@@ -43,23 +46,42 @@ export default function Login() {
   const handleLogin = async (e: React.FormEvent, type: "single" | "department") => {
     e.preventDefault()
     setIsLoading(true)
+    setError("")
 
-    // Validate captcha
-    const currentCaptcha = type === "single" ? captcha.single : captcha.department
-    const expectedCaptcha = type === "single" ? captchaCode.single : captchaCode.department
+    try {
+      // Validate captcha
+      const currentCaptcha = type === "single" ? captcha.single : captcha.department
+      const expectedCaptcha = type === "single" ? captchaCode.single : captchaCode.department
 
-    if (currentCaptcha.toUpperCase() !== expectedCaptcha) {
-      alert("Invalid captcha. Please try again.")
-      refreshCaptcha(type)
-      setIsLoading(false)
-      return
-    }
+      if (currentCaptcha.toUpperCase() !== expectedCaptcha) {
+        setError("Invalid captcha. Please try again.")
+        refreshCaptcha(type)
+        setIsLoading(false)
+        return
+      }
 
-    // Simulate login process
-    setTimeout(() => {
-      setIsLoading(false)
+      // Prepare credentials
+      const credentials = {
+        type,
+        password: type === "single" ? singleUser.password : department.password,
+        captcha: currentCaptcha,
+        ...(type === "single" 
+          ? { userId: singleUser.userId } 
+          : { email: department.email }
+        )
+      }
+
+      // Use real authentication
+      await login(credentials)
+      
+      // Redirect on successful login
       router.push("/upload")
-    }, 1500)
+
+    } catch (error) {
+      setIsLoading(false)
+      setError(`Login failed: ${error instanceof Error ? error.message : 'Unknown error'}`)
+      refreshCaptcha(type)
+    }
   }
 
   return (
@@ -96,7 +118,7 @@ export default function Login() {
                   : "bg-gray-50 text-gray-600 hover:text-gray-800 hover:bg-gray-100"
               }`}
             >
-              <User className="w-4 h-4" />
+              <Mail className="w-4 h-4" />
               <span>Single User Login</span>
             </button>
             <button
@@ -107,7 +129,7 @@ export default function Login() {
                   : "bg-gray-50 text-gray-600 hover:text-gray-800 hover:bg-gray-100"
               }`}
             >
-              <Users className="w-4 h-4" />
+              <Mail className="w-4 h-4" />
               <span>Department Login</span>
             </button>
           </div>
@@ -121,7 +143,7 @@ export default function Login() {
                     User ID
                   </label>
                   <div className="relative">
-                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                     <input
                       id="userId"
                       type="text"

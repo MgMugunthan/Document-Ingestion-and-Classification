@@ -1,0 +1,337 @@
+2025-08-04 13:06:02 - extractor - INFO - Extractor service starting...
+2025-08-04 13:06:02 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 13:06:02 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 13:06:05 - extractor - INFO - Received new message from Kafka: doc_id '82e16d83-82df-4524-aa4d-0fefe15551d7' for doc_name 'MUGUNTHAN_S.pdf'
+2025-08-04 13:06:05 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\folder\MUGUNTHAN_S.pdf' for doc_id '82e16d83-82df-4524-aa4d-0fefe15551d7'. Skipping.
+2025-08-04 13:06:05 - extractor - INFO - Received new message from Kafka: doc_id '0d74a2d2-5373-4fde-bb2a-bab515417369' for doc_name 'MUGUNTHAN_S.pdf'
+2025-08-04 13:06:05 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\folder\MUGUNTHAN_S.pdf' for doc_id '0d74a2d2-5373-4fde-bb2a-bab515417369'. Skipping.
+2025-08-04 13:06:05 - extractor - INFO - Received new message from Kafka: doc_id 'ada141fc-9a16-4d31-86ae-7c8ec1f440e8' for doc_name 'sample-invoice.pdf'
+2025-08-04 13:06:05 - extractor - INFO - Attempting to extract text from 'sample-invoice.pdf' (type: .pdf)
+2025-08-04 13:06:05 - extractor - INFO - Successfully extracted text from 'sample-invoice.pdf'.
+2025-08-04 13:06:05 - extractor - INFO - Successfully emitted event for doc_id 'ada141fc-9a16-4d31-86ae-7c8ec1f440e8' to 'doc.extracted' topic.
+2025-08-04 13:07:09 - extractor - INFO - Received new message from Kafka: doc_id '0a177075-6529-479a-b3d2-fd06d733f330' for doc_name 'sample-invoice.pdf'
+2025-08-04 13:07:09 - extractor - INFO - Attempting to extract text from 'sample-invoice.pdf' (type: .pdf)
+2025-08-04 13:07:09 - extractor - INFO - Successfully extracted text from 'sample-invoice.pdf'.
+2025-08-04 13:07:09 - extractor - INFO - Successfully emitted event for doc_id '0a177075-6529-479a-b3d2-fd06d733f330' to 'doc.extracted' topic.
+2025-08-04 13:46:50 - extractor - INFO - Extractor service starting...
+2025-08-04 13:46:50 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 13:46:50 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 13:47:15 - extractor - INFO - Received new message from Kafka: doc_id 'fc6ee5c6-88af-46a5-8782-7d1f834fcee7' for doc_name 'NEW_RESUME.pdf'
+2025-08-04 13:47:15 - extractor - INFO - Attempting to extract text from 'NEW_RESUME.pdf' (type: .pdf)
+2025-08-04 13:47:15 - extractor - INFO - Successfully extracted text from 'NEW_RESUME.pdf'.
+2025-08-04 13:47:15 - extractor - INFO - Successfully emitted event for doc_id 'fc6ee5c6-88af-46a5-8782-7d1f834fcee7' to 'doc.extracted' topic.
+2025-08-04 13:52:45 - extractor - INFO - Extractor service starting...
+2025-08-04 13:52:45 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 13:52:45 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 13:53:28 - extractor - INFO - Extractor service starting...
+2025-08-04 13:53:28 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 13:53:28 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 13:53:46 - extractor - INFO - Received new message from Kafka: doc_id '9294d360-e21e-4178-9619-e1a7e1707d22' for doc_name 'NEW_RESUME.pdf'
+2025-08-04 13:53:46 - extractor - INFO - Attempting to extract text from 'NEW_RESUME.pdf' (type: .pdf)
+2025-08-04 13:53:46 - extractor - INFO - Successfully extracted text from 'NEW_RESUME.pdf'.
+2025-08-04 13:53:46 - extractor - INFO - Successfully emitted event for doc_id '9294d360-e21e-4178-9619-e1a7e1707d22' to 'doc.extracted' topic.
+2025-08-04 13:54:20 - extractor - INFO - Received new message from Kafka: doc_id 'b9ffea8d-bb50-4b2c-ac25-ac35f0ef1229' for doc_name 'NEW_RESUME.pdf'
+2025-08-04 13:54:20 - extractor - INFO - Attempting to extract text from 'NEW_RESUME.pdf' (type: .pdf)
+2025-08-04 13:54:20 - extractor - INFO - Successfully extracted text from 'NEW_RESUME.pdf'.
+2025-08-04 13:54:20 - extractor - INFO - Successfully emitted event for doc_id 'b9ffea8d-bb50-4b2c-ac25-ac35f0ef1229' to 'doc.extracted' topic.
+2025-08-04 13:54:29 - extractor - INFO - Received new message from Kafka: doc_id '9f42dfd0-fa96-4032-ad38-181bf49dcfb8' for doc_name 'MUGUNTHAN_S.pdf'
+2025-08-04 13:54:29 - extractor - INFO - Attempting to extract text from 'MUGUNTHAN_S.pdf' (type: .pdf)
+2025-08-04 13:54:31 - extractor - INFO - Successfully extracted text from 'MUGUNTHAN_S.pdf'.
+2025-08-04 13:54:31 - extractor - INFO - Successfully emitted event for doc_id '9f42dfd0-fa96-4032-ad38-181bf49dcfb8' to 'doc.extracted' topic.
+2025-08-04 14:02:58 - extractor - INFO - Extractor service starting...
+2025-08-04 14:02:58 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 14:02:58 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 14:03:08 - extractor - INFO - Received new message from Kafka: doc_id '8c85a93f-c814-4828-879e-bcff2aefd895' for doc_name 'MUGUNTHAN_S.pdf'
+2025-08-04 14:03:08 - extractor - INFO - Attempting to extract text from 'MUGUNTHAN_S.pdf' (type: .pdf)
+2025-08-04 14:03:09 - extractor - INFO - Successfully extracted text from 'MUGUNTHAN_S.pdf'.
+2025-08-04 14:03:09 - extractor - INFO - Successfully emitted event for doc_id '8c85a93f-c814-4828-879e-bcff2aefd895' to 'doc.extracted' topic.
+2025-08-04 14:24:06 - extractor - INFO - Extractor service starting...
+2025-08-04 14:24:06 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 14:24:06 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 18:37:55 - extractor - INFO - Extractor service starting...
+2025-08-04 18:37:55 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 18:37:55 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 18:40:39 - extractor - INFO - Extractor service starting...
+2025-08-04 18:40:39 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 18:40:39 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 18:43:41 - extractor - INFO - Extractor service starting...
+2025-08-04 18:43:41 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 18:43:41 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 18:44:09 - extractor - INFO - Extractor service starting...
+2025-08-04 18:44:09 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 18:44:09 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 18:46:59 - extractor - INFO - Extractor service starting...
+2025-08-04 18:46:59 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 18:46:59 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 18:47:03 - extractor - INFO - Received new message from Kafka: doc_id '79f497a3-db39-40ea-9e76-c9ddfe69f656' for doc_name 'IMG_2695.png'
+2025-08-04 18:47:03 - extractor - INFO - Attempting to extract text from 'IMG_2695.png' (type: .png)
+2025-08-04 18:47:03 - extractor - ERROR - Failed to extract text from D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\IMG_2695.png
+Traceback (most recent call last):
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\pytesseract\pytesseract.py", line 275, in run_tesseract
+    proc = subprocess.Popen(cmd_args, **subprocess_args())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveenkumar\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\Naveenkumar\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\extractor\extractor.py", line 32, in extract_text
+    return pytesseract.image_to_string(Image.open(file_path))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\pytesseract\pytesseract.py", line 486, in image_to_string
+    return {
+           ^
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\pytesseract\pytesseract.py", line 489, in <lambda>
+    Output.STRING: lambda: run_and_get_output(*args),
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\pytesseract\pytesseract.py", line 352, in run_and_get_output
+    run_tesseract(**kwargs)
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\pytesseract\pytesseract.py", line 280, in run_tesseract
+    raise TesseractNotFoundError()
+pytesseract.pytesseract.TesseractNotFoundError: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+2025-08-04 18:47:03 - extractor - WARNING - No text extracted from 'IMG_2695.png'. Waiting for user input.
+2025-08-04 18:47:18 - extractor - INFO - Skipping blank file as per user choice/timeout: IMG_2695.png
+2025-08-04 18:47:18 - extractor - INFO - Received new message from Kafka: doc_id 'c332d216-a74b-490b-8127-0ae71f3ca893' for doc_name 'IMG_2695.png'
+2025-08-04 18:47:18 - extractor - INFO - Attempting to extract text from 'IMG_2695.png' (type: .png)
+2025-08-04 18:47:18 - extractor - ERROR - Failed to extract text from D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\IMG_2695.png
+Traceback (most recent call last):
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\pytesseract\pytesseract.py", line 275, in run_tesseract
+    proc = subprocess.Popen(cmd_args, **subprocess_args())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveenkumar\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\Naveenkumar\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\extractor\extractor.py", line 32, in extract_text
+    return pytesseract.image_to_string(Image.open(file_path))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\pytesseract\pytesseract.py", line 486, in image_to_string
+    return {
+           ^
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\pytesseract\pytesseract.py", line 489, in <lambda>
+    Output.STRING: lambda: run_and_get_output(*args),
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\pytesseract\pytesseract.py", line 352, in run_and_get_output
+    run_tesseract(**kwargs)
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\pytesseract\pytesseract.py", line 280, in run_tesseract
+    raise TesseractNotFoundError()
+pytesseract.pytesseract.TesseractNotFoundError: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+2025-08-04 18:47:18 - extractor - WARNING - No text extracted from 'IMG_2695.png'. Waiting for user input.
+2025-08-04 18:47:33 - extractor - INFO - Skipping blank file as per user choice/timeout: IMG_2695.png
+2025-08-04 18:47:33 - extractor - INFO - Received new message from Kafka: doc_id '3b69a866-6495-47b6-8c69-4ddf016aece4' for doc_name 'Donor_Diaries_1[1].pdf'
+2025-08-04 18:47:33 - extractor - INFO - Attempting to extract text from 'Donor_Diaries_1[1].pdf' (type: .pdf)
+2025-08-04 18:47:33 - extractor - INFO - Successfully extracted text from 'Donor_Diaries_1[1].pdf'.
+2025-08-04 18:47:33 - extractor - INFO - Successfully emitted event for doc_id '3b69a866-6495-47b6-8c69-4ddf016aece4' to 'doc.extracted' topic.
+2025-08-04 18:47:33 - extractor - INFO - Received new message from Kafka: doc_id 'c7e2b606-e175-4e41-8995-860a9423dcda' for doc_name 'Donor_Diaries_1[1].pdf'
+2025-08-04 18:47:33 - extractor - INFO - Attempting to extract text from 'Donor_Diaries_1[1].pdf' (type: .pdf)
+2025-08-04 18:47:34 - extractor - INFO - Successfully extracted text from 'Donor_Diaries_1[1].pdf'.
+2025-08-04 18:47:34 - extractor - INFO - Successfully emitted event for doc_id 'c7e2b606-e175-4e41-8995-860a9423dcda' to 'doc.extracted' topic.
+2025-08-04 18:47:34 - extractor - INFO - Received new message from Kafka: doc_id 'add50a3c-fa28-4bf3-bd2c-b1c361af9354' for doc_name 'SHIELDING WOMENLAWS & REALITY Final.pdf.pdf (3).pdf'
+2025-08-04 18:47:34 - extractor - INFO - Attempting to extract text from 'SHIELDING WOMENLAWS & REALITY Final.pdf.pdf (3).pdf' (type: .pdf)
+2025-08-04 18:47:34 - extractor - INFO - Successfully extracted text from 'SHIELDING WOMENLAWS & REALITY Final.pdf.pdf (3).pdf'.
+2025-08-04 18:47:34 - extractor - INFO - Successfully emitted event for doc_id 'add50a3c-fa28-4bf3-bd2c-b1c361af9354' to 'doc.extracted' topic.
+2025-08-04 18:47:34 - extractor - INFO - Received new message from Kafka: doc_id 'db985dcf-1e07-4e4a-a327-54d1b6d460dd' for doc_name 'SHIELDING WOMENLAWS & REALITY Final.pdf.pdf (3).pdf'
+2025-08-04 18:47:34 - extractor - INFO - Attempting to extract text from 'SHIELDING WOMENLAWS & REALITY Final.pdf.pdf (3).pdf' (type: .pdf)
+2025-08-04 18:47:35 - extractor - INFO - Successfully extracted text from 'SHIELDING WOMENLAWS & REALITY Final.pdf.pdf (3).pdf'.
+2025-08-04 18:47:35 - extractor - INFO - Successfully emitted event for doc_id 'db985dcf-1e07-4e4a-a327-54d1b6d460dd' to 'doc.extracted' topic.
+2025-08-04 18:47:35 - extractor - INFO - Received new message from Kafka: doc_id 'a49a63f5-e606-4ce0-82ca-512feeb05ff1' for doc_name 'image001.jpg'
+2025-08-04 18:47:35 - extractor - INFO - Attempting to extract text from 'image001.jpg' (type: .jpg)
+2025-08-04 18:47:35 - extractor - ERROR - Failed to extract text from D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\image001.jpg
+Traceback (most recent call last):
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\pytesseract\pytesseract.py", line 275, in run_tesseract
+    proc = subprocess.Popen(cmd_args, **subprocess_args())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveenkumar\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\Naveenkumar\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\extractor\extractor.py", line 32, in extract_text
+    return pytesseract.image_to_string(Image.open(file_path))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\pytesseract\pytesseract.py", line 486, in image_to_string
+    return {
+           ^
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\pytesseract\pytesseract.py", line 489, in <lambda>
+    Output.STRING: lambda: run_and_get_output(*args),
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\pytesseract\pytesseract.py", line 352, in run_and_get_output
+    run_tesseract(**kwargs)
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\pytesseract\pytesseract.py", line 280, in run_tesseract
+    raise TesseractNotFoundError()
+pytesseract.pytesseract.TesseractNotFoundError: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+2025-08-04 18:47:35 - extractor - WARNING - No text extracted from 'image001.jpg'. Waiting for user input.
+2025-08-04 19:05:52 - extractor - INFO - Extractor service starting...
+2025-08-04 19:05:52 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 19:05:52 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '3b69a866-6495-47b6-8c69-4ddf016aece4' for doc_name 'Donor_Diaries_1[1].pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\Donor_Diaries_1[1].pdf' for doc_id '3b69a866-6495-47b6-8c69-4ddf016aece4'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id 'c7e2b606-e175-4e41-8995-860a9423dcda' for doc_name 'Donor_Diaries_1[1].pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\Donor_Diaries_1[1].pdf' for doc_id 'c7e2b606-e175-4e41-8995-860a9423dcda'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id 'add50a3c-fa28-4bf3-bd2c-b1c361af9354' for doc_name 'SHIELDING WOMENLAWS & REALITY Final.pdf.pdf (3).pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\SHIELDING WOMENLAWS & REALITY Final.pdf.pdf (3).pdf' for doc_id 'add50a3c-fa28-4bf3-bd2c-b1c361af9354'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id 'db985dcf-1e07-4e4a-a327-54d1b6d460dd' for doc_name 'SHIELDING WOMENLAWS & REALITY Final.pdf.pdf (3).pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\SHIELDING WOMENLAWS & REALITY Final.pdf.pdf (3).pdf' for doc_id 'db985dcf-1e07-4e4a-a327-54d1b6d460dd'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id 'a49a63f5-e606-4ce0-82ca-512feeb05ff1' for doc_name 'image001.jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\image001.jpg' for doc_id 'a49a63f5-e606-4ce0-82ca-512feeb05ff1'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '1f1b8f5d-a290-4c95-a1ef-1fd71db6c2df' for doc_name 'image001.jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\image001.jpg' for doc_id '1f1b8f5d-a290-4c95-a1ef-1fd71db6c2df'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '564972a1-56bf-4ee5-a5d0-3be8d24354ae' for doc_name 'image001.jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\image001.jpg' for doc_id '564972a1-56bf-4ee5-a5d0-3be8d24354ae'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '5689c1d7-b490-4ca8-8d4d-3a5aa5e4c5ca' for doc_name 'HackWithInfy Practice Questions 2025_Part 1.pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\HackWithInfy Practice Questions 2025_Part 1.pdf' for doc_id '5689c1d7-b490-4ca8-8d4d-3a5aa5e4c5ca'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '5fc8d0e2-732c-45df-a265-d7cda1edc09c' for doc_name 'HackWithInfy Practice Questions 2025_Part 1.pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\HackWithInfy Practice Questions 2025_Part 1.pdf' for doc_id '5fc8d0e2-732c-45df-a265-d7cda1edc09c'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '74f5629b-a024-4fcd-b746-ce043d4e19f0' for doc_name 'HackWithInfy Practice Questions 2025_Part 2.pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\HackWithInfy Practice Questions 2025_Part 2.pdf' for doc_id '74f5629b-a024-4fcd-b746-ce043d4e19f0'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id 'ce8fd256-f0d6-4f7d-8f66-9374b28e94da' for doc_name 'HackWithInfy Practice Questions 2025_Part 2.pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\HackWithInfy Practice Questions 2025_Part 2.pdf' for doc_id 'ce8fd256-f0d6-4f7d-8f66-9374b28e94da'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '8f82b1b1-aa8f-46cc-b4c1-f376ed2f045c' for doc_name 'Examination Guidelines - HWI 2025 Qualifiers.pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\Examination Guidelines - HWI 2025 Qualifiers.pdf' for doc_id '8f82b1b1-aa8f-46cc-b4c1-f376ed2f045c'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '65eed5d3-0e5e-44b5-96b1-a860494db249' for doc_name 'Examination Guidelines - HWI 2025 Qualifiers.pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\Examination Guidelines - HWI 2025 Qualifiers.pdf' for doc_id '65eed5d3-0e5e-44b5-96b1-a860494db249'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '2024ddc9-364b-4dea-beae-c1ff180c31eb' for doc_name 'GD Allotment 23rd June'25 - Rajalakshmi Institute of Technology, Chennai all.xlsx'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\GD Allotment 23rd June'25 - Rajalakshmi Institute of Technology, Chennai all.xlsx' for doc_id '2024ddc9-364b-4dea-beae-c1ff180c31eb'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id 'ada31e9a-cfed-4a5d-bfae-7ea79009a2a5' for doc_name 'GD Allotment 23rd June'25 - Rajalakshmi Institute of Technology, Chennai all.xlsx'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\GD Allotment 23rd June'25 - Rajalakshmi Institute of Technology, Chennai all.xlsx' for doc_id 'ada31e9a-cfed-4a5d-bfae-7ea79009a2a5'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '8258cf61-c60c-4606-8f28-6bcd34877c35' for doc_name 'CandidateDetails.xlsx'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\CandidateDetails.xlsx' for doc_id '8258cf61-c60c-4606-8f28-6bcd34877c35'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '0af9ba03-a3ed-4d99-9fc1-37bc673b9d96' for doc_name 'CandidateDetails.xlsx'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\CandidateDetails.xlsx' for doc_id '0af9ba03-a3ed-4d99-9fc1-37bc673b9d96'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '31d3317a-e58b-455b-bd9e-c654840a5022' for doc_name '1 (6).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (6).jpg' for doc_id '31d3317a-e58b-455b-bd9e-c654840a5022'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id 'e06c38de-6ff5-4160-9372-0eae2ac47a77' for doc_name '1 (6).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (6).jpg' for doc_id 'e06c38de-6ff5-4160-9372-0eae2ac47a77'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '7ad37c5b-0c0a-4d09-99e7-925312ce638b' for doc_name '1 (11).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (11).jpg' for doc_id '7ad37c5b-0c0a-4d09-99e7-925312ce638b'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id 'c0ba11eb-5a59-4f05-9bba-3e5885bd0308' for doc_name '1 (11).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (11).jpg' for doc_id 'c0ba11eb-5a59-4f05-9bba-3e5885bd0308'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '03ad90d3-c489-4b38-815e-90e6b9063dc7' for doc_name '1 (9).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (9).jpg' for doc_id '03ad90d3-c489-4b38-815e-90e6b9063dc7'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '7c7f1c69-26e6-483a-bc91-1d6c77a3d57c' for doc_name '1 (9).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (9).jpg' for doc_id '7c7f1c69-26e6-483a-bc91-1d6c77a3d57c'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '9056639f-732d-4235-b66f-5c27663d7e93' for doc_name '1 (7).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (7).jpg' for doc_id '9056639f-732d-4235-b66f-5c27663d7e93'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '58464243-ddd3-40dc-b546-cab3da934b80' for doc_name '1 (7).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (7).jpg' for doc_id '58464243-ddd3-40dc-b546-cab3da934b80'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '933afe91-1ba5-46d2-8f6f-f6e415b020e3' for doc_name '1 (10).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (10).jpg' for doc_id '933afe91-1ba5-46d2-8f6f-f6e415b020e3'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id 'f50bda87-a9ca-45b1-9a56-55e0adaa2b83' for doc_name '1 (10).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (10).jpg' for doc_id 'f50bda87-a9ca-45b1-9a56-55e0adaa2b83'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id 'a83c49ca-5189-4a05-8ace-1018f2c168f1' for doc_name '1 (3).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (3).jpg' for doc_id 'a83c49ca-5189-4a05-8ace-1018f2c168f1'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '95cd236c-819c-4325-aa0c-2ab9f4f56fd2' for doc_name '1 (3).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (3).jpg' for doc_id '95cd236c-819c-4325-aa0c-2ab9f4f56fd2'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id 'b5ac12bc-43f2-47a9-8e61-1b928cbbb387' for doc_name '1 (4).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (4).jpg' for doc_id 'b5ac12bc-43f2-47a9-8e61-1b928cbbb387'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id 'a0429086-4368-4f27-8a62-3836a659cab5' for doc_name '1 (4).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (4).jpg' for doc_id 'a0429086-4368-4f27-8a62-3836a659cab5'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '717ebde5-a5b9-4c4f-892f-28b1551643e7' for doc_name '1 (2).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (2).jpg' for doc_id '717ebde5-a5b9-4c4f-892f-28b1551643e7'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '7b226639-4bd5-437b-a965-09c765cdf326' for doc_name '1 (2).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (2).jpg' for doc_id '7b226639-4bd5-437b-a965-09c765cdf326'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '6763c624-089f-487b-be46-17cfb48ab575' for doc_name '1 (1) (1).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (1) (1).jpg' for doc_id '6763c624-089f-487b-be46-17cfb48ab575'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '40307499-0394-4cda-9a50-a952d8258bdf' for doc_name '1 (1) (1).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (1) (1).jpg' for doc_id '40307499-0394-4cda-9a50-a952d8258bdf'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '485503a4-7024-457e-be59-d3a703efbcfe' for doc_name '1 (5).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (5).jpg' for doc_id '485503a4-7024-457e-be59-d3a703efbcfe'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '3b828679-5c70-46bd-8f9a-6dbcdcda8064' for doc_name '1 (5).jpg'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\1 (5).jpg' for doc_id '3b828679-5c70-46bd-8f9a-6dbcdcda8064'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id 'e167cb48-385b-40cc-97fe-35351b5b11de' for doc_name 'SSC_CGL_2023_Tier_1_14th-July-2023-Shift-1.pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\SSC_CGL_2023_Tier_1_14th-July-2023-Shift-1.pdf' for doc_id 'e167cb48-385b-40cc-97fe-35351b5b11de'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '4c825694-f38e-45cd-9188-def75674f532' for doc_name 'SSC_CGL_2023_Tier_1_14th-July-2023-Shift-1.pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\SSC_CGL_2023_Tier_1_14th-July-2023-Shift-1.pdf' for doc_id '4c825694-f38e-45cd-9188-def75674f532'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id 'e8222806-0818-4161-8aae-bf3d28a6618c' for doc_name 'SSC_CGL_2023_Tier_1_14th-July-2023-Shift-3 (1).pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\SSC_CGL_2023_Tier_1_14th-July-2023-Shift-3 (1).pdf' for doc_id 'e8222806-0818-4161-8aae-bf3d28a6618c'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '962ae1a1-a34e-4788-93e4-0ab76bd20ca9' for doc_name 'SSC_CGL_2023_Tier_1_14th-July-2023-Shift-3 (1).pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\SSC_CGL_2023_Tier_1_14th-July-2023-Shift-3 (1).pdf' for doc_id '962ae1a1-a34e-4788-93e4-0ab76bd20ca9'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id 'ce2a2e6e-3193-4787-9a87-77569a450d0a' for doc_name 'SSC_CGL_2023_Tier_1_14th-July-2023-Shift-3.pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\SSC_CGL_2023_Tier_1_14th-July-2023-Shift-3.pdf' for doc_id 'ce2a2e6e-3193-4787-9a87-77569a450d0a'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '015c1f58-1898-4e3b-ac37-6c474de5a3ce' for doc_name 'SSC_CGL_2023_Tier_1_14th-July-2023-Shift-3.pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\SSC_CGL_2023_Tier_1_14th-July-2023-Shift-3.pdf' for doc_id '015c1f58-1898-4e3b-ac37-6c474de5a3ce'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '9e09ee2f-483a-46d6-9be5-99213c23a265' for doc_name 'SSC_CGL_2023_Tier_1_17th-July-2023-Shift-1.pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\SSC_CGL_2023_Tier_1_17th-July-2023-Shift-1.pdf' for doc_id '9e09ee2f-483a-46d6-9be5-99213c23a265'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '7979cb05-c672-449b-a691-2d1a98dccac5' for doc_name 'SSC_CGL_2023_Tier_1_17th-July-2023-Shift-1.pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\SSC_CGL_2023_Tier_1_17th-July-2023-Shift-1.pdf' for doc_id '7979cb05-c672-449b-a691-2d1a98dccac5'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '961a739f-38d5-4c4e-8ce9-ba69157a5231' for doc_name 'SSC_CGL_2023_Tier_1_17th-July-2023-Shift-2.pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\SSC_CGL_2023_Tier_1_17th-July-2023-Shift-2.pdf' for doc_id '961a739f-38d5-4c4e-8ce9-ba69157a5231'. Skipping.
+2025-08-04 19:05:55 - extractor - INFO - Received new message from Kafka: doc_id '206556f7-5b23-40a3-875d-9a2d28bb6ca5' for doc_name 'SSC_CGL_2023_Tier_1_17th-July-2023-Shift-2.pdf'
+2025-08-04 19:05:55 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads\SSC_CGL_2023_Tier_1_17th-July-2023-Shift-2.pdf' for doc_id '206556f7-5b23-40a3-875d-9a2d28bb6ca5'. Skipping.
+2025-08-04 19:06:24 - extractor - INFO - Extractor service starting...
+2025-08-04 19:06:24 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 19:06:24 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 19:09:08 - extractor - INFO - Extractor service starting...
+2025-08-04 19:09:08 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 19:09:08 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 19:09:52 - extractor - INFO - Extractor service starting...
+2025-08-04 19:09:52 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 19:09:52 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 19:12:00 - extractor - INFO - Received new message from Kafka: doc_id '9589f651-b11b-4303-9574-b254132ffb47' for doc_name 'Document Ingestion & Classification.pdf'
+2025-08-04 19:12:00 - extractor - INFO - Attempting to extract text from 'Document Ingestion & Classification.pdf' (type: .pdf)
+2025-08-04 19:12:00 - extractor - INFO - Successfully extracted text from 'Document Ingestion & Classification.pdf'.
+2025-08-04 19:12:00 - extractor - INFO - Successfully emitted event for doc_id '9589f651-b11b-4303-9574-b254132ffb47' to 'doc.extracted' topic.
+2025-08-04 19:19:29 - extractor - INFO - Received new message from Kafka: doc_id '32028589-7c43-4368-857b-45aa388c4b52' for doc_name 'NEW_RESUME1.pdf'
+2025-08-04 19:19:29 - extractor - INFO - Attempting to extract text from 'NEW_RESUME1.pdf' (type: .pdf)
+2025-08-04 19:19:29 - extractor - INFO - Successfully extracted text from 'NEW_RESUME1.pdf'.
+2025-08-04 19:19:29 - extractor - INFO - Successfully emitted event for doc_id '32028589-7c43-4368-857b-45aa388c4b52' to 'doc.extracted' topic.
+2025-08-04 19:20:13 - extractor - INFO - Extractor service starting...
+2025-08-04 19:20:13 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 19:20:13 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 19:20:42 - extractor - INFO - Extractor service starting...
+2025-08-04 19:20:42 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 19:20:42 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 19:20:56 - extractor - INFO - Received new message from Kafka: doc_id '5aed82cc-fcf9-4684-a88f-688df46dceb1' for doc_name 'NEW_RESUME.pdf'
+2025-08-04 19:20:56 - extractor - INFO - Attempting to extract text from 'NEW_RESUME.pdf' (type: .pdf)
+2025-08-04 19:20:56 - extractor - INFO - Successfully extracted text from 'NEW_RESUME.pdf'.
+2025-08-04 19:20:56 - extractor - INFO - Successfully emitted event for doc_id '5aed82cc-fcf9-4684-a88f-688df46dceb1' to 'doc.extracted' topic.
+2025-08-04 19:25:52 - extractor - INFO - Extractor service starting...
+2025-08-04 19:25:52 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 19:25:52 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 19:26:09 - extractor - INFO - Extractor service starting...
+2025-08-04 19:26:09 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 19:26:09 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 19:26:14 - extractor - INFO - Received new message from Kafka: doc_id '735c1ed7-0357-4608-8fde-383e208fedb2' for doc_name 'NEW_RESUME.pdf'
+2025-08-04 19:26:14 - extractor - INFO - Attempting to extract text from 'NEW_RESUME.pdf' (type: .pdf)
+2025-08-04 19:26:14 - extractor - INFO - Successfully extracted text from 'NEW_RESUME.pdf'.
+2025-08-04 19:26:14 - extractor - INFO - Successfully emitted event for doc_id '735c1ed7-0357-4608-8fde-383e208fedb2' to 'doc.extracted' topic.
+2025-08-04 19:26:51 - extractor - INFO - Extractor service starting...
+2025-08-04 19:26:51 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 19:26:51 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 19:30:53 - extractor - INFO - Extractor service starting...
+2025-08-04 19:30:53 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 19:30:53 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 19:32:41 - extractor - INFO - Extractor service starting...
+2025-08-04 19:32:41 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 19:32:41 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 19:33:13 - extractor - INFO - Received new message from Kafka: doc_id '26f0e1b3-e6c6-49dc-9578-22a4bfc47dcc' for doc_name 'test_document.txt'
+2025-08-04 19:33:13 - extractor - INFO - Attempting to extract text from 'test_document.txt' (type: .txt)
+2025-08-04 19:33:13 - extractor - INFO - Successfully extracted text from 'test_document.txt'.
+2025-08-04 19:33:13 - extractor - INFO - Successfully emitted event for doc_id '26f0e1b3-e6c6-49dc-9578-22a4bfc47dcc' to 'doc.extracted' topic.
+2025-08-04 19:35:14 - extractor - INFO - Received new message from Kafka: doc_id 'b7dbd367-88a6-45a7-bba2-8d7cdfdebfd6' for doc_name 'NEW_RESUME.pdf'
+2025-08-04 19:35:14 - extractor - INFO - Attempting to extract text from 'NEW_RESUME.pdf' (type: .pdf)
+2025-08-04 19:35:14 - extractor - INFO - Successfully extracted text from 'NEW_RESUME.pdf'.
+2025-08-04 19:35:14 - extractor - INFO - Successfully emitted event for doc_id 'b7dbd367-88a6-45a7-bba2-8d7cdfdebfd6' to 'doc.extracted' topic.
+2025-08-04 22:06:36 - extractor - INFO - Extractor service starting...
+2025-08-04 22:06:36 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 22:06:36 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 22:06:52 - extractor - INFO - Received new message from Kafka: doc_id '977cb1bc-e79d-431f-8f94-5a64e56c13d9' for doc_name 'nationaltravels.co.in_booking-confirm.html_pnr_number5828329cms_status0emailkumar010370gmail.com.pdf'
+2025-08-04 22:06:52 - extractor - INFO - Attempting to extract text from 'nationaltravels.co.in_booking-confirm.html_pnr_number5828329cms_status0emailkumar010370gmail.com.pdf' (type: .pdf)
+2025-08-04 22:06:52 - extractor - INFO - Successfully extracted text from 'nationaltravels.co.in_booking-confirm.html_pnr_number5828329cms_status0emailkumar010370gmail.com.pdf'.
+2025-08-04 22:06:52 - extractor - INFO - Successfully emitted event for doc_id '977cb1bc-e79d-431f-8f94-5a64e56c13d9' to 'doc.extracted' topic.

@@ -1,157 +1,146 @@
 import os
 import json
+import sys
+import threading
 import pdfplumber
 import pytesseract
-from PIL import Image
-import sys
-import time
-from docx import Document
 import openpyxl
-import requests
+from PIL import Image
+from docx import Document
 from kafka import KafkaProducer, KafkaConsumer
+
+# Add the parent directory to the system path to allow imports from the 'backend' folder
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from logger import log_agent_action  # ✅ Log function
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'  # Windows example
+import logger
 
-GOOGLE_API_KEY=""
-GEMINI_MODEL="models/gemini-1.5-flash-latest"
+# Get a dedicated logger for the Extractor agent
+log = logger.get_agent_logger("Extractor")
 
-GROQ_API_KEY=""
-GROQ_MODEL="mixtral-8x7b-32768"
+# Configure Tesseract executable path (adjust if necessary)
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
-OPENROUTER_API_KEY=""
-OPENROUTER_MODEL="mistralai/mistral-small-3.2-24b-instruct:free"
-
-# Kafka Producer
-producer = KafkaProducer(
-    bootstrap_servers='localhost:9092',
-    value_serializer=lambda v: json.dumps(v).encode('utf-8')
-)
-
-# Track processed document IDs in memory
-processed_ids = set()
-
-# -------- TEXT EXTRACTION -------- #
+# --- Text Extraction ---
 def extract_text(file_path):
-    ext = file_path.lower().split(".")[-1]
+    """Extracts text from various file types."""
+    ext = os.path.splitext(file_path)[1].lower()
+    log.info(f"Attempting to extract text from '{os.path.basename(file_path)}' (type: {ext})")
     try:
-        if ext == "pdf":
+        if ext == ".pdf":
             with pdfplumber.open(file_path) as pdf:
                 return "\n".join(page.extract_text() or "" for page in pdf.pages)
-        elif ext in ["png", "jpg", "jpeg"]:
+        elif ext in [".png", ".jpg", ".jpeg"]:
             return pytesseract.image_to_string(Image.open(file_path))
-        elif ext == "docx":
+        elif ext == ".docx":
             doc = Document(file_path)
             return "\n".join(p.text for p in doc.paragraphs)
-        elif ext in ["xlsx", "xls"]:
+        elif ext in [".xlsx", ".xls"]:
             wb = openpyxl.load_workbook(file_path)
             text = ""
             for sheet in wb:
                 for row in sheet.iter_rows(values_only=True):
                     text += "\t".join([str(cell) if cell else "" for cell in row]) + "\n"
             return text
-        elif ext == "txt":
+        elif ext == ".txt":
             with open(file_path, "r", encoding="utf-8") as f:
                 return f.read()
         else:
+            log.warning(f"Unsupported file type '{ext}' for file: {file_path}")
             return ""
     except Exception as e:
-        print(f"[Extractor ❌] Failed to extract from {file_path}: {e}")
+        log.error(f"Failed to extract text from {file_path}", exc_info=True)
         return ""
 
-# -------- FORMATTERS -------- #
-def fallback_format(text):
-    return f"[Formatted]\n{text.strip()}"
-
-def gemini_format(text):
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GOOGLE_API_KEY}"
-    payload = {
-        "contents": [{"parts": [{"text": f"Clean this text:\n{text}"}]}]
-    }
-    try:
-        r = requests.post(url, json=payload, timeout=10)
-        r.raise_for_status()
-        response_json = r.json()
-        return response_json["candidates"][0]["content"]["parts"][0]["text"]
-    except Exception as e:
-        print(f"[Extractor ❌] Gemini formatting failed: {e}")
-        # Optional fallback log:
-        # log_agent_action("extractor", "unknown", "fallback", "Gemini formatting failed")
-        return "[Unformatted] " + text
-
-# -------- METADATA PROCESSING -------- #
-def process_metadata(meta):
-    doc_id = meta.get("document_id")
-    doc_name = meta.get("document_name", "unknown")
-
-    if doc_id in processed_ids:
-        print(f"[Extractor ⚠️] Skipping duplicate document: {doc_id}")
-        log_agent_action("extractor", doc_id, "skipped", f"Duplicate document: {doc_name}")
-        return
-
-    processed_ids.add(doc_id)
-    path = meta.get("file_path") or meta.get("path")
-
-    if not path or not os.path.exists(path):
-        msg = f"File not found at path: {path}"
-        print(f"[Extractor ⚠️] {msg}")
-        log_agent_action("extractor", doc_id, "error", msg)
-        return
-
-    print(f"[Extractor 📥] Processing: {doc_name} ({doc_id})")
-
-    text = extract_text(path)
-
-    if not text.strip():
-        print(f"\n[⚠️] No text extracted from: {path}")
-        log_agent_action("extractor", doc_id, "warning", f"No text in {doc_name}")
-
-        # Prompt user for action
-        print("Options: [d]elete | [r]oute to 'others' | [s]kip")
-        choice = input("👉 What do you want to do with this blank document? ").strip().lower()
-
-        if choice == "d":
-            os.remove(path)
-            print(f"🗑️ Deleted file: {path}")
-            log_agent_action("extractor", doc_id, "deleted", f"Deleted blank file: {doc_name}")
-        elif choice == "r":
-            others_dir = os.path.join("routed_documents", "others")
-            os.makedirs(others_dir, exist_ok=True)
-            new_path = os.path.join(others_dir, os.path.basename(path))
-            os.rename(path, new_path)
-            print(f"📁 Routed to 'others': {new_path}")
-            log_agent_action("extractor", doc_id, "routed", f"Blank file routed to 'others': {doc_name}")
-        else:
-            print("⏭️ Skipped. File kept as is.")
-            log_agent_action("extractor", doc_id, "skipped", f"User skipped blank file: {doc_name}")
-        return
-
-    log_agent_action("extractor", doc_id, "success", f"Raw text extracted from {doc_name}")
-
-    try:
-        formatted = fallback_format(text)
-    except Exception as e:
-        print(f"[Extractor ⚠️] Fallback formatting failed: {e}")
-        formatted = "[Unformatted] " + text
-
-    meta["extracted_text"] = formatted
-    producer.send("doc.extracted", value=meta)
-
-    print(f"[Extractor 📤] Sent to Kafka topic 'doc.extracted': {doc_name}")
-    log_agent_action("extractor", doc_id, "completed", f"Extracted and sent {doc_name}")
-# -------- KAFKA CONSUMER -------- #
-if __name__ == "__main__":
-    consumer = KafkaConsumer(
-        "doc.ingested",
-        bootstrap_servers="localhost:9092",
-        group_id="extractor-group",
-        auto_offset_reset="latest",
-        enable_auto_commit=True,
-        value_deserializer=lambda m: json.loads(m.decode("utf-8"))
-    )
-
-    print("[Extractor 🔄] Listening to Kafka topic 'doc.ingested'...")
+# --- Kafka Processing Loop ---
+def process_messages(consumer, producer):
+    """Consumes messages from Kafka, extracts text, and handles user interaction for blank files."""
+    log.info("Extractor agent started. Waiting for messages from 'doc.ingested' topic...")
+    
+    processed_ids = set()
+    NEEDS_ACTION_DIR = os.path.join(os.path.dirname(__file__), "..", "router", "routed_documents", "Needs_Action")
+    os.makedirs(NEEDS_ACTION_DIR, exist_ok=True)
 
     for message in consumer:
         metadata = message.value
-        process_metadata(metadata)
+        doc_id = metadata.get("document_id", "unknown_id")
+        doc_name = metadata.get("document_name", "unknown_name")
+        
+        if doc_id in processed_ids:
+            log.warning(f"Skipping duplicate document: {doc_name} (ID: {doc_id})")
+            continue
+        
+        log.info(f"Received new message from Kafka: doc_id '{doc_id}' for doc_name '{doc_name}'")
+        
+        path = metadata.get("path")
+        if not path or not os.path.exists(path):
+            log.error(f"File not found at path '{path}' for doc_id '{doc_id}'. Skipping.")
+            continue
+
+        try:
+            text = extract_text(path)
+
+            if not text.strip():
+                log.warning(f"No text extracted from '{doc_name}'. Waiting for user input.")
+                
+                # --- Interactive prompt for blank files ---
+                print("\n" + "="*50)
+                print(f"[ATTENTION] No text extracted from: {doc_name}")
+                print("Options: [d]elete | [r]oute to 'Needs_Action' | [s]kip (default after 15s)")
+                
+                user_choice = {"value": None}
+                def get_input():
+                    user_choice["value"] = input("👉 Your choice: ").strip().lower()
+
+                input_thread = threading.Thread(target=get_input)
+                input_thread.daemon = True
+                input_thread.start()
+                input_thread.join(timeout=15)
+                choice = user_choice["value"] or "s"
+                print("="*50)
+
+                if choice == "d":
+                    os.remove(path)
+                    log.info(f"User chose to delete blank file: {doc_name}")
+                elif choice == "r":
+                    new_path = os.path.join(NEEDS_ACTION_DIR, doc_name)
+                    os.rename(path, new_path)
+                    log.info(f"User chose to route blank file to 'Needs_Action': {new_path}")
+                else: # 's' or timeout
+                    log.info(f"Skipping blank file as per user choice/timeout: {doc_name}")
+                continue # Move to the next message
+
+            # --- Process and emit message with extracted text ---
+            log.info(f"Successfully extracted text from '{doc_name}'.")
+            output_message = metadata.copy()
+            output_message["extracted_text"] = text
+            
+            producer.send("doc.extracted", value=output_message)
+            producer.flush()
+            log.info(f"Successfully emitted event for doc_id '{doc_id}' to 'doc.extracted' topic.")
+            
+            processed_ids.add(doc_id)
+
+        except Exception as e:
+            log.error(f"Failed to process message for doc_id '{doc_id}'.", exc_info=True)
+
+# --- Main Execution ---
+if __name__ == "__main__":
+    log.info("Extractor service starting...")
+
+    try:
+        producer = KafkaProducer(
+            bootstrap_servers='localhost:9092',
+            value_serializer=lambda v: json.dumps(v).encode('utf-8')
+        )
+        consumer = KafkaConsumer(
+            "doc.ingested",
+            bootstrap_servers="localhost:9092",
+            auto_offset_reset="earliest",
+            group_id="extractor-group",
+            value_deserializer=lambda m: json.loads(m.decode("utf-8"))
+        )
+        log.info("Successfully connected to Kafka.")
+    except Exception as e:
+        log.error("Could not connect to Kafka. Please ensure Kafka is running.", exc_info=True)
+        sys.exit(1)
+
+    process_messages(consumer, producer)
