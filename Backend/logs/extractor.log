@@ -335,3 +335,10 @@ pytesseract.pytesseract.TesseractNotFoundError: C:\Program Files\Tesseract-OCR\t
 2025-08-04 22:06:52 - extractor - INFO - Attempting to extract text from 'nationaltravels.co.in_booking-confirm.html_pnr_number5828329cms_status0emailkumar010370gmail.com.pdf' (type: .pdf)
 2025-08-04 22:06:52 - extractor - INFO - Successfully extracted text from 'nationaltravels.co.in_booking-confirm.html_pnr_number5828329cms_status0emailkumar010370gmail.com.pdf'.
 2025-08-04 22:06:52 - extractor - INFO - Successfully emitted event for doc_id '977cb1bc-e79d-431f-8f94-5a64e56c13d9' to 'doc.extracted' topic.
+2025-08-04 22:15:36 - extractor - INFO - Extractor service starting...
+2025-08-04 22:15:36 - extractor - INFO - Successfully connected to Kafka.
+2025-08-04 22:15:36 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-04 22:15:58 - extractor - INFO - Received new message from Kafka: doc_id '81212428-02c6-4b4c-88f5-71c0358c4536' for doc_name 'MUGUNTHAN_S.pdf'
+2025-08-04 22:15:58 - extractor - INFO - Attempting to extract text from 'MUGUNTHAN_S.pdf' (type: .pdf)
+2025-08-04 22:15:58 - extractor - INFO - Successfully extracted text from 'MUGUNTHAN_S.pdf'.
+2025-08-04 22:15:58 - extractor - INFO - Successfully emitted event for doc_id '81212428-02c6-4b4c-88f5-71c0358c4536' to 'doc.extracted' topic.
