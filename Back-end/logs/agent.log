@@ -79,3 +79,21 @@
 [2025-08-02 12:26:40] [CLASSIFIER] [COMPLETED] Doc ID: 034fa05a-e640-4865-86f5-f2acabb7f1c2 - Classified as 'marksheet' using Gemini (trusted)
 [2025-08-02 12:26:40] [CLASSIFIER] [EMITTED] Doc ID: 034fa05a-e640-4865-86f5-f2acabb7f1c2 - Sent classified result to topic
 [2025-08-02 12:26:40] [ROUTER] [ERROR] Doc ID: 034fa05a-e640-4865-86f5-f2acabb7f1c2 - Source file missing.
+[2025-08-04 08:52:43] [📥 INGESTOR] [STARTED] Doc ID: - - 📥 Ingestor started via main.py
+[2025-08-04 08:52:43] [📄 EXTRACTOR] [STARTED] Doc ID: - - 📄 Extractor started via main.py
+[2025-08-04 08:52:43] [🧠 CLASSIFIER] [STARTED] Doc ID: - - 🧠 Classifier started via main.py
+[2025-08-04 08:52:43] [🌐 WEB APP] [STARTED] Doc ID: - - 🌐 Web App started via main.py
+[2025-08-04 08:52:43] [LOGGER ] [STARTED] Doc ID: - - logger 🔁 started via main.py
+[2025-08-04 08:52:43] [📁 ROUTER] [STARTED] Doc ID: - - 📁 Router started via main.py
+[2025-08-04 08:52:45] [ROUTER] [STARTED] Doc ID: - - Router agent active and listening.
+[2025-08-04 08:54:34] [📄 EXTRACTOR] [STARTED] Doc ID: - - 📄 Extractor started via main.py
+[2025-08-04 08:54:34] [📥 INGESTOR] [STARTED] Doc ID: - - 📥 Ingestor started via main.py
+[2025-08-04 08:54:34] [🧠 CLASSIFIER] [STARTED] Doc ID: - - 🧠 Classifier started via main.py
+[2025-08-04 08:54:34] [📁 ROUTER] [STARTED] Doc ID: - - 📁 Router started via main.py
+[2025-08-04 08:54:34] [LOGGER ] [STARTED] Doc ID: - - logger 🔁 started via main.py
+[2025-08-04 08:54:34] [🌐 WEB APP] [STARTED] Doc ID: - - 🌐 Web App started via main.py
+[2025-08-04 08:54:36] [ROUTER] [STARTED] Doc ID: - - Router agent active and listening.
+[2025-08-04 08:54:42] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-04 08:55:24] [EXTRACTOR] [WARNING] Doc ID: 34f03ac1-c181-49cf-99ab-5332fc030ed9 - No text in Untitled_document.pdf
+[2025-08-04 08:55:40] [EXTRACTOR] [DELETED] Doc ID: 34f03ac1-c181-49cf-99ab-5332fc030ed9 - Deleted blank file: Untitled_document.pdf
+[2025-08-04 08:55:40] [EXTRACTOR] [ERROR] Doc ID: b24296f4-fd9e-4ff9-b421-b7704af0cefb - File not found at path: D:\Dokmanic\Back-end\Document-Ingestion-and-Classification\Back-end\ingestor\folder\Untitled_document.pdf
