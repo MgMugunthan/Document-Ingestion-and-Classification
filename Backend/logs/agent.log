@@ -1,0 +1,32 @@
+[2025-08-04 09:37:27] [ROUTER] [STARTED] Doc ID: - - Router agent active and listening.
+[2025-08-04 09:37:28] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-04 09:37:57] [📄 EXTRACTOR] [STARTED] Doc ID: - - 📄 Extractor started via main.py
+[2025-08-04 09:37:57] [📥 INGESTOR] [STARTED] Doc ID: - - 📥 Ingestor started via main.py
+[2025-08-04 09:37:57] [📁 ROUTER] [STARTED] Doc ID: - - 📁 Router started via main.py
+[2025-08-04 09:37:57] [🧠 CLASSIFIER] [STARTED] Doc ID: - - 🧠 Classifier started via main.py
+[2025-08-04 09:37:57] [LOGGER ] [STARTED] Doc ID: - - logger 🔁 started via main.py
+[2025-08-04 09:37:57] [🌐 WEB APP] [STARTED] Doc ID: - - 🌐 Web App started via main.py
+[2025-08-04 09:37:57] [ROUTER] [STARTED] Doc ID: - - Router agent active and listening.
+[2025-08-04 09:37:58] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-04 09:49:27] [📥 INGESTOR] [STARTED] Doc ID: - - 📥 Ingestor started via main.py
+[2025-08-04 09:49:27] [📄 EXTRACTOR] [STARTED] Doc ID: - - 📄 Extractor started via main.py
+[2025-08-04 09:49:27] [🧠 CLASSIFIER] [STARTED] Doc ID: - - 🧠 Classifier started via main.py
+[2025-08-04 09:49:27] [📁 ROUTER] [STARTED] Doc ID: - - 📁 Router started via main.py
+[2025-08-04 09:49:27] [🌐 WEB APP API] [STARTED] Doc ID: - - 🌐 Web App API started via main.py
+[2025-08-04 09:49:28] [ROUTER] [STARTED] Doc ID: - - Router agent active and listening.
+[2025-08-04 09:49:28] [CLASSIFIER] [STARTED] Doc ID: - - Classifier agent started and awaiting messages
+[2025-08-04 09:49:58] [EXTRACTOR] [WARNING] Doc ID: 3016f8fe-2241-4e01-9d23-9edadf889b45 - No text in resume.pdf
+[2025-08-04 09:50:14] [EXTRACTOR] [DELETED] Doc ID: 3016f8fe-2241-4e01-9d23-9edadf889b45 - Deleted blank file: resume.pdf
+[2025-08-04 09:50:14] [EXTRACTOR] [ERROR] Doc ID: fc547254-527e-482b-a8c3-232b3cdbdf75 - File not found at path: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Back-end\ingestor\folder\resume.pdf
+[2025-08-04 09:50:28] [EXTRACTOR] [SUCCESS] Doc ID: 6e9d625c-42e6-4ce4-b901-1df4cc731091 - Raw text extracted from Naveen_Resume.pdf
+[2025-08-04 09:50:28] [EXTRACTOR] [COMPLETED] Doc ID: 6e9d625c-42e6-4ce4-b901-1df4cc731091 - Extracted and sent Naveen_Resume.pdf
+[2025-08-04 09:50:28] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Naveen_Resume.pdf
+[2025-08-04 09:50:28] [EXTRACTOR] [SUCCESS] Doc ID: 7d5926a9-3546-4d79-8121-3256055946c6 - Raw text extracted from Naveen_Resume.pdf
+[2025-08-04 09:50:28] [EXTRACTOR] [COMPLETED] Doc ID: 7d5926a9-3546-4d79-8121-3256055946c6 - Extracted and sent Naveen_Resume.pdf
+[2025-08-04 09:50:31] [CLASSIFIER] [COMPLETED] Doc ID: 6e9d625c-42e6-4ce4-b901-1df4cc731091 - Classified as 'other' using Fallback Error
+[2025-08-04 09:50:31] [CLASSIFIER] [EMITTED] Doc ID: 6e9d625c-42e6-4ce4-b901-1df4cc731091 - Sent classified result to topic
+[2025-08-04 09:50:31] [ROUTER] [COMPLETED] Doc ID: 6e9d625c-42e6-4ce4-b901-1df4cc731091 - Low confidence (0.00), routed to 'other'
+[2025-08-04 09:50:31] [CLASSIFIER] [RECEIVED] Doc ID: - - Document received for classification: Naveen_Resume.pdf
+[2025-08-04 09:50:34] [CLASSIFIER] [COMPLETED] Doc ID: 7d5926a9-3546-4d79-8121-3256055946c6 - Classified as 'other' using Fallback Error
+[2025-08-04 09:50:34] [CLASSIFIER] [EMITTED] Doc ID: 7d5926a9-3546-4d79-8121-3256055946c6 - Sent classified result to topic
+[2025-08-04 09:50:34] [ROUTER] [ERROR] Doc ID: 7d5926a9-3546-4d79-8121-3256055946c6 - Source file missing.
