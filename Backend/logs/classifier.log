@@ -183,3 +183,12 @@
 2025-08-04 22:06:52 - classifier - INFO - [Local ML 🤖] Prediction: Train Ticket (confidence: 0.024)
 2025-08-04 22:06:52 - classifier - INFO - Doc '977cb1bc-e79d-431f-8f94-5a64e56c13d9' classified as 'train ticket' by Local ML boosted (Confidence: 0.7)
 2025-08-04 22:06:52 - classifier - INFO - Successfully emitted event for doc_id '977cb1bc-e79d-431f-8f94-5a64e56c13d9' to 'doc.classified' topic.
+2025-08-04 22:15:36 - classifier - ERROR - ❌ Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-04 22:15:37 - classifier - INFO - 🧠 Local ML model and vectorizer loaded successfully.
+2025-08-04 22:15:37 - classifier - INFO - Classifier service starting...
+2025-08-04 22:15:37 - classifier - INFO - Successfully connected to Kafka.
+2025-08-04 22:15:37 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-04 22:15:58 - classifier - INFO - Received new message from Kafka: doc_id '81212428-02c6-4b4c-88f5-71c0358c4536'
+2025-08-04 22:15:58 - classifier - INFO - [Local ML 🤖] Prediction: Resume (confidence: 0.049)
+2025-08-04 22:15:58 - classifier - INFO - Doc '81212428-02c6-4b4c-88f5-71c0358c4536' classified as 'resume' by Local ML boosted (Confidence: 0.7)
+2025-08-04 22:15:58 - classifier - INFO - Successfully emitted event for doc_id '81212428-02c6-4b4c-88f5-71c0358c4536' to 'doc.classified' topic.

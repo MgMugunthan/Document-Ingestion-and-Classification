@@ -379,3 +379,17 @@ TypeError: emit_event() got an unexpected keyword argument 'file_path'
 2025-08-04 22:07:39 - ingestor - INFO - Fetching emails newer than 2025/08/04...
 2025-08-04 22:07:40 - ingestor - INFO - Found 0 emails to process
 2025-08-04 22:07:40 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 22:15:36 - ingestor - INFO - Kafka producer initialized successfully
+2025-08-04 22:15:36 - ingestor - INFO - Starting Document Ingestor Service...
+2025-08-04 22:15:36 - ingestor - INFO - File watcher started monitoring: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-04 22:15:36 - ingestor - INFO - Gmail monitor started
+2025-08-04 22:15:36 - ingestor - INFO - Gmail monitoring enabled (check interval: 60s)
+2025-08-04 22:15:36 - ingestor - INFO - Starting web server on port 5000...
+2025-08-04 22:15:36 - ingestor - INFO - Starting Gmail OAuth authentication flow...
+2025-08-04 22:15:46 - ingestor - INFO - Gmail OAuth authentication completed successfully
+2025-08-04 22:15:46 - ingestor - INFO - Gmail credentials saved successfully
+2025-08-04 22:15:46 - ingestor - INFO - Fetching emails newer than 2025/08/04...
+2025-08-04 22:15:48 - ingestor - INFO - Found 0 emails to process
+2025-08-04 22:15:48 - ingestor - INFO - No new Gmail attachments to process
+2025-08-04 22:15:58 - ingestor - INFO - [Kafka ✅] Sent to topic 'doc.ingested': MUGUNTHAN_S.pdf
+2025-08-04 22:15:58 - ingestor - INFO - Web upload successful: MUGUNTHAN_S.pdf
