@@ -3,7 +3,6 @@ import subprocess
 from logger import log_agent_action
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
-
 # Function to run a Python script in a thread with proper virtual environment
 def run_script(script_path: str, label: str):
     print(f"{label} Starting...")
