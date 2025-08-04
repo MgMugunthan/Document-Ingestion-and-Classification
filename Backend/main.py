@@ -10,11 +10,11 @@ def run_script(script_path: str, label: str):
     
     # Map each component to its virtual environment Python executable
     component_python_map = {
-        "ingestor/ingestor.py": "ingestor/venv/Scripts/python.exe",
-        "ingestor/web_app.py": "ingestor/venv/Scripts/python.exe", 
-        "extractor/extractor.py": "extractor/venv/Scripts/python.exe",
-        "Classifier/classifier.py": "Classifier/venv/Scripts/python.exe",
-        "Router/router.py": "Router/venv/Scripts/python.exe",
+        "Ingestor/Ingestor.py": "Ingestor/venv/Scripts/python.exe",
+        "Ingestor/web_app.py": "Ingestor/venv/Scripts/python.exe", 
+        "Extractor/Extractor.py": "Extractor/venv/Scripts/python.exe",
+        "Classifier/Classifier.py": "Classifier/venv/Scripts/python.exe",
+        "Router/Router.py": "Router/venv/Scripts/python.exe",
     }
     
     # Get the appropriate Python executable
@@ -45,11 +45,11 @@ if __name__ == "__main__":
 
     # These are the services that will be started by the orchestrator
     agents = [
-        ("ingestor/ingestor.py", "📥 Ingestor"),
-        ("extractor/extractor.py", "📄 Extractor"),
-        ("Classifier/classifier.py", "🧠 Classifier"),
-        ("Router/router.py", "📁 Router"),
-        ("ingestor/web_app.py", "🌐 Web App API"),
+        ("Ingestor/Ingestor.py", " Ingestor"),
+        ("Extractor/Extractor.py", " Extractor"),
+        ("Classifier/Classifier.py", " Classifier"),
+        ("Router/Router.py", " Router"),
+        ("Ingestor/web_app.py", " Web App API"),
     ]
 
     for script, label in agents:
