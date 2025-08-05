@@ -342,3 +342,73 @@ pytesseract.pytesseract.TesseractNotFoundError: C:\Program Files\Tesseract-OCR\t
 2025-08-04 22:15:58 - extractor - INFO - Attempting to extract text from 'MUGUNTHAN_S.pdf' (type: .pdf)
 2025-08-04 22:15:58 - extractor - INFO - Successfully extracted text from 'MUGUNTHAN_S.pdf'.
 2025-08-04 22:15:58 - extractor - INFO - Successfully emitted event for doc_id '81212428-02c6-4b4c-88f5-71c0358c4536' to 'doc.extracted' topic.
+2025-08-05 08:14:02 - extractor - INFO - Extractor service starting...
+2025-08-05 08:14:04 - extractor - ERROR - Could not connect to Kafka. Please ensure Kafka is running.
+Traceback (most recent call last):
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\extractor\extractor.py", line 130, in <module>
+    producer = KafkaProducer(
+               ^^^^^^^^^^^^^^
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\kafka\producer\kafka.py", line 481, in __init__
+    client = self.config['kafka_client'](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\kafka\client_async.py", line 262, in __init__
+    self.config['api_version'] = self.check_version()
+                                 ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\venv\Lib\site-packages\kafka\client_async.py", line 1074, in check_version
+    raise Errors.NoBrokersAvailable()
+kafka.errors.NoBrokersAvailable: NoBrokersAvailable
+2025-08-05 08:46:35 - extractor - INFO - Extractor service starting...
+2025-08-05 08:46:35 - extractor - INFO - Successfully connected to Kafka.
+2025-08-05 08:46:35 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-05 09:03:49 - extractor - INFO - Extractor service starting...
+2025-08-05 09:03:49 - extractor - INFO - Successfully connected to Kafka.
+2025-08-05 09:03:49 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-05 09:04:16 - extractor - INFO - Extractor service starting...
+2025-08-05 09:04:16 - extractor - INFO - Successfully connected to Kafka.
+2025-08-05 09:04:16 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-05 09:06:30 - extractor - INFO - Received new message from Kafka: doc_id '34d47298-e714-4350-88f0-cd45ada68ef8' for doc_name 'receipt.pdf.pdf'
+2025-08-05 09:06:30 - extractor - INFO - Attempting to extract text from 'receipt.pdf.pdf' (type: .pdf)
+2025-08-05 09:06:30 - extractor - WARNING - No text extracted from 'receipt.pdf.pdf'. Waiting for user input.
+2025-08-05 09:06:45 - extractor - INFO - Skipping blank file as per user choice/timeout: receipt.pdf.pdf
+2025-08-05 09:06:45 - extractor - INFO - Received new message from Kafka: doc_id '1fed3359-fa7a-42c5-9919-2de203962c82' for doc_name 'receipt.pdf.pdf'
+2025-08-05 09:06:45 - extractor - INFO - Attempting to extract text from 'receipt.pdf.pdf' (type: .pdf)
+2025-08-05 09:06:45 - extractor - WARNING - No text extracted from 'receipt.pdf.pdf'. Waiting for user input.
+2025-08-05 09:07:00 - extractor - INFO - Skipping blank file as per user choice/timeout: receipt.pdf.pdf
+2025-08-05 09:08:52 - extractor - INFO - Extractor service starting...
+2025-08-05 09:08:52 - extractor - INFO - Successfully connected to Kafka.
+2025-08-05 09:08:52 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-05 09:10:57 - extractor - INFO - Received new message from Kafka: doc_id '921caf27-a9df-4ceb-8dc4-38a496bc221f' for doc_name 'receipt.pdf.pdf'
+2025-08-05 09:10:57 - extractor - INFO - Attempting to extract text from 'receipt.pdf.pdf' (type: .pdf)
+2025-08-05 09:10:57 - extractor - WARNING - No text extracted from 'receipt.pdf.pdf'. Waiting for user input.
+2025-08-05 09:11:12 - extractor - INFO - User chose to route blank file to 'Needs_Action': D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\extractor\..\router\routed_documents\Needs_Action\receipt.pdf.pdf
+2025-08-05 09:11:12 - extractor - INFO - Received new message from Kafka: doc_id 'b204e163-435c-4c8e-870b-c62de5d3e287' for doc_name 'receipt.pdf.pdf'
+2025-08-05 09:11:12 - extractor - ERROR - File not found at path 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\ingestor\uploads\receipt.pdf.pdf' for doc_id 'b204e163-435c-4c8e-870b-c62de5d3e287'. Skipping.
+2025-08-05 09:13:13 - extractor - INFO - Extractor service starting...
+2025-08-05 09:13:13 - extractor - INFO - Successfully connected to Kafka.
+2025-08-05 09:13:13 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-05 09:16:30 - extractor - INFO - Extractor service starting...
+2025-08-05 09:16:30 - extractor - INFO - Successfully connected to Kafka.
+2025-08-05 09:16:30 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-05 12:46:31 - extractor - INFO - Extractor service starting...
+2025-08-05 12:46:31 - extractor - INFO - Successfully connected to Kafka.
+2025-08-05 12:46:31 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-05 12:47:49 - extractor - INFO - Received new message from Kafka: doc_id 'ab7b9eae-daea-49f6-b783-da39914b4ce6' for doc_name 'Document Ingestion & Classification.pdf'
+2025-08-05 12:47:49 - extractor - INFO - Attempting to extract text from 'Document Ingestion & Classification.pdf' (type: .pdf)
+2025-08-05 12:47:50 - extractor - INFO - Successfully extracted text from 'Document Ingestion & Classification.pdf'.
+2025-08-05 12:47:50 - extractor - INFO - Successfully emitted event for doc_id 'ab7b9eae-daea-49f6-b783-da39914b4ce6' to 'doc.extracted' topic.
+2025-08-05 23:29:57 - extractor - INFO - Extractor service starting...
+2025-08-05 23:29:58 - extractor - INFO - Database connection established
+2025-08-05 23:29:58 - extractor - INFO - Successfully connected to Kafka.
+2025-08-05 23:29:58 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...
+2025-08-05 23:30:03 - extractor - INFO - Received new message from Kafka: doc_id '08b16be1-85a4-4fcf-849b-9a4ebe445dc5' for doc_name 'Hackathon invitation Rajesh 6th aug .jpg'
+2025-08-05 23:30:03 - extractor - INFO - Attempting to extract text from 'Hackathon invitation Rajesh 6th aug .jpg' (type: .jpg)
+2025-08-05 23:30:05 - extractor - INFO - Successfully extracted 780 characters from 'Hackathon invitation Rajesh 6th aug .jpg'.
+2025-08-05 23:30:05 - extractor - INFO - Successfully emitted event for doc_id '08b16be1-85a4-4fcf-849b-9a4ebe445dc5' to 'doc.extracted' topic.
+2025-08-05 23:30:06 - extractor - INFO - Received new message from Kafka: doc_id 'cb5b6f70-1f04-4bff-baf0-9e24c863cbc2' for doc_name 'Hackathon invitation Rajesh 6th aug .jpg'
+2025-08-05 23:30:06 - extractor - INFO - Attempting to extract text from 'Hackathon invitation Rajesh 6th aug .jpg' (type: .jpg)
+2025-08-05 23:30:06 - extractor - INFO - Successfully extracted 780 characters from 'Hackathon invitation Rajesh 6th aug .jpg'.
+2025-08-05 23:30:06 - extractor - INFO - Successfully emitted event for doc_id 'cb5b6f70-1f04-4bff-baf0-9e24c863cbc2' to 'doc.extracted' topic.
+2025-08-05 23:41:15 - extractor - INFO - Extractor service starting...
+2025-08-05 23:41:15 - extractor - INFO - Database connection established
+2025-08-05 23:41:15 - extractor - INFO - Successfully connected to Kafka.
+2025-08-05 23:41:15 - extractor - INFO - Extractor agent started. Waiting for messages from 'doc.ingested' topic...

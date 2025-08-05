@@ -1,9 +1,3 @@
-"""
-Optimized Document Ingestor Service
-Consolidates all ingestion functionality into a single, well-organized file.
-Handles file watching, web uploads, API uploads, and Kafka messaging.
-"""
-
 import os
 import sys
 import time
@@ -14,8 +8,11 @@ import threading
 from datetime import datetime
 from pathlib import Path
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),"..")))
+from database.database import db_manager
+
 # Flask for web interface
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
 
 # File monitoring
@@ -57,7 +54,7 @@ class IngestorConfig:
         self.gmail_credentials_file = os.path.join(self.base_dir, 'credentials.json')
         self.gmail_token_file = os.path.join(self.base_dir, 'token.json')
         self.gmail_state_file = os.path.join(self.base_dir, 'gmail_state.json')
-        self.gmail_check_interval = 60  # seconds
+        self.gmail_check_interval = 10  # seconds
         
         # Ensure directories exist
         os.makedirs(self.files_dir, exist_ok=True)
@@ -72,6 +69,7 @@ class DocumentIngestor:
         self.kafka_producer = self._setup_kafka()
         self.flask_app = self._setup_flask()
         self.file_observer = None
+        self.db = db_manager
         
     def _setup_kafka(self):
         """Initialize Kafka producer with error handling."""
@@ -89,33 +87,30 @@ class DocumentIngestor:
     
     def _setup_flask(self):
         """Initialize Flask app with all routes."""
-        # Configure Flask to use the web directory for templates and static files
-        template_dir = os.path.join(self.config.base_dir, 'web', 'templates')
-        static_dir = os.path.join(self.config.base_dir, 'web', 'static')
-        
-        app = Flask(__name__, 
-                   template_folder=template_dir,
-                   static_folder=static_dir)
+        app = Flask(__name__)
         
         @app.route('/')
         def index():
-            try:
-                return render_template('index.html')
-            except:
-                return """
-                <html><head><title>Document Ingestor</title></head>
-                <body>
-                    <h1>Document Ingestor Service</h1>
-                    <p>Upload endpoint: POST /upload</p>
-                    <p>API endpoint: POST /api/receive</p>
-                    <p>Gmail fetch: POST /api/gmail/fetch</p>
-                    <p>Status: GET /api/status</p>
-                </body></html>
-                """
-        
-        @app.route('/upload', methods=['POST'])
-        def web_upload():
-            return self._handle_web_upload(request)
+            return """
+            <html><head><title>Document Ingestor API</title></head>
+            <body>
+                <h1>Document Ingestor Service</h1>
+                <p><strong>Status:</strong> Running</p>
+                <p><strong>Frontend:</strong> <a href="http://localhost:3000">http://localhost:3000</a></p>
+                <hr>
+                <h2>API Endpoints:</h2>
+                <ul>
+                    <li><strong>POST /api/receive</strong> - API file upload (used by frontend)</li>
+                    <li><strong>GET /api/status</strong> - Service status</li>
+                    <li><strong>GET /api/document/&lt;doc_id&gt;/status</strong> - Document processing status</li>
+                    <li><strong>GET /api/documents/user/&lt;user_id&gt;</strong> - User documents</li>
+                    <li><strong>POST /api/gmail/fetch</strong> - Fetch Gmail attachments</li>
+                    <li><strong>GET /api/gmail/status</strong> - Gmail integration status</li>
+                </ul>
+                <hr>
+                <p><em>Use the frontend at <a href="http://localhost:3000">http://localhost:3000</a> for document upload and management.</em></p>
+            </body></html>
+            """
         
         @app.route('/api/receive', methods=['POST'])
         def api_receive():
@@ -127,12 +122,14 @@ class DocumentIngestor:
                 'status': 'running',
                 'service': 'document-ingestor',
                 'kafka_connected': self.kafka_producer is not None,
+                'database_connected': self.db is not None,
                 'watching_folder': self.config.files_dir,
                 'supported_types': self.config.supported_extensions,
                 'gmail_enabled': self.config.gmail_enabled,
                 'endpoints': {
-                    'upload': 'POST /upload',
                     'api_receive': 'POST /api/receive',
+                    'document_status': 'GET /api/document/<doc_id>/status',
+                    'user_documents': 'GET /api/documents/user/<user_id>',
                     'gmail_fetch_new': 'POST /api/gmail/fetch',
                     'gmail_fetch_all': 'POST /api/gmail/fetch-all',
                     'gmail_status': 'GET /api/gmail/status',
@@ -205,6 +202,65 @@ class DocumentIngestor:
             except Exception as e:
                 return jsonify({'error': str(e)}), 500
         
+        @app.route('/api/document/<doc_id>/status', methods=['GET'])
+        def get_document_status(doc_id):
+            """Get document processing status"""
+            try:
+                # Get document from database
+                document = self.db.get_document_status(doc_id)
+                
+                if not document:
+                    return jsonify({'error': 'Document not found'}), 404
+                    
+                # Convert to dict (in case it's a database row object)
+                doc_dict = dict(document) if hasattr(document, 'keys') else document
+                
+                # Get processing logs
+                with self.db.get_connection() as conn:
+                    cursor = conn.cursor()
+                    cursor.execute("""
+                        SELECT stage, status, message, timestamp 
+                        FROM processing_logs 
+                        WHERE document_id = %s 
+                        ORDER BY timestamp ASC
+                    """, (doc_id,))
+                    logs = cursor.fetchall()
+                    
+                return jsonify({
+                    'document': doc_dict,
+                    'processing_logs': [
+                        {
+                            'stage': log[0],
+                            'status': log[1], 
+                            'message': log[2],
+                            'timestamp': log[3].isoformat() if log[3] else None
+                        } for log in logs
+                    ]
+                }), 200
+                
+            except Exception as e:
+                log.error(f"Error getting document status: {e}")
+                return jsonify({'error': 'Internal server error'}), 500
+
+        @app.route('/api/documents/user/<user_id>', methods=['GET'])
+        def get_user_documents(user_id):
+            """Get all documents for a specific user"""
+            try:
+                documents = self.db.get_user_documents(user_id)
+                
+                # Convert to list of dicts
+                docs_list = [dict(doc) for doc in documents] if documents else []
+                
+                return jsonify({
+                    'user_id': user_id,
+                    'document_count': len(docs_list),
+                    'documents': docs_list
+                }), 200
+                
+            except Exception as e:
+                log.error(f"Error getting user documents: {e}")
+                return jsonify({'error': 'Internal server error'}), 500
+        
         return app
     
     def _is_valid_document(self, filename):
@@ -230,14 +286,15 @@ class DocumentIngestor:
             return None
     
     def _emit_to_kafka(self, filename, file_path, source, summary="", sender="System"):
-        """Send document metadata to Kafka."""
+        """Send document metadata to Kafka and log to database."""
         if not self.kafka_producer:
             log.error("Kafka producer not available")
             return None
         
         # Generate metadata
+        doc_id = str(uuid.uuid4())
         metadata = {
-            "document_id": str(uuid.uuid4()),
+            "document_id": doc_id,
             "document_name": filename,
             "path": os.path.abspath(file_path),
             "file_size": os.path.getsize(file_path) if os.path.exists(file_path) else 0,
@@ -248,15 +305,34 @@ class DocumentIngestor:
         }
         
         try:
+            # Log document to database
+            doc_data = {
+                'document_id': doc_id,
+                'original_filename': filename,
+                'file_path': os.path.abspath(file_path),
+                'file_size': metadata["file_size"],
+                'file_extension': os.path.splitext(filename)[1].lower(),
+                'uploaded_by': sender
+            }
+            
+            # Insert document record
+            self.db.insert_document(doc_data)
+            self.db.log_processing_step(doc_id, "ingestion", "started", f"Document uploaded via {source}")
+            
             # Send to Kafka
             future = self.kafka_producer.send(self.config.kafka_topic, value=metadata)
             self.kafka_producer.flush(timeout=10)  # Wait up to 10 seconds
+            
+            # Log successful emission
+            self.db.log_processing_step(doc_id, "ingestion", "completed", "Document sent to extraction pipeline")
             
             log.info(f"[Kafka ✅] Sent to topic '{self.config.kafka_topic}': {filename}")
             return metadata
             
         except Exception as e:
             log.error(f"[Kafka ❌] Failed to send {filename}: {e}")
+            if 'doc_id' in locals():
+                self.db.log_processing_step(doc_id, "ingestion", "failed", str(e))
             return None
     
     def _setup_gmail_auth(self):
@@ -491,74 +567,6 @@ class DocumentIngestor:
         gmail_thread = threading.Thread(target=gmail_loop, daemon=True)
         gmail_thread.start()
         log.info(f"Gmail monitoring enabled (check interval: {self.config.gmail_check_interval}s)")
-    
-    def _handle_web_upload(self, request):
-        """Handle web interface file uploads."""
-        if 'files' not in request.files:
-            return jsonify({'error': 'No files uploaded'}), 400
-
-        uploaded_files = request.files.getlist('files')
-        results = []
-        
-        for file in uploaded_files:
-            if file.filename == '':
-                continue
-                
-            if not self._is_valid_document(file.filename):
-                results.append({
-                    'filename': file.filename,
-                    'status': 'rejected',
-                    'reason': 'Invalid file type'
-                })
-                continue
-
-            filename = secure_filename(file.filename)
-            filepath = os.path.join(self.config.files_dir, filename)
-            
-            try:
-                file.save(filepath)
-                
-                if not self._is_file_size_valid(filepath):
-                    os.remove(filepath)
-                    results.append({
-                        'filename': filename,
-                        'status': 'rejected',
-                        'reason': 'File too large'
-                    })
-                    continue
-                
-                # Emit to Kafka
-                metadata = self._emit_to_kafka(
-                    filename, 
-                    filepath,
-                    source="web_upload",
-                    summary="Uploaded via web interface",
-                    sender=request.remote_addr or "Web"
-                )
-                
-                if metadata:
-                    results.append({
-                        'filename': filename,
-                        'status': 'success',
-                        'document_id': metadata['document_id']
-                    })
-                    log.info(f"Web upload successful: {filename}")
-                else:
-                    results.append({
-                        'filename': filename,
-                        'status': 'warning',
-                        'reason': 'File saved but Kafka notification failed'
-                    })
-                
-            except Exception as e:
-                log.error(f"Web upload failed for {filename}: {e}")
-                results.append({
-                    'filename': filename,
-                    'status': 'error',
-                    'reason': str(e)
-                })
-
-        return jsonify({'results': results})
     
     def _handle_api_upload(self, request):
         """Handle API file uploads."""
