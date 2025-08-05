@@ -2,6 +2,7 @@ import os
 import json
 import sys
 import threading
+from datetime import datetime
 import pdfplumber
 import pytesseract
 import openpyxl
@@ -11,13 +12,14 @@ from kafka import KafkaProducer, KafkaConsumer
 
 # Add the parent directory to the system path to allow imports from the 'backend' folder
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from database.database import db_manager
 import logger
 
 # Get a dedicated logger for the Extractor agent
 log = logger.get_agent_logger("Extractor")
 
 # Configure Tesseract executable path (adjust if necessary)
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'D:\Langs\Mini Project\tesseract.exe'
 
 # --- Text Extraction ---
 def extract_text(file_path):
@@ -70,21 +72,33 @@ def process_messages(consumer, producer):
         
         log.info(f"Received new message from Kafka: doc_id '{doc_id}' for doc_name '{doc_name}'")
         
-        path = metadata.get("path")
-        if not path or not os.path.exists(path):
-            log.error(f"File not found at path '{path}' for doc_id '{doc_id}'. Skipping.")
-            continue
-
         try:
+            # 🔥 NEW: Log extraction start
+            db_manager.log_processing_step(doc_id, "extraction", "started", f"Starting text extraction for {doc_name}")
+            
+            path = metadata.get("path")
+            if not path or not os.path.exists(path):
+                error_msg = f"File not found at path '{path}' for doc_id '{doc_id}'"
+                log.error(error_msg)
+                # 🔥 NEW: Log error
+                db_manager.log_processing_step(doc_id, "extraction", "failed", error_msg)
+                continue
+
+            # Extract text with timing
+            start_time = datetime.now()
             text = extract_text(path)
+            processing_time = (datetime.now() - start_time).total_seconds() * 1000
 
             if not text.strip():
                 log.warning(f"No text extracted from '{doc_name}'. Waiting for user input.")
                 
+                # 🔥 NEW: Log warning
+                db_manager.log_processing_step(doc_id, "extraction", "warning", "No text extracted - awaiting user action", int(processing_time))
+                
                 # --- Interactive prompt for blank files ---
                 print("\n" + "="*50)
                 print(f"[ATTENTION] No text extracted from: {doc_name}")
-                print("Options: [d]elete | [r]oute to 'Needs_Action' | [s]kip (default after 15s)")
+                print("Options: [d]elete | [r]oute to 'Needs_Action'(default after 15s) | [s]kip ")
                 
                 user_choice = {"value": None}
                 def get_input():
@@ -94,37 +108,71 @@ def process_messages(consumer, producer):
                 input_thread.daemon = True
                 input_thread.start()
                 input_thread.join(timeout=15)
-                choice = user_choice["value"] or "s"
+                choice = user_choice["value"] or "r"
                 print("="*50)
 
                 if choice == "d":
                     os.remove(path)
                     log.info(f"User chose to delete blank file: {doc_name}")
+                    # 🔥 NEW: Log user action
+                    db_manager.log_processing_step(doc_id, "extraction", "deleted", "User chose to delete blank file")
                 elif choice == "r":
                     new_path = os.path.join(NEEDS_ACTION_DIR, doc_name)
                     os.rename(path, new_path)
                     log.info(f"User chose to route blank file to 'Needs_Action': {new_path}")
+                    # 🔥 NEW: Log user action
+                    db_manager.log_processing_step(doc_id, "extraction", "needs_action", f"Routed to Needs_Action folder: {new_path}")
                 else: # 's' or timeout
                     log.info(f"Skipping blank file as per user choice/timeout: {doc_name}")
+                    # 🔥 NEW: Log user action
+                    db_manager.log_processing_step(doc_id, "extraction", "skipped", "User chose to skip blank file")
                 continue # Move to the next message
 
             # --- Process and emit message with extracted text ---
-            log.info(f"Successfully extracted text from '{doc_name}'.")
+            text_length = len(text)
+            log.info(f"Successfully extracted {text_length} characters from '{doc_name}'.")
+            
+            # 🔥 NEW: Update document status and log success
+            db_manager.update_document_status(doc_id, "extracted")
+            db_manager.log_processing_step(
+                doc_id, 
+                "extraction", 
+                "completed", 
+                f"Text extraction successful - {text_length} characters extracted",
+                int(processing_time)
+            )
+            
             output_message = metadata.copy()
             output_message["extracted_text"] = text
+            output_message["text_length"] = text_length  # 🔥 NEW: Add text length
+            output_message["extraction_timestamp"] = datetime.now().isoformat()  # 🔥 NEW: Add timestamp
             
             producer.send("doc.extracted", value=output_message)
             producer.flush()
             log.info(f"Successfully emitted event for doc_id '{doc_id}' to 'doc.extracted' topic.")
             
+            # 🔥 NEW: Log successful forwarding
+            db_manager.log_processing_step(doc_id, "extraction", "forwarded", "Document sent to classification stage")
+            
             processed_ids.add(doc_id)
 
         except Exception as e:
-            log.error(f"Failed to process message for doc_id '{doc_id}'.", exc_info=True)
+            error_msg = f"Failed to process message for doc_id '{doc_id}': {str(e)}"
+            log.error(error_msg, exc_info=True)
+            # 🔥 NEW: Log error to database
+            db_manager.log_processing_step(doc_id, "extraction", "failed", error_msg)
 
 # --- Main Execution ---
 if __name__ == "__main__":
     log.info("Extractor service starting...")
+
+    # 🔥 NEW: Initialize database
+    try:
+        db_manager.initialize_database()
+        log.info("Database connection established")
+    except Exception as e:
+        log.error(f"Database initialization failed: {e}")
+        sys.exit(1)
 
     try:
         producer = KafkaProducer(

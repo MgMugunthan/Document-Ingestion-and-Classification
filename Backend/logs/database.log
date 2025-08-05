@@ -1,0 +1,19 @@
+2025-08-05 23:29:56 - database - INFO - Database 'document_system' already  exists
+2025-08-05 23:29:56 - database - INFO - Database tables created successfully
+2025-08-05 23:29:58 - database - INFO - Database 'document_system' already  exists
+2025-08-05 23:29:58 - database - INFO - Database tables created successfully
+2025-08-05 23:30:03 - database - INFO - Document inserted: 08b16be1-85a4-4fcf-849b-9a4ebe445dc5
+2025-08-05 23:30:04 - database - INFO - Document inserted: cb5b6f70-1f04-4bff-baf0-9e24c863cbc2
+2025-08-05 23:30:05 - database - INFO - Document status updated: 08b16be1-85a4-4fcf-849b-9a4ebe445dc5 -> extracted
+2025-08-05 23:30:06 - database - INFO - Database 'document_system' already  exists
+2025-08-05 23:30:06 - database - INFO - Database tables created successfully
+2025-08-05 23:30:06 - database - INFO - Document status updated: cb5b6f70-1f04-4bff-baf0-9e24c863cbc2 -> extracted
+2025-08-05 23:30:10 - database - INFO - Document status updated: 08b16be1-85a4-4fcf-849b-9a4ebe445dc5 -> classified
+2025-08-05 23:30:10 - database - INFO - Document status updated: 08b16be1-85a4-4fcf-849b-9a4ebe445dc5 -> routed
+2025-08-05 23:30:10 - database - INFO - Document status updated: cb5b6f70-1f04-4bff-baf0-9e24c863cbc2 -> classified
+2025-08-05 23:41:14 - database - INFO - Database 'document_system' already  exists
+2025-08-05 23:41:14 - database - INFO - Database tables created successfully
+2025-08-05 23:41:15 - database - INFO - Database 'document_system' already  exists
+2025-08-05 23:41:15 - database - INFO - Database tables created successfully
+2025-08-05 23:41:17 - database - INFO - Database 'document_system' already  exists
+2025-08-05 23:41:17 - database - INFO - Database tables created successfully
