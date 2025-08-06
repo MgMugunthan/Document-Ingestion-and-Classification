@@ -268,3 +268,9 @@ kafka.errors.NoBrokersAvailable: NoBrokersAvailable
 2025-08-05 23:41:17 - classifier - INFO - Database connection established
 2025-08-05 23:41:17 - classifier - INFO - Successfully connected to Kafka.
 2025-08-05 23:41:17 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-06 09:16:56 - classifier - ERROR - ❌ Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-06 09:16:57 - classifier - INFO - 🧠 Local ML model and vectorizer loaded successfully.
+2025-08-06 09:16:57 - classifier - INFO - Classifier service starting...
+2025-08-06 09:16:57 - classifier - INFO - Database connection established
+2025-08-06 09:16:57 - classifier - INFO - Successfully connected to Kafka.
+2025-08-06 09:16:57 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
