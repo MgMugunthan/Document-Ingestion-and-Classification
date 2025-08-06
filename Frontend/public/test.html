@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+</head>
+<body>
+    <h1>Backend API Test</h1>
+    <div id="results"></div>
+    
+    <button onclick="testAuthService()">Test Auth Service</button>
+    <button onclick="testLogin()">Test Login</button>
+    
+    <script>
+        async function testAuthService() {
+            const results = document.getElementById('results');
+            results.innerHTML = 'Testing auth service...';
+            
+            try {
+                const response = await fetch('http://localhost:5001/api/auth/status');
+                const data = await response.json();
+                results.innerHTML = '<h3>Auth Service Status:</h3><pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            } catch (error) {
+                results.innerHTML = '<h3>Error:</h3><p style="color: red;">' + error.message + '</p>';
+            }
+        }
+        
+        async function testLogin() {
+            const results = document.getElementById('results');
+            results.innerHTML = 'Testing login...';
+            
+            try {
+                const response = await fetch('http://localhost:5001/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        user_id: 'admin',
+                        password: 'admin123'
+                    })
+                });
+                
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.error || 'Login failed');
+                }
+                
+                const data = await response.json();
+                results.innerHTML = '<h3>Login Success:</h3><pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            } catch (error) {
+                results.innerHTML = '<h3>Login Error:</h3><p style="color: red;">' + error.message + '</p>';
+            }
+        }
+    </script>
+</body>
+</html>

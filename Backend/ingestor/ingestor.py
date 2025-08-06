@@ -13,6 +13,7 @@ from database.database import db_manager
 
 # Flask for web interface
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
 # File monitoring
@@ -88,6 +89,7 @@ class DocumentIngestor:
     def _setup_flask(self):
         """Initialize Flask app with all routes."""
         app = Flask(__name__)
+        CORS(app)  # Enable CORS for all routes
         
         @app.route('/')
         def index():
@@ -105,7 +107,11 @@ class DocumentIngestor:
                     <li><strong>GET /api/document/&lt;doc_id&gt;/status</strong> - Document processing status</li>
                     <li><strong>GET /api/documents/user/&lt;user_id&gt;</strong> - User documents</li>
                     <li><strong>POST /api/gmail/fetch</strong> - Fetch Gmail attachments</li>
+                    <li><strong>POST /api/gmail/fetch-all</strong> - Fetch ALL Gmail attachments</li>
                     <li><strong>GET /api/gmail/status</strong> - Gmail integration status</li>
+                    <li><strong>POST /api/gmail/reset</strong> - Reset Gmail state</li>
+                    <li><strong>POST /api/gmail/search</strong> - 🆕 Smart Gmail search with natural language</li>
+                    <li><strong>POST /api/gmail/process-selected</strong> - 🆕 Process selected Gmail files</li>
                 </ul>
                 <hr>
                 <p><em>Use the frontend at <a href="http://localhost:3000">http://localhost:3000</a> for document upload and management.</em></p>
@@ -134,6 +140,8 @@ class DocumentIngestor:
                     'gmail_fetch_all': 'POST /api/gmail/fetch-all',
                     'gmail_status': 'GET /api/gmail/status',
                     'gmail_reset': 'POST /api/gmail/reset',
+                    'gmail_search': 'POST /api/gmail/search',
+                    'gmail_process_selected': 'POST /api/gmail/process-selected',
                     'status': 'GET /api/status'
                 }
             })
@@ -200,6 +208,36 @@ class DocumentIngestor:
                     'message': 'Gmail state reset - will only process new emails from now on'
                 })
             except Exception as e:
+                return jsonify({'error': str(e)}), 500
+
+        @app.route('/api/gmail/search', methods=['POST'])
+        def gmail_search():
+            """Search Gmail using natural language prompt"""
+            try:
+                data = request.get_json()
+                if not data or 'prompt' not in data:
+                    return jsonify({'error': 'Prompt required'}), 400
+                
+                result = self._search_gmail_by_prompt(data['prompt'])
+                return jsonify(result)
+                
+            except Exception as e:
+                log.error(f"Gmail search error: {e}")
+                return jsonify({'error': str(e)}), 500
+
+        @app.route('/api/gmail/process-selected', methods=['POST'])
+        def gmail_process_selected():
+            """Process selected Gmail files"""
+            try:
+                data = request.get_json()
+                if not data or 'file_ids' not in data:
+                    return jsonify({'error': 'file_ids required'}), 400
+                
+                result = self._process_selected_gmail_files(data['file_ids'])
+                return jsonify(result)
+                
+            except Exception as e:
+                log.error(f"Gmail processing error: {e}")
                 return jsonify({'error': str(e)}), 500
         
         @app.route('/api/document/<doc_id>/status', methods=['GET'])
@@ -548,6 +586,181 @@ class DocumentIngestor:
             log.error(f"Failed to process Gmail message: {e}")
         
         return processed_count
+    
+    def _extract_prompt_filters(self, prompt):
+        """Extract search filters from natural language prompt"""
+        import re
+        from datetime import datetime, timedelta
+        
+        filters = {}
+        
+        # Extract dates (YYYY-MM-DD format)
+        date_matches = re.findall(r'\d{4}-\d{2}-\d{2}', prompt)
+        if len(date_matches) >= 2:
+            filters['start_date'] = date_matches[0]
+            filters['end_date'] = date_matches[1]
+        elif len(date_matches) == 1:
+            filters['start_date'] = date_matches[0]
+            filters['end_date'] = date_matches[0]
+        else:
+            # Default to last 7 days if no dates specified
+            today = datetime.now()
+            week_ago = today - timedelta(days=7)
+            filters['start_date'] = week_ago.strftime('%Y-%m-%d')
+            filters['end_date'] = today.strftime('%Y-%m-%d')
+        
+        # Extract email addresses
+        email_match = re.search(r'[\w\.-]+@[\w\.-]+\.\w+', prompt)
+        if email_match:
+            filters['email'] = email_match.group()
+        
+        # Extract keywords
+        keywords = []
+        prompt_lower = prompt.lower()
+        if 'invoice' in prompt_lower:
+            keywords.append('invoice')
+        if 'contract' in prompt_lower:
+            keywords.append('contract')
+        if 'report' in prompt_lower:
+            keywords.append('report')
+        if 'receipt' in prompt_lower:
+            keywords.append('receipt')
+        if 'statement' in prompt_lower:
+            keywords.append('statement')
+        
+        if keywords:
+            filters['keywords'] = keywords
+        
+        return filters
+
+    def _search_gmail_by_prompt(self, prompt):
+        """Search Gmail using natural language prompt"""
+        if not self.config.gmail_enabled:
+            return {'error': 'Gmail integration not enabled'}
+        
+        try:
+            creds = self._setup_gmail_auth()
+            if not creds:
+                return {'error': 'Gmail authentication failed'}
+            
+            service = build('gmail', 'v1', credentials=creds)
+            filters = self._extract_prompt_filters(prompt)
+            
+            # Build Gmail search query
+            query_parts = ['has:attachment']
+            
+            if filters.get('start_date') and filters.get('end_date'):
+                query_parts.append(f"after:{filters['start_date']}")
+                query_parts.append(f"before:{filters['end_date']}")
+            
+            if filters.get('email'):
+                query_parts.append(f"from:{filters['email']}")
+            
+            if filters.get('keywords'):
+                for keyword in filters['keywords']:
+                    query_parts.append(f"subject:{keyword}")
+            
+            query = ' '.join(query_parts)
+            log.info(f"Gmail search query: {query}")
+            
+            # Search Gmail
+            results = service.users().messages().list(userId='me', q=query).execute()
+            messages = results.get('messages', [])
+            
+            files = []
+            for message in messages[:20]:  # Limit to 20 results
+                msg = service.users().messages().get(userId='me', id=message['id']).execute()
+                
+                # Get sender and subject
+                headers = msg['payload'].get('headers', [])
+                sender = next((h['value'] for h in headers if h['name'] == 'From'), 'Unknown')
+                subject = next((h['value'] for h in headers if h['name'] == 'Subject'), 'No Subject')
+                date = next((h['value'] for h in headers if h['name'] == 'Date'), 'Unknown')
+                
+                # Get attachments
+                parts = msg['payload'].get('parts', [])
+                if not parts:
+                    parts = [msg['payload']]
+                
+                for part in parts:
+                    if part.get('filename') and part.get('body', {}).get('attachmentId'):
+                        files.append({
+                            'message_id': message['id'],
+                            'filename': part['filename'],
+                            'attachmentId': part['body']['attachmentId'],
+                            'sender': sender,
+                            'subject': subject,
+                            'date': date,
+                            'size': part['body'].get('size', 0)
+                        })
+            
+            return {
+                'status': 'success',
+                'query': query,
+                'filters': filters,
+                'files': files,
+                'total_found': len(files)
+            }
+            
+        except Exception as e:
+            log.error(f"Gmail search failed: {e}")
+            return {'error': str(e)}
+
+    def _process_selected_gmail_files(self, file_ids):
+        """Process specific Gmail files by their message IDs"""
+        if not self.config.gmail_enabled:
+            return {'error': 'Gmail integration not enabled'}
+        
+        try:
+            creds = self._setup_gmail_auth()
+            if not creds:
+                return {'error': 'Gmail authentication failed'}
+            
+            service = build('gmail', 'v1', credentials=creds)
+            processed_count = 0
+            errors = []
+            processed_files = []
+            
+            for file_id in file_ids:
+                try:
+                    # Get message details
+                    msg = service.users().messages().get(userId='me', id=file_id).execute()
+                    
+                    # Process attachments
+                    attachments_processed = self._process_gmail_message(service, msg)
+                    processed_count += attachments_processed
+                    
+                    if attachments_processed > 0:
+                        # Get file names for response
+                        parts = msg['payload'].get('parts', [])
+                        if not parts:
+                            parts = [msg['payload']]
+                        
+                        for part in parts:
+                            if part.get('filename') and part.get('body', {}).get('attachmentId'):
+                                processed_files.append(part['filename'])
+                    
+                    # Mark as read
+                    service.users().messages().modify(
+                        userId='me',
+                        id=file_id,
+                        body={'removeLabelIds': ['UNREAD']}
+                    ).execute()
+                    
+                except Exception as e:
+                    errors.append(f"Failed to process {file_id}: {str(e)}")
+                    log.error(f"Failed to process Gmail file {file_id}: {e}")
+            
+            return {
+                'status': 'success',
+                'processed_count': processed_count,
+                'processed_files': processed_files,
+                'errors': errors
+            }
+            
+        except Exception as e:
+            log.error(f"Gmail file processing failed: {e}")
+            return {'error': str(e)}
     
     def _start_gmail_monitor(self):
         """Start Gmail monitoring in background."""

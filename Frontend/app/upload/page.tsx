@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { useState, useCallback, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import Layout from "@/components/Layout"
 import Chatbot from "@/components/Chatbot"
 import { Upload, X, Mail, CheckCircle, Clock, AlertCircle, FileText, Zap, Target, ArrowRight } from "lucide-react"
@@ -42,29 +43,73 @@ export default function UploadPage() {
   const [error, setError] = useState("")
   const { user, token } = useAuth()
   const [recentDocuments, setRecentDocuments] = useState<Document[]>([])
-
-  // Load recent documents on component mount
-  useEffect(() => {
-    loadRecentDocuments()
-  }, [user, token])
+  const [isAuthChecking, setIsAuthChecking] = useState(true)
+  const router = useRouter()
 
   const loadRecentDocuments = async () => {
     if (!user || !token) return
 
     try {
-      const response = await documentApi.list(user.user_id, token, 10, 0)
+      const response = await documentApi.list(user.user_id)
       const formattedDocs = response.documents.map((doc: any) => ({
         id: doc.document_id,
         fileName: doc.document_name,
         uploadedTime: new Date(doc.upload_timestamp).toLocaleString(),
         classification: doc.classification_type || "Pending",
-        confidence: Math.round(doc.confidence_score * 100) || 0,
-        status: mapBackendStatus(doc.processing_status)
+        confidence: doc.confidence_score || 0,
+        status: doc.status || "completed"
       }))
       setRecentDocuments(formattedDocs)
     } catch (error) {
-      console.error("Failed to load recent documents:", error)
+      console.error('Failed to load recent documents:', error)
     }
+  }
+
+  // Authentication check - redirect to login if not authenticated
+  useEffect(() => {
+    if (!user || !token) {
+      router.replace('/login')
+      return
+    }
+    setIsAuthChecking(false)
+  }, [user, token, router])
+
+  // Load recent documents on component mount
+  useEffect(() => {
+    if (user && token && !isAuthChecking) {
+      loadRecentDocuments()
+    }
+  }, [user, token, isAuthChecking])
+
+  // All useCallback hooks must be declared before any conditional returns
+  const handleDragOver = useCallback((e: React.DragEvent) => {
+    e.preventDefault()
+    setIsDragOver(true)
+  }, [])
+
+  const handleDragLeave = useCallback((e: React.DragEvent) => {
+    e.preventDefault()
+    setIsDragOver(false)
+  }, [])
+
+  const handleDrop = useCallback((e: React.DragEvent) => {
+    e.preventDefault()
+    setIsDragOver(false)
+
+    const files = Array.from(e.dataTransfer.files)
+    handleFiles(files)
+  }, [user, token])
+
+  // Show loading spinner while checking authentication
+  if (isAuthChecking || !user || !token) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Verifying authentication...</p>
+        </div>
+      </div>
+    )
   }
 
   const mapBackendStatus = (backendStatus: string): Document["status"] => {
@@ -88,24 +133,6 @@ export default function UploadPage() {
     { name: "Classification", icon: Target, description: "Analyzing document type" },
     { name: "Routing", icon: ArrowRight, description: "Organizing documents" },
   ]
-
-  const handleDragOver = useCallback((e: React.DragEvent) => {
-    e.preventDefault()
-    setIsDragOver(true)
-  }, [])
-
-  const handleDragLeave = useCallback((e: React.DragEvent) => {
-    e.preventDefault()
-    setIsDragOver(false)
-  }, [])
-
-  const handleDrop = useCallback((e: React.DragEvent) => {
-    e.preventDefault()
-    setIsDragOver(false)
-
-    const files = Array.from(e.dataTransfer.files)
-    handleFiles(files)
-  }, [user, token])
 
   const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || [])
@@ -141,21 +168,30 @@ export default function UploadPage() {
         return dt
       }, new DataTransfer()).files
 
-      // Upload files to backend
-      const uploadResponse = await documentApi.upload(fileList, user.user_id, token)
+      // Upload files to backend - upload each file individually
+      const uploadPromises = files.map(async (file) => {
+        const uploadResponse = await documentApi.upload(file, { user_id: user.user_id })
+        return {
+          document_id: uploadResponse.document_id,
+          name: file.name,
+          status: uploadResponse.status || 'uploaded'
+        }
+      })
       
-      // Start monitoring the uploaded documents
-      const uploadedDocs = uploadResponse.documents.map((doc: any) => ({
+      const uploadedDocs = await Promise.all(uploadPromises)
+
+      // Transform to ProcessingDocument format
+      const processingDocs = uploadedDocs.map(doc => ({
         document_id: doc.document_id,
-        fileName: doc.document_name,
+        fileName: doc.name,
         currentStep: 1, // Starting with ingestion
-        status: "uploaded"
+        status: "uploaded" as const
       }))
 
-      setProcessingDocuments(uploadedDocs)
+      setProcessingDocuments(processingDocs)
       
       // Start polling for status updates
-      uploadedDocs.forEach((doc: ProcessingDocument) => {
+      processingDocs.forEach((doc) => {
         pollDocumentStatus(doc.document_id)
       })
 
@@ -170,7 +206,7 @@ export default function UploadPage() {
 
     const pollInterval = setInterval(async () => {
       try {
-        const statusResponse = await documentApi.getStatus(documentId, token)
+        const statusResponse = await documentApi.getStatus(documentId)
         const status = statusResponse.processing_status
 
         // Update processing documents

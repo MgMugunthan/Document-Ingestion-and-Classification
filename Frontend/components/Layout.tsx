@@ -6,7 +6,8 @@ import { useState } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, Upload, BarChart3, FileText, Eye, Bot } from "lucide-react"
+import { Menu, X, Upload, BarChart3, FileText, Eye, Bot, Shield, LogOut } from "lucide-react"
+import { useAuth } from "@/contexts/AuthContext"
 
 interface LayoutProps {
   children: React.ReactNode
@@ -15,6 +16,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const pathname = usePathname()
+  const { user, logout } = useAuth()
 
   const navigation = [
     { name: "Upload", href: "/upload", icon: Upload },
@@ -23,6 +25,11 @@ export default function Layout({ children }: LayoutProps) {
     { name: "Review", href: "/review", icon: Eye },
     { name: "AI Tool", href: "/ai-tool", icon: Bot },
   ]
+
+  // Add admin link if user is admin
+  if (user?.user_type === 'admin') {
+    navigation.push({ name: "Admin", href: "/admin", icon: Shield })
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -79,14 +86,34 @@ export default function Layout({ children }: LayoutProps) {
 
           {/* User Profile */}
           <div className="p-4 border-t border-gray-200">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-[#3452D1] rounded-full flex items-center justify-center">
-                <span className="text-white text-sm font-medium">U</span>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                  user?.user_type === 'admin' ? 'bg-purple-600' : 'bg-[#3452D1]'
+                }`}>
+                  <span className="text-white text-sm font-medium">
+                    {user?.user_id ? user.user_id.charAt(0).toUpperCase() : 'U'}
+                  </span>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-800">
+                    {user?.user_id || 'User'}
+                    {user?.user_type === 'admin' && (
+                      <span className="ml-2 px-2 py-1 text-xs bg-purple-100 text-purple-800 rounded-full">
+                        Admin
+                      </span>
+                    )}
+                  </p>
+                  <p className="text-xs text-gray-500">{user?.email || 'user@dokmanic.com'}</p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm font-medium text-gray-800">User</p>
-                <p className="text-xs text-gray-500">user@dokmanic.com</p>
-              </div>
+              <button
+                onClick={logout}
+                className="p-2 text-gray-400 hover:text-red-600 transition-colors"
+                title="Logout"
+              >
+                <LogOut size={16} />
+              </button>
             </div>
           </div>
         </div>
