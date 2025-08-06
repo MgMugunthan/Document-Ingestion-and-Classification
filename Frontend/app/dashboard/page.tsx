@@ -1,12 +1,41 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
+import { useAuth } from "@/contexts/AuthContext"
 import Layout from "@/components/Layout"
 import { FileText, TrendingUp, AlertTriangle, ChevronDown } from "lucide-react"
 
 export default function Dashboard() {
+  const { user, token, isLoading } = useAuth()
+  const router = useRouter()
   const [timeRange, setTimeRange] = useState("week")
   const [chartType, setChartType] = useState("line")
+
+  // Authentication check - CRITICAL SECURITY FIX
+  useEffect(() => {
+    // Wait for auth loading to complete before checking authentication
+    if (isLoading) return
+    
+    if (!user || !token) {
+      router.replace('/login')
+      return
+    }
+  }, [user, token, isLoading, router])
+
+  // Show loading while checking authentication
+  if (isLoading || (!user || !token)) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">
+            {isLoading ? "Loading..." : "Verifying authentication..."}
+          </p>
+        </div>
+      </div>
+    )
+  }
 
   const stats = [
     {

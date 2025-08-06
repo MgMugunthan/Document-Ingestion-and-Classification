@@ -3,7 +3,8 @@
 import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
-import { useSearchParams } from "next/navigation"
+import { useSearchParams, useRouter } from "next/navigation"
+import { useAuth } from "@/contexts/AuthContext"
 import Layout from "@/components/Layout"
 import { Send, Bot, User, Calendar, Clock, Archive } from "lucide-react"
 
@@ -15,12 +16,39 @@ interface Message {
 }
 
 export default function AITool() {
+  const { user, token, isLoading } = useAuth()
+  const router = useRouter()
   const [messages, setMessages] = useState<Message[]>([])
   const [inputMessage, setInputMessage] = useState("")
   const [isTyping, setIsTyping] = useState(false)
   const [selectedTimeframe, setSelectedTimeframe] = useState("")
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const searchParams = useSearchParams()
+
+  // Authentication check - CRITICAL SECURITY FIX
+  useEffect(() => {
+    // Wait for auth loading to complete before checking authentication
+    if (isLoading) return
+    
+    if (!user || !token) {
+      router.replace('/login')
+      return
+    }
+  }, [user, token, isLoading, router])
+
+  // Show loading while checking authentication
+  if (isLoading || (!user || !token)) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">
+            {isLoading ? "Loading..." : "Verifying authentication..."}
+          </p>
+        </div>
+      </div>
+    )
+  }
 
   const timeframeOptions = [
     { value: "today", label: "Today", icon: Clock },

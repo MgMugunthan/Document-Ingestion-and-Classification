@@ -41,9 +41,8 @@ export default function UploadPage() {
   const [isProcessing, setIsProcessing] = useState(false)
   const [processingDocuments, setProcessingDocuments] = useState<ProcessingDocument[]>([])
   const [error, setError] = useState("")
-  const { user, token } = useAuth()
+  const { user, token, isLoading } = useAuth()
   const [recentDocuments, setRecentDocuments] = useState<Document[]>([])
-  const [isAuthChecking, setIsAuthChecking] = useState(true)
   const router = useRouter()
 
   const loadRecentDocuments = async () => {
@@ -67,19 +66,21 @@ export default function UploadPage() {
 
   // Authentication check - redirect to login if not authenticated
   useEffect(() => {
+    // Wait for auth loading to complete before checking authentication
+    if (isLoading) return
+    
     if (!user || !token) {
       router.replace('/login')
       return
     }
-    setIsAuthChecking(false)
-  }, [user, token, router])
+  }, [user, token, isLoading, router])
 
   // Load recent documents on component mount
   useEffect(() => {
-    if (user && token && !isAuthChecking) {
+    if (user && token && !isLoading) {
       loadRecentDocuments()
     }
-  }, [user, token, isAuthChecking])
+  }, [user, token, isLoading])
 
   // All useCallback hooks must be declared before any conditional returns
   const handleDragOver = useCallback((e: React.DragEvent) => {
@@ -101,12 +102,14 @@ export default function UploadPage() {
   }, [user, token])
 
   // Show loading spinner while checking authentication
-  if (isAuthChecking || !user || !token) {
+  if (isLoading || !user || !token) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Verifying authentication...</p>
+          <p className="mt-4 text-gray-600">
+            {isLoading ? "Loading..." : "Verifying authentication..."}
+          </p>
         </div>
       </div>
     )

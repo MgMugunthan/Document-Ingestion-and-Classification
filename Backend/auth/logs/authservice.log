@@ -558,3 +558,34 @@
 2025-08-06 10:54:59 - authservice - INFO - User logged in: admin
 2025-08-06 10:57:53 - authservice - INFO - User logged in: admin
 2025-08-06 11:04:23 - authservice - INFO - User logged in: admin
+2025-08-06 11:15:07 - authservice - INFO - Default admin user already exists
+2025-08-06 11:15:07 - authservice - INFO - Authentication service starting...
+2025-08-06 11:15:07 - authservice - INFO - Database connection established
+2025-08-06 11:15:08 - authservice - INFO - Default admin user already exists
+2025-08-06 11:15:08 - authservice - INFO - Authentication service starting...
+2025-08-06 11:15:08 - authservice - INFO - Database connection established
+2025-08-06 11:27:35 - authservice - INFO - Default admin user already exists
+2025-08-06 11:27:35 - authservice - INFO - Authentication service starting...
+2025-08-06 11:27:35 - authservice - INFO - Database connection established
+2025-08-06 11:27:35 - authservice - INFO - Default admin user already exists
+2025-08-06 11:27:35 - authservice - INFO - Authentication service starting...
+2025-08-06 11:27:35 - authservice - INFO - Database connection established
+2025-08-06 11:27:39 - authservice - INFO - User logged in: admin
+2025-08-06 11:32:46 - authservice - INFO - Default admin user already exists
+2025-08-06 11:32:46 - authservice - INFO - Authentication service starting...
+2025-08-06 11:32:47 - authservice - INFO - Database connection established
+2025-08-06 11:32:47 - authservice - INFO - Default admin user already exists
+2025-08-06 11:32:47 - authservice - INFO - Authentication service starting...
+2025-08-06 11:32:47 - authservice - INFO - Database connection established
+2025-08-06 11:33:24 - authservice - INFO - User logged in: admin
+2025-08-06 11:33:51 - authservice - INFO - User logged in: admin
+2025-08-06 11:34:22 - authservice - INFO - User logged in: admin
+2025-08-06 11:35:13 - authservice - INFO - Default admin user already exists
+2025-08-06 11:35:13 - authservice - INFO - Authentication service starting...
+2025-08-06 11:35:13 - authservice - INFO - Database connection established
+2025-08-06 11:35:29 - authservice - INFO - Default admin user already exists
+2025-08-06 11:35:29 - authservice - INFO - Authentication service starting...
+2025-08-06 11:35:29 - authservice - INFO - Database connection established
+2025-08-06 11:38:23 - authservice - INFO - Default admin user already exists
+2025-08-06 11:38:23 - authservice - INFO - Authentication service starting...
+2025-08-06 11:38:23 - authservice - INFO - Database connection established
