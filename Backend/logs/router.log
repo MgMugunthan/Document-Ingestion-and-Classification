@@ -156,3 +156,584 @@ kafka.errors.NoBrokersAvailable: NoBrokersAvailable
 2025-08-06 09:16:54 - router - INFO - Router agent starting...
 2025-08-06 09:16:54 - router - INFO - Database connection established
 2025-08-06 09:16:55 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-06 13:14:53 - router - INFO - Router agent starting...
+2025-08-06 13:14:53 - router - INFO - Database connection established
+2025-08-06 13:14:53 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-06 13:15:21 - router - INFO - Router agent starting...
+2025-08-06 13:15:21 - router - INFO - Database connection established
+2025-08-06 13:15:22 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-06 13:17:24 - router - INFO - Received new message from Kafka: doc_id '03b91f6e-506f-4f76-bac8-9471fb11b9bd'
+2025-08-06 13:17:24 - router - ERROR - Failed to move file for doc_id '03b91f6e-506f-4f76-bac8-9471fb11b9bd': [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Langs\\Team_Docs\\Local working prototype\\Document-Ingestion-and-Classification\\backend\\ingestor\\uploads\\MUGUNTHAN_S.pdf'
+Traceback (most recent call last):
+  File "C:\Users\Naveenkumar\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 847, in move
+    os.rename(src, real_dst)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Langs\\Team_Docs\\Local working prototype\\Document-Ingestion-and-Classification\\backend\\ingestor\\uploads\\MUGUNTHAN_S.pdf' -> 'D:\\Langs\\Team_Docs\\Local working prototype\\Document-Ingestion-and-Classification\\backend\\router\\routed_documents\\other\\MUGUNTHAN_S.pdf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\router.py", line 60, in route_document
+    shutil.move(source_path, target_path)
+  File "C:\Users\Naveenkumar\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 868, in move
+    os.unlink(src)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Langs\\Team_Docs\\Local working prototype\\Document-Ingestion-and-Classification\\backend\\ingestor\\uploads\\MUGUNTHAN_S.pdf'
+2025-08-06 13:17:26 - router - INFO - Received new message from Kafka: doc_id '74e9e196-cf23-4918-8635-7a3173ad02b7'
+2025-08-06 13:17:26 - router - INFO - Doc '74e9e196-cf23-4918-8635-7a3173ad02b7' routed to 'other'. Reason: Low confidence (0.00) - routed to 'other'.
+2025-08-06 13:24:50 - router - INFO - Router agent starting...
+2025-08-06 13:24:50 - router - INFO - Database connection established
+2025-08-06 13:24:50 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-06 13:25:09 - router - INFO - Received new message from Kafka: doc_id '7b6a155c-4091-42ca-8483-4d49c05a0f27'
+2025-08-06 13:25:09 - router - ERROR - Failed to move file for doc_id '7b6a155c-4091-42ca-8483-4d49c05a0f27': [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Langs\\Team_Docs\\Local working prototype\\Document-Ingestion-and-Classification\\backend\\ingestor\\uploads\\sample-invoice.pdf'
+Traceback (most recent call last):
+  File "C:\Users\Naveenkumar\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 847, in move
+    os.rename(src, real_dst)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Langs\\Team_Docs\\Local working prototype\\Document-Ingestion-and-Classification\\backend\\ingestor\\uploads\\sample-invoice.pdf' -> 'D:\\Langs\\Team_Docs\\Local working prototype\\Document-Ingestion-and-Classification\\backend\\router\\routed_documents\\invoice\\sample-invoice.pdf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\router.py", line 60, in route_document
+    shutil.move(source_path, target_path)
+  File "C:\Users\Naveenkumar\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 868, in move
+    os.unlink(src)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Langs\\Team_Docs\\Local working prototype\\Document-Ingestion-and-Classification\\backend\\ingestor\\uploads\\sample-invoice.pdf'
+2025-08-06 13:25:10 - router - INFO - Received new message from Kafka: doc_id '6d2e5e1b-8dc0-4da4-9c5b-2361ebe18fa0'
+2025-08-06 13:25:11 - router - INFO - Doc '6d2e5e1b-8dc0-4da4-9c5b-2361ebe18fa0' routed to 'invoice'. Reason: High confidence (0.99) - routed to 'invoice'.
+2025-08-06 13:31:55 - router - INFO - Received new message from Kafka: doc_id '8ca11e6d-73d0-4c10-b19a-a394620ff234'
+2025-08-06 13:31:56 - router - INFO - Doc '8ca11e6d-73d0-4c10-b19a-a394620ff234' routed to 'degree certificate'. Reason: High confidence (0.70) - routed to 'degree certificate'.
+2025-08-06 13:31:57 - router - INFO - Received new message from Kafka: doc_id '3854ce50-dc8c-4891-aeb1-8c85342e4292'
+2025-08-06 13:31:57 - router - ERROR - Source file not found for doc_id '3854ce50-dc8c-4891-aeb1-8c85342e4292'. Path: 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\ingestor\uploads\1000124077.png'
+2025-08-06 13:39:28 - router - INFO - Router agent starting...
+2025-08-06 13:39:28 - router - INFO - Database connection established
+2025-08-06 13:39:28 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-06 13:39:50 - router - INFO - Received new message from Kafka: doc_id '746d852e-eb87-4f5c-884a-1c4023f34c2e'
+2025-08-06 13:39:50 - router - INFO - Doc '746d852e-eb87-4f5c-884a-1c4023f34c2e' routed to 'marksheet'. Reason: High confidence (0.76) - routed to 'marksheet'.
+2025-08-06 13:39:50 - router - INFO - Received new message from Kafka: doc_id 'd91a363d-cb0f-4b70-aa67-80f71099a64e'
+2025-08-06 13:39:50 - router - ERROR - Source file not found for doc_id 'd91a363d-cb0f-4b70-aa67-80f71099a64e'. Path: 'D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\ingestor\uploads\Results.pdf'
+2025-08-06 13:41:00 - router - INFO - Received new message from Kafka: doc_id 'a09894a8-6fe1-4b19-8d9a-694513fd6f79'
+2025-08-06 13:41:00 - router - INFO - Doc 'a09894a8-6fe1-4b19-8d9a-694513fd6f79' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:41:01 - router - INFO - Received new message from Kafka: doc_id '7d1aa6f6-6745-48ee-8615-62677f350a11'
+2025-08-06 13:41:01 - router - INFO - Doc '7d1aa6f6-6745-48ee-8615-62677f350a11' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:41:02 - router - INFO - Received new message from Kafka: doc_id '3d3403bf-f574-449a-92ae-798329d37d5d'
+2025-08-06 13:41:02 - router - INFO - Doc '3d3403bf-f574-449a-92ae-798329d37d5d' routed to 'brochure'. Reason: High confidence (0.70) - routed to 'brochure'.
+2025-08-06 13:41:48 - router - INFO - Received new message from Kafka: doc_id '28057b64-f26c-4e3d-9448-4b5532f41009'
+2025-08-06 13:41:49 - router - INFO - Doc '28057b64-f26c-4e3d-9448-4b5532f41009' routed to 'technical'. Reason: High confidence (0.70) - routed to 'technical'.
+2025-08-06 13:41:50 - router - INFO - Received new message from Kafka: doc_id 'cbd830f5-1579-4063-9faa-353bf68d51db'
+2025-08-06 13:41:50 - router - INFO - Doc 'cbd830f5-1579-4063-9faa-353bf68d51db' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:41:52 - router - INFO - Received new message from Kafka: doc_id '0e3d3922-b413-4488-819f-b5f110fa78ca'
+2025-08-06 13:41:52 - router - INFO - Doc '0e3d3922-b413-4488-819f-b5f110fa78ca' routed to 'business pitch deck'. Reason: High confidence (0.70) - routed to 'business pitch deck'.
+2025-08-06 13:44:59 - router - INFO - Router agent starting...
+2025-08-06 13:44:59 - router - INFO - Database connection established
+2025-08-06 13:44:59 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-06 13:46:01 - router - INFO - Received new message from Kafka: doc_id 'd1ce2865-fcb2-44a3-a237-ed582913a20b'
+2025-08-06 13:46:02 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\BuildingRAGAppsUsingMongoDB_Badge20250620-27-1b51p5.pdf
+2025-08-06 13:46:02 - router - INFO - Doc 'd1ce2865-fcb2-44a3-a237-ed582913a20b' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:46:02 - router - INFO - Received new message from Kafka: doc_id 'd62179ca-9990-428a-8dcd-37becbfe3f82'
+2025-08-06 13:46:02 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\BuildingAI-PoweredSearchwithMongoDBVectorSearch_Badge20250620-27-bqobga.pdf
+2025-08-06 13:46:02 - router - INFO - Doc 'd62179ca-9990-428a-8dcd-37becbfe3f82' routed to 'brochure'. Reason: High confidence (0.70) - routed to 'brochure'.
+2025-08-06 13:46:02 - router - INFO - Received new message from Kafka: doc_id '637bac53-af65-499c-9f7a-7e6b2b5b34e4'
+2025-08-06 13:46:02 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\CRUDOperationsinMongoDB_Badge20250620-27-jt9xd8.pdf
+2025-08-06 13:46:02 - router - INFO - Doc '637bac53-af65-499c-9f7a-7e6b2b5b34e4' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:46:49 - router - INFO - Received new message from Kafka: doc_id 'b0ebd6fa-2da4-42fa-a12e-05358e11dbae'
+2025-08-06 13:46:50 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\GODWIN_JUDAH_J_RESUME_-_GODWIN_JUDAH_J.pdf
+2025-08-06 13:46:50 - router - INFO - Doc 'b0ebd6fa-2da4-42fa-a12e-05358e11dbae' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:47:08 - router - INFO - Received new message from Kafka: doc_id '7e0a33d7-3990-4428-b018-805bed465a05'
+2025-08-06 13:47:08 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\business pitch deck\Intel_AI_Reference_Kits.pdf
+2025-08-06 13:47:08 - router - INFO - Doc '7e0a33d7-3990-4428-b018-805bed465a05' routed to 'business pitch deck'. Reason: High confidence (0.70) - routed to 'business pitch deck'.
+2025-08-06 13:47:08 - router - INFO - Received new message from Kafka: doc_id '2280d2d3-10c9-4626-b6da-46572ea4b76e'
+2025-08-06 13:47:08 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\technical\FromRelationalModelSQLtoMongoDBsDocumentModel_Badge20250620-26-c3iwpo.pdf
+2025-08-06 13:47:08 - router - INFO - Doc '2280d2d3-10c9-4626-b6da-46572ea4b76e' routed to 'technical'. Reason: High confidence (0.70) - routed to 'technical'.
+2025-08-06 13:47:39 - router - INFO - Received new message from Kafka: doc_id 'f882920b-53ec-495c-90de-11c7130bf932'
+2025-08-06 13:47:39 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\BuildingRAGAppsUsingMongoDB_Badge20250620-27-1b51p5.pdf
+2025-08-06 13:47:39 - router - INFO - Doc 'f882920b-53ec-495c-90de-11c7130bf932' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:47:40 - router - INFO - Received new message from Kafka: doc_id 'eddcb60a-1520-40b4-83a9-fecc7c8f9175'
+2025-08-06 13:47:40 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\JAYASHREE-resume_-_JAYASHREE_R.pdf
+2025-08-06 13:47:40 - router - INFO - Doc 'eddcb60a-1520-40b4-83a9-fecc7c8f9175' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:47:41 - router - INFO - Received new message from Kafka: doc_id '0f2f5cc2-e327-4d5c-942f-b88386073ac7'
+2025-08-06 13:47:41 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBAdvancedSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-25-quwb1l.pdf
+2025-08-06 13:47:41 - router - INFO - Doc '0f2f5cc2-e327-4d5c-942f-b88386073ac7' routed to 'brochure'. Reason: High confidence (0.70) - routed to 'brochure'.
+2025-08-06 13:47:41 - router - INFO - Received new message from Kafka: doc_id 'f240a915-39d4-4498-b905-83d36a272eed'
+2025-08-06 13:47:41 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBAggregationFundamentals_Badge20250620-27-bg2ih1.pdf
+2025-08-06 13:47:41 - router - INFO - Doc 'f240a915-39d4-4498-b905-83d36a272eed' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:47:41 - router - INFO - Received new message from Kafka: doc_id 'e7d830af-abd2-4d64-a71d-f3018804c1ce'
+2025-08-06 13:47:41 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\advertisement\JAYA_SHREE_RESUME_3_-_JAYA_SHREE_P.pdf
+2025-08-06 13:47:41 - router - INFO - Doc 'e7d830af-abd2-4d64-a71d-f3018804c1ce' routed to 'advertisement'. Reason: High confidence (0.70) - routed to 'advertisement'.
+2025-08-06 13:47:42 - router - INFO - Received new message from Kafka: doc_id '77781b69-62b3-4f80-af8e-a12197ab69ea'
+2025-08-06 13:47:42 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBQueryOptimizationTechniques_Badge20250620-25-uqulmn.pdf
+2025-08-06 13:47:42 - router - INFO - Doc '77781b69-62b3-4f80-af8e-a12197ab69ea' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:47:42 - router - INFO - Received new message from Kafka: doc_id '1e06e079-c291-4c7b-8b42-09917c097302'
+2025-08-06 13:47:42 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBBasicsforStudents_Badge20250620-29-jwwbtq.pdf
+2025-08-06 13:47:42 - router - INFO - Doc '1e06e079-c291-4c7b-8b42-09917c097302' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:47:43 - router - INFO - Received new message from Kafka: doc_id '00c3c65e-4317-4497-a5cd-6a2d442bbcd2'
+2025-08-06 13:47:43 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\BuildingAI-PoweredSearchwithMongoDBVectorSearch_Badge20250620-27-bqobga.pdf
+2025-08-06 13:47:43 - router - INFO - Doc '00c3c65e-4317-4497-a5cd-6a2d442bbcd2' routed to 'brochure'. Reason: High confidence (0.70) - routed to 'brochure'.
+2025-08-06 13:47:43 - router - INFO - Received new message from Kafka: doc_id '7e0592ae-3e73-4609-8d49-b7890dacc26a'
+2025-08-06 13:47:43 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBSchemaDesignOptimizationSkillBadge_Badge20250620-24-g7xmz9.pdf
+2025-08-06 13:47:43 - router - INFO - Doc '7e0592ae-3e73-4609-8d49-b7890dacc26a' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:47:44 - router - INFO - Received new message from Kafka: doc_id '7ba00f84-0914-4f3a-8987-7c80fcd9527e'
+2025-08-06 13:47:44 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-27-v47272.pdf
+2025-08-06 13:47:44 - router - INFO - Doc '7ba00f84-0914-4f3a-8987-7c80fcd9527e' routed to 'brochure'. Reason: High confidence (0.70) - routed to 'brochure'.
+2025-08-06 13:47:44 - router - INFO - Received new message from Kafka: doc_id '130aa634-e15c-4b1e-ae3d-4a1175dec15c'
+2025-08-06 13:47:44 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_-_Resume.pdf
+2025-08-06 13:47:44 - router - INFO - Doc '130aa634-e15c-4b1e-ae3d-4a1175dec15c' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:47:45 - router - INFO - Received new message from Kafka: doc_id 'b07c997b-ac96-477b-8e2b-8590b4c43729'
+2025-08-06 13:47:45 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Muni_Charmi_-_MUNI_CHARMI_T.pdf
+2025-08-06 13:47:45 - router - INFO - Doc 'b07c997b-ac96-477b-8e2b-8590b4c43729' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:48:01 - router - INFO - Received new message from Kafka: doc_id '54b03a37-7a7c-4acf-af49-caad27e8ef00'
+2025-08-06 13:48:01 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_Resume.pdf
+2025-08-06 13:48:01 - router - INFO - Doc '54b03a37-7a7c-4acf-af49-caad27e8ef00' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:48:02 - router - INFO - Received new message from Kafka: doc_id '1a27cc1f-5ed4-4e98-8786-cf77068c8496'
+2025-08-06 13:48:02 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\CRUDOperationsinMongoDB_Badge20250620-27-jt9xd8.pdf
+2025-08-06 13:48:02 - router - INFO - Doc '1a27cc1f-5ed4-4e98-8786-cf77068c8496' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:48:02 - router - INFO - Received new message from Kafka: doc_id '7a845d4f-ef1c-435e-aa46-2cf7b98fb351'
+2025-08-06 13:48:03 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\PRABHU_SUNDAR_Resume_-_PRABHU_SUNDAR_D_1.pdf
+2025-08-06 13:48:03 - router - INFO - Doc '7a845d4f-ef1c-435e-aa46-2cf7b98fb351' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:48:18 - router - INFO - Received new message from Kafka: doc_id '03dcb159-e5fb-4a6d-9e49-7aa84fbb6f7b'
+2025-08-06 13:48:18 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Resume_NEW_Jun_2025_-_KANNAN_C_J.pdf
+2025-08-06 13:48:18 - router - INFO - Doc '03dcb159-e5fb-4a6d-9e49-7aa84fbb6f7b' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:48:19 - router - INFO - Received new message from Kafka: doc_id '8f5d17dc-a266-4b1d-bcb4-ecb280a2195c'
+2025-08-06 13:48:19 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\sadha_cv_-_SADHA_SHREE_R.pdf
+2025-08-06 13:48:19 - router - INFO - Doc '8f5d17dc-a266-4b1d-bcb4-ecb280a2195c' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:48:35 - router - INFO - Received new message from Kafka: doc_id '626c11e6-4521-4392-8d25-04550a5793b9'
+2025-08-06 13:48:35 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\SAHANA_R_-_RESUME_-_SAHANA_R.pdf
+2025-08-06 13:48:35 - router - INFO - Doc '626c11e6-4521-4392-8d25-04550a5793b9' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:48:35 - router - INFO - Received new message from Kafka: doc_id 'b1349bab-166d-4707-bfd1-d60b642008aa'
+2025-08-06 13:48:35 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBSelf-ManagedAuthenticationAuthorization_Badge20250620-29-nv0d3x.pdf
+2025-08-06 13:48:35 - router - INFO - Doc 'b1349bab-166d-4707-bfd1-d60b642008aa' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:48:36 - router - INFO - Received new message from Kafka: doc_id '7b98d023-9190-4994-962f-cf3e6c11fc42'
+2025-08-06 13:48:36 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBAtlasAuthenticationAuthorization_Badge20250620-24-80voyh.pdf
+2025-08-06 13:48:36 - router - INFO - Doc '7b98d023-9190-4994-962f-cf3e6c11fc42' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:49:22 - router - INFO - Received new message from Kafka: doc_id 'f1e5eb04-e44d-48ef-b022-87d613a8b992'
+2025-08-06 13:49:22 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\technical\FromRelationalModelSQLtoMongoDBsDocumentModel_Badge20250620-26-c3iwpo.pdf
+2025-08-06 13:49:22 - router - INFO - Doc 'f1e5eb04-e44d-48ef-b022-87d613a8b992' routed to 'technical'. Reason: High confidence (0.70) - routed to 'technical'.
+2025-08-06 13:49:23 - router - INFO - Received new message from Kafka: doc_id 'c40e6a2c-c487-4b06-897c-9971355b9ecb'
+2025-08-06 13:49:23 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\GODWIN_JUDAH_J_RESUME_-_GODWIN_JUDAH_J.pdf
+2025-08-06 13:49:23 - router - INFO - Doc 'c40e6a2c-c487-4b06-897c-9971355b9ecb' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:49:25 - router - INFO - Received new message from Kafka: doc_id '433d97e8-28d5-4fdb-81c3-850101aecaa7'
+2025-08-06 13:49:25 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\business pitch deck\Intel_AI_Reference_Kits.pdf
+2025-08-06 13:49:25 - router - INFO - Doc '433d97e8-28d5-4fdb-81c3-850101aecaa7' routed to 'business pitch deck'. Reason: High confidence (0.70) - routed to 'business pitch deck'.
+2025-08-06 13:49:25 - router - INFO - Received new message from Kafka: doc_id '3463cfe8-c501-40fd-bdab-3ac9b520438a'
+2025-08-06 13:49:25 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\advertisement\JAYA_SHREE_RESUME_3_-_JAYA_SHREE_P.pdf
+2025-08-06 13:49:25 - router - INFO - Doc '3463cfe8-c501-40fd-bdab-3ac9b520438a' routed to 'advertisement'. Reason: High confidence (0.70) - routed to 'advertisement'.
+2025-08-06 13:49:26 - router - INFO - Received new message from Kafka: doc_id 'ddf1d6c9-eeac-420a-9fa7-b091f27ee647'
+2025-08-06 13:49:26 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\JAYASHREE-resume_-_JAYASHREE_R.pdf
+2025-08-06 13:49:26 - router - INFO - Doc 'ddf1d6c9-eeac-420a-9fa7-b091f27ee647' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:49:26 - router - INFO - Received new message from Kafka: doc_id 'a6c6a6cf-d1f6-46c6-8879-8f98006aae8f'
+2025-08-06 13:49:26 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBAdvancedSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-25-quwb1l.pdf
+2025-08-06 13:49:26 - router - INFO - Doc 'a6c6a6cf-d1f6-46c6-8879-8f98006aae8f' routed to 'brochure'. Reason: High confidence (0.70) - routed to 'brochure'.
+2025-08-06 13:49:27 - router - INFO - Received new message from Kafka: doc_id 'e8bcbae3-227f-48e7-82fb-9ff8678e23bb'
+2025-08-06 13:49:27 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBAggregationFundamentals_Badge20250620-27-bg2ih1.pdf
+2025-08-06 13:49:27 - router - INFO - Doc 'e8bcbae3-227f-48e7-82fb-9ff8678e23bb' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:49:27 - router - INFO - Received new message from Kafka: doc_id 'e6fdcf20-26fc-4c9c-ac17-2075fc066562'
+2025-08-06 13:49:27 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBBasicsforStudents_Badge20250620-29-jwwbtq.pdf
+2025-08-06 13:49:27 - router - INFO - Doc 'e6fdcf20-26fc-4c9c-ac17-2075fc066562' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:49:27 - router - INFO - Received new message from Kafka: doc_id '0c46142d-6827-40f4-b99e-4070b1f28276'
+2025-08-06 13:49:28 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBQueryOptimizationTechniques_Badge20250620-25-uqulmn.pdf
+2025-08-06 13:49:28 - router - INFO - Doc '0c46142d-6827-40f4-b99e-4070b1f28276' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:49:28 - router - INFO - Received new message from Kafka: doc_id '74061fe2-86f3-4c0b-b195-9a860be5475d'
+2025-08-06 13:49:28 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-27-v47272.pdf
+2025-08-06 13:49:28 - router - INFO - Doc '74061fe2-86f3-4c0b-b195-9a860be5475d' routed to 'brochure'. Reason: High confidence (0.70) - routed to 'brochure'.
+2025-08-06 13:49:28 - router - INFO - Received new message from Kafka: doc_id '8d6fdb73-2f31-410a-b3c3-6561409fac4b'
+2025-08-06 13:49:28 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBSchemaDesignOptimizationSkillBadge_Badge20250620-24-g7xmz9.pdf
+2025-08-06 13:49:28 - router - INFO - Doc '8d6fdb73-2f31-410a-b3c3-6561409fac4b' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:49:28 - router - INFO - Received new message from Kafka: doc_id 'aa3fd548-8dc2-41a4-8893-8dc79d428769'
+2025-08-06 13:49:28 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_-_Resume.pdf
+2025-08-06 13:49:28 - router - INFO - Doc 'aa3fd548-8dc2-41a4-8893-8dc79d428769' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:49:29 - router - INFO - Received new message from Kafka: doc_id '28c67eaa-6aac-427a-bfc8-3447af511153'
+2025-08-06 13:49:29 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Muni_Charmi_-_MUNI_CHARMI_T.pdf
+2025-08-06 13:49:29 - router - INFO - Doc '28c67eaa-6aac-427a-bfc8-3447af511153' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:49:30 - router - INFO - Received new message from Kafka: doc_id '1b9c63e0-cc53-4267-ac3a-5d6bf29f6115'
+2025-08-06 13:49:30 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_Resume.pdf
+2025-08-06 13:49:30 - router - INFO - Doc '1b9c63e0-cc53-4267-ac3a-5d6bf29f6115' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:49:31 - router - INFO - Received new message from Kafka: doc_id '22980beb-2b6d-4f61-a858-113efbaaac3d'
+2025-08-06 13:49:31 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\PRABHU_SUNDAR_Resume_-_PRABHU_SUNDAR_D_1.pdf
+2025-08-06 13:49:31 - router - INFO - Doc '22980beb-2b6d-4f61-a858-113efbaaac3d' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:49:31 - router - INFO - Received new message from Kafka: doc_id '0da7a032-9a48-42e4-9468-09fa715a2b49'
+2025-08-06 13:49:31 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Resume_NEW_Jun_2025_-_KANNAN_C_J.pdf
+2025-08-06 13:49:31 - router - INFO - Doc '0da7a032-9a48-42e4-9468-09fa715a2b49' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:49:32 - router - INFO - Received new message from Kafka: doc_id 'c68723b9-e307-4d47-b9e0-8c5bd32ef69b'
+2025-08-06 13:49:32 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\sadha_cv_-_SADHA_SHREE_R.pdf
+2025-08-06 13:49:32 - router - INFO - Doc 'c68723b9-e307-4d47-b9e0-8c5bd32ef69b' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:49:33 - router - INFO - Received new message from Kafka: doc_id 'f763d388-a8ca-4ff9-a0b2-642103d29749'
+2025-08-06 13:49:33 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\SAHANA_R_-_RESUME_-_SAHANA_R.pdf
+2025-08-06 13:49:33 - router - INFO - Doc 'f763d388-a8ca-4ff9-a0b2-642103d29749' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 13:49:33 - router - INFO - Received new message from Kafka: doc_id '841fe294-47cb-486c-a5b2-e956cf9d2cfc'
+2025-08-06 13:49:33 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBAtlasAuthenticationAuthorization_Badge20250620-24-80voyh.pdf
+2025-08-06 13:49:33 - router - INFO - Doc '841fe294-47cb-486c-a5b2-e956cf9d2cfc' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:49:34 - router - INFO - Received new message from Kafka: doc_id 'b02aa041-bee8-4a25-8aac-996dd8afbe4a'
+2025-08-06 13:49:34 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBSelf-ManagedAuthenticationAuthorization_Badge20250620-29-nv0d3x.pdf
+2025-08-06 13:49:34 - router - INFO - Doc 'b02aa041-bee8-4a25-8aac-996dd8afbe4a' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 13:59:48 - router - INFO - Received new message from Kafka: doc_id '0ddaf22e-96b1-4eff-8b1b-4f83029f0287'
+2025-08-06 13:59:48 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\GODWIN_JUDAH_J_RESUME_-_GODWIN_JUDAH_J.pdf
+2025-08-06 13:59:48 - router - INFO - Doc '0ddaf22e-96b1-4eff-8b1b-4f83029f0287' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:00:14 - router - INFO - Received new message from Kafka: doc_id 'd4a0d26e-04b2-4c54-a5fe-ddb615ec20ba'
+2025-08-06 14:00:14 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\BuildingRAGAppsUsingMongoDB_Badge20250620-27-1b51p5.pdf
+2025-08-06 14:00:14 - router - INFO - Doc 'd4a0d26e-04b2-4c54-a5fe-ddb615ec20ba' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:00:30 - router - INFO - Received new message from Kafka: doc_id 'a431fc63-afc6-4bff-8a66-6957b96bf5fe'
+2025-08-06 14:00:30 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\BuildingAI-PoweredSearchwithMongoDBVectorSearch_Badge20250620-27-bqobga.pdf
+2025-08-06 14:00:30 - router - INFO - Doc 'a431fc63-afc6-4bff-8a66-6957b96bf5fe' routed to 'brochure'. Reason: High confidence (0.70) - routed to 'brochure'.
+2025-08-06 14:00:45 - router - INFO - Received new message from Kafka: doc_id '68ec5529-be95-4b48-b0da-0c33aa78e570'
+2025-08-06 14:00:45 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\CRUDOperationsinMongoDB_Badge20250620-27-jt9xd8.pdf
+2025-08-06 14:00:45 - router - INFO - Doc '68ec5529-be95-4b48-b0da-0c33aa78e570' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:01:01 - router - INFO - Received new message from Kafka: doc_id 'dae744a5-948e-4e60-b441-5582514b3893'
+2025-08-06 14:01:01 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\technical\FromRelationalModelSQLtoMongoDBsDocumentModel_Badge20250620-26-c3iwpo.pdf
+2025-08-06 14:01:01 - router - INFO - Doc 'dae744a5-948e-4e60-b441-5582514b3893' routed to 'technical'. Reason: High confidence (0.70) - routed to 'technical'.
+2025-08-06 14:01:01 - router - INFO - Received new message from Kafka: doc_id 'a0c26a5c-f457-4991-85bf-7cf2923a5e23'
+2025-08-06 14:01:01 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\GODWIN_JUDAH_J_RESUME_-_GODWIN_JUDAH_J.pdf
+2025-08-06 14:01:01 - router - INFO - Doc 'a0c26a5c-f457-4991-85bf-7cf2923a5e23' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:01:17 - router - INFO - Received new message from Kafka: doc_id 'fae460f2-75e3-4640-b2b6-9c431b970f3d'
+2025-08-06 14:01:17 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\advertisement\JAYA_SHREE_RESUME_3_-_JAYA_SHREE_P.pdf
+2025-08-06 14:01:17 - router - INFO - Doc 'fae460f2-75e3-4640-b2b6-9c431b970f3d' routed to 'advertisement'. Reason: High confidence (0.70) - routed to 'advertisement'.
+2025-08-06 14:01:19 - router - INFO - Received new message from Kafka: doc_id '3630937e-e05f-409a-bbd8-b442a2ed45f5'
+2025-08-06 14:01:19 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\business pitch deck\Intel_AI_Reference_Kits.pdf
+2025-08-06 14:01:19 - router - INFO - Doc '3630937e-e05f-409a-bbd8-b442a2ed45f5' routed to 'business pitch deck'. Reason: High confidence (0.70) - routed to 'business pitch deck'.
+2025-08-06 14:01:34 - router - INFO - Received new message from Kafka: doc_id '836b14f0-9b02-4eb9-b64b-7465e6f3b1ff'
+2025-08-06 14:01:34 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\JAYASHREE-resume_-_JAYASHREE_R.pdf
+2025-08-06 14:01:34 - router - INFO - Doc '836b14f0-9b02-4eb9-b64b-7465e6f3b1ff' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:01:34 - router - INFO - Received new message from Kafka: doc_id '6d4002cb-376a-40ea-86d4-dc63b72a2a49'
+2025-08-06 14:01:34 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBAdvancedSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-25-quwb1l.pdf
+2025-08-06 14:01:34 - router - INFO - Doc '6d4002cb-376a-40ea-86d4-dc63b72a2a49' routed to 'brochure'. Reason: High confidence (0.70) - routed to 'brochure'.
+2025-08-06 14:01:35 - router - INFO - Received new message from Kafka: doc_id 'bbda5dd2-234b-4572-b3cb-01709ee91377'
+2025-08-06 14:01:35 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBQueryOptimizationTechniques_Badge20250620-25-uqulmn.pdf
+2025-08-06 14:01:35 - router - INFO - Doc 'bbda5dd2-234b-4572-b3cb-01709ee91377' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:01:35 - router - INFO - Received new message from Kafka: doc_id '8475491c-ca0d-46af-a132-587069f71bd7'
+2025-08-06 14:01:35 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBBasicsforStudents_Badge20250620-29-jwwbtq.pdf
+2025-08-06 14:01:35 - router - INFO - Doc '8475491c-ca0d-46af-a132-587069f71bd7' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:01:50 - router - INFO - Received new message from Kafka: doc_id 'b9a397c3-ba90-4d4d-9d2f-11b97c7ea12d'
+2025-08-06 14:01:50 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBSchemaDesignOptimizationSkillBadge_Badge20250620-24-g7xmz9.pdf
+2025-08-06 14:01:50 - router - INFO - Doc 'b9a397c3-ba90-4d4d-9d2f-11b97c7ea12d' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:01:51 - router - INFO - Received new message from Kafka: doc_id 'e8b50a54-c2ed-4299-b450-482c242ab8ef'
+2025-08-06 14:01:51 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBAggregationFundamentals_Badge20250620-27-bg2ih1.pdf
+2025-08-06 14:01:51 - router - INFO - Doc 'e8b50a54-c2ed-4299-b450-482c242ab8ef' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:01:51 - router - INFO - Received new message from Kafka: doc_id 'e8376561-258c-40ad-bd18-70249c70ed2d'
+2025-08-06 14:01:51 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-27-v47272.pdf
+2025-08-06 14:01:51 - router - INFO - Doc 'e8376561-258c-40ad-bd18-70249c70ed2d' routed to 'brochure'. Reason: High confidence (0.70) - routed to 'brochure'.
+2025-08-06 14:01:51 - router - INFO - Received new message from Kafka: doc_id '0ca3e5a1-4f94-48aa-bdf9-06395946e0ca'
+2025-08-06 14:01:51 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_-_Resume.pdf
+2025-08-06 14:01:51 - router - INFO - Doc '0ca3e5a1-4f94-48aa-bdf9-06395946e0ca' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:01:51 - router - INFO - Received new message from Kafka: doc_id '6ee6ded2-8fd0-4c81-ad8d-1de0e4565dfa'
+2025-08-06 14:01:51 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_Resume.pdf
+2025-08-06 14:01:51 - router - INFO - Doc '6ee6ded2-8fd0-4c81-ad8d-1de0e4565dfa' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:01:52 - router - INFO - Received new message from Kafka: doc_id '4cbde763-02c2-414c-96d7-3fcda7c3536e'
+2025-08-06 14:01:52 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Muni_Charmi_-_MUNI_CHARMI_T.pdf
+2025-08-06 14:01:52 - router - INFO - Doc '4cbde763-02c2-414c-96d7-3fcda7c3536e' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:01:52 - router - INFO - Received new message from Kafka: doc_id '8b82b406-2f3f-43a4-8b06-4fb7b0b334fb'
+2025-08-06 14:01:52 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\PRABHU_SUNDAR_Resume_-_PRABHU_SUNDAR_D_1.pdf
+2025-08-06 14:01:52 - router - INFO - Doc '8b82b406-2f3f-43a4-8b06-4fb7b0b334fb' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:02:23 - router - INFO - Received new message from Kafka: doc_id 'da6bc856-10ce-41a1-8008-3d8f787b6fee'
+2025-08-06 14:02:23 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Resume_NEW_Jun_2025_-_KANNAN_C_J.pdf
+2025-08-06 14:02:23 - router - INFO - Doc 'da6bc856-10ce-41a1-8008-3d8f787b6fee' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:02:23 - router - INFO - Received new message from Kafka: doc_id 'e1538d0c-3027-4255-81f9-8585c9b9995d'
+2025-08-06 14:02:23 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\sadha_cv_-_SADHA_SHREE_R.pdf
+2025-08-06 14:02:23 - router - INFO - Doc 'e1538d0c-3027-4255-81f9-8585c9b9995d' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:02:39 - router - INFO - Received new message from Kafka: doc_id '798bed82-d15c-44a4-9130-1b8ca72dc692'
+2025-08-06 14:02:39 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\SAHANA_R_-_RESUME_-_SAHANA_R.pdf
+2025-08-06 14:02:39 - router - INFO - Doc '798bed82-d15c-44a4-9130-1b8ca72dc692' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:02:39 - router - INFO - Received new message from Kafka: doc_id 'ff02f4bf-ca44-490a-a016-f7c0f86e8af7'
+2025-08-06 14:02:39 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBAtlasAuthenticationAuthorization_Badge20250620-24-80voyh.pdf
+2025-08-06 14:02:39 - router - INFO - Doc 'ff02f4bf-ca44-490a-a016-f7c0f86e8af7' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:02:54 - router - INFO - Received new message from Kafka: doc_id '38c2f4e4-4d5b-439f-b9e9-df7848c06cb5'
+2025-08-06 14:02:54 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBSelf-ManagedAuthenticationAuthorization_Badge20250620-29-nv0d3x.pdf
+2025-08-06 14:02:54 - router - INFO - Doc '38c2f4e4-4d5b-439f-b9e9-df7848c06cb5' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:11:46 - router - INFO - Router agent starting...
+2025-08-06 14:11:46 - router - INFO - Database connection established
+2025-08-06 14:11:46 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-06 14:12:21 - router - INFO - Received new message from Kafka: doc_id 'c0bfd1ef-90ac-4c27-99c7-403342a829aa'
+2025-08-06 14:12:21 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\BuildingRAGAppsUsingMongoDB_Badge20250620-27-1b51p5.pdf
+2025-08-06 14:12:21 - router - INFO - Doc 'c0bfd1ef-90ac-4c27-99c7-403342a829aa' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:12:21 - router - INFO - Received new message from Kafka: doc_id '0abf7461-688b-4fd5-a265-a5246b2f0c60'
+2025-08-06 14:12:21 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\CRUDOperationsinMongoDB_Badge20250620-27-jt9xd8.pdf
+2025-08-06 14:12:21 - router - INFO - Doc '0abf7461-688b-4fd5-a265-a5246b2f0c60' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:12:22 - router - INFO - Received new message from Kafka: doc_id '811539a7-38b8-4437-a438-bd19c721066e'
+2025-08-06 14:12:22 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\BuildingAI-PoweredSearchwithMongoDBVectorSearch_Badge20250620-27-bqobga.pdf
+2025-08-06 14:12:22 - router - INFO - Doc '811539a7-38b8-4437-a438-bd19c721066e' routed to 'brochure'. Reason: High confidence (0.70) - routed to 'brochure'.
+2025-08-06 14:12:23 - router - INFO - Received new message from Kafka: doc_id '8c1e1084-d548-49aa-a3a5-c3236ca04579'
+2025-08-06 14:12:23 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\technical\FromRelationalModelSQLtoMongoDBsDocumentModel_Badge20250620-26-c3iwpo.pdf
+2025-08-06 14:12:23 - router - INFO - Doc '8c1e1084-d548-49aa-a3a5-c3236ca04579' routed to 'technical'. Reason: High confidence (0.70) - routed to 'technical'.
+2025-08-06 14:12:24 - router - INFO - Received new message from Kafka: doc_id '2d99136e-9765-4d61-9149-f69f36962b21'
+2025-08-06 14:12:25 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\GODWIN_JUDAH_J_RESUME_-_GODWIN_JUDAH_J.pdf
+2025-08-06 14:12:25 - router - INFO - Doc '2d99136e-9765-4d61-9149-f69f36962b21' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:12:28 - router - INFO - Received new message from Kafka: doc_id '236ff091-f2aa-4506-99a5-138cc5771224'
+2025-08-06 14:12:28 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\business pitch deck\Intel_AI_Reference_Kits.pdf
+2025-08-06 14:12:28 - router - INFO - Doc '236ff091-f2aa-4506-99a5-138cc5771224' routed to 'business pitch deck'. Reason: High confidence (0.70) - routed to 'business pitch deck'.
+2025-08-06 14:12:29 - router - INFO - Received new message from Kafka: doc_id '43ae0665-e15d-4cbd-a78b-95ec8b4f54ca'
+2025-08-06 14:12:29 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\advertisement\JAYA_SHREE_RESUME_3_-_JAYA_SHREE_P.pdf
+2025-08-06 14:12:29 - router - INFO - Doc '43ae0665-e15d-4cbd-a78b-95ec8b4f54ca' routed to 'advertisement'. Reason: High confidence (0.70) - routed to 'advertisement'.
+2025-08-06 14:12:29 - router - INFO - Received new message from Kafka: doc_id '8e832a7d-4bb2-4a48-b5ce-7bca2e7e3d66'
+2025-08-06 14:12:29 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\JAYASHREE-resume_-_JAYASHREE_R.pdf
+2025-08-06 14:12:29 - router - INFO - Doc '8e832a7d-4bb2-4a48-b5ce-7bca2e7e3d66' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:12:30 - router - INFO - Received new message from Kafka: doc_id '39156701-9273-4685-9f1c-4462eacdda37'
+2025-08-06 14:12:30 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBAdvancedSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-25-quwb1l.pdf
+2025-08-06 14:12:30 - router - INFO - Doc '39156701-9273-4685-9f1c-4462eacdda37' routed to 'brochure'. Reason: High confidence (0.70) - routed to 'brochure'.
+2025-08-06 14:12:30 - router - INFO - Received new message from Kafka: doc_id '78d60d6a-93cb-4832-8eb2-1db38d2d5f3e'
+2025-08-06 14:12:30 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBAggregationFundamentals_Badge20250620-27-bg2ih1.pdf
+2025-08-06 14:12:30 - router - INFO - Doc '78d60d6a-93cb-4832-8eb2-1db38d2d5f3e' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:12:30 - router - INFO - Received new message from Kafka: doc_id '6cbd1c37-10dd-4f18-8845-9bb4e05e6ae9'
+2025-08-06 14:12:30 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBBasicsforStudents_Badge20250620-29-jwwbtq.pdf
+2025-08-06 14:12:30 - router - INFO - Doc '6cbd1c37-10dd-4f18-8845-9bb4e05e6ae9' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:12:31 - router - INFO - Received new message from Kafka: doc_id '1eb579f3-141e-49b3-be3b-79178e024982'
+2025-08-06 14:12:31 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBQueryOptimizationTechniques_Badge20250620-25-uqulmn.pdf
+2025-08-06 14:12:31 - router - INFO - Doc '1eb579f3-141e-49b3-be3b-79178e024982' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:12:31 - router - INFO - Received new message from Kafka: doc_id 'be830d35-3b86-4572-9486-88b2df3d44a8'
+2025-08-06 14:12:31 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBSchemaDesignOptimizationSkillBadge_Badge20250620-24-g7xmz9.pdf
+2025-08-06 14:12:31 - router - INFO - Doc 'be830d35-3b86-4572-9486-88b2df3d44a8' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:12:31 - router - INFO - Received new message from Kafka: doc_id 'a054d47f-8661-410b-ab74-98c376ea638d'
+2025-08-06 14:12:31 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-27-v47272.pdf
+2025-08-06 14:12:31 - router - INFO - Doc 'a054d47f-8661-410b-ab74-98c376ea638d' routed to 'brochure'. Reason: High confidence (0.70) - routed to 'brochure'.
+2025-08-06 14:12:32 - router - INFO - Received new message from Kafka: doc_id 'e3a9f632-1625-414e-9a2a-842f5232ce31'
+2025-08-06 14:12:32 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Muni_Charmi_-_MUNI_CHARMI_T.pdf
+2025-08-06 14:12:32 - router - INFO - Doc 'e3a9f632-1625-414e-9a2a-842f5232ce31' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:12:32 - router - INFO - Received new message from Kafka: doc_id '0f2aae40-a0f0-42db-8146-482e1725bec2'
+2025-08-06 14:12:32 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_-_Resume.pdf
+2025-08-06 14:12:32 - router - INFO - Doc '0f2aae40-a0f0-42db-8146-482e1725bec2' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:12:33 - router - INFO - Received new message from Kafka: doc_id 'a72b94a5-86e0-4328-995c-9a832608b1ab'
+2025-08-06 14:12:33 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_Resume.pdf
+2025-08-06 14:12:33 - router - INFO - Doc 'a72b94a5-86e0-4328-995c-9a832608b1ab' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:12:34 - router - INFO - Received new message from Kafka: doc_id '1f7f44c3-548a-4697-8755-7cffa93a6589'
+2025-08-06 14:12:34 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Resume_NEW_Jun_2025_-_KANNAN_C_J.pdf
+2025-08-06 14:12:34 - router - INFO - Doc '1f7f44c3-548a-4697-8755-7cffa93a6589' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:12:35 - router - INFO - Received new message from Kafka: doc_id '26b660cf-a342-47dc-8b6b-27a2ad500fd3'
+2025-08-06 14:12:35 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\sadha_cv_-_SADHA_SHREE_R.pdf
+2025-08-06 14:12:35 - router - INFO - Doc '26b660cf-a342-47dc-8b6b-27a2ad500fd3' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:12:35 - router - INFO - Received new message from Kafka: doc_id 'f74586fc-65de-405f-ad0b-b3f965b66be1'
+2025-08-06 14:12:35 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\SAHANA_R_-_RESUME_-_SAHANA_R.pdf
+2025-08-06 14:12:35 - router - INFO - Doc 'f74586fc-65de-405f-ad0b-b3f965b66be1' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:12:36 - router - INFO - Received new message from Kafka: doc_id 'de1da92f-c90f-464c-b454-17f414271309'
+2025-08-06 14:12:36 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\PRABHU_SUNDAR_Resume_-_PRABHU_SUNDAR_D_1.pdf
+2025-08-06 14:12:36 - router - INFO - Doc 'de1da92f-c90f-464c-b454-17f414271309' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:12:36 - router - INFO - Received new message from Kafka: doc_id 'a32140bc-c29d-4af0-8e2f-8b7b80b4b52e'
+2025-08-06 14:12:36 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBAtlasAuthenticationAuthorization_Badge20250620-24-80voyh.pdf
+2025-08-06 14:12:36 - router - INFO - Doc 'a32140bc-c29d-4af0-8e2f-8b7b80b4b52e' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:12:37 - router - INFO - Received new message from Kafka: doc_id '64951599-d455-438c-b39d-f13250e9f70d'
+2025-08-06 14:12:37 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBSelf-ManagedAuthenticationAuthorization_Badge20250620-29-nv0d3x.pdf
+2025-08-06 14:12:37 - router - INFO - Doc '64951599-d455-438c-b39d-f13250e9f70d' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:17:56 - router - INFO - Router agent starting...
+2025-08-06 14:17:56 - router - INFO - Database connection established
+2025-08-06 14:17:56 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-06 14:18:27 - router - INFO - Received new message from Kafka: doc_id 'fab769f1-ef10-4d4d-bcd7-eaa90e0e5c75'
+2025-08-06 14:18:28 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\BuildingRAGAppsUsingMongoDB_Badge20250620-27-1b51p5.pdf
+2025-08-06 14:18:28 - router - INFO - Doc 'fab769f1-ef10-4d4d-bcd7-eaa90e0e5c75' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:18:28 - router - INFO - Received new message from Kafka: doc_id 'ac96b456-4b3b-4a57-b2d8-c39147b5d9ca'
+2025-08-06 14:18:28 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\CRUDOperationsinMongoDB_Badge20250620-27-jt9xd8.pdf
+2025-08-06 14:18:28 - router - INFO - Doc 'ac96b456-4b3b-4a57-b2d8-c39147b5d9ca' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:18:29 - router - INFO - Received new message from Kafka: doc_id 'ac8396cb-add1-4d7d-880c-5099c5cc7552'
+2025-08-06 14:18:29 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\BuildingAI-PoweredSearchwithMongoDBVectorSearch_Badge20250620-27-bqobga.pdf
+2025-08-06 14:18:29 - router - INFO - Doc 'ac8396cb-add1-4d7d-880c-5099c5cc7552' routed to 'brochure'. Reason: High confidence (0.70) - routed to 'brochure'.
+2025-08-06 14:18:30 - router - INFO - Received new message from Kafka: doc_id '0454af31-6bb0-4379-b89e-15d99bd4fe9f'
+2025-08-06 14:18:30 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\GODWIN_JUDAH_J_RESUME_-_GODWIN_JUDAH_J.pdf
+2025-08-06 14:18:30 - router - INFO - Doc '0454af31-6bb0-4379-b89e-15d99bd4fe9f' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:18:31 - router - INFO - Received new message from Kafka: doc_id 'b2d208be-b722-4ae1-906f-b816794740fb'
+2025-08-06 14:18:31 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\technical\FromRelationalModelSQLtoMongoDBsDocumentModel_Badge20250620-26-c3iwpo.pdf
+2025-08-06 14:18:31 - router - INFO - Doc 'b2d208be-b722-4ae1-906f-b816794740fb' routed to 'technical'. Reason: High confidence (0.70) - routed to 'technical'.
+2025-08-06 14:18:34 - router - INFO - Received new message from Kafka: doc_id 'aae7aa0c-e460-4afd-ab98-64e2573cfe59'
+2025-08-06 14:18:34 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\business pitch deck\Intel_AI_Reference_Kits.pdf
+2025-08-06 14:18:34 - router - INFO - Doc 'aae7aa0c-e460-4afd-ab98-64e2573cfe59' routed to 'business pitch deck'. Reason: High confidence (0.70) - routed to 'business pitch deck'.
+2025-08-06 14:18:35 - router - INFO - Received new message from Kafka: doc_id '0214d968-34a9-46e3-be92-d22021adb0ca'
+2025-08-06 14:18:35 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\advertisement\JAYA_SHREE_RESUME_3_-_JAYA_SHREE_P.pdf
+2025-08-06 14:18:35 - router - INFO - Doc '0214d968-34a9-46e3-be92-d22021adb0ca' routed to 'advertisement'. Reason: High confidence (0.70) - routed to 'advertisement'.
+2025-08-06 14:18:36 - router - INFO - Received new message from Kafka: doc_id '92f771db-7346-4dbe-9a9d-5b2529b976c0'
+2025-08-06 14:18:36 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\JAYASHREE-resume_-_JAYASHREE_R.pdf
+2025-08-06 14:18:36 - router - INFO - Doc '92f771db-7346-4dbe-9a9d-5b2529b976c0' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:18:36 - router - INFO - Received new message from Kafka: doc_id '4db87ff6-e08d-4afa-a5e8-4134afd71a2b'
+2025-08-06 14:18:36 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBAdvancedSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-25-quwb1l.pdf
+2025-08-06 14:18:36 - router - INFO - Doc '4db87ff6-e08d-4afa-a5e8-4134afd71a2b' routed to 'brochure'. Reason: High confidence (0.70) - routed to 'brochure'.
+2025-08-06 14:18:37 - router - INFO - Received new message from Kafka: doc_id '30a0dae0-0d0f-4896-98ec-870d956a7205'
+2025-08-06 14:18:37 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBAggregationFundamentals_Badge20250620-27-bg2ih1.pdf
+2025-08-06 14:18:37 - router - INFO - Doc '30a0dae0-0d0f-4896-98ec-870d956a7205' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:18:38 - router - INFO - Received new message from Kafka: doc_id '6ab549e2-e628-4a65-8429-24eabbd655a5'
+2025-08-06 14:18:38 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBBasicsforStudents_Badge20250620-29-jwwbtq.pdf
+2025-08-06 14:18:38 - router - INFO - Doc '6ab549e2-e628-4a65-8429-24eabbd655a5' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:18:39 - router - INFO - Received new message from Kafka: doc_id '77d27385-d454-45d2-9099-363c6cd78946'
+2025-08-06 14:18:39 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBQueryOptimizationTechniques_Badge20250620-25-uqulmn.pdf
+2025-08-06 14:18:39 - router - INFO - Doc '77d27385-d454-45d2-9099-363c6cd78946' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:18:40 - router - INFO - Received new message from Kafka: doc_id '54951c0c-4fa1-47c5-961e-463c9cb10714'
+2025-08-06 14:18:40 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBSchemaDesignOptimizationSkillBadge_Badge20250620-24-g7xmz9.pdf
+2025-08-06 14:18:40 - router - INFO - Doc '54951c0c-4fa1-47c5-961e-463c9cb10714' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:18:41 - router - INFO - Received new message from Kafka: doc_id '64bbdf04-d63a-43e2-ba41-e87b6c9e8fef'
+2025-08-06 14:18:41 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-27-v47272.pdf
+2025-08-06 14:18:41 - router - INFO - Doc '64bbdf04-d63a-43e2-ba41-e87b6c9e8fef' routed to 'brochure'. Reason: High confidence (0.70) - routed to 'brochure'.
+2025-08-06 14:18:41 - router - INFO - Received new message from Kafka: doc_id 'd724349f-63c4-48c8-b05b-3edcd3d0fc1b'
+2025-08-06 14:18:42 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Muni_Charmi_-_MUNI_CHARMI_T.pdf
+2025-08-06 14:18:42 - router - INFO - Doc 'd724349f-63c4-48c8-b05b-3edcd3d0fc1b' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:18:43 - router - INFO - Received new message from Kafka: doc_id '2fd111cd-c994-4c04-ade9-f90c94116b12'
+2025-08-06 14:18:43 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_Resume.pdf
+2025-08-06 14:18:43 - router - INFO - Doc '2fd111cd-c994-4c04-ade9-f90c94116b12' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:18:43 - router - INFO - Received new message from Kafka: doc_id '088db049-3b11-460c-b3e1-1a8768285994'
+2025-08-06 14:18:43 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_-_Resume.pdf
+2025-08-06 14:18:43 - router - INFO - Doc '088db049-3b11-460c-b3e1-1a8768285994' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:18:44 - router - INFO - Received new message from Kafka: doc_id 'c51b88c8-3c89-4843-8a9c-20792a4a413d'
+2025-08-06 14:18:44 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\PRABHU_SUNDAR_Resume_-_PRABHU_SUNDAR_D_1.pdf
+2025-08-06 14:18:44 - router - INFO - Doc 'c51b88c8-3c89-4843-8a9c-20792a4a413d' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:18:45 - router - INFO - Received new message from Kafka: doc_id 'd78c918c-c272-40bd-94b1-49f1a1af3675'
+2025-08-06 14:18:45 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Resume_NEW_Jun_2025_-_KANNAN_C_J.pdf
+2025-08-06 14:18:45 - router - INFO - Doc 'd78c918c-c272-40bd-94b1-49f1a1af3675' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:18:46 - router - INFO - Received new message from Kafka: doc_id '7adb96a4-c5ba-4985-b8a3-c4b00d3d314d'
+2025-08-06 14:18:46 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\sadha_cv_-_SADHA_SHREE_R.pdf
+2025-08-06 14:18:46 - router - INFO - Doc '7adb96a4-c5ba-4985-b8a3-c4b00d3d314d' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:18:47 - router - INFO - Received new message from Kafka: doc_id '7caa3b70-ac49-406a-992c-570d26e663fe'
+2025-08-06 14:18:47 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\SAHANA_R_-_RESUME_-_SAHANA_R.pdf
+2025-08-06 14:18:47 - router - INFO - Doc '7caa3b70-ac49-406a-992c-570d26e663fe' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:18:48 - router - INFO - Received new message from Kafka: doc_id '2141459a-8399-4738-b6aa-524e2d831c54'
+2025-08-06 14:18:48 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBAtlasAuthenticationAuthorization_Badge20250620-24-80voyh.pdf
+2025-08-06 14:18:48 - router - INFO - Doc '2141459a-8399-4738-b6aa-524e2d831c54' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:18:48 - router - INFO - Received new message from Kafka: doc_id '4e4ba003-b822-4048-803a-7df31a36d885'
+2025-08-06 14:18:48 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBSelf-ManagedAuthenticationAuthorization_Badge20250620-29-nv0d3x.pdf
+2025-08-06 14:18:48 - router - INFO - Doc '4e4ba003-b822-4048-803a-7df31a36d885' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:23:11 - router - INFO - Router agent starting...
+2025-08-06 14:23:12 - router - INFO - Database connection established
+2025-08-06 14:23:12 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-06 14:23:26 - router - INFO - Received new message from Kafka: doc_id 'f31246c7-96e2-4071-b5fd-325218bded93'
+2025-08-06 14:23:26 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\CRUDOperationsinMongoDB_Badge20250620-27-jt9xd8.pdf
+2025-08-06 14:23:26 - router - INFO - Doc 'f31246c7-96e2-4071-b5fd-325218bded93' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:23:27 - router - INFO - Received new message from Kafka: doc_id 'a38f19c7-10f4-4403-a3ee-3f4e80da9464'
+2025-08-06 14:23:27 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\BuildingRAGAppsUsingMongoDB_Badge20250620-27-1b51p5.pdf
+2025-08-06 14:23:27 - router - INFO - Doc 'a38f19c7-10f4-4403-a3ee-3f4e80da9464' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:23:28 - router - INFO - Received new message from Kafka: doc_id 'f60d4be9-870d-4d13-a7a6-5b2510f3a4b3'
+2025-08-06 14:23:28 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\BuildingAI-PoweredSearchwithMongoDBVectorSearch_Badge20250620-27-bqobga.pdf
+2025-08-06 14:23:28 - router - INFO - Doc 'f60d4be9-870d-4d13-a7a6-5b2510f3a4b3' routed to 'brochure'. Reason: High confidence (0.70) - routed to 'brochure'.
+2025-08-06 14:23:29 - router - INFO - Received new message from Kafka: doc_id '4204e351-a31a-42bf-a404-4d985c596f43'
+2025-08-06 14:23:29 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\GODWIN_JUDAH_J_RESUME_-_GODWIN_JUDAH_J.pdf
+2025-08-06 14:23:29 - router - INFO - Doc '4204e351-a31a-42bf-a404-4d985c596f43' routed to 'resume'. Reason: High confidence (0.95) - routed to 'resume'.
+2025-08-06 14:23:31 - router - INFO - Received new message from Kafka: doc_id '6612b790-4e10-4ffb-8e9b-4cdba706a207'
+2025-08-06 14:23:31 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\whitepaper\Intel_AI_Reference_Kits.pdf
+2025-08-06 14:23:31 - router - INFO - Doc '6612b790-4e10-4ffb-8e9b-4cdba706a207' routed to 'whitepaper'. Reason: High confidence (0.95) - routed to 'whitepaper'.
+2025-08-06 14:23:32 - router - INFO - Received new message from Kafka: doc_id 'd7e7d217-8ccc-44f0-8c58-bdc4862fa574'
+2025-08-06 14:23:32 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\technical\FromRelationalModelSQLtoMongoDBsDocumentModel_Badge20250620-26-c3iwpo.pdf
+2025-08-06 14:23:32 - router - INFO - Doc 'd7e7d217-8ccc-44f0-8c58-bdc4862fa574' routed to 'technical'. Reason: High confidence (0.70) - routed to 'technical'.
+2025-08-06 14:23:33 - router - INFO - Received new message from Kafka: doc_id '70722120-8f3c-4248-b316-25e8de99b410'
+2025-08-06 14:23:33 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\receipt\JAYA_SHREE_RESUME_3_-_JAYA_SHREE_P.pdf
+2025-08-06 14:23:33 - router - INFO - Doc '70722120-8f3c-4248-b316-25e8de99b410' routed to 'receipt'. Reason: High confidence (0.95) - routed to 'receipt'.
+2025-08-06 14:23:34 - router - INFO - Received new message from Kafka: doc_id '5cf97393-50fb-4178-a846-431173e448aa'
+2025-08-06 14:23:34 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\bonafide certificate\MongoDBAdvancedSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-25-quwb1l.pdf
+2025-08-06 14:23:34 - router - INFO - Doc '5cf97393-50fb-4178-a846-431173e448aa' routed to 'bonafide certificate'. Reason: High confidence (0.95) - routed to 'bonafide certificate'.
+2025-08-06 14:23:35 - router - INFO - Received new message from Kafka: doc_id '2140ead8-5468-4644-9867-328c38e49417'
+2025-08-06 14:23:35 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\JAYASHREE-resume_-_JAYASHREE_R.pdf
+2025-08-06 14:23:35 - router - INFO - Doc '2140ead8-5468-4644-9867-328c38e49417' routed to 'resume'. Reason: High confidence (0.95) - routed to 'resume'.
+2025-08-06 14:23:36 - router - INFO - Received new message from Kafka: doc_id 'ef847342-b7b1-42dd-8e1a-b197ef10952e'
+2025-08-06 14:23:36 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBBasicsforStudents_Badge20250620-29-jwwbtq.pdf
+2025-08-06 14:23:36 - router - INFO - Doc 'ef847342-b7b1-42dd-8e1a-b197ef10952e' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:23:37 - router - INFO - Received new message from Kafka: doc_id '9d5d0ee4-d83a-4b3b-a73c-8c065365b36f'
+2025-08-06 14:23:37 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBAggregationFundamentals_Badge20250620-27-bg2ih1.pdf
+2025-08-06 14:23:37 - router - INFO - Doc '9d5d0ee4-d83a-4b3b-a73c-8c065365b36f' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:23:38 - router - INFO - Received new message from Kafka: doc_id '9a5f858c-420f-4e15-b6a3-f4b9b11b47ab'
+2025-08-06 14:23:38 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBQueryOptimizationTechniques_Badge20250620-25-uqulmn.pdf
+2025-08-06 14:23:38 - router - INFO - Doc '9a5f858c-420f-4e15-b6a3-f4b9b11b47ab' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 14:23:40 - router - INFO - Received new message from Kafka: doc_id 'a05b0bb4-ec02-473e-98cb-be2201c1489d'
+2025-08-06 14:23:40 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\bonafide certificate\MongoDBSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-27-v47272.pdf
+2025-08-06 14:23:40 - router - INFO - Doc 'a05b0bb4-ec02-473e-98cb-be2201c1489d' routed to 'bonafide certificate'. Reason: High confidence (0.95) - routed to 'bonafide certificate'.
+2025-08-06 14:23:41 - router - INFO - Received new message from Kafka: doc_id '243a9ca8-bed7-4b78-8492-407df606e2c2'
+2025-08-06 14:23:41 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Muni_Charmi_-_MUNI_CHARMI_T.pdf
+2025-08-06 14:23:41 - router - INFO - Doc '243a9ca8-bed7-4b78-8492-407df606e2c2' routed to 'resume'. Reason: High confidence (0.95) - routed to 'resume'.
+2025-08-06 14:23:42 - router - INFO - Received new message from Kafka: doc_id '682c6ff2-c5be-4fb4-aec3-f37c70f09aef'
+2025-08-06 14:23:42 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_-_Resume.pdf
+2025-08-06 14:23:42 - router - INFO - Doc '682c6ff2-c5be-4fb4-aec3-f37c70f09aef' routed to 'resume'. Reason: High confidence (0.95) - routed to 'resume'.
+2025-08-06 14:23:43 - router - INFO - Received new message from Kafka: doc_id 'fad06dd0-aa8b-4dfc-b7de-dc44bcfe9c42'
+2025-08-06 14:23:43 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_Resume.pdf
+2025-08-06 14:23:43 - router - INFO - Doc 'fad06dd0-aa8b-4dfc-b7de-dc44bcfe9c42' routed to 'resume'. Reason: High confidence (0.95) - routed to 'resume'.
+2025-08-06 14:23:44 - router - INFO - Received new message from Kafka: doc_id '172abb06-61a0-42eb-954e-cea26dd4b1c6'
+2025-08-06 14:23:44 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\PRABHU_SUNDAR_Resume_-_PRABHU_SUNDAR_D_1.pdf
+2025-08-06 14:23:44 - router - INFO - Doc '172abb06-61a0-42eb-954e-cea26dd4b1c6' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:23:45 - router - INFO - Received new message from Kafka: doc_id '52e21eb6-4f62-458b-a1b5-3ca58b39f9bd'
+2025-08-06 14:23:45 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Resume_NEW_Jun_2025_-_KANNAN_C_J.pdf
+2025-08-06 14:23:45 - router - INFO - Doc '52e21eb6-4f62-458b-a1b5-3ca58b39f9bd' routed to 'resume'. Reason: High confidence (0.95) - routed to 'resume'.
+2025-08-06 14:23:46 - router - INFO - Received new message from Kafka: doc_id '2412da86-9ee3-49a3-83ac-3727458886ad'
+2025-08-06 14:23:46 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\sadha_cv_-_SADHA_SHREE_R.pdf
+2025-08-06 14:23:46 - router - INFO - Doc '2412da86-9ee3-49a3-83ac-3727458886ad' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:23:47 - router - INFO - Received new message from Kafka: doc_id 'fe4ca7af-3128-4443-8671-50b2bf7d0de2'
+2025-08-06 14:23:48 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\SAHANA_R_-_RESUME_-_SAHANA_R.pdf
+2025-08-06 14:23:48 - router - INFO - Doc 'fe4ca7af-3128-4443-8671-50b2bf7d0de2' routed to 'resume'. Reason: High confidence (0.70) - routed to 'resume'.
+2025-08-06 14:23:48 - router - INFO - Received new message from Kafka: doc_id 'a704fbb1-5d2d-4f52-8d01-feddb001a49a'
+2025-08-06 14:23:48 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBAtlasAuthenticationAuthorization_Badge20250620-24-80voyh.pdf
+2025-08-06 14:23:48 - router - INFO - Doc 'a704fbb1-5d2d-4f52-8d01-feddb001a49a' routed to 'prescription'. Reason: High confidence (0.70) - routed to 'prescription'.
+2025-08-06 20:51:30 - router - INFO - Router agent starting...
+2025-08-06 20:51:30 - router - INFO - Routes configuration reloaded successfully
+2025-08-06 20:51:30 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-06 20:51:30 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-06 20:51:30 - router - INFO - Routing configuration loaded:
+2025-08-06 20:51:30 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-06 20:51:30 - router - INFO -   - Default folder: others
+2025-08-06 20:51:30 - router - INFO -   - Needs action folder: needs_action
+2025-08-06 20:51:30 - router - INFO -   - Confidence threshold: 0.7
+2025-08-06 20:51:30 - router - INFO -   - Allowed folders: {'bills', 'receipts', 'resumes', 'needs_action', 'others', 'invoices'}
+2025-08-06 20:51:30 - router - INFO - Database connection established
+2025-08-06 20:51:30 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-06 20:57:22 - router - INFO - Router agent starting...
+2025-08-06 20:57:22 - router - INFO - Routes configuration reloaded successfully
+2025-08-06 20:57:22 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-06 20:57:22 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-06 20:57:22 - router - INFO - Routing configuration loaded:
+2025-08-06 20:57:22 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-06 20:57:22 - router - INFO -   - Default folder: others
+2025-08-06 20:57:22 - router - INFO -   - Needs action folder: needs_action
+2025-08-06 20:57:22 - router - INFO -   - Confidence threshold: 0.7
+2025-08-06 20:57:22 - router - INFO -   - Allowed folders: {'resumes', 'others', 'receipts', 'needs_action', 'bills', 'invoices'}
+2025-08-06 20:57:22 - router - INFO - Database connection established
+2025-08-06 20:57:22 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-06 22:19:51 - router - INFO - Received new message from Kafka: doc_id 'e82aa7b7-8d68-4317-b584-adbb7e529f8e'
+2025-08-06 22:19:51 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes
+2025-08-06 22:19:51 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\Naveen_Resume.pdf
+2025-08-06 22:19:51 - router - INFO - Doc 'e82aa7b7-8d68-4317-b584-adbb7e529f8e' routed to 'resumes'. Reason: High confidence (0.95) - routed to 'resumes' (mapped from 'resume').
+2025-08-06 22:26:00 - router - INFO - Received new message from Kafka: doc_id '0cb3d171-3dbe-41ea-b7f1-23d742c61ef9'
+2025-08-06 22:26:00 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes
+2025-08-06 22:26:00 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\GODWIN_JUDAH_J_RESUME_-_GODWIN_JUDAH_J.pdf
+2025-08-06 22:26:00 - router - INFO - Doc '0cb3d171-3dbe-41ea-b7f1-23d742c61ef9' routed to 'resumes'. Reason: High confidence (0.95) - routed to 'resumes' (mapped from 'resume').
+2025-08-06 22:33:07 - router - INFO - Received new message from Kafka: doc_id 'e74ebc98-53db-4c2c-bb9c-df90b2bb0ec7'
+2025-08-06 22:33:08 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes
+2025-08-06 22:33:08 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\sadha_cv_-_SADHA_SHREE_R.pdf
+2025-08-06 22:33:08 - router - INFO - Doc 'e74ebc98-53db-4c2c-bb9c-df90b2bb0ec7' routed to 'resumes'. Reason: High confidence (0.95) - routed to 'resumes' (mapped from 'resume').
+2025-08-06 22:35:41 - router - INFO - Router agent starting...
+2025-08-06 22:35:41 - router - INFO - Routes configuration reloaded successfully
+2025-08-06 22:35:41 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-06 22:35:41 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-06 22:35:41 - router - INFO - Routing configuration loaded:
+2025-08-06 22:35:41 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-06 22:35:41 - router - INFO -   - Default folder: others
+2025-08-06 22:35:41 - router - INFO -   - Needs action folder: needs_action
+2025-08-06 22:35:41 - router - INFO -   - Confidence threshold: 0.7
+2025-08-06 22:35:41 - router - INFO -   - Allowed folders: {'invoices', 'receipts', 'resumes', 'others', 'needs_action', 'bills'}
+2025-08-06 22:35:42 - router - INFO - Database connection established
+2025-08-06 22:35:42 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-06 22:36:10 - router - INFO - Received new message from Kafka: doc_id '36bd877c-caad-48ea-8947-612c35523286'
+2025-08-06 22:36:10 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes
+2025-08-06 22:36:10 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\SAHANA_R_-_RESUME_-_SAHANA_R.pdf
+2025-08-06 22:36:10 - router - INFO - Doc '36bd877c-caad-48ea-8947-612c35523286' routed to 'resumes'. Reason: High confidence (0.95) - routed to 'resumes' (mapped from 'resume').
+2025-08-06 23:04:12 - router - INFO - Router agent starting...
+2025-08-06 23:04:12 - router - INFO - Routes configuration reloaded successfully
+2025-08-06 23:04:12 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-06 23:04:12 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-06 23:04:12 - router - INFO - Routing configuration loaded:
+2025-08-06 23:04:12 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-06 23:04:12 - router - INFO -   - Default folder: others
+2025-08-06 23:04:12 - router - INFO -   - Needs action folder: needs_action
+2025-08-06 23:04:12 - router - INFO -   - Confidence threshold: 0.7
+2025-08-06 23:04:12 - router - INFO -   - Allowed folders: {'bills', 'others', 'needs_action', 'receipts', 'resumes', 'invoices'}
+2025-08-06 23:04:12 - router - INFO - Database connection established
+2025-08-06 23:04:12 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-06 23:05:55 - router - INFO - Received new message from Kafka: doc_id 'e5c79beb-cb05-477b-805e-c84ba7e11aa1'
+2025-08-06 23:05:55 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes
+2025-08-06 23:05:55 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\MUGUNTHAN_S.pdf
+2025-08-06 23:05:55 - router - INFO - Doc 'e5c79beb-cb05-477b-805e-c84ba7e11aa1' routed to 'resumes'. Reason: High confidence (0.95) - routed to 'resumes' (mapped from 'resume').
+2025-08-06 23:05:56 - router - INFO - Received new message from Kafka: doc_id 'ed67234d-5564-458e-8664-0e9dcc9c04bb'
+2025-08-06 23:05:56 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes
+2025-08-06 23:05:56 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\MUGUNTHAN_S.pdf
+2025-08-06 23:05:56 - router - INFO - Doc 'ed67234d-5564-458e-8664-0e9dcc9c04bb' routed to 'resumes'. Reason: High confidence (0.95) - routed to 'resumes' (mapped from 'resume').
+2025-08-07 08:31:46 - router - INFO - Router agent starting...
+2025-08-07 08:31:46 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 08:31:46 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 08:31:46 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 08:31:46 - router - INFO - Routing configuration loaded:
+2025-08-07 08:31:46 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 08:31:46 - router - INFO -   - Default folder: others
+2025-08-07 08:31:46 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 08:31:46 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 08:31:46 - router - INFO -   - Allowed folders: {'resumes', 'invoices', 'bills', 'receipts', 'others', 'needs_action'}
+2025-08-07 08:31:46 - router - INFO - Database connection established
+2025-08-07 08:31:46 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 08:32:20 - router - INFO - Received new message from Kafka: doc_id 'ea46392b-1e65-4acf-ba8f-845494c20ed6'
+2025-08-07 08:32:20 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others
+2025-08-07 08:32:20 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\Results.pdf
+2025-08-07 08:32:20 - router - INFO - Doc 'ea46392b-1e65-4acf-ba8f-845494c20ed6' routed to 'others'. Reason: High confidence (0.95) but 'marksheet' not in defined routes - routed to 'others'.
+2025-08-07 08:32:21 - router - INFO - Received new message from Kafka: doc_id '54ee0b93-71cc-4e52-848b-bc0d68414c2f'
+2025-08-07 08:32:21 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others
+2025-08-07 08:32:21 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\Results.pdf
+2025-08-07 08:32:21 - router - INFO - Doc '54ee0b93-71cc-4e52-848b-bc0d68414c2f' routed to 'others'. Reason: High confidence (0.95) but 'marksheet' not in defined routes - routed to 'others'.

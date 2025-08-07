@@ -6,19 +6,25 @@ from datetime import datetime
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
-import sqlite3
 import sys
 from kafka import KafkaProducer
 
 # Add the parent directory to the system path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import logger
+from database.database import db_manager
+
+# Import API blueprints
+from documents_api import documents_bp
 
 # Get a dedicated logger for the API service
 log = logger.get_agent_logger("API")
 
 app = Flask(__name__)
 CORS(app)
+
+# Register blueprints
+app.register_blueprint(documents_bp)
 
 # Configuration
 UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), '..', 'ingestor', 'uploads')

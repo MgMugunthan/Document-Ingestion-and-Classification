@@ -13,7 +13,10 @@ log = logger.get_agent_logger("Classifier")
 
 # Load environment variables
 load_dotenv()
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+# Set your Gemini API key here
+GEMINI_API_KEY = ""  # Replace with your actual API key
+# Alternatively, you can still use environment variable as fallback
+# GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") or "YOUR_GEMINI_API_KEY_HERE"
 
 KNOWN_TYPES = [
     "Address Proof", "Advertisement", "Appointment Letter", "Balance Sheet", "Bank Statement", "Bill", "Boarding Pass",
@@ -88,10 +91,29 @@ Respond with only one type in lowercase, like: resume
     if classifier_model and vectorizer:
         try:
             vec = vectorizer.transform([document_text])
-            proba = classifier_model.predict_proba(vec)[0]
-            idx = proba.argmax()
-            local_label = classifier_model.classes_[idx]
-            local_confidence = round(proba[idx], 3)
+            
+            # Check if model supports probability prediction
+            if hasattr(classifier_model, 'predict_proba'):
+                proba = classifier_model.predict_proba(vec)[0]
+                idx = proba.argmax()
+                local_label = classifier_model.classes_[idx]
+                local_confidence = round(proba[idx], 3)
+            else:
+                # For LinearSVC, use decision_function for confidence
+                prediction = classifier_model.predict(vec)[0]
+                local_label = prediction
+                
+                # Get decision function scores for confidence approximation
+                decision_scores = classifier_model.decision_function(vec)[0]
+                if len(classifier_model.classes_) == 2:
+                    # Binary classification
+                    local_confidence = round(abs(decision_scores), 3)
+                else:
+                    # Multi-class classification - use max score
+                    max_score = max(decision_scores)
+                    # Normalize to 0-1 range (rough approximation)
+                    local_confidence = round(min(1.0, max(0.0, (max_score + 1) / 2)), 3)
+            
             log.info(f"[Local ML 🤖] Prediction: {local_label} (confidence: {local_confidence})")
         except Exception as e:
             log.error("[⚠ Local ML error]", exc_info=True)
@@ -104,7 +126,7 @@ Respond with only one type in lowercase, like: resume
             "classification_by": "Gemini (trusted)"
         }
     elif local_label:
-        boosted_confidence = max(0.7, round(local_confidence * 1.5, 2))
+        boosted_confidence = max(0.7, round(local_confidence * 1, 2))
         return {
             "document_type": local_label,
             "confidence": boosted_confidence,

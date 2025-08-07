@@ -173,7 +173,10 @@ export default function UploadPage() {
 
       // Upload files to backend - upload each file individually
       const uploadPromises = files.map(async (file) => {
+        console.log(`🚀 Uploading file: ${file.name}`)
         const uploadResponse = await documentApi.upload(file, { user_id: user.user_id })
+        console.log(`📄 Upload response for ${file.name}:`, uploadResponse)
+        
         return {
           document_id: uploadResponse.document_id,
           name: file.name,
@@ -182,6 +185,7 @@ export default function UploadPage() {
       })
       
       const uploadedDocs = await Promise.all(uploadPromises)
+      console.log(`📊 All uploads completed:`, uploadedDocs)
 
       // Transform to ProcessingDocument format
       const processingDocs = uploadedDocs.map(doc => ({
@@ -192,9 +196,11 @@ export default function UploadPage() {
       }))
 
       setProcessingDocuments(processingDocs)
+      console.log(`⚡ Starting to poll ${processingDocs.length} documents`)
       
       // Start polling for status updates
       processingDocs.forEach((doc) => {
+        console.log(`🔄 Starting poll for document: ${doc.document_id}`)
         pollDocumentStatus(doc.document_id)
       })
 
@@ -210,58 +216,112 @@ export default function UploadPage() {
     const pollInterval = setInterval(async () => {
       try {
         const statusResponse = await documentApi.getStatus(documentId)
-        const status = statusResponse.processing_status
+        console.log(`📊 Document ${documentId} status:`, statusResponse)
+        
+        // Extract status from the response structure
+        const status = statusResponse.document?.processing_status || statusResponse.processing_status
 
         // Update processing documents
         setProcessingDocuments(prev => 
           prev.map(doc => 
             doc.document_id === documentId 
-              ? { ...doc, status, currentStep: getStepFromStatus(status) }
+              ? { 
+                  ...doc, 
+                  status, 
+                  currentStep: getStepFromStatus(status),
+                  error: status === 'failed' ? 'Processing failed' : undefined
+                }
               : doc
           )
         )
 
-        // Update workflow step based on current processing
-        setWorkflowStep(getStepFromStatus(status))
+        // Update workflow step based on current processing (use the highest step)
+        setProcessingDocuments(currentDocs => {
+          const allDocs = currentDocs.map(doc => 
+            doc.document_id === documentId 
+              ? { ...doc, status, currentStep: getStepFromStatus(status) }
+              : doc
+          )
+          const maxStep = Math.max(...allDocs.map(doc => doc.currentStep))
+          setWorkflowStep(maxStep)
+          return allDocs
+        })
 
         // Stop polling when processing is complete
-        if (status === "completed" || status === "failed" || status === "routed") {
+        if (status === "completed" || status === "failed" || status === "routed" || status === "needs_action") {
           clearInterval(pollInterval)
-          setIsProcessing(false)
           
-          // Clear uploaded files list after successful processing
-          if (status === "completed" || status === "routed") {
-            setUploadedFiles([])
-          }
-          
-          // Refresh recent documents
-          loadRecentDocuments()
+          // Check if all documents are done processing
+          setProcessingDocuments(currentDocs => {
+            const updatedDocs = currentDocs.map(doc => 
+              doc.document_id === documentId 
+                ? { ...doc, status, currentStep: getStepFromStatus(status) }
+                : doc
+            )
+            
+            const allDone = updatedDocs.every(doc => 
+              doc.status === "completed" || doc.status === "failed" || doc.status === "routed" || doc.status === "needs_action"
+            )
+            
+            if (allDone) {
+              setIsProcessing(false)
+              
+              // Refresh recent documents
+              loadRecentDocuments()
+              
+              // Clear uploaded files after a brief delay to let user see completion
+              setTimeout(() => {
+                setUploadedFiles([])
+              }, 2000)
+            }
+            
+            return updatedDocs
+          })
         }
 
       } catch (error) {
         console.error("Failed to poll document status:", error)
-        // Continue polling even if one request fails
+        // Continue polling even if one request fails, but log the error
+        setError(`Status check failed: ${error instanceof Error ? error.message : 'Unknown error'}`)
       }
-    }, 2000) // Poll every 2 seconds
+    }, 3000) // Poll every 3 seconds for more responsive updates
 
-    // Stop polling after 5 minutes to prevent infinite polling
+    // Stop polling after 10 minutes to prevent infinite polling
     setTimeout(() => {
       clearInterval(pollInterval)
       setIsProcessing(false)
-    }, 300000)
+    }, 600000)
   }
 
   const getStepFromStatus = (status: string): number => {
     switch (status) {
-      case "uploaded": return 1
-      case "extracting": return 2
-      case "extracted": return 2
-      case "classifying": return 3
-      case "classified": return 3
-      case "routing": return 4
-      case "routed": return 4
-      case "completed": return 4
+      case "uploaded": return 1      // Ingestion
+      case "extracting": return 2    // Extraction
+      case "extracted": return 2     // Extraction complete
+      case "classifying": return 3   // Classification  
+      case "classified": return 3    // Classification complete
+      case "routing": return 4       // Routing
+      case "routed": return 4        // Routing complete
+      case "completed": return 4     // All done
+      case "needs_action": return 2  // Stuck at extraction, needs action
+      case "failed": return 0        // Error state
       default: return 1
+    }
+  }
+
+  const getStepName = (status: string): string => {
+    switch (status) {
+      case "uploaded": return "Ingesting"
+      case "extracting": return "Extracting"
+      case "extracted": return "Extracted" 
+      case "classifying": return "Classifying"
+      case "classified": return "Classified"
+      case "routing": return "Routing"
+      case "routed": return "Routed"
+      case "completed": return "Completed"
+      case "needs_action": return "Needs Action"
+      case "failed": return "Failed"
+      default: return "Processing"
     }
   }
 
@@ -348,34 +408,7 @@ export default function UploadPage() {
             </div>
           )}
 
-          {/* Uploaded Files */}
-          {uploadedFiles.length > 0 && (
-            <div className="mt-6 space-y-3">
-              <h4 className="font-semibold text-gray-700">Uploaded Files</h4>
-              {uploadedFiles.map((file) => (
-                <div
-                  key={file.id}
-                  className="flex items-center justify-between bg-white p-4 rounded-lg border border-gray-200"
-                >
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                      <Upload className="w-5 h-5 text-[#3452D1]" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-gray-800">{file.name}</p>
-                      <p className="text-sm text-gray-500">{formatFileSize(file.size)}</p>
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => removeFile(file.id)}
-                    className="p-2 text-gray-400 hover:text-red-500 transition-colors"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
-              ))}
-            </div>
-          )}
+
 
           {/* Connect to Mail Button */}
           <button className="w-full mt-6 bg-[#3452D1] text-white py-4 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2">
@@ -392,26 +425,26 @@ export default function UploadPage() {
               </div>
 
               {/* Progress Bar */}
-              <div className="relative mb-8">
-                <div className="absolute top-1/2 left-0 right-0 h-2 bg-gray-200 rounded-full transform -translate-y-1/2"></div>
+              <div className="relative mb-12">
+                <div className="absolute top-1/2 left-0 right-0 h-2 bg-gray-200 rounded-full transform -translate-y-1/2 z-10"></div>
                 <div
-                  className="absolute top-1/2 left-0 h-2 bg-gradient-to-r from-[#3452D1] to-blue-600 rounded-full transform -translate-y-1/2 transition-all duration-1000"
+                  className="absolute top-1/2 left-0 h-2 bg-gradient-to-r from-[#3452D1] to-blue-600 rounded-full transform -translate-y-1/2 transition-all duration-1000 z-20"
                   style={{ width: `${(workflowStep / workflowSteps.length) * 100}%` }}
                 ></div>
               </div>
 
               {/* Workflow Steps */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-30">
                 {workflowSteps.map((step, index) => {
                   const isActive = index === workflowStep - 1 && isProcessing
                   const isCompleted = index < workflowStep - 1 || (index === workflowStep - 1 && !isProcessing)
                   const isPending = index >= workflowStep
 
                   return (
-                    <div key={step.name} className="text-center">
+                    <div key={step.name} className="text-center relative">
                       {/* Step Icon */}
                       <div
-                        className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 transition-all duration-500 ${
+                        className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-6 transition-all duration-500 relative z-40 ${
                           isCompleted
                             ? "bg-green-500 text-white shadow-lg scale-110"
                             : isActive
@@ -472,6 +505,93 @@ export default function UploadPage() {
                     </>
                   )}
                 </div>
+                
+                {/* Show individual document progress */}
+                {processingDocuments.length > 0 && (
+                  <div className="mt-4 space-y-3">
+                    <h4 className="text-sm font-medium text-gray-700 mb-3">Processing Documents:</h4>
+                    {processingDocuments.map((doc) => (
+                      <div key={doc.document_id} className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center space-x-3">
+                            <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                              <FileText className="w-4 h-4 text-[#3452D1]" />
+                            </div>
+                            <span className="text-sm font-medium text-gray-800">{doc.fileName}</span>
+                          </div>
+                          
+                          {/* Status Badge */}
+                          <div className="flex items-center space-x-2">
+                            {doc.status === "routed" || doc.status === "completed" ? (
+                              <div className="flex items-center space-x-1 px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
+                                <CheckCircle className="w-3 h-3" />
+                                <span>{getStepName(doc.status)}</span>
+                              </div>
+                            ) : doc.status === "needs_action" ? (
+                              <div className="flex items-center space-x-1 px-2 py-1 bg-orange-100 text-orange-800 rounded-full text-xs font-medium">
+                                <AlertCircle className="w-3 h-3" />
+                                <span>Needs Action</span>
+                              </div>
+                            ) : doc.status === "failed" ? (
+                              <div className="flex items-center space-x-1 px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs font-medium">
+                                <AlertCircle className="w-3 h-3" />
+                                <span>Failed</span>
+                              </div>
+                            ) : (
+                              <div className="flex items-center space-x-1 px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
+                                <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+                                <span>{getStepName(doc.status)}</span>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        
+                        {/* Progress Bar for Individual File */}
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div
+                            className={`h-2 rounded-full transition-all duration-500 ${
+                              doc.status === "routed" || doc.status === "completed"
+                                ? "bg-green-500"
+                                : doc.status === "needs_action"
+                                  ? "bg-orange-500"
+                                  : doc.status === "failed"
+                                    ? "bg-red-500"
+                                    : "bg-blue-500"
+                            }`}
+                            style={{
+                              width: `${
+                                doc.status === "routed" || doc.status === "completed"
+                                  ? 100
+                                  : doc.status === "needs_action"
+                                    ? 50
+                                    : doc.status === "failed"
+                                      ? 25
+                                      : ((getStepFromStatus(doc.status) - 1) / 4) * 100 + 25
+                              }%`,
+                            }}
+                          ></div>
+                        </div>
+                        
+                        <div className="flex justify-between items-center mt-2">
+                          <span className="text-xs text-gray-500">
+                            {doc.status === "routed" || doc.status === "completed" ? "Processing complete" :
+                             doc.status === "needs_action" ? "Manual intervention required" :
+                             doc.status === "failed" ? "Processing failed" :
+                             `Currently ${getStepName(doc.status).toLowerCase()}...`}
+                          </span>
+                          <span className="text-xs text-gray-400">
+                            {Math.round(
+                              doc.status === "routed" || doc.status === "completed" ? 100 :
+                              doc.status === "needs_action" ? 50 :
+                              doc.status === "failed" ? 25 :
+                              ((getStepFromStatus(doc.status) - 1) / 4) * 100 + 25
+                            )}% complete
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           )}
