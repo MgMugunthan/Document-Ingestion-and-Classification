@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation"
 import Layout from "@/components/Layout"
 import Chatbot from "@/components/Chatbot"
 import { Upload, X, Mail, CheckCircle, Clock, AlertCircle, FileText, Zap, Target, ArrowRight } from "lucide-react"
-import { documentApi, getAuthToken, getUserData } from "@/lib/api"
+import { documentApi, getAuthToken, getUserData, gmailApi } from "@/lib/api"
 import { useAuth } from "@/contexts/AuthContext"
 
 interface UploadedFile {
@@ -41,6 +41,9 @@ export default function UploadPage() {
   const [isProcessing, setIsProcessing] = useState(false)
   const [processingDocuments, setProcessingDocuments] = useState<ProcessingDocument[]>([])
   const [error, setError] = useState("")
+  const [gmailConnecting, setGmailConnecting] = useState(false)
+  const [gmailDisconnecting, setGmailDisconnecting] = useState(false)
+  const [gmailConnected, setGmailConnected] = useState(false)
   const { user, token, isLoading } = useAuth()
   const [recentDocuments, setRecentDocuments] = useState<Document[]>([])
   const router = useRouter()
@@ -64,6 +67,24 @@ export default function UploadPage() {
     }
   }
 
+  const checkGmailStatus = async () => {
+    try {
+      const status = await gmailApi.getStatus()
+      // Gmail is connected if it's enabled AND has a valid token file
+      const isConnected = status.gmail_enabled && status.token_file_exists
+      setGmailConnected(isConnected)
+      
+      if (isConnected) {
+        console.log("✅ Gmail already connected")
+      } else {
+        console.log("📧 Gmail not connected")
+      }
+    } catch (error) {
+      console.error('Failed to check Gmail status:', error)
+      setGmailConnected(false)
+    }
+  }
+
   // Authentication check - redirect to login if not authenticated
   useEffect(() => {
     // Wait for auth loading to complete before checking authentication
@@ -75,10 +96,11 @@ export default function UploadPage() {
     }
   }, [user, token, isLoading, router])
 
-  // Load recent documents on component mount
+  // Load recent documents and Gmail status on component mount
   useEffect(() => {
     if (user && token && !isLoading) {
       loadRecentDocuments()
+      checkGmailStatus()
     }
   }, [user, token, isLoading])
 
@@ -344,6 +366,84 @@ export default function UploadPage() {
     return Number.parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i]
   }
 
+  const handleConnectGmail = async () => {
+    if (gmailConnecting) return
+    
+    setGmailConnecting(true)
+    setError("")
+    
+    try {
+      console.log("🔗 Starting Gmail authentication...")
+      const response = await gmailApi.startAuth()
+      
+      if (response.auth_url) {
+        console.log("🌐 Opening OAuth URL:", response.auth_url)
+        // Open OAuth URL in a new window
+        window.open(response.auth_url, 'gmail_auth', 'width=500,height=600')
+        
+        // Listen for the success callback
+        const handleCallback = (event: MessageEvent) => {
+          if (event.data && event.data.type === 'gmail_connected') {
+            console.log(" Gmail connected successfully!")
+            setGmailConnected(true)
+            setGmailConnecting(false)
+            window.removeEventListener('message', handleCallback)
+            // Refresh status to ensure UI is in sync
+            checkGmailStatus()
+          } else if (event.data && event.data.type === 'gmail_error') {
+            console.error(" Gmail OAuth error:", event.data.error)
+            setError(`Gmail connection failed: ${event.data.error}`)
+            setGmailConnecting(false)
+            window.removeEventListener('message', handleCallback)
+          }
+        }
+        
+        window.addEventListener('message', handleCallback)
+        
+        // Set a timeout to stop listening after 5 minutes
+        setTimeout(() => {
+          window.removeEventListener('message', handleCallback)
+          setGmailConnecting(false)
+        }, 300000)
+        
+      } else {
+        throw new Error("No authorization URL received")
+      }
+      
+    } catch (error) {
+      console.error("❌ Gmail connection failed:", error)
+      setError(`Failed to connect Gmail: ${error instanceof Error ? error.message : 'Unknown error'}`)
+      setGmailConnecting(false)
+    }
+  }
+
+  const handleDisconnectGmail = async () => {
+    if (gmailDisconnecting || gmailConnecting) return
+    
+    setGmailDisconnecting(true)
+    setError("")
+    
+    try {
+      console.log("🔗 Disconnecting Gmail...")
+      const response = await gmailApi.disconnect()
+      
+      if (response.status === 'success') {
+        console.log("✅ Gmail disconnected successfully!")
+        setGmailConnected(false)
+        setGmailDisconnecting(false)
+        // Refresh the status to make sure UI is in sync
+        await checkGmailStatus()
+      } else {
+        throw new Error(response.error || "Disconnect failed")
+      }
+      
+    } catch (error) {
+      console.error("❌ Gmail disconnect failed:", error)
+      setError(`Failed to disconnect Gmail: ${error instanceof Error ? error.message : 'Unknown error'}`)
+      setGmailDisconnecting(false)
+    }
+  }
+
   const getStatusIcon = (status: string) => {
     switch (status) {
       case "completed":
@@ -411,12 +511,62 @@ export default function UploadPage() {
 
 
           {/* Connect to Mail Button */}
-          <button className="w-full mt-6 bg-[#3452D1] text-white py-4 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2">
-            <Mail className="w-5 h-5" />
-            <span>Connect to Mail</span>
-          </button>
-
-          {/* WORKFLOW PROGRESS - ENHANCED AND CLEARLY VISIBLE */}
+          {/* Gmail Connection Section - Updated with both Connect and Disconnect */}
+          {gmailConnected ? (
+            <div className="space-y-4">
+              {/* Connected Status */}
+              <div className="w-full py-4 rounded-lg font-medium flex items-center justify-center space-x-2 bg-green-600 text-white">
+                <CheckCircle className="w-5 h-5" />
+                <span>Gmail Connected</span>
+              </div>
+              
+              {/* Disconnect Button */}
+              <button
+                onClick={handleDisconnectGmail}
+                disabled={gmailDisconnecting}
+                className={`w-full py-3 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2 ${
+                  gmailDisconnecting 
+                    ? 'bg-gray-400 text-white cursor-not-allowed' 
+                    : 'bg-red-600 text-white hover:bg-red-700 cursor-pointer'
+                }`}
+              >
+                {gmailDisconnecting ? (
+                  <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+                    <span>Disconnecting...</span>
+                  </>
+                ) : (
+                  <>
+                    <X className="w-4 h-4" />
+                    <span>Disconnect Gmail</span>
+                  </>
+                )}
+              </button>
+            </div>
+          ) : (
+            /* Connect Button */
+            <button
+              onClick={handleConnectGmail}
+              disabled={gmailConnecting}
+              className={`w-full mt-6 py-4 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2 ${
+                gmailConnecting 
+                  ? 'bg-gray-400 text-white cursor-not-allowed' 
+                  : 'bg-[#3452D1] text-white hover:bg-blue-700 cursor-pointer'
+              }`}
+            >
+              {gmailConnecting ? (
+                <>
+                  <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
+                  <span>Connecting...</span>
+                </>
+              ) : (
+                <>
+                  <Mail className="w-5 h-5" />
+                  <span>Connect to Gmail</span>
+                </>
+              )}
+            </button>
+          )}          {/* WORKFLOW PROGRESS - ENHANCED AND CLEARLY VISIBLE */}
           {(isProcessing || workflowStep > 0) && (
             <div className="mt-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border-2 border-blue-200 shadow-lg">
               <div className="text-center mb-8">

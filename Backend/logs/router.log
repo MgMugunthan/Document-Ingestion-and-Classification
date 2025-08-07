@@ -737,3 +737,259 @@ PermissionError: [WinError 32] The process cannot access the file because it is 
 2025-08-07 08:32:21 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others
 2025-08-07 08:32:21 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\Results.pdf
 2025-08-07 08:32:21 - router - INFO - Doc '54ee0b93-71cc-4e52-848b-bc0d68414c2f' routed to 'others'. Reason: High confidence (0.95) but 'marksheet' not in defined routes - routed to 'others'.
+2025-08-07 09:06:01 - router - INFO - Router agent starting...
+2025-08-07 09:06:01 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 09:06:01 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 09:06:01 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 09:06:01 - router - INFO - Routing configuration loaded:
+2025-08-07 09:06:01 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 09:06:01 - router - INFO -   - Default folder: others
+2025-08-07 09:06:01 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 09:06:01 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 09:06:01 - router - INFO -   - Allowed folders: {'needs_action', 'receipts', 'bills', 'others', 'resumes', 'invoices'}
+2025-08-07 09:06:01 - router - INFO - Database connection established
+2025-08-07 09:06:01 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 09:08:16 - router - INFO - Router agent starting...
+2025-08-07 09:08:16 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 09:08:16 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 09:08:16 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 09:08:16 - router - INFO - Routing configuration loaded:
+2025-08-07 09:08:16 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 09:08:16 - router - INFO -   - Default folder: others
+2025-08-07 09:08:16 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 09:08:16 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 09:08:16 - router - INFO -   - Allowed folders: {'receipts', 'bills', 'needs_action', 'others', 'resumes', 'invoices'}
+2025-08-07 09:08:17 - router - INFO - Database connection established
+2025-08-07 09:08:17 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 09:13:06 - router - INFO - Router agent starting...
+2025-08-07 09:13:06 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 09:13:06 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 09:13:06 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 09:13:06 - router - INFO - Routing configuration loaded:
+2025-08-07 09:13:06 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 09:13:06 - router - INFO -   - Default folder: others
+2025-08-07 09:13:06 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 09:13:06 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 09:13:06 - router - INFO -   - Allowed folders: {'others', 'resumes', 'receipts', 'invoices', 'needs_action', 'bills'}
+2025-08-07 09:13:06 - router - INFO - Database connection established
+2025-08-07 09:13:06 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 09:16:03 - router - INFO - Router agent starting...
+2025-08-07 09:16:03 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 09:16:03 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 09:16:03 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 09:16:03 - router - INFO - Routing configuration loaded:
+2025-08-07 09:16:03 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 09:16:03 - router - INFO -   - Default folder: others
+2025-08-07 09:16:03 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 09:16:03 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 09:16:03 - router - INFO -   - Allowed folders: {'needs_action', 'invoices', 'others', 'resumes', 'bills', 'receipts'}
+2025-08-07 09:16:03 - router - INFO - Database connection established
+2025-08-07 09:16:03 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 09:19:06 - router - INFO - Router agent starting...
+2025-08-07 09:19:06 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 09:19:06 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 09:19:06 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 09:19:06 - router - INFO - Routing configuration loaded:
+2025-08-07 09:19:06 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 09:19:06 - router - INFO -   - Default folder: others
+2025-08-07 09:19:06 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 09:19:06 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 09:19:06 - router - INFO -   - Allowed folders: {'others', 'resumes', 'invoices', 'bills', 'needs_action', 'receipts'}
+2025-08-07 09:19:06 - router - INFO - Database connection established
+2025-08-07 09:19:06 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 09:23:45 - router - INFO - Router agent starting...
+2025-08-07 09:23:45 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 09:23:45 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 09:23:45 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 09:23:45 - router - INFO - Routing configuration loaded:
+2025-08-07 09:23:45 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 09:23:45 - router - INFO -   - Default folder: others
+2025-08-07 09:23:45 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 09:23:45 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 09:23:45 - router - INFO -   - Allowed folders: {'others', 'bills', 'receipts', 'needs_action', 'resumes', 'invoices'}
+2025-08-07 09:23:45 - router - INFO - Database connection established
+2025-08-07 09:23:46 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 09:24:31 - router - INFO - Router agent starting...
+2025-08-07 09:24:31 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 09:24:31 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 09:24:31 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 09:24:31 - router - INFO - Routing configuration loaded:
+2025-08-07 09:24:31 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 09:24:31 - router - INFO -   - Default folder: others
+2025-08-07 09:24:31 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 09:24:31 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 09:24:31 - router - INFO -   - Allowed folders: {'needs_action', 'receipts', 'bills', 'others', 'resumes', 'invoices'}
+2025-08-07 09:24:31 - router - INFO - Database connection established
+2025-08-07 09:24:31 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 09:41:44 - router - INFO - Router agent starting...
+2025-08-07 09:41:44 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 09:41:44 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 09:41:44 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 09:41:44 - router - INFO - Routing configuration loaded:
+2025-08-07 09:41:44 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 09:41:44 - router - INFO -   - Default folder: others
+2025-08-07 09:41:44 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 09:41:44 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 09:41:44 - router - INFO -   - Allowed folders: {'receipts', 'others', 'bills', 'resumes', 'needs_action', 'invoices'}
+2025-08-07 09:41:44 - router - INFO - Database connection established
+2025-08-07 09:41:44 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 10:33:54 - router - INFO - Router agent starting...
+2025-08-07 10:33:54 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 10:33:54 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 10:33:54 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 10:33:54 - router - INFO - Routing configuration loaded:
+2025-08-07 10:33:54 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 10:33:54 - router - INFO -   - Default folder: others
+2025-08-07 10:33:54 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 10:33:54 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 10:33:54 - router - INFO -   - Allowed folders: {'resumes', 'invoices', 'others', 'receipts', 'bills', 'needs_action'}
+2025-08-07 10:33:55 - router - INFO - Database connection established
+2025-08-07 10:33:55 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 10:34:53 - router - INFO - Router agent starting...
+2025-08-07 10:34:53 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 10:34:53 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 10:34:53 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 10:34:53 - router - INFO - Routing configuration loaded:
+2025-08-07 10:34:53 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 10:34:53 - router - INFO -   - Default folder: others
+2025-08-07 10:34:53 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 10:34:53 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 10:34:53 - router - INFO -   - Allowed folders: {'receipts', 'needs_action', 'bills', 'others', 'resumes', 'invoices'}
+2025-08-07 10:34:53 - router - INFO - Database connection established
+2025-08-07 10:34:53 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 10:43:22 - router - INFO - Router agent starting...
+2025-08-07 10:43:22 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 10:43:22 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 10:43:22 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 10:43:22 - router - INFO - Routing configuration loaded:
+2025-08-07 10:43:22 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 10:43:22 - router - INFO -   - Default folder: others
+2025-08-07 10:43:22 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 10:43:22 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 10:43:22 - router - INFO -   - Allowed folders: {'invoices', 'resumes', 'needs_action', 'bills', 'others', 'receipts'}
+2025-08-07 10:43:22 - router - INFO - Database connection established
+2025-08-07 10:43:22 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 10:45:09 - router - INFO - Router agent starting...
+2025-08-07 10:45:09 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 10:45:09 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 10:45:09 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 10:45:09 - router - INFO - Routing configuration loaded:
+2025-08-07 10:45:09 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 10:45:09 - router - INFO -   - Default folder: others
+2025-08-07 10:45:09 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 10:45:09 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 10:45:09 - router - INFO -   - Allowed folders: {'resumes', 'bills', 'needs_action', 'receipts', 'invoices', 'others'}
+2025-08-07 10:45:09 - router - INFO - Database connection established
+2025-08-07 10:45:09 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 10:47:09 - router - INFO - Router agent starting...
+2025-08-07 10:47:09 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 10:47:09 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 10:47:09 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 10:47:09 - router - INFO - Routing configuration loaded:
+2025-08-07 10:47:09 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 10:47:09 - router - INFO -   - Default folder: others
+2025-08-07 10:47:09 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 10:47:09 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 10:47:09 - router - INFO -   - Allowed folders: {'needs_action', 'invoices', 'others', 'bills', 'receipts', 'resumes'}
+2025-08-07 10:47:09 - router - INFO - Database connection established
+2025-08-07 10:47:09 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 10:48:56 - router - INFO - Router agent starting...
+2025-08-07 10:48:56 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 10:48:56 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 10:48:56 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 10:48:56 - router - INFO - Routing configuration loaded:
+2025-08-07 10:48:56 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 10:48:56 - router - INFO -   - Default folder: others
+2025-08-07 10:48:56 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 10:48:56 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 10:48:56 - router - INFO -   - Allowed folders: {'receipts', 'needs_action', 'bills', 'invoices', 'others', 'resumes'}
+2025-08-07 10:48:56 - router - INFO - Database connection established
+2025-08-07 10:48:56 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 10:50:02 - router - INFO - Received new message from Kafka: doc_id 'ed7df784-f700-4a8d-a0f4-29d20b8933d3'
+2025-08-07 10:50:02 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others
+2025-08-07 10:50:02 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\TS_Header_form.png
+2025-08-07 10:50:02 - router - INFO - Doc 'ed7df784-f700-4a8d-a0f4-29d20b8933d3' routed to 'others'. Reason: High confidence (0.70) but 'marksheet' not in defined routes - routed to 'others'.
+2025-08-07 10:50:03 - router - INFO - Received new message from Kafka: doc_id '322fded4-95b8-4fdf-80c5-d7568b261c72'
+2025-08-07 10:50:03 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others
+2025-08-07 10:50:03 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\TS_Header_form.png
+2025-08-07 10:50:03 - router - INFO - Doc '322fded4-95b8-4fdf-80c5-d7568b261c72' routed to 'others'. Reason: High confidence (0.70) but 'marksheet' not in defined routes - routed to 'others'.
+2025-08-07 10:50:04 - router - INFO - Received new message from Kafka: doc_id 'a285e572-b923-4995-9364-a58c2668024e'
+2025-08-07 10:50:04 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others
+2025-08-07 10:50:04 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\Smart Stay Hackathon 1.0.png
+2025-08-07 10:50:04 - router - INFO - Doc 'a285e572-b923-4995-9364-a58c2668024e' routed to 'others'. Reason: High confidence (0.70) but 'event ticket' not in defined routes - routed to 'others'.
+2025-08-07 10:50:05 - router - INFO - Received new message from Kafka: doc_id '54daca0d-6cea-47bb-9974-3433f81e25e7'
+2025-08-07 10:50:05 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others
+2025-08-07 10:50:05 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\Smart Stay Hackathon 1.0.png
+2025-08-07 10:50:05 - router - INFO - Doc '54daca0d-6cea-47bb-9974-3433f81e25e7' routed to 'others'. Reason: High confidence (0.70) but 'event ticket' not in defined routes - routed to 'others'.
+2025-08-07 10:50:06 - router - INFO - Received new message from Kafka: doc_id 'ba5c5238-f540-4eac-bf87-108cc7b0b158'
+2025-08-07 10:50:06 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others
+2025-08-07 10:50:06 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\07-08-2025.png
+2025-08-07 10:50:06 - router - INFO - Doc 'ba5c5238-f540-4eac-bf87-108cc7b0b158' routed to 'others'. Reason: High confidence (0.70) but 'business proposal' not in defined routes - routed to 'others'.
+2025-08-07 10:50:07 - router - INFO - Received new message from Kafka: doc_id '2fe43b64-23c8-4708-bdca-6d29cc2be2a9'
+2025-08-07 10:50:07 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others
+2025-08-07 10:50:07 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\07-08-2025.png
+2025-08-07 10:50:07 - router - INFO - Doc '2fe43b64-23c8-4708-bdca-6d29cc2be2a9' routed to 'others'. Reason: High confidence (0.70) but 'business proposal' not in defined routes - routed to 'others'.
+2025-08-07 10:50:08 - router - INFO - Received new message from Kafka: doc_id '9b773103-eb04-4db4-b82c-5be80a89c435'
+2025-08-07 10:50:08 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others
+2025-08-07 10:50:08 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\WhatsApp Image 2025-08-06 at 21.05.26_d14b8af2.jpg
+2025-08-07 10:50:08 - router - INFO - Doc '9b773103-eb04-4db4-b82c-5be80a89c435' routed to 'others'. Reason: High confidence (0.70) but 'brochure' not in defined routes - routed to 'others'.
+2025-08-07 10:50:08 - router - INFO - Received new message from Kafka: doc_id 'b28f89f2-df4c-4a7a-b67e-1ab10dfe9a73'
+2025-08-07 10:50:09 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others
+2025-08-07 10:50:09 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\WhatsApp Image 2025-08-06 at 21.05.26_d14b8af2.jpg
+2025-08-07 10:50:09 - router - INFO - Doc 'b28f89f2-df4c-4a7a-b67e-1ab10dfe9a73' routed to 'others'. Reason: High confidence (0.70) but 'brochure' not in defined routes - routed to 'others'.
+2025-08-07 11:01:28 - router - INFO - Router agent starting...
+2025-08-07 11:01:28 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 11:01:28 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 11:01:28 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 11:01:28 - router - INFO - Routing configuration loaded:
+2025-08-07 11:01:28 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 11:01:28 - router - INFO -   - Default folder: others
+2025-08-07 11:01:28 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 11:01:28 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 11:01:28 - router - INFO -   - Allowed folders: {'invoices', 'resumes', 'needs_action', 'others', 'bills', 'receipts'}
+2025-08-07 11:01:28 - router - INFO - Database connection established
+2025-08-07 11:01:28 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 11:33:22 - router - INFO - Router agent starting...
+2025-08-07 11:33:22 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 11:33:22 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 11:33:22 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 11:33:22 - router - INFO - Routing configuration loaded:
+2025-08-07 11:33:22 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 11:33:22 - router - INFO -   - Default folder: others
+2025-08-07 11:33:22 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 11:33:22 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 11:33:22 - router - INFO -   - Allowed folders: {'resumes', 'bills', 'others', 'needs_action', 'receipts', 'invoices'}
+2025-08-07 11:33:22 - router - INFO - Database connection established
+2025-08-07 11:33:22 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 11:41:29 - router - INFO - Router agent starting...
+2025-08-07 11:41:29 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 11:41:29 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 11:41:29 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 11:41:29 - router - INFO - Routing configuration loaded:
+2025-08-07 11:41:29 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 11:41:29 - router - INFO -   - Default folder: others
+2025-08-07 11:41:29 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 11:41:29 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 11:41:29 - router - INFO -   - Allowed folders: {'invoices', 'needs_action', 'others', 'resumes', 'receipts', 'bills'}
+2025-08-07 11:41:29 - router - INFO - Database connection established
+2025-08-07 11:41:29 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...
+2025-08-07 11:45:33 - router - INFO - Received new message from Kafka: doc_id '6c83a8cb-787b-4d1e-89e4-82907e2607e5'
+2025-08-07 11:45:33 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes
+2025-08-07 11:45:33 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\Final Resume 211722104037.pdf
+2025-08-07 11:45:33 - router - INFO - Doc '6c83a8cb-787b-4d1e-89e4-82907e2607e5' routed to 'resumes'. Reason: High confidence (0.70) - routed to 'resumes' (mapped from 'resume').
+2025-08-07 11:45:34 - router - INFO - Received new message from Kafka: doc_id '86e92abb-699b-4bdb-b31e-093429ae4594'
+2025-08-07 11:45:34 - router - INFO - Created/ensured folder exists: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes
+2025-08-07 11:45:34 - router - INFO - File copied successfully to: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\Final Resume 211722104037.pdf
+2025-08-07 11:45:34 - router - INFO - Doc '86e92abb-699b-4bdb-b31e-093429ae4594' routed to 'resumes'. Reason: High confidence (0.70) - routed to 'resumes' (mapped from 'resume').
+2025-08-07 12:50:27 - router - INFO - Router agent starting...
+2025-08-07 12:50:27 - router - INFO - Routes configuration reloaded successfully
+2025-08-07 12:50:27 - router - INFO - Active routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 12:50:27 - router - INFO - Default folder: others, Needs action folder: needs_action
+2025-08-07 12:50:27 - router - INFO - Routing configuration loaded:
+2025-08-07 12:50:27 - router - INFO -   - Document routes: {'resume': 'resumes', 'cv': 'resumes', 'receipt': 'receipts', 'invoice': 'invoices', 'bill': 'bills'}
+2025-08-07 12:50:27 - router - INFO -   - Default folder: others
+2025-08-07 12:50:27 - router - INFO -   - Needs action folder: needs_action
+2025-08-07 12:50:27 - router - INFO -   - Confidence threshold: 0.7
+2025-08-07 12:50:27 - router - INFO -   - Allowed folders: {'bills', 'resumes', 'needs_action', 'others', 'receipts', 'invoices'}
+2025-08-07 12:50:27 - router - INFO - Database connection established
+2025-08-07 12:50:27 - router - INFO - Successfully connected to Kafka. Listening on topic 'doc.classified'...

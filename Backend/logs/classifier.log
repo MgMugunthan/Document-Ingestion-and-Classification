@@ -2119,3 +2119,151 @@ google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quot
 2025-08-07 08:32:21 - classifier - INFO - [Local ML 🤖] Prediction: Marksheet (confidence: 0.759)
 2025-08-07 08:32:21 - classifier - INFO - Doc '54ee0b93-71cc-4e52-848b-bc0d68414c2f' classified as 'marksheet' by Gemini (trusted) (Confidence: 0.95)
 2025-08-07 08:32:21 - classifier - INFO - Successfully emitted event for doc_id '54ee0b93-71cc-4e52-848b-bc0d68414c2f' to 'doc.classified' topic.
+2025-08-07 09:06:02 - classifier - ERROR - ❌ Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 09:06:04 - classifier - INFO - 🧠 Local ML model and vectorizer loaded successfully.
+2025-08-07 09:06:04 - classifier - INFO - Classifier service starting...
+2025-08-07 09:06:04 - classifier - INFO - Database connection established
+2025-08-07 09:06:04 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 09:06:04 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-07 09:08:19 - classifier - ERROR - ❌ Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 09:08:21 - classifier - INFO - 🧠 Local ML model and vectorizer loaded successfully.
+2025-08-07 09:08:21 - classifier - INFO - Classifier service starting...
+2025-08-07 09:08:21 - classifier - INFO - Database connection established
+2025-08-07 09:08:21 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 09:08:21 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-07 09:13:08 - classifier - ERROR - ❌ Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 09:13:10 - classifier - INFO - 🧠 Local ML model and vectorizer loaded successfully.
+2025-08-07 09:13:10 - classifier - INFO - Classifier service starting...
+2025-08-07 09:13:10 - classifier - INFO - Database connection established
+2025-08-07 09:13:10 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 09:13:10 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-07 09:16:05 - classifier - ERROR - ❌ Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 09:16:07 - classifier - INFO - 🧠 Local ML model and vectorizer loaded successfully.
+2025-08-07 09:16:07 - classifier - INFO - Classifier service starting...
+2025-08-07 09:16:07 - classifier - INFO - Database connection established
+2025-08-07 09:16:07 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 09:16:07 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-07 09:19:07 - classifier - ERROR -  Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 09:19:09 - classifier - INFO -  Local ML model and vectorizer loaded successfully.
+2025-08-07 09:19:09 - classifier - INFO - Classifier service starting...
+2025-08-07 09:19:09 - classifier - INFO - Database connection established
+2025-08-07 09:19:09 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 09:19:09 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-07 09:23:47 - classifier - ERROR -  Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 09:23:49 - classifier - INFO -  Local ML model and vectorizer loaded successfully.
+2025-08-07 09:23:49 - classifier - INFO - Classifier service starting...
+2025-08-07 09:23:49 - classifier - INFO - Database connection established
+2025-08-07 09:23:49 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 09:23:49 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-07 09:24:32 - classifier - ERROR -  Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 09:24:34 - classifier - INFO -  Local ML model and vectorizer loaded successfully.
+2025-08-07 09:24:34 - classifier - INFO - Classifier service starting...
+2025-08-07 09:24:35 - classifier - INFO - Database connection established
+2025-08-07 09:24:35 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 09:24:35 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-07 09:41:46 - classifier - ERROR -  Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 09:41:47 - classifier - INFO -  Local ML model and vectorizer loaded successfully.
+2025-08-07 09:41:47 - classifier - INFO - Classifier service starting...
+2025-08-07 09:41:47 - classifier - INFO - Database connection established
+2025-08-07 09:41:47 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 09:41:47 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-07 10:33:56 - classifier - ERROR -  Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 10:33:56 - classifier - INFO -  Local ML model and vectorizer loaded successfully.
+2025-08-07 10:33:56 - classifier - INFO - Classifier service starting...
+2025-08-07 10:33:56 - classifier - INFO - Database connection established
+2025-08-07 10:33:56 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 10:33:56 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-07 10:34:54 - classifier - ERROR -  Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 10:34:55 - classifier - INFO -  Local ML model and vectorizer loaded successfully.
+2025-08-07 10:34:55 - classifier - INFO - Classifier service starting...
+2025-08-07 10:34:55 - classifier - INFO - Database connection established
+2025-08-07 10:34:55 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 10:34:55 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-07 10:43:23 - classifier - ERROR -  Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 10:43:25 - classifier - INFO -  Local ML model and vectorizer loaded successfully.
+2025-08-07 10:43:25 - classifier - INFO - Classifier service starting...
+2025-08-07 10:43:25 - classifier - INFO - Database connection established
+2025-08-07 10:43:25 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 10:43:25 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-07 10:45:10 - classifier - ERROR -  Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 10:45:11 - classifier - INFO -  Local ML model and vectorizer loaded successfully.
+2025-08-07 10:45:11 - classifier - INFO - Classifier service starting...
+2025-08-07 10:45:11 - classifier - INFO - Database connection established
+2025-08-07 10:45:11 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 10:45:11 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-07 10:47:10 - classifier - ERROR -  Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 10:47:11 - classifier - INFO -  Local ML model and vectorizer loaded successfully.
+2025-08-07 10:47:11 - classifier - INFO - Classifier service starting...
+2025-08-07 10:47:11 - classifier - INFO - Database connection established
+2025-08-07 10:47:11 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 10:47:11 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-07 10:48:58 - classifier - ERROR -  Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 10:48:58 - classifier - INFO -  Local ML model and vectorizer loaded successfully.
+2025-08-07 10:48:58 - classifier - INFO - Classifier service starting...
+2025-08-07 10:48:58 - classifier - INFO - Database connection established
+2025-08-07 10:48:59 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 10:48:59 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-07 10:50:02 - classifier - INFO - Received new message from Kafka: doc_id 'ed7df784-f700-4a8d-a0f4-29d20b8933d3'
+2025-08-07 10:50:02 - classifier - INFO - [Local ML ] Prediction: Marksheet (confidence: 0.137)
+2025-08-07 10:50:02 - classifier - INFO - Doc 'ed7df784-f700-4a8d-a0f4-29d20b8933d3' classified as 'marksheet' by Local ML boosted (Confidence: 0.7)
+2025-08-07 10:50:02 - classifier - INFO - Successfully emitted event for doc_id 'ed7df784-f700-4a8d-a0f4-29d20b8933d3' to 'doc.classified' topic.
+2025-08-07 10:50:02 - classifier - INFO - Received new message from Kafka: doc_id '322fded4-95b8-4fdf-80c5-d7568b261c72'
+2025-08-07 10:50:03 - classifier - INFO - [Local ML ] Prediction: Marksheet (confidence: 0.137)
+2025-08-07 10:50:03 - classifier - INFO - Doc '322fded4-95b8-4fdf-80c5-d7568b261c72' classified as 'marksheet' by Local ML boosted (Confidence: 0.7)
+2025-08-07 10:50:03 - classifier - INFO - Successfully emitted event for doc_id '322fded4-95b8-4fdf-80c5-d7568b261c72' to 'doc.classified' topic.
+2025-08-07 10:50:03 - classifier - INFO - Received new message from Kafka: doc_id 'a285e572-b923-4995-9364-a58c2668024e'
+2025-08-07 10:50:04 - classifier - INFO - [Local ML ] Prediction: Event Ticket (confidence: 0.465)
+2025-08-07 10:50:04 - classifier - INFO - Doc 'a285e572-b923-4995-9364-a58c2668024e' classified as 'event ticket' by Local ML boosted (Confidence: 0.7)
+2025-08-07 10:50:04 - classifier - INFO - Successfully emitted event for doc_id 'a285e572-b923-4995-9364-a58c2668024e' to 'doc.classified' topic.
+2025-08-07 10:50:05 - classifier - INFO - Received new message from Kafka: doc_id '54daca0d-6cea-47bb-9974-3433f81e25e7'
+2025-08-07 10:50:05 - classifier - INFO - [Local ML ] Prediction: Event Ticket (confidence: 0.465)
+2025-08-07 10:50:05 - classifier - INFO - Doc '54daca0d-6cea-47bb-9974-3433f81e25e7' classified as 'event ticket' by Local ML boosted (Confidence: 0.7)
+2025-08-07 10:50:05 - classifier - INFO - Successfully emitted event for doc_id '54daca0d-6cea-47bb-9974-3433f81e25e7' to 'doc.classified' topic.
+2025-08-07 10:50:06 - classifier - INFO - Received new message from Kafka: doc_id 'ba5c5238-f540-4eac-bf87-108cc7b0b158'
+2025-08-07 10:50:06 - classifier - INFO - [Local ML ] Prediction: Business Proposal (confidence: 0.104)
+2025-08-07 10:50:06 - classifier - INFO - Doc 'ba5c5238-f540-4eac-bf87-108cc7b0b158' classified as 'business proposal' by Local ML boosted (Confidence: 0.7)
+2025-08-07 10:50:06 - classifier - INFO - Successfully emitted event for doc_id 'ba5c5238-f540-4eac-bf87-108cc7b0b158' to 'doc.classified' topic.
+2025-08-07 10:50:07 - classifier - INFO - Received new message from Kafka: doc_id '2fe43b64-23c8-4708-bdca-6d29cc2be2a9'
+2025-08-07 10:50:07 - classifier - INFO - [Local ML ] Prediction: Business Proposal (confidence: 0.104)
+2025-08-07 10:50:07 - classifier - INFO - Doc '2fe43b64-23c8-4708-bdca-6d29cc2be2a9' classified as 'business proposal' by Local ML boosted (Confidence: 0.7)
+2025-08-07 10:50:07 - classifier - INFO - Successfully emitted event for doc_id '2fe43b64-23c8-4708-bdca-6d29cc2be2a9' to 'doc.classified' topic.
+2025-08-07 10:50:08 - classifier - INFO - Received new message from Kafka: doc_id '9b773103-eb04-4db4-b82c-5be80a89c435'
+2025-08-07 10:50:08 - classifier - INFO - [Local ML ] Prediction: Brochure (confidence: 0.163)
+2025-08-07 10:50:08 - classifier - INFO - Doc '9b773103-eb04-4db4-b82c-5be80a89c435' classified as 'brochure' by Local ML boosted (Confidence: 0.7)
+2025-08-07 10:50:08 - classifier - INFO - Successfully emitted event for doc_id '9b773103-eb04-4db4-b82c-5be80a89c435' to 'doc.classified' topic.
+2025-08-07 10:50:08 - classifier - INFO - Received new message from Kafka: doc_id 'b28f89f2-df4c-4a7a-b67e-1ab10dfe9a73'
+2025-08-07 10:50:08 - classifier - INFO - [Local ML ] Prediction: Brochure (confidence: 0.163)
+2025-08-07 10:50:08 - classifier - INFO - Doc 'b28f89f2-df4c-4a7a-b67e-1ab10dfe9a73' classified as 'brochure' by Local ML boosted (Confidence: 0.7)
+2025-08-07 10:50:08 - classifier - INFO - Successfully emitted event for doc_id 'b28f89f2-df4c-4a7a-b67e-1ab10dfe9a73' to 'doc.classified' topic.
+2025-08-07 11:01:29 - classifier - ERROR -  Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 11:01:30 - classifier - INFO -  Local ML model and vectorizer loaded successfully.
+2025-08-07 11:01:30 - classifier - INFO - Classifier service starting...
+2025-08-07 11:01:30 - classifier - INFO - Database connection established
+2025-08-07 11:01:30 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 11:01:30 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-07 11:33:23 - classifier - ERROR -  Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 11:33:24 - classifier - INFO -  Local ML model and vectorizer loaded successfully.
+2025-08-07 11:33:24 - classifier - INFO - Classifier service starting...
+2025-08-07 11:33:24 - classifier - INFO - Database connection established
+2025-08-07 11:33:24 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 11:33:24 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-07 11:41:30 - classifier - ERROR -  Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 11:41:31 - classifier - INFO -  Local ML model and vectorizer loaded successfully.
+2025-08-07 11:41:31 - classifier - INFO - Classifier service starting...
+2025-08-07 11:41:31 - classifier - INFO - Database connection established
+2025-08-07 11:41:31 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 11:41:31 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...
+2025-08-07 11:45:33 - classifier - INFO - Received new message from Kafka: doc_id '6c83a8cb-787b-4d1e-89e4-82907e2607e5'
+2025-08-07 11:45:33 - classifier - INFO - [Local ML ] Prediction: Resume (confidence: 0.251)
+2025-08-07 11:45:33 - classifier - INFO - Doc '6c83a8cb-787b-4d1e-89e4-82907e2607e5' classified as 'resume' by Local ML boosted (Confidence: 0.7)
+2025-08-07 11:45:33 - classifier - INFO - Successfully emitted event for doc_id '6c83a8cb-787b-4d1e-89e4-82907e2607e5' to 'doc.classified' topic.
+2025-08-07 11:45:34 - classifier - INFO - Received new message from Kafka: doc_id '86e92abb-699b-4bdb-b31e-093429ae4594'
+2025-08-07 11:45:34 - classifier - INFO - [Local ML ] Prediction: Resume (confidence: 0.251)
+2025-08-07 11:45:34 - classifier - INFO - Doc '86e92abb-699b-4bdb-b31e-093429ae4594' classified as 'resume' by Local ML boosted (Confidence: 0.7)
+2025-08-07 11:45:34 - classifier - INFO - Successfully emitted event for doc_id '86e92abb-699b-4bdb-b31e-093429ae4594' to 'doc.classified' topic.
+2025-08-07 12:50:29 - classifier - ERROR -  Could not initialize Gemini: GEMINI_API_KEY not found in environment variables.
+2025-08-07 12:50:36 - classifier - INFO -  Local ML model and vectorizer loaded successfully.
+2025-08-07 12:50:36 - classifier - INFO - Classifier service starting...
+2025-08-07 12:50:36 - classifier - INFO - Database connection established
+2025-08-07 12:50:36 - classifier - INFO - Successfully connected to Kafka.
+2025-08-07 12:50:36 - classifier - INFO - Classifier agent started. Waiting for messages from 'doc.extracted' topic...

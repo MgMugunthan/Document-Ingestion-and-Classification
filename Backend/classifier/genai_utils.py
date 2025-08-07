@@ -36,7 +36,7 @@ try:
     gemini_model = genai.GenerativeModel("models/gemini-1.5-flash")
     log.info("✨ Gemini model loaded successfully.")
 except Exception as e:
-    log.error(f"❌ Could not initialize Gemini: {e}")
+    log.error(f" Could not initialize Gemini: {e}")
     gemini_model = None
 
 # Load local ML model and vectorizer
@@ -44,9 +44,9 @@ try:
     base_dir = os.path.dirname(__file__)
     classifier_model = joblib.load(os.path.join(base_dir, "document_classifier.pkl"))
     vectorizer = joblib.load(os.path.join(base_dir, "tfidf_vectorizer.pkl"))
-    log.info("🧠 Local ML model and vectorizer loaded successfully.")
+    log.info(" Local ML model and vectorizer loaded successfully.")
 except Exception as e:
-    log.warning(f"⚠ Failed to load local ML model/vectorizer: {e}")
+    log.warning(f" Failed to load local ML model/vectorizer: {e}")
     classifier_model, vectorizer = None, None
 
 def classify_document(document_text: str):
@@ -81,10 +81,10 @@ Respond with only one type in lowercase, like: resume
 
             gemini_label = best_match
             gemini_similarity = best_ratio
-            log.info(f"[Gemini 🔍] Prediction: {gemini_label} (similarity: {round(gemini_similarity, 3)})")
+            log.info(f"[Gemini ] Prediction: {gemini_label} (similarity: {round(gemini_similarity, 3)})")
 
         except Exception as e:
-            log.error("[⚠ Gemini error]", exc_info=True)
+            log.error("[ Gemini error]", exc_info=True)
             gemini_label = None
 
     # --- Local ML Classification ---
@@ -114,9 +114,9 @@ Respond with only one type in lowercase, like: resume
                     # Normalize to 0-1 range (rough approximation)
                     local_confidence = round(min(1.0, max(0.0, (max_score + 1) / 2)), 3)
             
-            log.info(f"[Local ML 🤖] Prediction: {local_label} (confidence: {local_confidence})")
+            log.info(f"[Local ML ] Prediction: {local_label} (confidence: {local_confidence})")
         except Exception as e:
-            log.error("[⚠ Local ML error]", exc_info=True)
+            log.error("[ Local ML error]", exc_info=True)
 
     # --- Final Decision Logic ---
     if gemini_label and gemini_similarity >= 0.9:

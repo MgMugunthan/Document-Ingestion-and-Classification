@@ -841,3 +841,167 @@
 2025-08-07 08:32:20 - database - INFO - Document final path updated: ea46392b-1e65-4acf-ba8f-845494c20ed6 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\Results.pdf
 2025-08-07 08:32:21 - database - INFO - Document status updated: 54ee0b93-71cc-4e52-848b-bc0d68414c2f -> classified
 2025-08-07 08:32:21 - database - INFO - Document final path updated: 54ee0b93-71cc-4e52-848b-bc0d68414c2f -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\Results.pdf
+2025-08-07 09:06:01 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:06:01 - database - INFO - Database tables created successfully
+2025-08-07 09:06:02 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:06:02 - database - INFO - Database tables created successfully
+2025-08-07 09:06:04 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:06:04 - database - INFO - Database tables created successfully
+2025-08-07 09:08:16 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:08:17 - database - INFO - Database tables created successfully
+2025-08-07 09:08:18 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:08:18 - database - INFO - Database tables created successfully
+2025-08-07 09:08:21 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:08:21 - database - INFO - Database tables created successfully
+2025-08-07 09:13:06 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:13:06 - database - INFO - Database tables created successfully
+2025-08-07 09:13:07 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:13:07 - database - INFO - Database tables created successfully
+2025-08-07 09:13:10 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:13:10 - database - INFO - Database tables created successfully
+2025-08-07 09:16:03 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:16:03 - database - INFO - Database tables created successfully
+2025-08-07 09:16:04 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:16:04 - database - INFO - Database tables created successfully
+2025-08-07 09:16:07 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:16:07 - database - INFO - Database tables created successfully
+2025-08-07 09:19:06 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:19:06 - database - INFO - Database tables created successfully
+2025-08-07 09:19:06 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:19:06 - database - INFO - Database tables created successfully
+2025-08-07 09:19:09 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:19:09 - database - INFO - Database tables created successfully
+2025-08-07 09:23:45 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:23:45 - database - INFO - Database tables created successfully
+2025-08-07 09:23:46 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:23:46 - database - INFO - Database tables created successfully
+2025-08-07 09:23:49 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:23:49 - database - INFO - Database tables created successfully
+2025-08-07 09:24:31 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:24:31 - database - INFO - Database tables created successfully
+2025-08-07 09:24:32 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:24:32 - database - INFO - Database tables created successfully
+2025-08-07 09:24:35 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:24:35 - database - INFO - Database tables created successfully
+2025-08-07 09:41:44 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:41:44 - database - INFO - Database tables created successfully
+2025-08-07 09:41:45 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:41:45 - database - INFO - Database tables created successfully
+2025-08-07 09:41:47 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:41:47 - database - INFO - Database tables created successfully
+2025-08-07 10:33:54 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:33:55 - database - INFO - Database tables created successfully
+2025-08-07 10:33:55 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:33:55 - database - INFO - Database tables created successfully
+2025-08-07 10:33:56 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:33:56 - database - INFO - Database tables created successfully
+2025-08-07 10:34:53 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:34:53 - database - INFO - Database tables created successfully
+2025-08-07 10:34:54 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:34:54 - database - INFO - Database tables created successfully
+2025-08-07 10:34:55 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:34:55 - database - INFO - Database tables created successfully
+2025-08-07 10:43:22 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:43:22 - database - INFO - Database tables created successfully
+2025-08-07 10:43:23 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:43:23 - database - INFO - Database tables created successfully
+2025-08-07 10:43:25 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:43:25 - database - INFO - Database tables created successfully
+2025-08-07 10:45:09 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:45:09 - database - INFO - Database tables created successfully
+2025-08-07 10:45:10 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:45:10 - database - INFO - Database tables created successfully
+2025-08-07 10:45:11 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:45:11 - database - INFO - Database tables created successfully
+2025-08-07 10:47:09 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:47:09 - database - INFO - Database tables created successfully
+2025-08-07 10:47:10 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:47:10 - database - INFO - Database tables created successfully
+2025-08-07 10:47:11 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:47:11 - database - INFO - Database tables created successfully
+2025-08-07 10:48:56 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:48:56 - database - INFO - Database tables created successfully
+2025-08-07 10:48:57 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:48:57 - database - INFO - Database tables created successfully
+2025-08-07 10:48:58 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:48:58 - database - INFO - Database tables created successfully
+2025-08-07 10:50:00 - database - INFO - Document inserted: ed7df784-f700-4a8d-a0f4-29d20b8933d3
+2025-08-07 10:50:00 - database - INFO - Document inserted: 322fded4-95b8-4fdf-80c5-d7568b261c72
+2025-08-07 10:50:02 - database - INFO - Document inserted: a285e572-b923-4995-9364-a58c2668024e
+2025-08-07 10:50:02 - database - INFO - Document status updated: ed7df784-f700-4a8d-a0f4-29d20b8933d3 -> extracted
+2025-08-07 10:50:02 - database - INFO - Document status updated: ed7df784-f700-4a8d-a0f4-29d20b8933d3 -> classified
+2025-08-07 10:50:02 - database - INFO - Document final path updated: ed7df784-f700-4a8d-a0f4-29d20b8933d3 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\TS_Header_form.png
+2025-08-07 10:50:02 - database - INFO - Document inserted: 54daca0d-6cea-47bb-9974-3433f81e25e7
+2025-08-07 10:50:02 - database - INFO - Document status updated: 322fded4-95b8-4fdf-80c5-d7568b261c72 -> extracted
+2025-08-07 10:50:03 - database - INFO - Document status updated: 322fded4-95b8-4fdf-80c5-d7568b261c72 -> classified
+2025-08-07 10:50:03 - database - INFO - Document final path updated: 322fded4-95b8-4fdf-80c5-d7568b261c72 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\TS_Header_form.png
+2025-08-07 10:50:03 - database - INFO - Document status updated: a285e572-b923-4995-9364-a58c2668024e -> extracted
+2025-08-07 10:50:04 - database - INFO - Document status updated: a285e572-b923-4995-9364-a58c2668024e -> classified
+2025-08-07 10:50:04 - database - INFO - Document final path updated: a285e572-b923-4995-9364-a58c2668024e -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\Smart Stay Hackathon 1.0.png
+2025-08-07 10:50:04 - database - INFO - Document status updated: 54daca0d-6cea-47bb-9974-3433f81e25e7 -> extracted
+2025-08-07 10:50:05 - database - INFO - Document status updated: 54daca0d-6cea-47bb-9974-3433f81e25e7 -> classified
+2025-08-07 10:50:05 - database - INFO - Document final path updated: 54daca0d-6cea-47bb-9974-3433f81e25e7 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\Smart Stay Hackathon 1.0.png
+2025-08-07 10:50:05 - database - INFO - Document inserted: ba5c5238-f540-4eac-bf87-108cc7b0b158
+2025-08-07 10:50:05 - database - INFO - Document inserted: 2fe43b64-23c8-4708-bdca-6d29cc2be2a9
+2025-08-07 10:50:06 - database - INFO - Document status updated: ba5c5238-f540-4eac-bf87-108cc7b0b158 -> extracted
+2025-08-07 10:50:06 - database - INFO - Document status updated: ba5c5238-f540-4eac-bf87-108cc7b0b158 -> classified
+2025-08-07 10:50:06 - database - INFO - Document final path updated: ba5c5238-f540-4eac-bf87-108cc7b0b158 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\07-08-2025.png
+2025-08-07 10:50:07 - database - INFO - Document inserted: 9b773103-eb04-4db4-b82c-5be80a89c435
+2025-08-07 10:50:07 - database - INFO - Document inserted: b28f89f2-df4c-4a7a-b67e-1ab10dfe9a73
+2025-08-07 10:50:07 - database - INFO - Document status updated: 2fe43b64-23c8-4708-bdca-6d29cc2be2a9 -> extracted
+2025-08-07 10:50:07 - database - INFO - Document status updated: 2fe43b64-23c8-4708-bdca-6d29cc2be2a9 -> classified
+2025-08-07 10:50:08 - database - INFO - Document final path updated: 2fe43b64-23c8-4708-bdca-6d29cc2be2a9 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\07-08-2025.png
+2025-08-07 10:50:08 - database - INFO - Document status updated: 9b773103-eb04-4db4-b82c-5be80a89c435 -> extracted
+2025-08-07 10:50:08 - database - INFO - Document status updated: 9b773103-eb04-4db4-b82c-5be80a89c435 -> classified
+2025-08-07 10:50:08 - database - INFO - Document final path updated: 9b773103-eb04-4db4-b82c-5be80a89c435 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\WhatsApp Image 2025-08-06 at 21.05.26_d14b8af2.jpg
+2025-08-07 10:50:08 - database - INFO - Document status updated: b28f89f2-df4c-4a7a-b67e-1ab10dfe9a73 -> extracted
+2025-08-07 10:50:08 - database - INFO - Document status updated: b28f89f2-df4c-4a7a-b67e-1ab10dfe9a73 -> classified
+2025-08-07 10:50:09 - database - INFO - Document final path updated: b28f89f2-df4c-4a7a-b67e-1ab10dfe9a73 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\WhatsApp Image 2025-08-06 at 21.05.26_d14b8af2.jpg
+2025-08-07 11:01:28 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:01:28 - database - INFO - Database tables created successfully
+2025-08-07 11:01:29 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:01:29 - database - INFO - Database tables created successfully
+2025-08-07 11:01:30 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:01:30 - database - INFO - Database tables created successfully
+2025-08-07 11:33:22 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:33:22 - database - INFO - Database tables created successfully
+2025-08-07 11:33:23 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:33:23 - database - INFO - Database tables created successfully
+2025-08-07 11:33:24 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:33:24 - database - INFO - Database tables created successfully
+2025-08-07 11:35:46 - database - ERROR - Database connection error: column "gmail_connected" of relation "users" does not exist
+LINE 1: UPDATE users SET gmail_connected = FALSE
+                         ^
+
+2025-08-07 11:37:33 - database - ERROR - Database connection error: column "gmail_connected" of relation "users" does not exist
+LINE 1: UPDATE users SET gmail_connected = FALSE
+                         ^
+
+2025-08-07 11:40:36 - database - ERROR - Database connection error: column "gmail_connected" of relation "users" does not exist
+LINE 1: UPDATE users SET gmail_connected = FALSE
+                         ^
+
+2025-08-07 11:40:58 - database - ERROR - Database connection error: column "gmail_connected" of relation "users" does not exist
+LINE 1: UPDATE users SET gmail_connected = FALSE
+                         ^
+
+2025-08-07 11:41:29 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:41:29 - database - INFO - Database tables created successfully
+2025-08-07 11:41:30 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:41:30 - database - INFO - Database tables created successfully
+2025-08-07 11:41:31 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:41:31 - database - INFO - Database tables created successfully
+2025-08-07 11:45:32 - database - INFO - Document inserted: 6c83a8cb-787b-4d1e-89e4-82907e2607e5
+2025-08-07 11:45:33 - database - INFO - Document inserted: 86e92abb-699b-4bdb-b31e-093429ae4594
+2025-08-07 11:45:33 - database - INFO - Document status updated: 6c83a8cb-787b-4d1e-89e4-82907e2607e5 -> extracted
+2025-08-07 11:45:33 - database - INFO - Document status updated: 6c83a8cb-787b-4d1e-89e4-82907e2607e5 -> classified
+2025-08-07 11:45:33 - database - INFO - Document final path updated: 6c83a8cb-787b-4d1e-89e4-82907e2607e5 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\Final Resume 211722104037.pdf
+2025-08-07 11:45:33 - database - INFO - Document status updated: 86e92abb-699b-4bdb-b31e-093429ae4594 -> extracted
+2025-08-07 11:45:34 - database - INFO - Document status updated: 86e92abb-699b-4bdb-b31e-093429ae4594 -> classified
+2025-08-07 11:45:34 - database - INFO - Document final path updated: 86e92abb-699b-4bdb-b31e-093429ae4594 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\Final Resume 211722104037.pdf
+2025-08-07 12:50:27 - database - INFO - Database 'document_system' already  exists
+2025-08-07 12:50:27 - database - INFO - Database tables created successfully
+2025-08-07 12:50:29 - database - INFO - Database 'document_system' already  exists
+2025-08-07 12:50:29 - database - INFO - Database tables created successfully
+2025-08-07 12:50:36 - database - INFO - Database 'document_system' already  exists
+2025-08-07 12:50:36 - database - INFO - Database tables created successfully
