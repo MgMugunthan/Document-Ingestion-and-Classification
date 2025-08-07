@@ -23,3 +23,985 @@
 2025-08-06 09:16:55 - database - INFO - Database tables created successfully
 2025-08-06 09:16:57 - database - INFO - Database 'document_system' already  exists
 2025-08-06 09:16:57 - database - INFO - Database tables created successfully
+2025-08-06 13:14:53 - database - INFO - Database 'document_system' already  exists
+2025-08-06 13:14:53 - database - INFO - Database tables created successfully
+2025-08-06 13:14:56 - database - INFO - Database 'document_system' already  exists
+2025-08-06 13:14:56 - database - INFO - Database tables created successfully
+2025-08-06 13:15:21 - database - INFO - Database 'document_system' already  exists
+2025-08-06 13:15:21 - database - INFO - Database tables created successfully
+2025-08-06 13:15:22 - database - INFO - Database 'document_system' already  exists
+2025-08-06 13:15:22 - database - INFO - Database tables created successfully
+2025-08-06 13:15:32 - database - INFO - Database 'document_system' already  exists
+2025-08-06 13:15:32 - database - INFO - Database tables created successfully
+2025-08-06 13:17:22 - database - INFO - Document inserted: 03b91f6e-506f-4f76-bac8-9471fb11b9bd
+2025-08-06 13:17:23 - database - INFO - Document inserted: 74e9e196-cf23-4918-8635-7a3173ad02b7
+2025-08-06 13:17:24 - database - INFO - Document status updated: 03b91f6e-506f-4f76-bac8-9471fb11b9bd -> extracted
+2025-08-06 13:17:24 - database - INFO - Document status updated: 03b91f6e-506f-4f76-bac8-9471fb11b9bd -> classified
+2025-08-06 13:17:25 - database - INFO - Document status updated: 74e9e196-cf23-4918-8635-7a3173ad02b7 -> extracted
+2025-08-06 13:17:25 - database - INFO - Document status updated: 74e9e196-cf23-4918-8635-7a3173ad02b7 -> classified
+2025-08-06 13:17:26 - database - INFO - Document final path updated: 74e9e196-cf23-4918-8635-7a3173ad02b7 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\other\MUGUNTHAN_S.pdf
+2025-08-06 13:24:50 - database - INFO - Database 'document_system' already  exists
+2025-08-06 13:24:50 - database - INFO - Database tables created successfully
+2025-08-06 13:24:52 - database - INFO - Database 'document_system' already  exists
+2025-08-06 13:24:52 - database - INFO - Database tables created successfully
+2025-08-06 13:24:54 - database - INFO - Database 'document_system' already  exists
+2025-08-06 13:24:55 - database - INFO - Database tables created successfully
+2025-08-06 13:25:07 - database - INFO - Document inserted: 7b6a155c-4091-42ca-8483-4d49c05a0f27
+2025-08-06 13:25:07 - database - INFO - Document inserted: 6d2e5e1b-8dc0-4da4-9c5b-2361ebe18fa0
+2025-08-06 13:25:08 - database - INFO - Document status updated: 7b6a155c-4091-42ca-8483-4d49c05a0f27 -> extracted
+2025-08-06 13:25:08 - database - INFO - Document status updated: 7b6a155c-4091-42ca-8483-4d49c05a0f27 -> classified
+2025-08-06 13:25:09 - database - INFO - Document status updated: 6d2e5e1b-8dc0-4da4-9c5b-2361ebe18fa0 -> extracted
+2025-08-06 13:25:10 - database - INFO - Document status updated: 6d2e5e1b-8dc0-4da4-9c5b-2361ebe18fa0 -> classified
+2025-08-06 13:25:11 - database - INFO - Document final path updated: 6d2e5e1b-8dc0-4da4-9c5b-2361ebe18fa0 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\invoice\sample-invoice.pdf
+2025-08-06 13:31:53 - database - INFO - Document inserted: 8ca11e6d-73d0-4c10-b19a-a394620ff234
+2025-08-06 13:31:53 - database - INFO - Document inserted: 3854ce50-dc8c-4891-aeb1-8c85342e4292
+2025-08-06 13:31:55 - database - INFO - Document status updated: 8ca11e6d-73d0-4c10-b19a-a394620ff234 -> extracted
+2025-08-06 13:31:55 - database - INFO - Document status updated: 8ca11e6d-73d0-4c10-b19a-a394620ff234 -> classified
+2025-08-06 13:31:56 - database - INFO - Document final path updated: 8ca11e6d-73d0-4c10-b19a-a394620ff234 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\degree certificate\1000124077.png
+2025-08-06 13:31:56 - database - INFO - Document status updated: 3854ce50-dc8c-4891-aeb1-8c85342e4292 -> extracted
+2025-08-06 13:31:56 - database - INFO - Document status updated: 3854ce50-dc8c-4891-aeb1-8c85342e4292 -> classified
+2025-08-06 13:39:28 - database - INFO - Database 'document_system' already  exists
+2025-08-06 13:39:28 - database - INFO - Database tables created successfully
+2025-08-06 13:39:31 - database - INFO - Database 'document_system' already  exists
+2025-08-06 13:39:31 - database - INFO - Database tables created successfully
+2025-08-06 13:39:46 - database - INFO - Database 'document_system' already  exists
+2025-08-06 13:39:46 - database - INFO - Database tables created successfully
+2025-08-06 13:39:48 - database - INFO - Document inserted: 746d852e-eb87-4f5c-884a-1c4023f34c2e
+2025-08-06 13:39:49 - database - INFO - Document inserted: d91a363d-cb0f-4b70-aa67-80f71099a64e
+2025-08-06 13:39:49 - database - INFO - Document status updated: 746d852e-eb87-4f5c-884a-1c4023f34c2e -> extracted
+2025-08-06 13:39:50 - database - INFO - Document status updated: 746d852e-eb87-4f5c-884a-1c4023f34c2e -> classified
+2025-08-06 13:39:50 - database - INFO - Document status updated: d91a363d-cb0f-4b70-aa67-80f71099a64e -> extracted
+2025-08-06 13:39:50 - database - INFO - Document final path updated: 746d852e-eb87-4f5c-884a-1c4023f34c2e -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\marksheet\Results.pdf
+2025-08-06 13:39:50 - database - INFO - Document status updated: d91a363d-cb0f-4b70-aa67-80f71099a64e -> classified
+2025-08-06 13:40:43 - database - INFO - Document inserted: e5f0bb7c-3f4c-4fe5-8f60-4fbb420acfbf
+2025-08-06 13:40:44 - database - INFO - Document inserted: a09894a8-6fe1-4b19-8d9a-694513fd6f79
+2025-08-06 13:40:44 - database - INFO - Document inserted: 7d1aa6f6-6745-48ee-8615-62677f350a11
+2025-08-06 13:40:44 - database - INFO - Document inserted: 3d3403bf-f574-449a-92ae-798329d37d5d
+2025-08-06 13:40:44 - database - INFO - Document inserted: e79bd29d-bb17-4bac-b648-199dd77cdd5a
+2025-08-06 13:40:44 - database - INFO - Document inserted: 56d140a7-644c-46bf-ba77-8912021f894d
+2025-08-06 13:40:44 - database - INFO - Document inserted: 2996970d-07ba-4036-b829-51aaeedbdd5e
+2025-08-06 13:40:45 - database - INFO - Document inserted: 0723da47-9ac0-431f-8987-bfb7383f9a58
+2025-08-06 13:40:45 - database - INFO - Document inserted: 28057b64-f26c-4e3d-9448-4b5532f41009
+2025-08-06 13:40:45 - database - INFO - Document inserted: cbd830f5-1579-4063-9faa-353bf68d51db
+2025-08-06 13:40:45 - database - INFO - Document inserted: 0e3d3922-b413-4488-819f-b5f110fa78ca
+2025-08-06 13:40:45 - database - INFO - Document inserted: 95900e4f-9700-460b-a0c2-21ffd7eecadc
+2025-08-06 13:40:46 - database - INFO - Document inserted: 69d4fb85-0e83-49b7-9e78-fb95c92cabc0
+2025-08-06 13:40:47 - database - INFO - Document inserted: 8cc0e6f2-1d37-475a-a801-759f036d6653
+2025-08-06 13:40:50 - database - INFO - Document inserted: 8f5903d8-cb35-460f-81a9-5a064e42b015
+2025-08-06 13:40:51 - database - INFO - Document inserted: 4c32b62c-5224-4c4f-bc2d-f520e542e030
+2025-08-06 13:40:52 - database - INFO - Document inserted: cc9407c9-5582-4178-b819-04546830b5eb
+2025-08-06 13:40:53 - database - INFO - Document inserted: d9994e7e-517d-49c2-9fc2-63c9d92bf221
+2025-08-06 13:40:53 - database - INFO - Document inserted: b5d882fc-cde3-4393-9a78-821acc1b9c96
+2025-08-06 13:40:54 - database - INFO - Document inserted: feefb885-d78d-4f4f-a177-71ed408dde3f
+2025-08-06 13:41:00 - database - INFO - Document status updated: a09894a8-6fe1-4b19-8d9a-694513fd6f79 -> extracted
+2025-08-06 13:41:00 - database - INFO - Document status updated: a09894a8-6fe1-4b19-8d9a-694513fd6f79 -> classified
+2025-08-06 13:41:00 - database - INFO - Document status updated: 7d1aa6f6-6745-48ee-8615-62677f350a11 -> extracted
+2025-08-06 13:41:01 - database - INFO - Document final path updated: a09894a8-6fe1-4b19-8d9a-694513fd6f79 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\CRUDOperationsinMongoDB_Badge20250620-27-jt9xd8.pdf
+2025-08-06 13:41:01 - database - INFO - Document status updated: 7d1aa6f6-6745-48ee-8615-62677f350a11 -> classified
+2025-08-06 13:41:01 - database - INFO - Document status updated: 3d3403bf-f574-449a-92ae-798329d37d5d -> extracted
+2025-08-06 13:41:01 - database - INFO - Document final path updated: 7d1aa6f6-6745-48ee-8615-62677f350a11 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\BuildingRAGAppsUsingMongoDB_Badge20250620-27-1b51p5.pdf
+2025-08-06 13:41:02 - database - INFO - Document status updated: 3d3403bf-f574-449a-92ae-798329d37d5d -> classified
+2025-08-06 13:41:02 - database - INFO - Document final path updated: 3d3403bf-f574-449a-92ae-798329d37d5d -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\BuildingAI-PoweredSearchwithMongoDBVectorSearch_Badge20250620-27-bqobga.pdf
+2025-08-06 13:41:48 - database - INFO - Document status updated: 28057b64-f26c-4e3d-9448-4b5532f41009 -> extracted
+2025-08-06 13:41:48 - database - INFO - Document status updated: 28057b64-f26c-4e3d-9448-4b5532f41009 -> classified
+2025-08-06 13:41:49 - database - INFO - Document final path updated: 28057b64-f26c-4e3d-9448-4b5532f41009 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\technical\FromRelationalModelSQLtoMongoDBsDocumentModel_Badge20250620-26-c3iwpo.pdf
+2025-08-06 13:41:49 - database - INFO - Document status updated: cbd830f5-1579-4063-9faa-353bf68d51db -> extracted
+2025-08-06 13:41:49 - database - INFO - Document status updated: cbd830f5-1579-4063-9faa-353bf68d51db -> classified
+2025-08-06 13:41:50 - database - INFO - Document final path updated: cbd830f5-1579-4063-9faa-353bf68d51db -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\GODWIN_JUDAH_J_RESUME_-_GODWIN_JUDAH_J.pdf
+2025-08-06 13:41:51 - database - INFO - Document status updated: 0e3d3922-b413-4488-819f-b5f110fa78ca -> extracted
+2025-08-06 13:41:52 - database - INFO - Document status updated: 0e3d3922-b413-4488-819f-b5f110fa78ca -> classified
+2025-08-06 13:41:52 - database - INFO - Document final path updated: 0e3d3922-b413-4488-819f-b5f110fa78ca -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\business pitch deck\Intel_AI_Reference_Kits.pdf
+2025-08-06 13:44:59 - database - INFO - Database 'document_system' already  exists
+2025-08-06 13:44:59 - database - INFO - Database tables created successfully
+2025-08-06 13:45:00 - database - INFO - Database 'document_system' already  exists
+2025-08-06 13:45:00 - database - INFO - Database tables created successfully
+2025-08-06 13:45:02 - database - INFO - Database 'document_system' already  exists
+2025-08-06 13:45:02 - database - INFO - Database tables created successfully
+2025-08-06 13:45:45 - database - INFO - Document inserted: 21735d3d-12e2-4ad6-ae3a-a651ccd034f8
+2025-08-06 13:45:45 - database - INFO - Document inserted: d1ce2865-fcb2-44a3-a237-ed582913a20b
+2025-08-06 13:45:45 - database - INFO - Document inserted: d62179ca-9990-428a-8dcd-37becbfe3f82
+2025-08-06 13:45:45 - database - INFO - Document inserted: 637bac53-af65-499c-9f7a-7e6b2b5b34e4
+2025-08-06 13:45:45 - database - INFO - Document inserted: a8cc63a1-fc9d-4d94-a975-89a5c7dcaa99
+2025-08-06 13:45:45 - database - INFO - Document inserted: a8e2971c-22b1-479d-95e2-71f4e550452d
+2025-08-06 13:45:45 - database - INFO - Document inserted: 03ed8e39-00c9-4f5e-b770-9deb956ccb32
+2025-08-06 13:45:46 - database - INFO - Document inserted: b0ebd6fa-2da4-42fa-a12e-05358e11dbae
+2025-08-06 13:45:46 - database - INFO - Document inserted: 46a93361-7f27-4fab-ba95-352e8970bea6
+2025-08-06 13:45:46 - database - INFO - Document inserted: 7e0a33d7-3990-4428-b018-805bed465a05
+2025-08-06 13:45:46 - database - INFO - Document inserted: 2280d2d3-10c9-4626-b6da-46572ea4b76e
+2025-08-06 13:45:46 - database - INFO - Document inserted: 3daa3097-9352-4f78-8f99-7ceb1905762c
+2025-08-06 13:45:46 - database - INFO - Document inserted: f20bc366-9281-4c39-bde2-4428c33d06f8
+2025-08-06 13:45:46 - database - INFO - Document inserted: f882920b-53ec-495c-90de-11c7130bf932
+2025-08-06 13:45:47 - database - INFO - Document inserted: e7d830af-abd2-4d64-a71d-f3018804c1ce
+2025-08-06 13:45:47 - database - INFO - Document inserted: 0f2f5cc2-e327-4d5c-942f-b88386073ac7
+2025-08-06 13:45:47 - database - INFO - Document inserted: eddcb60a-1520-40b4-83a9-fecc7c8f9175
+2025-08-06 13:45:47 - database - INFO - Document inserted: f240a915-39d4-4498-b905-83d36a272eed
+2025-08-06 13:45:47 - database - INFO - Document inserted: 77781b69-62b3-4f80-af8e-a12197ab69ea
+2025-08-06 13:45:47 - database - INFO - Document inserted: 1e06e079-c291-4c7b-8b42-09917c097302
+2025-08-06 13:45:47 - database - INFO - Document inserted: 00c3c65e-4317-4497-a5cd-6a2d442bbcd2
+2025-08-06 13:45:47 - database - INFO - Document inserted: 7e0592ae-3e73-4609-8d49-b7890dacc26a
+2025-08-06 13:45:47 - database - INFO - Document inserted: 7ba00f84-0914-4f3a-8987-7c80fcd9527e
+2025-08-06 13:45:47 - database - INFO - Document inserted: 130aa634-e15c-4b1e-ae3d-4a1175dec15c
+2025-08-06 13:45:47 - database - INFO - Document inserted: b07c997b-ac96-477b-8e2b-8590b4c43729
+2025-08-06 13:45:47 - database - INFO - Document inserted: 9fce13e5-bb6b-41ff-b07c-fb8a3014030c
+2025-08-06 13:45:48 - database - INFO - Document inserted: 54b03a37-7a7c-4acf-af49-caad27e8ef00
+2025-08-06 13:45:48 - database - INFO - Document inserted: 1a27cc1f-5ed4-4e98-8786-cf77068c8496
+2025-08-06 13:45:48 - database - INFO - Document inserted: 7a845d4f-ef1c-435e-aa46-2cf7b98fb351
+2025-08-06 13:45:48 - database - INFO - Document inserted: 35db44a5-e6a4-40ab-8dd0-d4627f01a2ef
+2025-08-06 13:45:48 - database - INFO - Document inserted: 03dcb159-e5fb-4a6d-9e49-7aa84fbb6f7b
+2025-08-06 13:45:48 - database - INFO - Document inserted: 8f5d17dc-a266-4b1d-bcb4-ecb280a2195c
+2025-08-06 13:45:48 - database - INFO - Document inserted: 6c5e5994-fda0-4c88-87dc-723b7ba55036
+2025-08-06 13:45:48 - database - INFO - Document inserted: 626c11e6-4521-4392-8d25-04550a5793b9
+2025-08-06 13:45:49 - database - INFO - Document inserted: b1349bab-166d-4707-bfd1-d60b642008aa
+2025-08-06 13:45:49 - database - INFO - Document inserted: 7b98d023-9190-4994-962f-cf3e6c11fc42
+2025-08-06 13:45:49 - database - INFO - Document inserted: 497e84f9-0a40-4596-82db-3036fa289c4c
+2025-08-06 13:45:49 - database - INFO - Document inserted: eee746ec-0e10-4844-a2d1-3f4e4da3b472
+2025-08-06 13:45:50 - database - INFO - Document inserted: 177b7fd9-856e-4837-b390-047e32fd6786
+2025-08-06 13:45:51 - database - INFO - Document inserted: f1e5eb04-e44d-48ef-b022-87d613a8b992
+2025-08-06 13:45:52 - database - INFO - Document inserted: c40e6a2c-c487-4b06-897c-9971355b9ecb
+2025-08-06 13:45:53 - database - INFO - Document inserted: 433d97e8-28d5-4fdb-81c3-850101aecaa7
+2025-08-06 13:45:54 - database - INFO - Document inserted: 6297863b-24d2-4e06-9f10-b417997bef66
+2025-08-06 13:45:54 - database - INFO - Document inserted: edd97446-3437-47fb-91f5-54c6467b3127
+2025-08-06 13:45:55 - database - INFO - Document inserted: 3463cfe8-c501-40fd-bdab-3ac9b520438a
+2025-08-06 13:45:56 - database - INFO - Document inserted: ddf1d6c9-eeac-420a-9fa7-b091f27ee647
+2025-08-06 13:45:57 - database - INFO - Document inserted: a6c6a6cf-d1f6-46c6-8879-8f98006aae8f
+2025-08-06 13:45:58 - database - INFO - Document inserted: e8bcbae3-227f-48e7-82fb-9ff8678e23bb
+2025-08-06 13:45:59 - database - INFO - Document inserted: e6fdcf20-26fc-4c9c-ac17-2075fc066562
+2025-08-06 13:46:00 - database - INFO - Document inserted: 0c46142d-6827-40f4-b99e-4070b1f28276
+2025-08-06 13:46:00 - database - INFO - Document inserted: 74061fe2-86f3-4c0b-b195-9a860be5475d
+2025-08-06 13:46:01 - database - INFO - Document status updated: d1ce2865-fcb2-44a3-a237-ed582913a20b -> extracted
+2025-08-06 13:46:01 - database - INFO - Document status updated: d1ce2865-fcb2-44a3-a237-ed582913a20b -> classified
+2025-08-06 13:46:01 - database - INFO - Document status updated: d62179ca-9990-428a-8dcd-37becbfe3f82 -> extracted
+2025-08-06 13:46:02 - database - INFO - Document inserted: 8d6fdb73-2f31-410a-b3c3-6561409fac4b
+2025-08-06 13:46:02 - database - INFO - Document final path updated: d1ce2865-fcb2-44a3-a237-ed582913a20b -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\BuildingRAGAppsUsingMongoDB_Badge20250620-27-1b51p5.pdf
+2025-08-06 13:46:02 - database - INFO - Document status updated: d62179ca-9990-428a-8dcd-37becbfe3f82 -> classified
+2025-08-06 13:46:02 - database - INFO - Document status updated: 637bac53-af65-499c-9f7a-7e6b2b5b34e4 -> extracted
+2025-08-06 13:46:02 - database - INFO - Document final path updated: d62179ca-9990-428a-8dcd-37becbfe3f82 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\BuildingAI-PoweredSearchwithMongoDBVectorSearch_Badge20250620-27-bqobga.pdf
+2025-08-06 13:46:02 - database - INFO - Document status updated: 637bac53-af65-499c-9f7a-7e6b2b5b34e4 -> classified
+2025-08-06 13:46:02 - database - INFO - Document inserted: aa3fd548-8dc2-41a4-8893-8dc79d428769
+2025-08-06 13:46:03 - database - INFO - Document final path updated: 637bac53-af65-499c-9f7a-7e6b2b5b34e4 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\CRUDOperationsinMongoDB_Badge20250620-27-jt9xd8.pdf
+2025-08-06 13:46:03 - database - INFO - Document inserted: 28c67eaa-6aac-427a-bfc8-3447af511153
+2025-08-06 13:46:04 - database - INFO - Document inserted: fc2db84b-551c-4941-9e66-916bc20a89d8
+2025-08-06 13:46:05 - database - INFO - Document inserted: 1b9c63e0-cc53-4267-ac3a-5d6bf29f6115
+2025-08-06 13:46:06 - database - INFO - Document inserted: 22980beb-2b6d-4f61-a858-113efbaaac3d
+2025-08-06 13:46:06 - database - INFO - Document inserted: 0da7a032-9a48-42e4-9468-09fa715a2b49
+2025-08-06 13:46:07 - database - INFO - Document inserted: ca71d10a-c7a7-4b02-b557-792c4a50d17e
+2025-08-06 13:46:08 - database - INFO - Document inserted: bcebd5f3-a8db-44e2-8ba5-b50b599a97cb
+2025-08-06 13:46:09 - database - INFO - Document inserted: c68723b9-e307-4d47-b9e0-8c5bd32ef69b
+2025-08-06 13:46:10 - database - INFO - Document inserted: f763d388-a8ca-4ff9-a0b2-642103d29749
+2025-08-06 13:46:11 - database - INFO - Document inserted: 841fe294-47cb-486c-a5b2-e956cf9d2cfc
+2025-08-06 13:46:11 - database - INFO - Document inserted: b02aa041-bee8-4a25-8aac-996dd8afbe4a
+2025-08-06 13:46:49 - database - INFO - Document status updated: b0ebd6fa-2da4-42fa-a12e-05358e11dbae -> extracted
+2025-08-06 13:46:49 - database - INFO - Document status updated: b0ebd6fa-2da4-42fa-a12e-05358e11dbae -> classified
+2025-08-06 13:46:50 - database - INFO - Document final path updated: b0ebd6fa-2da4-42fa-a12e-05358e11dbae -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\GODWIN_JUDAH_J_RESUME_-_GODWIN_JUDAH_J.pdf
+2025-08-06 13:47:07 - database - INFO - Document status updated: 7e0a33d7-3990-4428-b018-805bed465a05 -> extracted
+2025-08-06 13:47:08 - database - INFO - Document status updated: 7e0a33d7-3990-4428-b018-805bed465a05 -> classified
+2025-08-06 13:47:08 - database - INFO - Document status updated: 2280d2d3-10c9-4626-b6da-46572ea4b76e -> extracted
+2025-08-06 13:47:08 - database - INFO - Document final path updated: 7e0a33d7-3990-4428-b018-805bed465a05 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\business pitch deck\Intel_AI_Reference_Kits.pdf
+2025-08-06 13:47:08 - database - INFO - Document status updated: 2280d2d3-10c9-4626-b6da-46572ea4b76e -> classified
+2025-08-06 13:47:08 - database - INFO - Document final path updated: 2280d2d3-10c9-4626-b6da-46572ea4b76e -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\technical\FromRelationalModelSQLtoMongoDBsDocumentModel_Badge20250620-26-c3iwpo.pdf
+2025-08-06 13:47:39 - database - INFO - Document status updated: f882920b-53ec-495c-90de-11c7130bf932 -> extracted
+2025-08-06 13:47:39 - database - INFO - Document status updated: f882920b-53ec-495c-90de-11c7130bf932 -> classified
+2025-08-06 13:47:40 - database - INFO - Document final path updated: f882920b-53ec-495c-90de-11c7130bf932 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\BuildingRAGAppsUsingMongoDB_Badge20250620-27-1b51p5.pdf
+2025-08-06 13:47:40 - database - INFO - Document status updated: eddcb60a-1520-40b4-83a9-fecc7c8f9175 -> extracted
+2025-08-06 13:47:40 - database - INFO - Document status updated: eddcb60a-1520-40b4-83a9-fecc7c8f9175 -> classified
+2025-08-06 13:47:40 - database - INFO - Document status updated: 0f2f5cc2-e327-4d5c-942f-b88386073ac7 -> extracted
+2025-08-06 13:47:40 - database - INFO - Document final path updated: eddcb60a-1520-40b4-83a9-fecc7c8f9175 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\JAYASHREE-resume_-_JAYASHREE_R.pdf
+2025-08-06 13:47:40 - database - INFO - Document status updated: 0f2f5cc2-e327-4d5c-942f-b88386073ac7 -> classified
+2025-08-06 13:47:41 - database - INFO - Document status updated: f240a915-39d4-4498-b905-83d36a272eed -> extracted
+2025-08-06 13:47:41 - database - INFO - Document final path updated: 0f2f5cc2-e327-4d5c-942f-b88386073ac7 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBAdvancedSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-25-quwb1l.pdf
+2025-08-06 13:47:41 - database - INFO - Document status updated: f240a915-39d4-4498-b905-83d36a272eed -> classified
+2025-08-06 13:47:41 - database - INFO - Document status updated: e7d830af-abd2-4d64-a71d-f3018804c1ce -> extracted
+2025-08-06 13:47:41 - database - INFO - Document final path updated: f240a915-39d4-4498-b905-83d36a272eed -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBAggregationFundamentals_Badge20250620-27-bg2ih1.pdf
+2025-08-06 13:47:41 - database - INFO - Document status updated: 77781b69-62b3-4f80-af8e-a12197ab69ea -> extracted
+2025-08-06 13:47:41 - database - INFO - Document status updated: e7d830af-abd2-4d64-a71d-f3018804c1ce -> classified
+2025-08-06 13:47:42 - database - INFO - Document final path updated: e7d830af-abd2-4d64-a71d-f3018804c1ce -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\advertisement\JAYA_SHREE_RESUME_3_-_JAYA_SHREE_P.pdf
+2025-08-06 13:47:42 - database - INFO - Document status updated: 1e06e079-c291-4c7b-8b42-09917c097302 -> extracted
+2025-08-06 13:47:42 - database - INFO - Document status updated: 77781b69-62b3-4f80-af8e-a12197ab69ea -> classified
+2025-08-06 13:47:42 - database - INFO - Document final path updated: 77781b69-62b3-4f80-af8e-a12197ab69ea -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBQueryOptimizationTechniques_Badge20250620-25-uqulmn.pdf
+2025-08-06 13:47:42 - database - INFO - Document status updated: 00c3c65e-4317-4497-a5cd-6a2d442bbcd2 -> extracted
+2025-08-06 13:47:42 - database - INFO - Document status updated: 1e06e079-c291-4c7b-8b42-09917c097302 -> classified
+2025-08-06 13:47:42 - database - INFO - Document final path updated: 1e06e079-c291-4c7b-8b42-09917c097302 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBBasicsforStudents_Badge20250620-29-jwwbtq.pdf
+2025-08-06 13:47:43 - database - INFO - Document status updated: 00c3c65e-4317-4497-a5cd-6a2d442bbcd2 -> classified
+2025-08-06 13:47:43 - database - INFO - Document status updated: 7e0592ae-3e73-4609-8d49-b7890dacc26a -> extracted
+2025-08-06 13:47:43 - database - INFO - Document final path updated: 00c3c65e-4317-4497-a5cd-6a2d442bbcd2 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\BuildingAI-PoweredSearchwithMongoDBVectorSearch_Badge20250620-27-bqobga.pdf
+2025-08-06 13:47:43 - database - INFO - Document status updated: 7e0592ae-3e73-4609-8d49-b7890dacc26a -> classified
+2025-08-06 13:47:43 - database - INFO - Document status updated: 7ba00f84-0914-4f3a-8987-7c80fcd9527e -> extracted
+2025-08-06 13:47:43 - database - INFO - Document final path updated: 7e0592ae-3e73-4609-8d49-b7890dacc26a -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBSchemaDesignOptimizationSkillBadge_Badge20250620-24-g7xmz9.pdf
+2025-08-06 13:47:43 - database - INFO - Document status updated: 7ba00f84-0914-4f3a-8987-7c80fcd9527e -> classified
+2025-08-06 13:47:44 - database - INFO - Document final path updated: 7ba00f84-0914-4f3a-8987-7c80fcd9527e -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-27-v47272.pdf
+2025-08-06 13:47:44 - database - INFO - Document status updated: 130aa634-e15c-4b1e-ae3d-4a1175dec15c -> extracted
+2025-08-06 13:47:44 - database - INFO - Document status updated: 130aa634-e15c-4b1e-ae3d-4a1175dec15c -> classified
+2025-08-06 13:47:45 - database - INFO - Document status updated: b07c997b-ac96-477b-8e2b-8590b4c43729 -> extracted
+2025-08-06 13:47:45 - database - INFO - Document final path updated: 130aa634-e15c-4b1e-ae3d-4a1175dec15c -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_-_Resume.pdf
+2025-08-06 13:47:45 - database - INFO - Document status updated: b07c997b-ac96-477b-8e2b-8590b4c43729 -> classified
+2025-08-06 13:47:45 - database - INFO - Document final path updated: b07c997b-ac96-477b-8e2b-8590b4c43729 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Muni_Charmi_-_MUNI_CHARMI_T.pdf
+2025-08-06 13:48:01 - database - INFO - Document status updated: 54b03a37-7a7c-4acf-af49-caad27e8ef00 -> extracted
+2025-08-06 13:48:01 - database - INFO - Document status updated: 54b03a37-7a7c-4acf-af49-caad27e8ef00 -> classified
+2025-08-06 13:48:01 - database - INFO - Document status updated: 1a27cc1f-5ed4-4e98-8786-cf77068c8496 -> extracted
+2025-08-06 13:48:01 - database - INFO - Document final path updated: 54b03a37-7a7c-4acf-af49-caad27e8ef00 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_Resume.pdf
+2025-08-06 13:48:02 - database - INFO - Document status updated: 1a27cc1f-5ed4-4e98-8786-cf77068c8496 -> classified
+2025-08-06 13:48:02 - database - INFO - Document final path updated: 1a27cc1f-5ed4-4e98-8786-cf77068c8496 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\CRUDOperationsinMongoDB_Badge20250620-27-jt9xd8.pdf
+2025-08-06 13:48:02 - database - INFO - Document status updated: 7a845d4f-ef1c-435e-aa46-2cf7b98fb351 -> extracted
+2025-08-06 13:48:02 - database - INFO - Document status updated: 7a845d4f-ef1c-435e-aa46-2cf7b98fb351 -> classified
+2025-08-06 13:48:03 - database - INFO - Document final path updated: 7a845d4f-ef1c-435e-aa46-2cf7b98fb351 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\PRABHU_SUNDAR_Resume_-_PRABHU_SUNDAR_D_1.pdf
+2025-08-06 13:48:18 - database - INFO - Document status updated: 03dcb159-e5fb-4a6d-9e49-7aa84fbb6f7b -> extracted
+2025-08-06 13:48:18 - database - INFO - Document status updated: 03dcb159-e5fb-4a6d-9e49-7aa84fbb6f7b -> classified
+2025-08-06 13:48:18 - database - INFO - Document final path updated: 03dcb159-e5fb-4a6d-9e49-7aa84fbb6f7b -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Resume_NEW_Jun_2025_-_KANNAN_C_J.pdf
+2025-08-06 13:48:18 - database - INFO - Document status updated: 8f5d17dc-a266-4b1d-bcb4-ecb280a2195c -> extracted
+2025-08-06 13:48:19 - database - INFO - Document status updated: 8f5d17dc-a266-4b1d-bcb4-ecb280a2195c -> classified
+2025-08-06 13:48:19 - database - INFO - Document final path updated: 8f5d17dc-a266-4b1d-bcb4-ecb280a2195c -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\sadha_cv_-_SADHA_SHREE_R.pdf
+2025-08-06 13:48:34 - database - INFO - Document status updated: 626c11e6-4521-4392-8d25-04550a5793b9 -> extracted
+2025-08-06 13:48:34 - database - INFO - Document status updated: 626c11e6-4521-4392-8d25-04550a5793b9 -> classified
+2025-08-06 13:48:35 - database - INFO - Document status updated: b1349bab-166d-4707-bfd1-d60b642008aa -> extracted
+2025-08-06 13:48:35 - database - INFO - Document final path updated: 626c11e6-4521-4392-8d25-04550a5793b9 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\SAHANA_R_-_RESUME_-_SAHANA_R.pdf
+2025-08-06 13:48:35 - database - INFO - Document status updated: b1349bab-166d-4707-bfd1-d60b642008aa -> classified
+2025-08-06 13:48:35 - database - INFO - Document status updated: 7b98d023-9190-4994-962f-cf3e6c11fc42 -> extracted
+2025-08-06 13:48:35 - database - INFO - Document final path updated: b1349bab-166d-4707-bfd1-d60b642008aa -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBSelf-ManagedAuthenticationAuthorization_Badge20250620-29-nv0d3x.pdf
+2025-08-06 13:48:36 - database - INFO - Document status updated: 7b98d023-9190-4994-962f-cf3e6c11fc42 -> classified
+2025-08-06 13:48:36 - database - INFO - Document final path updated: 7b98d023-9190-4994-962f-cf3e6c11fc42 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBAtlasAuthenticationAuthorization_Badge20250620-24-80voyh.pdf
+2025-08-06 13:49:22 - database - INFO - Document status updated: f1e5eb04-e44d-48ef-b022-87d613a8b992 -> extracted
+2025-08-06 13:49:22 - database - INFO - Document status updated: f1e5eb04-e44d-48ef-b022-87d613a8b992 -> classified
+2025-08-06 13:49:22 - database - INFO - Document final path updated: f1e5eb04-e44d-48ef-b022-87d613a8b992 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\technical\FromRelationalModelSQLtoMongoDBsDocumentModel_Badge20250620-26-c3iwpo.pdf
+2025-08-06 13:49:22 - database - INFO - Document status updated: c40e6a2c-c487-4b06-897c-9971355b9ecb -> extracted
+2025-08-06 13:49:23 - database - INFO - Document status updated: c40e6a2c-c487-4b06-897c-9971355b9ecb -> classified
+2025-08-06 13:49:23 - database - INFO - Document final path updated: c40e6a2c-c487-4b06-897c-9971355b9ecb -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\GODWIN_JUDAH_J_RESUME_-_GODWIN_JUDAH_J.pdf
+2025-08-06 13:49:24 - database - INFO - Document status updated: 433d97e8-28d5-4fdb-81c3-850101aecaa7 -> extracted
+2025-08-06 13:49:25 - database - INFO - Document status updated: 433d97e8-28d5-4fdb-81c3-850101aecaa7 -> classified
+2025-08-06 13:49:25 - database - INFO - Document final path updated: 433d97e8-28d5-4fdb-81c3-850101aecaa7 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\business pitch deck\Intel_AI_Reference_Kits.pdf
+2025-08-06 13:49:25 - database - INFO - Document status updated: 3463cfe8-c501-40fd-bdab-3ac9b520438a -> extracted
+2025-08-06 13:49:25 - database - INFO - Document status updated: 3463cfe8-c501-40fd-bdab-3ac9b520438a -> classified
+2025-08-06 13:49:25 - database - INFO - Document final path updated: 3463cfe8-c501-40fd-bdab-3ac9b520438a -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\advertisement\JAYA_SHREE_RESUME_3_-_JAYA_SHREE_P.pdf
+2025-08-06 13:49:25 - database - INFO - Document status updated: ddf1d6c9-eeac-420a-9fa7-b091f27ee647 -> extracted
+2025-08-06 13:49:26 - database - INFO - Document status updated: ddf1d6c9-eeac-420a-9fa7-b091f27ee647 -> classified
+2025-08-06 13:49:26 - database - INFO - Document status updated: a6c6a6cf-d1f6-46c6-8879-8f98006aae8f -> extracted
+2025-08-06 13:49:26 - database - INFO - Document final path updated: ddf1d6c9-eeac-420a-9fa7-b091f27ee647 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\JAYASHREE-resume_-_JAYASHREE_R.pdf
+2025-08-06 13:49:26 - database - INFO - Document status updated: a6c6a6cf-d1f6-46c6-8879-8f98006aae8f -> classified
+2025-08-06 13:49:26 - database - INFO - Document status updated: e8bcbae3-227f-48e7-82fb-9ff8678e23bb -> extracted
+2025-08-06 13:49:26 - database - INFO - Document final path updated: a6c6a6cf-d1f6-46c6-8879-8f98006aae8f -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBAdvancedSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-25-quwb1l.pdf
+2025-08-06 13:49:26 - database - INFO - Document status updated: e8bcbae3-227f-48e7-82fb-9ff8678e23bb -> classified
+2025-08-06 13:49:27 - database - INFO - Document status updated: e6fdcf20-26fc-4c9c-ac17-2075fc066562 -> extracted
+2025-08-06 13:49:27 - database - INFO - Document final path updated: e8bcbae3-227f-48e7-82fb-9ff8678e23bb -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBAggregationFundamentals_Badge20250620-27-bg2ih1.pdf
+2025-08-06 13:49:27 - database - INFO - Document status updated: e6fdcf20-26fc-4c9c-ac17-2075fc066562 -> classified
+2025-08-06 13:49:27 - database - INFO - Document status updated: 0c46142d-6827-40f4-b99e-4070b1f28276 -> extracted
+2025-08-06 13:49:27 - database - INFO - Document final path updated: e6fdcf20-26fc-4c9c-ac17-2075fc066562 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBBasicsforStudents_Badge20250620-29-jwwbtq.pdf
+2025-08-06 13:49:27 - database - INFO - Document status updated: 74061fe2-86f3-4c0b-b195-9a860be5475d -> extracted
+2025-08-06 13:49:27 - database - INFO - Document status updated: 0c46142d-6827-40f4-b99e-4070b1f28276 -> classified
+2025-08-06 13:49:28 - database - INFO - Document final path updated: 0c46142d-6827-40f4-b99e-4070b1f28276 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBQueryOptimizationTechniques_Badge20250620-25-uqulmn.pdf
+2025-08-06 13:49:28 - database - INFO - Document status updated: 74061fe2-86f3-4c0b-b195-9a860be5475d -> classified
+2025-08-06 13:49:28 - database - INFO - Document status updated: 8d6fdb73-2f31-410a-b3c3-6561409fac4b -> extracted
+2025-08-06 13:49:28 - database - INFO - Document final path updated: 74061fe2-86f3-4c0b-b195-9a860be5475d -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-27-v47272.pdf
+2025-08-06 13:49:28 - database - INFO - Document status updated: 8d6fdb73-2f31-410a-b3c3-6561409fac4b -> classified
+2025-08-06 13:49:28 - database - INFO - Document status updated: aa3fd548-8dc2-41a4-8893-8dc79d428769 -> extracted
+2025-08-06 13:49:28 - database - INFO - Document final path updated: 8d6fdb73-2f31-410a-b3c3-6561409fac4b -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBSchemaDesignOptimizationSkillBadge_Badge20250620-24-g7xmz9.pdf
+2025-08-06 13:49:28 - database - INFO - Document status updated: aa3fd548-8dc2-41a4-8893-8dc79d428769 -> classified
+2025-08-06 13:49:28 - database - INFO - Document final path updated: aa3fd548-8dc2-41a4-8893-8dc79d428769 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_-_Resume.pdf
+2025-08-06 13:49:29 - database - INFO - Document status updated: 28c67eaa-6aac-427a-bfc8-3447af511153 -> extracted
+2025-08-06 13:49:29 - database - INFO - Document status updated: 28c67eaa-6aac-427a-bfc8-3447af511153 -> classified
+2025-08-06 13:49:29 - database - INFO - Document final path updated: 28c67eaa-6aac-427a-bfc8-3447af511153 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Muni_Charmi_-_MUNI_CHARMI_T.pdf
+2025-08-06 13:49:29 - database - INFO - Document status updated: 1b9c63e0-cc53-4267-ac3a-5d6bf29f6115 -> extracted
+2025-08-06 13:49:30 - database - INFO - Document status updated: 1b9c63e0-cc53-4267-ac3a-5d6bf29f6115 -> classified
+2025-08-06 13:49:30 - database - INFO - Document final path updated: 1b9c63e0-cc53-4267-ac3a-5d6bf29f6115 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_Resume.pdf
+2025-08-06 13:49:30 - database - INFO - Document status updated: 22980beb-2b6d-4f61-a858-113efbaaac3d -> extracted
+2025-08-06 13:49:31 - database - INFO - Document status updated: 22980beb-2b6d-4f61-a858-113efbaaac3d -> classified
+2025-08-06 13:49:31 - database - INFO - Document final path updated: 22980beb-2b6d-4f61-a858-113efbaaac3d -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\PRABHU_SUNDAR_Resume_-_PRABHU_SUNDAR_D_1.pdf
+2025-08-06 13:49:31 - database - INFO - Document status updated: 0da7a032-9a48-42e4-9468-09fa715a2b49 -> extracted
+2025-08-06 13:49:31 - database - INFO - Document status updated: 0da7a032-9a48-42e4-9468-09fa715a2b49 -> classified
+2025-08-06 13:49:31 - database - INFO - Document final path updated: 0da7a032-9a48-42e4-9468-09fa715a2b49 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Resume_NEW_Jun_2025_-_KANNAN_C_J.pdf
+2025-08-06 13:49:32 - database - INFO - Document status updated: c68723b9-e307-4d47-b9e0-8c5bd32ef69b -> extracted
+2025-08-06 13:49:32 - database - INFO - Document status updated: c68723b9-e307-4d47-b9e0-8c5bd32ef69b -> classified
+2025-08-06 13:49:32 - database - INFO - Document final path updated: c68723b9-e307-4d47-b9e0-8c5bd32ef69b -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\sadha_cv_-_SADHA_SHREE_R.pdf
+2025-08-06 13:49:32 - database - INFO - Document status updated: f763d388-a8ca-4ff9-a0b2-642103d29749 -> extracted
+2025-08-06 13:49:33 - database - INFO - Document status updated: f763d388-a8ca-4ff9-a0b2-642103d29749 -> classified
+2025-08-06 13:49:33 - database - INFO - Document status updated: 841fe294-47cb-486c-a5b2-e956cf9d2cfc -> extracted
+2025-08-06 13:49:33 - database - INFO - Document final path updated: f763d388-a8ca-4ff9-a0b2-642103d29749 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\SAHANA_R_-_RESUME_-_SAHANA_R.pdf
+2025-08-06 13:49:33 - database - INFO - Document status updated: 841fe294-47cb-486c-a5b2-e956cf9d2cfc -> classified
+2025-08-06 13:49:33 - database - INFO - Document status updated: b02aa041-bee8-4a25-8aac-996dd8afbe4a -> extracted
+2025-08-06 13:49:33 - database - INFO - Document final path updated: 841fe294-47cb-486c-a5b2-e956cf9d2cfc -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBAtlasAuthenticationAuthorization_Badge20250620-24-80voyh.pdf
+2025-08-06 13:49:34 - database - INFO - Document status updated: b02aa041-bee8-4a25-8aac-996dd8afbe4a -> classified
+2025-08-06 13:49:34 - database - INFO - Document final path updated: b02aa041-bee8-4a25-8aac-996dd8afbe4a -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBSelf-ManagedAuthenticationAuthorization_Badge20250620-29-nv0d3x.pdf
+2025-08-06 13:59:47 - database - INFO - Document inserted: 0ddaf22e-96b1-4eff-8b1b-4f83029f0287
+2025-08-06 13:59:48 - database - INFO - Document status updated: 0ddaf22e-96b1-4eff-8b1b-4f83029f0287 -> extracted
+2025-08-06 13:59:48 - database - INFO - Document status updated: 0ddaf22e-96b1-4eff-8b1b-4f83029f0287 -> classified
+2025-08-06 13:59:48 - database - INFO - Document final path updated: 0ddaf22e-96b1-4eff-8b1b-4f83029f0287 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\GODWIN_JUDAH_J_RESUME_-_GODWIN_JUDAH_J.pdf
+2025-08-06 13:59:59 - database - INFO - Document inserted: 1c7030d8-a59f-499b-ac9a-2a50e99a9426
+2025-08-06 13:59:59 - database - INFO - Document inserted: d4a0d26e-04b2-4c54-a5fe-ddb615ec20ba
+2025-08-06 13:59:59 - database - INFO - Document inserted: 68ec5529-be95-4b48-b0da-0c33aa78e570
+2025-08-06 13:59:59 - database - INFO - Document inserted: a431fc63-afc6-4bff-8a66-6957b96bf5fe
+2025-08-06 13:59:59 - database - INFO - Document inserted: db10b018-7e74-4417-84fc-d32cb3b6c13d
+2025-08-06 13:59:59 - database - INFO - Document inserted: dba9c1d4-e1f9-4753-90e9-394f3070c3e6
+2025-08-06 13:59:59 - database - INFO - Document inserted: 9f8e0089-e57a-4a38-a2a8-38a08dea15d6
+2025-08-06 13:59:59 - database - INFO - Document inserted: dae744a5-948e-4e60-b441-5582514b3893
+2025-08-06 13:59:59 - database - INFO - Document inserted: a0c26a5c-f457-4991-85bf-7cf2923a5e23
+2025-08-06 13:59:59 - database - INFO - Document inserted: 431604a4-261c-4d28-9040-c38515eebb6b
+2025-08-06 13:59:59 - database - INFO - Document inserted: 906fae70-bc11-44bf-ac8c-a36d579ddb09
+2025-08-06 13:59:59 - database - INFO - Document inserted: fae460f2-75e3-4640-b2b6-9c431b970f3d
+2025-08-06 13:59:59 - database - INFO - Document inserted: 3630937e-e05f-409a-bbd8-b442a2ed45f5
+2025-08-06 14:00:00 - database - INFO - Document inserted: 836b14f0-9b02-4eb9-b64b-7465e6f3b1ff
+2025-08-06 14:00:00 - database - INFO - Document inserted: 6d4002cb-376a-40ea-86d4-dc63b72a2a49
+2025-08-06 14:00:00 - database - INFO - Document inserted: 8475491c-ca0d-46af-a132-587069f71bd7
+2025-08-06 14:00:00 - database - INFO - Document inserted: bbda5dd2-234b-4572-b3cb-01709ee91377
+2025-08-06 14:00:00 - database - INFO - Document inserted: 5d723ecb-56ee-46ad-ab30-7e438e9b9ce6
+2025-08-06 14:00:00 - database - INFO - Document inserted: b9a397c3-ba90-4d4d-9d2f-11b97c7ea12d
+2025-08-06 14:00:00 - database - INFO - Document inserted: e8b50a54-c2ed-4299-b450-482c242ab8ef
+2025-08-06 14:00:00 - database - INFO - Document inserted: e8376561-258c-40ad-bd18-70249c70ed2d
+2025-08-06 14:00:00 - database - INFO - Document inserted: 4cbde763-02c2-414c-96d7-3fcda7c3536e
+2025-08-06 14:00:00 - database - INFO - Document inserted: 0ca3e5a1-4f94-48aa-bdf9-06395946e0ca
+2025-08-06 14:00:00 - database - INFO - Document inserted: 84e69bc5-7fa3-4091-9b05-56bc1c4c2fad
+2025-08-06 14:00:01 - database - INFO - Document inserted: 6ee6ded2-8fd0-4c81-ad8d-1de0e4565dfa
+2025-08-06 14:00:01 - database - INFO - Document inserted: 8b82b406-2f3f-43a4-8b06-4fb7b0b334fb
+2025-08-06 14:00:01 - database - INFO - Document inserted: 8e15e0d4-483a-4aeb-a8f5-5f7c5a9a5349
+2025-08-06 14:00:01 - database - INFO - Document inserted: 5f5a13ae-d4b6-46aa-9623-f6f444847a44
+2025-08-06 14:00:01 - database - INFO - Document inserted: da6bc856-10ce-41a1-8008-3d8f787b6fee
+2025-08-06 14:00:11 - database - INFO - Document inserted: e1538d0c-3027-4255-81f9-8585c9b9995d
+2025-08-06 14:00:11 - database - INFO - Document inserted: 17ce45d9-3ca6-4e82-8a46-d2719848ee0c
+2025-08-06 14:00:11 - database - INFO - Document inserted: 798bed82-d15c-44a4-9130-1b8ca72dc692
+2025-08-06 14:00:11 - database - INFO - Document inserted: ff02f4bf-ca44-490a-a016-f7c0f86e8af7
+2025-08-06 14:00:11 - database - INFO - Document inserted: 8980f306-3696-42cb-b5e7-96a2d1196ec9
+2025-08-06 14:00:12 - database - INFO - Document inserted: 38c2f4e4-4d5b-439f-b9e9-df7848c06cb5
+2025-08-06 14:00:14 - database - INFO - Document status updated: d4a0d26e-04b2-4c54-a5fe-ddb615ec20ba -> extracted
+2025-08-06 14:00:14 - database - INFO - Document status updated: d4a0d26e-04b2-4c54-a5fe-ddb615ec20ba -> classified
+2025-08-06 14:00:15 - database - INFO - Document final path updated: d4a0d26e-04b2-4c54-a5fe-ddb615ec20ba -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\BuildingRAGAppsUsingMongoDB_Badge20250620-27-1b51p5.pdf
+2025-08-06 14:00:22 - database - INFO - Document inserted: b2039884-13d2-4a78-b91e-e22a8878ad28
+2025-08-06 14:00:30 - database - INFO - Document status updated: a431fc63-afc6-4bff-8a66-6957b96bf5fe -> extracted
+2025-08-06 14:00:30 - database - INFO - Document status updated: a431fc63-afc6-4bff-8a66-6957b96bf5fe -> classified
+2025-08-06 14:00:30 - database - INFO - Document final path updated: a431fc63-afc6-4bff-8a66-6957b96bf5fe -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\BuildingAI-PoweredSearchwithMongoDBVectorSearch_Badge20250620-27-bqobga.pdf
+2025-08-06 14:00:33 - database - INFO - Document inserted: 18d0fbb2-88ab-4e47-8c19-11cad59c46af
+2025-08-06 14:00:45 - database - INFO - Document status updated: 68ec5529-be95-4b48-b0da-0c33aa78e570 -> extracted
+2025-08-06 14:00:45 - database - INFO - Document status updated: 68ec5529-be95-4b48-b0da-0c33aa78e570 -> classified
+2025-08-06 14:00:45 - database - INFO - Document final path updated: 68ec5529-be95-4b48-b0da-0c33aa78e570 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\CRUDOperationsinMongoDB_Badge20250620-27-jt9xd8.pdf
+2025-08-06 14:01:01 - database - INFO - Document status updated: dae744a5-948e-4e60-b441-5582514b3893 -> extracted
+2025-08-06 14:01:01 - database - INFO - Document status updated: dae744a5-948e-4e60-b441-5582514b3893 -> classified
+2025-08-06 14:01:01 - database - INFO - Document final path updated: dae744a5-948e-4e60-b441-5582514b3893 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\technical\FromRelationalModelSQLtoMongoDBsDocumentModel_Badge20250620-26-c3iwpo.pdf
+2025-08-06 14:01:01 - database - INFO - Document status updated: a0c26a5c-f457-4991-85bf-7cf2923a5e23 -> extracted
+2025-08-06 14:01:01 - database - INFO - Document status updated: a0c26a5c-f457-4991-85bf-7cf2923a5e23 -> classified
+2025-08-06 14:01:01 - database - INFO - Document final path updated: a0c26a5c-f457-4991-85bf-7cf2923a5e23 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\GODWIN_JUDAH_J_RESUME_-_GODWIN_JUDAH_J.pdf
+2025-08-06 14:01:16 - database - INFO - Document status updated: fae460f2-75e3-4640-b2b6-9c431b970f3d -> extracted
+2025-08-06 14:01:17 - database - INFO - Document status updated: fae460f2-75e3-4640-b2b6-9c431b970f3d -> classified
+2025-08-06 14:01:17 - database - INFO - Document final path updated: fae460f2-75e3-4640-b2b6-9c431b970f3d -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\advertisement\JAYA_SHREE_RESUME_3_-_JAYA_SHREE_P.pdf
+2025-08-06 14:01:18 - database - INFO - Document status updated: 3630937e-e05f-409a-bbd8-b442a2ed45f5 -> extracted
+2025-08-06 14:01:19 - database - INFO - Document status updated: 3630937e-e05f-409a-bbd8-b442a2ed45f5 -> classified
+2025-08-06 14:01:19 - database - INFO - Document final path updated: 3630937e-e05f-409a-bbd8-b442a2ed45f5 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\business pitch deck\Intel_AI_Reference_Kits.pdf
+2025-08-06 14:01:34 - database - INFO - Document status updated: 836b14f0-9b02-4eb9-b64b-7465e6f3b1ff -> extracted
+2025-08-06 14:01:34 - database - INFO - Document status updated: 836b14f0-9b02-4eb9-b64b-7465e6f3b1ff -> classified
+2025-08-06 14:01:34 - database - INFO - Document status updated: 6d4002cb-376a-40ea-86d4-dc63b72a2a49 -> extracted
+2025-08-06 14:01:34 - database - INFO - Document final path updated: 836b14f0-9b02-4eb9-b64b-7465e6f3b1ff -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\JAYASHREE-resume_-_JAYASHREE_R.pdf
+2025-08-06 14:01:34 - database - INFO - Document status updated: 6d4002cb-376a-40ea-86d4-dc63b72a2a49 -> classified
+2025-08-06 14:01:34 - database - INFO - Document status updated: bbda5dd2-234b-4572-b3cb-01709ee91377 -> extracted
+2025-08-06 14:01:35 - database - INFO - Document final path updated: 6d4002cb-376a-40ea-86d4-dc63b72a2a49 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBAdvancedSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-25-quwb1l.pdf
+2025-08-06 14:01:35 - database - INFO - Document status updated: bbda5dd2-234b-4572-b3cb-01709ee91377 -> classified
+2025-08-06 14:01:35 - database - INFO - Document status updated: 8475491c-ca0d-46af-a132-587069f71bd7 -> extracted
+2025-08-06 14:01:35 - database - INFO - Document final path updated: bbda5dd2-234b-4572-b3cb-01709ee91377 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBQueryOptimizationTechniques_Badge20250620-25-uqulmn.pdf
+2025-08-06 14:01:35 - database - INFO - Document status updated: 8475491c-ca0d-46af-a132-587069f71bd7 -> classified
+2025-08-06 14:01:35 - database - INFO - Document final path updated: 8475491c-ca0d-46af-a132-587069f71bd7 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBBasicsforStudents_Badge20250620-29-jwwbtq.pdf
+2025-08-06 14:01:50 - database - INFO - Document status updated: b9a397c3-ba90-4d4d-9d2f-11b97c7ea12d -> extracted
+2025-08-06 14:01:50 - database - INFO - Document status updated: b9a397c3-ba90-4d4d-9d2f-11b97c7ea12d -> classified
+2025-08-06 14:01:50 - database - INFO - Document final path updated: b9a397c3-ba90-4d4d-9d2f-11b97c7ea12d -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBSchemaDesignOptimizationSkillBadge_Badge20250620-24-g7xmz9.pdf
+2025-08-06 14:01:50 - database - INFO - Document status updated: e8b50a54-c2ed-4299-b450-482c242ab8ef -> extracted
+2025-08-06 14:01:51 - database - INFO - Document status updated: e8b50a54-c2ed-4299-b450-482c242ab8ef -> classified
+2025-08-06 14:01:51 - database - INFO - Document status updated: e8376561-258c-40ad-bd18-70249c70ed2d -> extracted
+2025-08-06 14:01:51 - database - INFO - Document final path updated: e8b50a54-c2ed-4299-b450-482c242ab8ef -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBAggregationFundamentals_Badge20250620-27-bg2ih1.pdf
+2025-08-06 14:01:51 - database - INFO - Document status updated: e8376561-258c-40ad-bd18-70249c70ed2d -> classified
+2025-08-06 14:01:51 - database - INFO - Document final path updated: e8376561-258c-40ad-bd18-70249c70ed2d -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-27-v47272.pdf
+2025-08-06 14:01:51 - database - INFO - Document status updated: 0ca3e5a1-4f94-48aa-bdf9-06395946e0ca -> extracted
+2025-08-06 14:01:51 - database - INFO - Document status updated: 0ca3e5a1-4f94-48aa-bdf9-06395946e0ca -> classified
+2025-08-06 14:01:51 - database - INFO - Document status updated: 6ee6ded2-8fd0-4c81-ad8d-1de0e4565dfa -> extracted
+2025-08-06 14:01:51 - database - INFO - Document final path updated: 0ca3e5a1-4f94-48aa-bdf9-06395946e0ca -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_-_Resume.pdf
+2025-08-06 14:01:51 - database - INFO - Document status updated: 6ee6ded2-8fd0-4c81-ad8d-1de0e4565dfa -> classified
+2025-08-06 14:01:51 - database - INFO - Document final path updated: 6ee6ded2-8fd0-4c81-ad8d-1de0e4565dfa -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_Resume.pdf
+2025-08-06 14:01:52 - database - INFO - Document status updated: 4cbde763-02c2-414c-96d7-3fcda7c3536e -> extracted
+2025-08-06 14:01:52 - database - INFO - Document status updated: 4cbde763-02c2-414c-96d7-3fcda7c3536e -> classified
+2025-08-06 14:01:52 - database - INFO - Document final path updated: 4cbde763-02c2-414c-96d7-3fcda7c3536e -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Muni_Charmi_-_MUNI_CHARMI_T.pdf
+2025-08-06 14:01:52 - database - INFO - Document status updated: 8b82b406-2f3f-43a4-8b06-4fb7b0b334fb -> extracted
+2025-08-06 14:01:52 - database - INFO - Document status updated: 8b82b406-2f3f-43a4-8b06-4fb7b0b334fb -> classified
+2025-08-06 14:01:52 - database - INFO - Document final path updated: 8b82b406-2f3f-43a4-8b06-4fb7b0b334fb -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\PRABHU_SUNDAR_Resume_-_PRABHU_SUNDAR_D_1.pdf
+2025-08-06 14:02:23 - database - INFO - Document status updated: da6bc856-10ce-41a1-8008-3d8f787b6fee -> extracted
+2025-08-06 14:02:23 - database - INFO - Document status updated: da6bc856-10ce-41a1-8008-3d8f787b6fee -> classified
+2025-08-06 14:02:23 - database - INFO - Document status updated: e1538d0c-3027-4255-81f9-8585c9b9995d -> extracted
+2025-08-06 14:02:23 - database - INFO - Document final path updated: da6bc856-10ce-41a1-8008-3d8f787b6fee -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Resume_NEW_Jun_2025_-_KANNAN_C_J.pdf
+2025-08-06 14:02:23 - database - INFO - Document status updated: e1538d0c-3027-4255-81f9-8585c9b9995d -> classified
+2025-08-06 14:02:23 - database - INFO - Document final path updated: e1538d0c-3027-4255-81f9-8585c9b9995d -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\sadha_cv_-_SADHA_SHREE_R.pdf
+2025-08-06 14:02:38 - database - INFO - Document status updated: 798bed82-d15c-44a4-9130-1b8ca72dc692 -> extracted
+2025-08-06 14:02:39 - database - INFO - Document status updated: 798bed82-d15c-44a4-9130-1b8ca72dc692 -> classified
+2025-08-06 14:02:39 - database - INFO - Document status updated: ff02f4bf-ca44-490a-a016-f7c0f86e8af7 -> extracted
+2025-08-06 14:02:39 - database - INFO - Document final path updated: 798bed82-d15c-44a4-9130-1b8ca72dc692 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\SAHANA_R_-_RESUME_-_SAHANA_R.pdf
+2025-08-06 14:02:39 - database - INFO - Document status updated: ff02f4bf-ca44-490a-a016-f7c0f86e8af7 -> classified
+2025-08-06 14:02:39 - database - INFO - Document final path updated: ff02f4bf-ca44-490a-a016-f7c0f86e8af7 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBAtlasAuthenticationAuthorization_Badge20250620-24-80voyh.pdf
+2025-08-06 14:02:54 - database - INFO - Document status updated: 38c2f4e4-4d5b-439f-b9e9-df7848c06cb5 -> extracted
+2025-08-06 14:02:54 - database - INFO - Document status updated: 38c2f4e4-4d5b-439f-b9e9-df7848c06cb5 -> classified
+2025-08-06 14:02:54 - database - INFO - Document final path updated: 38c2f4e4-4d5b-439f-b9e9-df7848c06cb5 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBSelf-ManagedAuthenticationAuthorization_Badge20250620-29-nv0d3x.pdf
+2025-08-06 14:11:46 - database - INFO - Database 'document_system' already  exists
+2025-08-06 14:11:46 - database - INFO - Database tables created successfully
+2025-08-06 14:11:47 - database - INFO - Database 'document_system' already  exists
+2025-08-06 14:11:47 - database - INFO - Database tables created successfully
+2025-08-06 14:11:48 - database - INFO - Database 'document_system' already  exists
+2025-08-06 14:11:48 - database - INFO - Database tables created successfully
+2025-08-06 14:12:20 - database - INFO - Document inserted: efee20ab-9d56-4acf-934b-8582c013f6b2
+2025-08-06 14:12:20 - database - INFO - Document inserted: c0bfd1ef-90ac-4c27-99c7-403342a829aa
+2025-08-06 14:12:20 - database - INFO - Document inserted: 0abf7461-688b-4fd5-a265-a5246b2f0c60
+2025-08-06 14:12:20 - database - INFO - Document inserted: 811539a7-38b8-4437-a438-bd19c721066e
+2025-08-06 14:12:20 - database - INFO - Document inserted: b668311c-7b9c-4f93-baa2-19ec9d6d3134
+2025-08-06 14:12:20 - database - INFO - Document inserted: 9d7dd028-9722-4e11-ac6c-a61c2eb6102f
+2025-08-06 14:12:20 - database - INFO - Document status updated: efee20ab-9d56-4acf-934b-8582c013f6b2 -> needs_action
+2025-08-06 14:12:20 - database - INFO - Document inserted: 747aeba0-2029-4f7a-a57a-ac5748904996
+2025-08-06 14:12:20 - database - INFO - Document inserted: 8c1e1084-d548-49aa-a3a5-c3236ca04579
+2025-08-06 14:12:20 - database - INFO - Document inserted: d3f1df59-2804-4e27-a730-8f028dd58d5b
+2025-08-06 14:12:20 - database - INFO - Document inserted: 98ad2d7f-30b3-41d7-bf28-73c62fb6e240
+2025-08-06 14:12:20 - database - INFO - Document status updated: c0bfd1ef-90ac-4c27-99c7-403342a829aa -> extracted
+2025-08-06 14:12:21 - database - INFO - Document inserted: 2d99136e-9765-4d61-9149-f69f36962b21
+2025-08-06 14:12:21 - database - INFO - Document inserted: 236ff091-f2aa-4506-99a5-138cc5771224
+2025-08-06 14:12:21 - database - INFO - Document status updated: 0abf7461-688b-4fd5-a265-a5246b2f0c60 -> extracted
+2025-08-06 14:12:21 - database - INFO - Document status updated: c0bfd1ef-90ac-4c27-99c7-403342a829aa -> classified
+2025-08-06 14:12:21 - database - INFO - Document inserted: 43ae0665-e15d-4cbd-a78b-95ec8b4f54ca
+2025-08-06 14:12:21 - database - INFO - Document inserted: 8e832a7d-4bb2-4a48-b5ce-7bca2e7e3d66
+2025-08-06 14:12:21 - database - INFO - Document inserted: 39156701-9273-4685-9f1c-4462eacdda37
+2025-08-06 14:12:21 - database - INFO - Document inserted: 78d60d6a-93cb-4832-8eb2-1db38d2d5f3e
+2025-08-06 14:12:21 - database - INFO - Document final path updated: c0bfd1ef-90ac-4c27-99c7-403342a829aa -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\BuildingRAGAppsUsingMongoDB_Badge20250620-27-1b51p5.pdf
+2025-08-06 14:12:21 - database - INFO - Document inserted: 6cbd1c37-10dd-4f18-8845-9bb4e05e6ae9
+2025-08-06 14:12:21 - database - INFO - Document inserted: 1eb579f3-141e-49b3-be3b-79178e024982
+2025-08-06 14:12:21 - database - INFO - Document status updated: 0abf7461-688b-4fd5-a265-a5246b2f0c60 -> classified
+2025-08-06 14:12:21 - database - INFO - Document status updated: 811539a7-38b8-4437-a438-bd19c721066e -> extracted
+2025-08-06 14:12:21 - database - INFO - Document final path updated: 0abf7461-688b-4fd5-a265-a5246b2f0c60 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\CRUDOperationsinMongoDB_Badge20250620-27-jt9xd8.pdf
+2025-08-06 14:12:21 - database - INFO - Document status updated: b668311c-7b9c-4f93-baa2-19ec9d6d3134 -> needs_action
+2025-08-06 14:12:21 - database - INFO - Document status updated: 811539a7-38b8-4437-a438-bd19c721066e -> classified
+2025-08-06 14:12:21 - database - INFO - Document inserted: be830d35-3b86-4572-9486-88b2df3d44a8
+2025-08-06 14:12:21 - database - INFO - Document inserted: a054d47f-8661-410b-ab74-98c376ea638d
+2025-08-06 14:12:21 - database - INFO - Document inserted: e3a9f632-1625-414e-9a2a-842f5232ce31
+2025-08-06 14:12:21 - database - INFO - Document inserted: 0f2aae40-a0f0-42db-8146-482e1725bec2
+2025-08-06 14:12:22 - database - INFO - Document inserted: 153585d9-f940-4fbe-8c17-608d3f48f6fb
+2025-08-06 14:12:22 - database - INFO - Document inserted: a72b94a5-86e0-4328-995c-9a832608b1ab
+2025-08-06 14:12:22 - database - INFO - Document final path updated: 811539a7-38b8-4437-a438-bd19c721066e -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\BuildingAI-PoweredSearchwithMongoDBVectorSearch_Badge20250620-27-bqobga.pdf
+2025-08-06 14:12:22 - database - INFO - Document status updated: 9d7dd028-9722-4e11-ac6c-a61c2eb6102f -> needs_action
+2025-08-06 14:12:22 - database - INFO - Document inserted: 1f7f44c3-548a-4697-8755-7cffa93a6589
+2025-08-06 14:12:22 - database - INFO - Document inserted: ca5cfe2e-5155-44ca-962c-3aefde5bcb13
+2025-08-06 14:12:22 - database - INFO - Document inserted: 2fcd4f7e-85da-43b2-a1c7-b1b435ccfd23
+2025-08-06 14:12:22 - database - INFO - Document inserted: 26b660cf-a342-47dc-8b6b-27a2ad500fd3
+2025-08-06 14:12:22 - database - INFO - Document status updated: 747aeba0-2029-4f7a-a57a-ac5748904996 -> needs_action
+2025-08-06 14:12:22 - database - INFO - Document inserted: f74586fc-65de-405f-ad0b-b3f965b66be1
+2025-08-06 14:12:22 - database - INFO - Document inserted: de1da92f-c90f-464c-b454-17f414271309
+2025-08-06 14:12:22 - database - INFO - Document status updated: 8c1e1084-d548-49aa-a3a5-c3236ca04579 -> extracted
+2025-08-06 14:12:22 - database - INFO - Document inserted: a32140bc-c29d-4af0-8e2f-8b7b80b4b52e
+2025-08-06 14:12:23 - database - INFO - Document inserted: 64951599-d455-438c-b39d-f13250e9f70d
+2025-08-06 14:12:23 - database - INFO - Document status updated: 8c1e1084-d548-49aa-a3a5-c3236ca04579 -> classified
+2025-08-06 14:12:23 - database - INFO - Document final path updated: 8c1e1084-d548-49aa-a3a5-c3236ca04579 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\technical\FromRelationalModelSQLtoMongoDBsDocumentModel_Badge20250620-26-c3iwpo.pdf
+2025-08-06 14:12:23 - database - INFO - Document status updated: d3f1df59-2804-4e27-a730-8f028dd58d5b -> needs_action
+2025-08-06 14:12:23 - database - INFO - Document status updated: 98ad2d7f-30b3-41d7-bf28-73c62fb6e240 -> needs_action
+2025-08-06 14:12:24 - database - INFO - Document status updated: 2d99136e-9765-4d61-9149-f69f36962b21 -> extracted
+2025-08-06 14:12:24 - database - INFO - Document status updated: 2d99136e-9765-4d61-9149-f69f36962b21 -> classified
+2025-08-06 14:12:25 - database - INFO - Document final path updated: 2d99136e-9765-4d61-9149-f69f36962b21 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\GODWIN_JUDAH_J_RESUME_-_GODWIN_JUDAH_J.pdf
+2025-08-06 14:12:28 - database - INFO - Document status updated: 236ff091-f2aa-4506-99a5-138cc5771224 -> extracted
+2025-08-06 14:12:28 - database - INFO - Document status updated: 236ff091-f2aa-4506-99a5-138cc5771224 -> classified
+2025-08-06 14:12:28 - database - INFO - Document status updated: 43ae0665-e15d-4cbd-a78b-95ec8b4f54ca -> extracted
+2025-08-06 14:12:28 - database - INFO - Document final path updated: 236ff091-f2aa-4506-99a5-138cc5771224 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\business pitch deck\Intel_AI_Reference_Kits.pdf
+2025-08-06 14:12:29 - database - INFO - Document status updated: 43ae0665-e15d-4cbd-a78b-95ec8b4f54ca -> classified
+2025-08-06 14:12:29 - database - INFO - Document final path updated: 43ae0665-e15d-4cbd-a78b-95ec8b4f54ca -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\advertisement\JAYA_SHREE_RESUME_3_-_JAYA_SHREE_P.pdf
+2025-08-06 14:12:29 - database - INFO - Document status updated: 8e832a7d-4bb2-4a48-b5ce-7bca2e7e3d66 -> extracted
+2025-08-06 14:12:29 - database - INFO - Document status updated: 8e832a7d-4bb2-4a48-b5ce-7bca2e7e3d66 -> classified
+2025-08-06 14:12:29 - database - INFO - Document status updated: 39156701-9273-4685-9f1c-4462eacdda37 -> extracted
+2025-08-06 14:12:30 - database - INFO - Document final path updated: 8e832a7d-4bb2-4a48-b5ce-7bca2e7e3d66 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\JAYASHREE-resume_-_JAYASHREE_R.pdf
+2025-08-06 14:12:30 - database - INFO - Document status updated: 39156701-9273-4685-9f1c-4462eacdda37 -> classified
+2025-08-06 14:12:30 - database - INFO - Document status updated: 78d60d6a-93cb-4832-8eb2-1db38d2d5f3e -> extracted
+2025-08-06 14:12:30 - database - INFO - Document final path updated: 39156701-9273-4685-9f1c-4462eacdda37 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBAdvancedSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-25-quwb1l.pdf
+2025-08-06 14:12:30 - database - INFO - Document status updated: 78d60d6a-93cb-4832-8eb2-1db38d2d5f3e -> classified
+2025-08-06 14:12:30 - database - INFO - Document status updated: 6cbd1c37-10dd-4f18-8845-9bb4e05e6ae9 -> extracted
+2025-08-06 14:12:30 - database - INFO - Document final path updated: 78d60d6a-93cb-4832-8eb2-1db38d2d5f3e -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBAggregationFundamentals_Badge20250620-27-bg2ih1.pdf
+2025-08-06 14:12:30 - database - INFO - Document status updated: 6cbd1c37-10dd-4f18-8845-9bb4e05e6ae9 -> classified
+2025-08-06 14:12:30 - database - INFO - Document status updated: 1eb579f3-141e-49b3-be3b-79178e024982 -> extracted
+2025-08-06 14:12:30 - database - INFO - Document final path updated: 6cbd1c37-10dd-4f18-8845-9bb4e05e6ae9 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBBasicsforStudents_Badge20250620-29-jwwbtq.pdf
+2025-08-06 14:12:31 - database - INFO - Document status updated: 1eb579f3-141e-49b3-be3b-79178e024982 -> classified
+2025-08-06 14:12:31 - database - INFO - Document status updated: be830d35-3b86-4572-9486-88b2df3d44a8 -> extracted
+2025-08-06 14:12:31 - database - INFO - Document final path updated: 1eb579f3-141e-49b3-be3b-79178e024982 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBQueryOptimizationTechniques_Badge20250620-25-uqulmn.pdf
+2025-08-06 14:12:31 - database - INFO - Document status updated: be830d35-3b86-4572-9486-88b2df3d44a8 -> classified
+2025-08-06 14:12:31 - database - INFO - Document status updated: a054d47f-8661-410b-ab74-98c376ea638d -> extracted
+2025-08-06 14:12:31 - database - INFO - Document final path updated: be830d35-3b86-4572-9486-88b2df3d44a8 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBSchemaDesignOptimizationSkillBadge_Badge20250620-24-g7xmz9.pdf
+2025-08-06 14:12:31 - database - INFO - Document status updated: a054d47f-8661-410b-ab74-98c376ea638d -> classified
+2025-08-06 14:12:31 - database - INFO - Document final path updated: a054d47f-8661-410b-ab74-98c376ea638d -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-27-v47272.pdf
+2025-08-06 14:12:32 - database - INFO - Document status updated: e3a9f632-1625-414e-9a2a-842f5232ce31 -> extracted
+2025-08-06 14:12:32 - database - INFO - Document status updated: e3a9f632-1625-414e-9a2a-842f5232ce31 -> classified
+2025-08-06 14:12:32 - database - INFO - Document status updated: 0f2aae40-a0f0-42db-8146-482e1725bec2 -> extracted
+2025-08-06 14:12:32 - database - INFO - Document final path updated: e3a9f632-1625-414e-9a2a-842f5232ce31 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Muni_Charmi_-_MUNI_CHARMI_T.pdf
+2025-08-06 14:12:32 - database - INFO - Document status updated: 0f2aae40-a0f0-42db-8146-482e1725bec2 -> classified
+2025-08-06 14:12:32 - database - INFO - Document status updated: 153585d9-f940-4fbe-8c17-608d3f48f6fb -> needs_action
+2025-08-06 14:12:32 - database - INFO - Document final path updated: 0f2aae40-a0f0-42db-8146-482e1725bec2 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_-_Resume.pdf
+2025-08-06 14:12:33 - database - INFO - Document status updated: a72b94a5-86e0-4328-995c-9a832608b1ab -> extracted
+2025-08-06 14:12:33 - database - INFO - Document status updated: a72b94a5-86e0-4328-995c-9a832608b1ab -> classified
+2025-08-06 14:12:33 - database - INFO - Document final path updated: a72b94a5-86e0-4328-995c-9a832608b1ab -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_Resume.pdf
+2025-08-06 14:12:34 - database - INFO - Document status updated: 1f7f44c3-548a-4697-8755-7cffa93a6589 -> extracted
+2025-08-06 14:12:34 - database - INFO - Document status updated: 1f7f44c3-548a-4697-8755-7cffa93a6589 -> classified
+2025-08-06 14:12:34 - database - INFO - Document status updated: 2fcd4f7e-85da-43b2-a1c7-b1b435ccfd23 -> needs_action
+2025-08-06 14:12:34 - database - INFO - Document final path updated: 1f7f44c3-548a-4697-8755-7cffa93a6589 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Resume_NEW_Jun_2025_-_KANNAN_C_J.pdf
+2025-08-06 14:12:34 - database - INFO - Document status updated: 26b660cf-a342-47dc-8b6b-27a2ad500fd3 -> extracted
+2025-08-06 14:12:34 - database - INFO - Document status updated: 26b660cf-a342-47dc-8b6b-27a2ad500fd3 -> classified
+2025-08-06 14:12:35 - database - INFO - Document final path updated: 26b660cf-a342-47dc-8b6b-27a2ad500fd3 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\sadha_cv_-_SADHA_SHREE_R.pdf
+2025-08-06 14:12:35 - database - INFO - Document status updated: f74586fc-65de-405f-ad0b-b3f965b66be1 -> extracted
+2025-08-06 14:12:35 - database - INFO - Document status updated: f74586fc-65de-405f-ad0b-b3f965b66be1 -> classified
+2025-08-06 14:12:35 - database - INFO - Document final path updated: f74586fc-65de-405f-ad0b-b3f965b66be1 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\SAHANA_R_-_RESUME_-_SAHANA_R.pdf
+2025-08-06 14:12:36 - database - INFO - Document status updated: de1da92f-c90f-464c-b454-17f414271309 -> extracted
+2025-08-06 14:12:36 - database - INFO - Document status updated: de1da92f-c90f-464c-b454-17f414271309 -> classified
+2025-08-06 14:12:36 - database - INFO - Document status updated: ca5cfe2e-5155-44ca-962c-3aefde5bcb13 -> needs_action
+2025-08-06 14:12:36 - database - INFO - Document final path updated: de1da92f-c90f-464c-b454-17f414271309 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\PRABHU_SUNDAR_Resume_-_PRABHU_SUNDAR_D_1.pdf
+2025-08-06 14:12:36 - database - INFO - Document status updated: a32140bc-c29d-4af0-8e2f-8b7b80b4b52e -> extracted
+2025-08-06 14:12:36 - database - INFO - Document status updated: a32140bc-c29d-4af0-8e2f-8b7b80b4b52e -> classified
+2025-08-06 14:12:36 - database - INFO - Document status updated: 64951599-d455-438c-b39d-f13250e9f70d -> extracted
+2025-08-06 14:12:36 - database - INFO - Document final path updated: a32140bc-c29d-4af0-8e2f-8b7b80b4b52e -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBAtlasAuthenticationAuthorization_Badge20250620-24-80voyh.pdf
+2025-08-06 14:12:37 - database - INFO - Document status updated: 64951599-d455-438c-b39d-f13250e9f70d -> classified
+2025-08-06 14:12:37 - database - INFO - Document final path updated: 64951599-d455-438c-b39d-f13250e9f70d -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBSelf-ManagedAuthenticationAuthorization_Badge20250620-29-nv0d3x.pdf
+2025-08-06 14:17:56 - database - INFO - Database 'document_system' already  exists
+2025-08-06 14:17:56 - database - INFO - Database tables created successfully
+2025-08-06 14:17:57 - database - INFO - Database 'document_system' already  exists
+2025-08-06 14:17:57 - database - INFO - Database tables created successfully
+2025-08-06 14:17:58 - database - INFO - Database 'document_system' already  exists
+2025-08-06 14:17:58 - database - INFO - Database tables created successfully
+2025-08-06 14:18:26 - database - INFO - Document inserted: 7abcec8c-7b55-4b22-a47c-c6fa372a40e3
+2025-08-06 14:18:26 - database - INFO - Document inserted: fab769f1-ef10-4d4d-bcd7-eaa90e0e5c75
+2025-08-06 14:18:26 - database - INFO - Document inserted: ac96b456-4b3b-4a57-b2d8-c39147b5d9ca
+2025-08-06 14:18:26 - database - INFO - Document inserted: ac8396cb-add1-4d7d-880c-5099c5cc7552
+2025-08-06 14:18:26 - database - INFO - Document inserted: 7261bbea-89c9-457d-9453-269846386541
+2025-08-06 14:18:26 - database - INFO - Document inserted: d596202b-2177-4cde-9c29-441e7b83e6ea
+2025-08-06 14:18:26 - database - INFO - Document status updated: 7abcec8c-7b55-4b22-a47c-c6fa372a40e3 -> needs_action
+2025-08-06 14:18:26 - database - INFO - Document status updated: fab769f1-ef10-4d4d-bcd7-eaa90e0e5c75 -> extracted
+2025-08-06 14:18:26 - database - INFO - Document inserted: da5d8885-b903-46ee-8b79-f6eb7d47a38e
+2025-08-06 14:18:26 - database - INFO - Document inserted: 91120e27-10ee-4ce7-b51c-9d2191266d0f
+2025-08-06 14:18:26 - database - INFO - Document inserted: 0454af31-6bb0-4379-b89e-15d99bd4fe9f
+2025-08-06 14:18:27 - database - INFO - Document inserted: b2d208be-b722-4ae1-906f-b816794740fb
+2025-08-06 14:18:27 - database - INFO - Document inserted: aae7aa0c-e460-4afd-ab98-64e2573cfe59
+2025-08-06 14:18:27 - database - INFO - Document inserted: 82bf7ed9-e663-48ff-853e-828ef3bb19ce
+2025-08-06 14:18:27 - database - INFO - Document status updated: ac96b456-4b3b-4a57-b2d8-c39147b5d9ca -> extracted
+2025-08-06 14:18:27 - database - INFO - Document inserted: 96a2290c-f5ef-4603-8de2-3d6bffb3b1b7
+2025-08-06 14:18:27 - database - INFO - Document inserted: 0214d968-34a9-46e3-be92-d22021adb0ca
+2025-08-06 14:18:27 - database - INFO - Document status updated: 7261bbea-89c9-457d-9453-269846386541 -> needs_action
+2025-08-06 14:18:27 - database - INFO - Document inserted: 92f771db-7346-4dbe-9a9d-5b2529b976c0
+2025-08-06 14:18:27 - database - INFO - Document inserted: 4db87ff6-e08d-4afa-a5e8-4134afd71a2b
+2025-08-06 14:18:27 - database - INFO - Document inserted: 30a0dae0-0d0f-4896-98ec-870d956a7205
+2025-08-06 14:18:27 - database - INFO - Document inserted: 6ab549e2-e628-4a65-8429-24eabbd655a5
+2025-08-06 14:18:27 - database - INFO - Document status updated: ac8396cb-add1-4d7d-880c-5099c5cc7552 -> extracted
+2025-08-06 14:18:27 - database - INFO - Document inserted: 77d27385-d454-45d2-9099-363c6cd78946
+2025-08-06 14:18:27 - database - INFO - Document status updated: fab769f1-ef10-4d4d-bcd7-eaa90e0e5c75 -> classified
+2025-08-06 14:18:27 - database - INFO - Document inserted: 43483a1d-84e0-4f2c-ae30-2054a2c40d23
+2025-08-06 14:18:27 - database - INFO - Document inserted: 54951c0c-4fa1-47c5-961e-463c9cb10714
+2025-08-06 14:18:27 - database - INFO - Document status updated: d596202b-2177-4cde-9c29-441e7b83e6ea -> needs_action
+2025-08-06 14:18:28 - database - INFO - Document inserted: 78de339f-54c7-41c8-8530-ccedc4a19135
+2025-08-06 14:18:28 - database - INFO - Document final path updated: fab769f1-ef10-4d4d-bcd7-eaa90e0e5c75 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\BuildingRAGAppsUsingMongoDB_Badge20250620-27-1b51p5.pdf
+2025-08-06 14:18:28 - database - INFO - Document inserted: 64bbdf04-d63a-43e2-ba41-e87b6c9e8fef
+2025-08-06 14:18:28 - database - INFO - Document inserted: d724349f-63c4-48c8-b05b-3edcd3d0fc1b
+2025-08-06 14:18:28 - database - INFO - Document inserted: 088db049-3b11-460c-b3e1-1a8768285994
+2025-08-06 14:18:28 - database - INFO - Document inserted: 2fd111cd-c994-4c04-ade9-f90c94116b12
+2025-08-06 14:18:28 - database - INFO - Document status updated: da5d8885-b903-46ee-8b79-f6eb7d47a38e -> needs_action
+2025-08-06 14:18:28 - database - INFO - Document status updated: 91120e27-10ee-4ce7-b51c-9d2191266d0f -> needs_action
+2025-08-06 14:18:28 - database - INFO - Document inserted: c51b88c8-3c89-4843-8a9c-20792a4a413d
+2025-08-06 14:18:28 - database - INFO - Document inserted: d78c918c-c272-40bd-94b1-49f1a1af3675
+2025-08-06 14:18:28 - database - INFO - Document inserted: a55fe631-6cd9-4b3d-9fa4-df9fe553d62b
+2025-08-06 14:18:28 - database - INFO - Document inserted: 5d0ebe8f-f594-45dc-8a93-eee1706ebe7d
+2025-08-06 14:18:28 - database - INFO - Document inserted: 7adb96a4-c5ba-4985-b8a3-c4b00d3d314d
+2025-08-06 14:18:28 - database - INFO - Document inserted: 7caa3b70-ac49-406a-992c-570d26e663fe
+2025-08-06 14:18:28 - database - INFO - Document status updated: ac96b456-4b3b-4a57-b2d8-c39147b5d9ca -> classified
+2025-08-06 14:18:28 - database - INFO - Document final path updated: ac96b456-4b3b-4a57-b2d8-c39147b5d9ca -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\CRUDOperationsinMongoDB_Badge20250620-27-jt9xd8.pdf
+2025-08-06 14:18:28 - database - INFO - Document inserted: 2141459a-8399-4738-b6aa-524e2d831c54
+2025-08-06 14:18:29 - database - INFO - Document inserted: 4e4ba003-b822-4048-803a-7df31a36d885
+2025-08-06 14:18:29 - database - INFO - Document status updated: 0454af31-6bb0-4379-b89e-15d99bd4fe9f -> extracted
+2025-08-06 14:18:29 - database - INFO - Document inserted: 410ff517-3df9-4683-adf6-fe2ad5f5ead4
+2025-08-06 14:18:29 - database - INFO - Document status updated: b2d208be-b722-4ae1-906f-b816794740fb -> extracted
+2025-08-06 14:18:29 - database - INFO - Document status updated: ac8396cb-add1-4d7d-880c-5099c5cc7552 -> classified
+2025-08-06 14:18:29 - database - INFO - Document final path updated: ac8396cb-add1-4d7d-880c-5099c5cc7552 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\BuildingAI-PoweredSearchwithMongoDBVectorSearch_Badge20250620-27-bqobga.pdf
+2025-08-06 14:18:30 - database - INFO - Document inserted: 33a0e92b-55c4-4464-b5fe-56bce3846535
+2025-08-06 14:18:30 - database - INFO - Document status updated: 0454af31-6bb0-4379-b89e-15d99bd4fe9f -> classified
+2025-08-06 14:18:30 - database - INFO - Document final path updated: 0454af31-6bb0-4379-b89e-15d99bd4fe9f -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\GODWIN_JUDAH_J_RESUME_-_GODWIN_JUDAH_J.pdf
+2025-08-06 14:18:30 - database - INFO - Document inserted: 34e65ab5-6547-415a-8929-7a14ff0e460d
+2025-08-06 14:18:31 - database - INFO - Document status updated: b2d208be-b722-4ae1-906f-b816794740fb -> classified
+2025-08-06 14:18:31 - database - INFO - Document inserted: 928ceeb7-8efd-47fe-8972-57a5f3fa883e
+2025-08-06 14:18:31 - database - INFO - Document final path updated: b2d208be-b722-4ae1-906f-b816794740fb -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\technical\FromRelationalModelSQLtoMongoDBsDocumentModel_Badge20250620-26-c3iwpo.pdf
+2025-08-06 14:18:33 - database - INFO - Document status updated: aae7aa0c-e460-4afd-ab98-64e2573cfe59 -> extracted
+2025-08-06 14:18:34 - database - INFO - Document status updated: 82bf7ed9-e663-48ff-853e-828ef3bb19ce -> needs_action
+2025-08-06 14:18:34 - database - INFO - Document status updated: aae7aa0c-e460-4afd-ab98-64e2573cfe59 -> classified
+2025-08-06 14:18:34 - database - INFO - Document final path updated: aae7aa0c-e460-4afd-ab98-64e2573cfe59 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\business pitch deck\Intel_AI_Reference_Kits.pdf
+2025-08-06 14:18:34 - database - INFO - Document status updated: 0214d968-34a9-46e3-be92-d22021adb0ca -> extracted
+2025-08-06 14:18:35 - database - INFO - Document status updated: 92f771db-7346-4dbe-9a9d-5b2529b976c0 -> extracted
+2025-08-06 14:18:35 - database - INFO - Document status updated: 0214d968-34a9-46e3-be92-d22021adb0ca -> classified
+2025-08-06 14:18:35 - database - INFO - Document status updated: 4db87ff6-e08d-4afa-a5e8-4134afd71a2b -> extracted
+2025-08-06 14:18:35 - database - INFO - Document final path updated: 0214d968-34a9-46e3-be92-d22021adb0ca -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\advertisement\JAYA_SHREE_RESUME_3_-_JAYA_SHREE_P.pdf
+2025-08-06 14:18:35 - database - INFO - Document status updated: 30a0dae0-0d0f-4896-98ec-870d956a7205 -> extracted
+2025-08-06 14:18:35 - database - INFO - Document status updated: 92f771db-7346-4dbe-9a9d-5b2529b976c0 -> classified
+2025-08-06 14:18:36 - database - INFO - Document final path updated: 92f771db-7346-4dbe-9a9d-5b2529b976c0 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\JAYASHREE-resume_-_JAYASHREE_R.pdf
+2025-08-06 14:18:36 - database - INFO - Document status updated: 6ab549e2-e628-4a65-8429-24eabbd655a5 -> extracted
+2025-08-06 14:18:36 - database - INFO - Document status updated: 77d27385-d454-45d2-9099-363c6cd78946 -> extracted
+2025-08-06 14:18:36 - database - INFO - Document status updated: 4db87ff6-e08d-4afa-a5e8-4134afd71a2b -> classified
+2025-08-06 14:18:36 - database - INFO - Document final path updated: 4db87ff6-e08d-4afa-a5e8-4134afd71a2b -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBAdvancedSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-25-quwb1l.pdf
+2025-08-06 14:18:37 - database - INFO - Document status updated: 54951c0c-4fa1-47c5-961e-463c9cb10714 -> extracted
+2025-08-06 14:18:37 - database - INFO - Document status updated: 78de339f-54c7-41c8-8530-ccedc4a19135 -> needs_action
+2025-08-06 14:18:37 - database - INFO - Document status updated: 30a0dae0-0d0f-4896-98ec-870d956a7205 -> classified
+2025-08-06 14:18:37 - database - INFO - Document status updated: 64bbdf04-d63a-43e2-ba41-e87b6c9e8fef -> extracted
+2025-08-06 14:18:37 - database - INFO - Document final path updated: 30a0dae0-0d0f-4896-98ec-870d956a7205 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBAggregationFundamentals_Badge20250620-27-bg2ih1.pdf
+2025-08-06 14:18:38 - database - INFO - Document status updated: d724349f-63c4-48c8-b05b-3edcd3d0fc1b -> extracted
+2025-08-06 14:18:38 - database - INFO - Document status updated: 6ab549e2-e628-4a65-8429-24eabbd655a5 -> classified
+2025-08-06 14:18:38 - database - INFO - Document final path updated: 6ab549e2-e628-4a65-8429-24eabbd655a5 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBBasicsforStudents_Badge20250620-29-jwwbtq.pdf
+2025-08-06 14:18:39 - database - INFO - Document status updated: 2fd111cd-c994-4c04-ade9-f90c94116b12 -> extracted
+2025-08-06 14:18:39 - database - INFO - Document status updated: 77d27385-d454-45d2-9099-363c6cd78946 -> classified
+2025-08-06 14:18:39 - database - INFO - Document status updated: 088db049-3b11-460c-b3e1-1a8768285994 -> extracted
+2025-08-06 14:18:39 - database - INFO - Document final path updated: 77d27385-d454-45d2-9099-363c6cd78946 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBQueryOptimizationTechniques_Badge20250620-25-uqulmn.pdf
+2025-08-06 14:18:40 - database - INFO - Document status updated: 54951c0c-4fa1-47c5-961e-463c9cb10714 -> classified
+2025-08-06 14:18:40 - database - INFO - Document final path updated: 54951c0c-4fa1-47c5-961e-463c9cb10714 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBSchemaDesignOptimizationSkillBadge_Badge20250620-24-g7xmz9.pdf
+2025-08-06 14:18:40 - database - INFO - Document status updated: c51b88c8-3c89-4843-8a9c-20792a4a413d -> extracted
+2025-08-06 14:18:41 - database - INFO - Document status updated: d78c918c-c272-40bd-94b1-49f1a1af3675 -> extracted
+2025-08-06 14:18:41 - database - INFO - Document status updated: 64bbdf04-d63a-43e2-ba41-e87b6c9e8fef -> classified
+2025-08-06 14:18:41 - database - INFO - Document final path updated: 64bbdf04-d63a-43e2-ba41-e87b6c9e8fef -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\MongoDBSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-27-v47272.pdf
+2025-08-06 14:18:41 - database - INFO - Document status updated: a55fe631-6cd9-4b3d-9fa4-df9fe553d62b -> needs_action
+2025-08-06 14:18:41 - database - INFO - Document status updated: 5d0ebe8f-f594-45dc-8a93-eee1706ebe7d -> needs_action
+2025-08-06 14:18:41 - database - INFO - Document status updated: d724349f-63c4-48c8-b05b-3edcd3d0fc1b -> classified
+2025-08-06 14:18:42 - database - INFO - Document final path updated: d724349f-63c4-48c8-b05b-3edcd3d0fc1b -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Muni_Charmi_-_MUNI_CHARMI_T.pdf
+2025-08-06 14:18:42 - database - INFO - Document status updated: 7adb96a4-c5ba-4985-b8a3-c4b00d3d314d -> extracted
+2025-08-06 14:18:42 - database - INFO - Document status updated: 2fd111cd-c994-4c04-ade9-f90c94116b12 -> classified
+2025-08-06 14:18:43 - database - INFO - Document status updated: 7caa3b70-ac49-406a-992c-570d26e663fe -> extracted
+2025-08-06 14:18:43 - database - INFO - Document final path updated: 2fd111cd-c994-4c04-ade9-f90c94116b12 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_Resume.pdf
+2025-08-06 14:18:43 - database - INFO - Document status updated: 2141459a-8399-4738-b6aa-524e2d831c54 -> extracted
+2025-08-06 14:18:43 - database - INFO - Document status updated: 088db049-3b11-460c-b3e1-1a8768285994 -> classified
+2025-08-06 14:18:43 - database - INFO - Document status updated: 4e4ba003-b822-4048-803a-7df31a36d885 -> extracted
+2025-08-06 14:18:43 - database - INFO - Document final path updated: 088db049-3b11-460c-b3e1-1a8768285994 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_-_Resume.pdf
+2025-08-06 14:18:44 - database - INFO - Document status updated: c51b88c8-3c89-4843-8a9c-20792a4a413d -> classified
+2025-08-06 14:18:44 - database - INFO - Document final path updated: c51b88c8-3c89-4843-8a9c-20792a4a413d -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\PRABHU_SUNDAR_Resume_-_PRABHU_SUNDAR_D_1.pdf
+2025-08-06 14:18:45 - database - INFO - Document status updated: d78c918c-c272-40bd-94b1-49f1a1af3675 -> classified
+2025-08-06 14:18:45 - database - INFO - Document final path updated: d78c918c-c272-40bd-94b1-49f1a1af3675 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Resume_NEW_Jun_2025_-_KANNAN_C_J.pdf
+2025-08-06 14:18:46 - database - INFO - Document status updated: 7adb96a4-c5ba-4985-b8a3-c4b00d3d314d -> classified
+2025-08-06 14:18:46 - database - INFO - Document final path updated: 7adb96a4-c5ba-4985-b8a3-c4b00d3d314d -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\sadha_cv_-_SADHA_SHREE_R.pdf
+2025-08-06 14:18:47 - database - INFO - Document status updated: 7caa3b70-ac49-406a-992c-570d26e663fe -> classified
+2025-08-06 14:18:47 - database - INFO - Document final path updated: 7caa3b70-ac49-406a-992c-570d26e663fe -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\SAHANA_R_-_RESUME_-_SAHANA_R.pdf
+2025-08-06 14:18:48 - database - INFO - Document status updated: 2141459a-8399-4738-b6aa-524e2d831c54 -> classified
+2025-08-06 14:18:48 - database - INFO - Document final path updated: 2141459a-8399-4738-b6aa-524e2d831c54 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBAtlasAuthenticationAuthorization_Badge20250620-24-80voyh.pdf
+2025-08-06 14:18:48 - database - INFO - Document status updated: 4e4ba003-b822-4048-803a-7df31a36d885 -> classified
+2025-08-06 14:18:49 - database - INFO - Document final path updated: 4e4ba003-b822-4048-803a-7df31a36d885 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBSelf-ManagedAuthenticationAuthorization_Badge20250620-29-nv0d3x.pdf
+2025-08-06 14:23:12 - database - INFO - Database 'document_system' already  exists
+2025-08-06 14:23:12 - database - INFO - Database tables created successfully
+2025-08-06 14:23:12 - database - INFO - Database 'document_system' already  exists
+2025-08-06 14:23:12 - database - INFO - Database tables created successfully
+2025-08-06 14:23:13 - database - INFO - Database 'document_system' already  exists
+2025-08-06 14:23:13 - database - INFO - Database tables created successfully
+2025-08-06 14:23:23 - database - INFO - Document inserted: f31246c7-96e2-4071-b5fd-325218bded93
+2025-08-06 14:23:23 - database - INFO - Document inserted: f60d4be9-870d-4d13-a7a6-5b2510f3a4b3
+2025-08-06 14:23:23 - database - INFO - Document inserted: a38f19c7-10f4-4403-a3ee-3f4e80da9464
+2025-08-06 14:23:23 - database - INFO - Document inserted: e0cf19b0-ad57-4148-85c4-bf0e74646f55
+2025-08-06 14:23:23 - database - INFO - Document inserted: f6f4b595-157e-4c74-ad1e-9ab43261fbe4
+2025-08-06 14:23:23 - database - INFO - Document inserted: 968acae8-5ea5-4e55-9e1b-bf95a3f43d2e
+2025-08-06 14:23:23 - database - INFO - Document status updated: f31246c7-96e2-4071-b5fd-325218bded93 -> extracted
+2025-08-06 14:23:23 - database - INFO - Document inserted: b8c4075c-4645-435a-b261-7e453a4446a5
+2025-08-06 14:23:23 - database - INFO - Document inserted: 4204e351-a31a-42bf-a404-4d985c596f43
+2025-08-06 14:23:23 - database - INFO - Document inserted: 6c8f1bf4-358e-4082-8eba-76e4772473d2
+2025-08-06 14:23:23 - database - INFO - Document inserted: fb897c51-9e8c-42f9-9128-a055e4f51e32
+2025-08-06 14:23:23 - database - INFO - Document inserted: 69bc62aa-6a1e-4d74-a9a0-3c300cd76bc7
+2025-08-06 14:23:23 - database - INFO - Document inserted: 6612b790-4e10-4ffb-8e9b-4cdba706a207
+2025-08-06 14:23:23 - database - INFO - Document inserted: d7e7d217-8ccc-44f0-8c58-bdc4862fa574
+2025-08-06 14:23:23 - database - INFO - Document status updated: a38f19c7-10f4-4403-a3ee-3f4e80da9464 -> extracted
+2025-08-06 14:23:24 - database - INFO - Document status updated: f60d4be9-870d-4d13-a7a6-5b2510f3a4b3 -> extracted
+2025-08-06 14:23:24 - database - INFO - Document inserted: beb3bda9-c750-4edb-a899-0da4f2532951
+2025-08-06 14:23:24 - database - INFO - Document inserted: 70722120-8f3c-4248-b316-25e8de99b410
+2025-08-06 14:23:24 - database - INFO - Document inserted: 2140ead8-5468-4644-9867-328c38e49417
+2025-08-06 14:23:24 - database - INFO - Document inserted: 5cf97393-50fb-4178-a846-431173e448aa
+2025-08-06 14:23:24 - database - INFO - Document inserted: 9d5d0ee4-d83a-4b3b-a73c-8c065365b36f
+2025-08-06 14:23:24 - database - INFO - Document inserted: ef847342-b7b1-42dd-8e1a-b197ef10952e
+2025-08-06 14:23:24 - database - INFO - Document inserted: 9a5f858c-420f-4e15-b6a3-f4b9b11b47ab
+2025-08-06 14:23:24 - database - INFO - Document status updated: e0cf19b0-ad57-4148-85c4-bf0e74646f55 -> needs_action
+2025-08-06 14:23:24 - database - INFO - Document inserted: f16c91dc-d535-4250-855b-c7635d80c257
+2025-08-06 14:23:24 - database - INFO - Document inserted: a05b0bb4-ec02-473e-98cb-be2201c1489d
+2025-08-06 14:23:24 - database - INFO - Document inserted: 243a9ca8-bed7-4b78-8492-407df606e2c2
+2025-08-06 14:23:24 - database - INFO - Document status updated: f6f4b595-157e-4c74-ad1e-9ab43261fbe4 -> needs_action
+2025-08-06 14:23:24 - database - INFO - Document inserted: 682c6ff2-c5be-4fb4-aec3-f37c70f09aef
+2025-08-06 14:23:24 - database - INFO - Document inserted: 58916bc8-ea49-4d1a-bfb4-15d609f91830
+2025-08-06 14:23:24 - database - INFO - Document inserted: fad06dd0-aa8b-4dfc-b7de-dc44bcfe9c42
+2025-08-06 14:23:25 - database - INFO - Document status updated: 968acae8-5ea5-4e55-9e1b-bf95a3f43d2e -> needs_action
+2025-08-06 14:23:25 - database - INFO - Document inserted: 172abb06-61a0-42eb-954e-cea26dd4b1c6
+2025-08-06 14:23:25 - database - INFO - Document inserted: 5d39702e-65c1-463a-ac17-6965a6b80022
+2025-08-06 14:23:26 - database - INFO - Document status updated: f31246c7-96e2-4071-b5fd-325218bded93 -> classified
+2025-08-06 14:23:26 - database - INFO - Document status updated: 4204e351-a31a-42bf-a404-4d985c596f43 -> extracted
+2025-08-06 14:23:26 - database - INFO - Document final path updated: f31246c7-96e2-4071-b5fd-325218bded93 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\CRUDOperationsinMongoDB_Badge20250620-27-jt9xd8.pdf
+2025-08-06 14:23:26 - database - INFO - Document status updated: fb897c51-9e8c-42f9-9128-a055e4f51e32 -> needs_action
+2025-08-06 14:23:26 - database - INFO - Document status updated: 6c8f1bf4-358e-4082-8eba-76e4772473d2 -> needs_action
+2025-08-06 14:23:27 - database - INFO - Document status updated: a38f19c7-10f4-4403-a3ee-3f4e80da9464 -> classified
+2025-08-06 14:23:27 - database - INFO - Document status updated: 69bc62aa-6a1e-4d74-a9a0-3c300cd76bc7 -> needs_action
+2025-08-06 14:23:27 - database - INFO - Document final path updated: a38f19c7-10f4-4403-a3ee-3f4e80da9464 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\BuildingRAGAppsUsingMongoDB_Badge20250620-27-1b51p5.pdf
+2025-08-06 14:23:28 - database - INFO - Document status updated: f60d4be9-870d-4d13-a7a6-5b2510f3a4b3 -> classified
+2025-08-06 14:23:28 - database - INFO - Document final path updated: f60d4be9-870d-4d13-a7a6-5b2510f3a4b3 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\brochure\BuildingAI-PoweredSearchwithMongoDBVectorSearch_Badge20250620-27-bqobga.pdf
+2025-08-06 14:23:29 - database - INFO - Document status updated: 4204e351-a31a-42bf-a404-4d985c596f43 -> classified
+2025-08-06 14:23:29 - database - INFO - Document final path updated: 4204e351-a31a-42bf-a404-4d985c596f43 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\GODWIN_JUDAH_J_RESUME_-_GODWIN_JUDAH_J.pdf
+2025-08-06 14:23:30 - database - INFO - Document status updated: 6612b790-4e10-4ffb-8e9b-4cdba706a207 -> extracted
+2025-08-06 14:23:30 - database - INFO - Document status updated: d7e7d217-8ccc-44f0-8c58-bdc4862fa574 -> extracted
+2025-08-06 14:23:30 - database - INFO - Document status updated: 70722120-8f3c-4248-b316-25e8de99b410 -> extracted
+2025-08-06 14:23:31 - database - INFO - Document status updated: 5cf97393-50fb-4178-a846-431173e448aa -> extracted
+2025-08-06 14:23:31 - database - INFO - Document status updated: 6612b790-4e10-4ffb-8e9b-4cdba706a207 -> classified
+2025-08-06 14:23:31 - database - INFO - Document status updated: 2140ead8-5468-4644-9867-328c38e49417 -> extracted
+2025-08-06 14:23:31 - database - INFO - Document final path updated: 6612b790-4e10-4ffb-8e9b-4cdba706a207 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\whitepaper\Intel_AI_Reference_Kits.pdf
+2025-08-06 14:23:31 - database - INFO - Document status updated: ef847342-b7b1-42dd-8e1a-b197ef10952e -> extracted
+2025-08-06 14:23:31 - database - INFO - Document status updated: 9d5d0ee4-d83a-4b3b-a73c-8c065365b36f -> extracted
+2025-08-06 14:23:31 - database - INFO - Document status updated: 9a5f858c-420f-4e15-b6a3-f4b9b11b47ab -> extracted
+2025-08-06 14:23:32 - database - INFO - Document status updated: a05b0bb4-ec02-473e-98cb-be2201c1489d -> extracted
+2025-08-06 14:23:32 - database - INFO - Document status updated: d7e7d217-8ccc-44f0-8c58-bdc4862fa574 -> classified
+2025-08-06 14:23:32 - database - INFO - Document status updated: 243a9ca8-bed7-4b78-8492-407df606e2c2 -> extracted
+2025-08-06 14:23:32 - database - INFO - Document final path updated: d7e7d217-8ccc-44f0-8c58-bdc4862fa574 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\technical\FromRelationalModelSQLtoMongoDBsDocumentModel_Badge20250620-26-c3iwpo.pdf
+2025-08-06 14:23:32 - database - INFO - Document status updated: 682c6ff2-c5be-4fb4-aec3-f37c70f09aef -> extracted
+2025-08-06 14:23:33 - database - INFO - Document status updated: 58916bc8-ea49-4d1a-bfb4-15d609f91830 -> needs_action
+2025-08-06 14:23:33 - database - INFO - Document status updated: fad06dd0-aa8b-4dfc-b7de-dc44bcfe9c42 -> extracted
+2025-08-06 14:23:33 - database - INFO - Document status updated: 70722120-8f3c-4248-b316-25e8de99b410 -> classified
+2025-08-06 14:23:33 - database - INFO - Document final path updated: 70722120-8f3c-4248-b316-25e8de99b410 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\receipt\JAYA_SHREE_RESUME_3_-_JAYA_SHREE_P.pdf
+2025-08-06 14:23:33 - database - INFO - Document status updated: 172abb06-61a0-42eb-954e-cea26dd4b1c6 -> extracted
+2025-08-06 14:23:34 - database - INFO - Document status updated: 5cf97393-50fb-4178-a846-431173e448aa -> classified
+2025-08-06 14:23:34 - database - INFO - Document final path updated: 5cf97393-50fb-4178-a846-431173e448aa -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\bonafide certificate\MongoDBAdvancedSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-25-quwb1l.pdf
+2025-08-06 14:23:35 - database - INFO - Document inserted: da4da31a-de2a-496c-9260-6018dcf92af1
+2025-08-06 14:23:35 - database - INFO - Document inserted: 52e21eb6-4f62-458b-a1b5-3ca58b39f9bd
+2025-08-06 14:23:35 - database - INFO - Document inserted: fe4ca7af-3128-4443-8671-50b2bf7d0de2
+2025-08-06 14:23:35 - database - INFO - Document inserted: 2412da86-9ee3-49a3-83ac-3727458886ad
+2025-08-06 14:23:35 - database - INFO - Document status updated: 2140ead8-5468-4644-9867-328c38e49417 -> classified
+2025-08-06 14:23:35 - database - INFO - Document inserted: 63be46b6-1630-44a5-9262-09799652f69a
+2025-08-06 14:23:35 - database - INFO - Document status updated: da4da31a-de2a-496c-9260-6018dcf92af1 -> needs_action
+2025-08-06 14:23:35 - database - INFO - Document final path updated: 2140ead8-5468-4644-9867-328c38e49417 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\JAYASHREE-resume_-_JAYASHREE_R.pdf
+2025-08-06 14:23:35 - database - INFO - Document inserted: a704fbb1-5d2d-4f52-8d01-feddb001a49a
+2025-08-06 14:23:36 - database - INFO - Document status updated: 52e21eb6-4f62-458b-a1b5-3ca58b39f9bd -> extracted
+2025-08-06 14:23:36 - database - INFO - Document status updated: 2412da86-9ee3-49a3-83ac-3727458886ad -> extracted
+2025-08-06 14:23:36 - database - INFO - Document status updated: ef847342-b7b1-42dd-8e1a-b197ef10952e -> classified
+2025-08-06 14:23:36 - database - INFO - Document status updated: fe4ca7af-3128-4443-8671-50b2bf7d0de2 -> extracted
+2025-08-06 14:23:36 - database - INFO - Document final path updated: ef847342-b7b1-42dd-8e1a-b197ef10952e -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBBasicsforStudents_Badge20250620-29-jwwbtq.pdf
+2025-08-06 14:23:36 - database - INFO - Document status updated: 63be46b6-1630-44a5-9262-09799652f69a -> needs_action
+2025-08-06 14:23:37 - database - INFO - Document status updated: a704fbb1-5d2d-4f52-8d01-feddb001a49a -> extracted
+2025-08-06 14:23:37 - database - INFO - Document status updated: 9d5d0ee4-d83a-4b3b-a73c-8c065365b36f -> classified
+2025-08-06 14:23:37 - database - INFO - Document final path updated: 9d5d0ee4-d83a-4b3b-a73c-8c065365b36f -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBAggregationFundamentals_Badge20250620-27-bg2ih1.pdf
+2025-08-06 14:23:38 - database - INFO - Document status updated: 9a5f858c-420f-4e15-b6a3-f4b9b11b47ab -> classified
+2025-08-06 14:23:38 - database - INFO - Document final path updated: 9a5f858c-420f-4e15-b6a3-f4b9b11b47ab -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\MongoDBQueryOptimizationTechniques_Badge20250620-25-uqulmn.pdf
+2025-08-06 14:23:40 - database - INFO - Document status updated: a05b0bb4-ec02-473e-98cb-be2201c1489d -> classified
+2025-08-06 14:23:40 - database - INFO - Document final path updated: a05b0bb4-ec02-473e-98cb-be2201c1489d -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\bonafide certificate\MongoDBSchemaDesignPatternsandAntipatternsSkillBadge_Badge20250620-27-v47272.pdf
+2025-08-06 14:23:41 - database - INFO - Document status updated: 243a9ca8-bed7-4b78-8492-407df606e2c2 -> classified
+2025-08-06 14:23:41 - database - INFO - Document final path updated: 243a9ca8-bed7-4b78-8492-407df606e2c2 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Muni_Charmi_-_MUNI_CHARMI_T.pdf
+2025-08-06 14:23:42 - database - INFO - Document status updated: 682c6ff2-c5be-4fb4-aec3-f37c70f09aef -> classified
+2025-08-06 14:23:42 - database - INFO - Document final path updated: 682c6ff2-c5be-4fb4-aec3-f37c70f09aef -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_-_Resume.pdf
+2025-08-06 14:23:43 - database - INFO - Document status updated: fad06dd0-aa8b-4dfc-b7de-dc44bcfe9c42 -> classified
+2025-08-06 14:23:43 - database - INFO - Document final path updated: fad06dd0-aa8b-4dfc-b7de-dc44bcfe9c42 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Naveen_Resume.pdf
+2025-08-06 14:23:44 - database - INFO - Document status updated: 172abb06-61a0-42eb-954e-cea26dd4b1c6 -> classified
+2025-08-06 14:23:44 - database - INFO - Document final path updated: 172abb06-61a0-42eb-954e-cea26dd4b1c6 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\PRABHU_SUNDAR_Resume_-_PRABHU_SUNDAR_D_1.pdf
+2025-08-06 14:23:45 - database - INFO - Document status updated: 52e21eb6-4f62-458b-a1b5-3ca58b39f9bd -> classified
+2025-08-06 14:23:45 - database - INFO - Document final path updated: 52e21eb6-4f62-458b-a1b5-3ca58b39f9bd -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\Resume_NEW_Jun_2025_-_KANNAN_C_J.pdf
+2025-08-06 14:23:46 - database - INFO - Document status updated: 2412da86-9ee3-49a3-83ac-3727458886ad -> classified
+2025-08-06 14:23:46 - database - INFO - Document final path updated: 2412da86-9ee3-49a3-83ac-3727458886ad -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\sadha_cv_-_SADHA_SHREE_R.pdf
+2025-08-06 14:23:47 - database - INFO - Document status updated: fe4ca7af-3128-4443-8671-50b2bf7d0de2 -> classified
+2025-08-06 14:23:48 - database - INFO - Document final path updated: fe4ca7af-3128-4443-8671-50b2bf7d0de2 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resume\SAHANA_R_-_RESUME_-_SAHANA_R.pdf
+2025-08-06 14:23:48 - database - INFO - Document status updated: a704fbb1-5d2d-4f52-8d01-feddb001a49a -> classified
+2025-08-06 14:23:48 - database - INFO - Document final path updated: a704fbb1-5d2d-4f52-8d01-feddb001a49a -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\prescription\SecuringMongoDBAtlasAuthenticationAuthorization_Badge20250620-24-80voyh.pdf
+2025-08-06 20:51:30 - database - INFO - Database 'document_system' already  exists
+2025-08-06 20:51:30 - database - INFO - Database tables created successfully
+2025-08-06 20:51:32 - database - INFO - Database 'document_system' already  exists
+2025-08-06 20:51:32 - database - INFO - Database tables created successfully
+2025-08-06 20:51:39 - database - INFO - Database 'document_system' already  exists
+2025-08-06 20:51:39 - database - INFO - Database tables created successfully
+2025-08-06 20:57:22 - database - INFO - Database 'document_system' already  exists
+2025-08-06 20:57:22 - database - INFO - Database tables created successfully
+2025-08-06 20:57:23 - database - INFO - Database 'document_system' already  exists
+2025-08-06 20:57:23 - database - INFO - Database tables created successfully
+2025-08-06 20:57:24 - database - INFO - Database 'document_system' already  exists
+2025-08-06 20:57:24 - database - INFO - Database tables created successfully
+2025-08-06 22:19:47 - database - INFO - Document inserted: e82aa7b7-8d68-4317-b584-adbb7e529f8e
+2025-08-06 22:19:48 - database - INFO - Document status updated: e82aa7b7-8d68-4317-b584-adbb7e529f8e -> extracted
+2025-08-06 22:19:51 - database - INFO - Document status updated: e82aa7b7-8d68-4317-b584-adbb7e529f8e -> classified
+2025-08-06 22:19:51 - database - INFO - Document final path updated: e82aa7b7-8d68-4317-b584-adbb7e529f8e -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\Naveen_Resume.pdf
+2025-08-06 22:25:54 - database - INFO - Document inserted: 0cb3d171-3dbe-41ea-b7f1-23d742c61ef9
+2025-08-06 22:25:56 - database - INFO - Document status updated: 0cb3d171-3dbe-41ea-b7f1-23d742c61ef9 -> extracted
+2025-08-06 22:26:00 - database - INFO - Document status updated: 0cb3d171-3dbe-41ea-b7f1-23d742c61ef9 -> classified
+2025-08-06 22:26:00 - database - INFO - Document final path updated: 0cb3d171-3dbe-41ea-b7f1-23d742c61ef9 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\GODWIN_JUDAH_J_RESUME_-_GODWIN_JUDAH_J.pdf
+2025-08-06 22:33:04 - database - INFO - Document inserted: e74ebc98-53db-4c2c-bb9c-df90b2bb0ec7
+2025-08-06 22:33:05 - database - INFO - Document status updated: e74ebc98-53db-4c2c-bb9c-df90b2bb0ec7 -> extracted
+2025-08-06 22:33:07 - database - INFO - Document status updated: e74ebc98-53db-4c2c-bb9c-df90b2bb0ec7 -> classified
+2025-08-06 22:33:08 - database - INFO - Document final path updated: e74ebc98-53db-4c2c-bb9c-df90b2bb0ec7 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\sadha_cv_-_SADHA_SHREE_R.pdf
+2025-08-06 22:35:42 - database - INFO - Database 'document_system' already  exists
+2025-08-06 22:35:42 - database - INFO - Database tables created successfully
+2025-08-06 22:35:43 - database - INFO - Database 'document_system' already  exists
+2025-08-06 22:35:44 - database - INFO - Database tables created successfully
+2025-08-06 22:35:48 - database - INFO - Database 'document_system' already  exists
+2025-08-06 22:35:49 - database - INFO - Database tables created successfully
+2025-08-06 22:36:06 - database - INFO - Document inserted: 36bd877c-caad-48ea-8947-612c35523286
+2025-08-06 22:36:07 - database - INFO - Document status updated: 36bd877c-caad-48ea-8947-612c35523286 -> extracted
+2025-08-06 22:36:10 - database - INFO - Document status updated: 36bd877c-caad-48ea-8947-612c35523286 -> classified
+2025-08-06 22:36:10 - database - INFO - Document final path updated: 36bd877c-caad-48ea-8947-612c35523286 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\SAHANA_R_-_RESUME_-_SAHANA_R.pdf
+2025-08-06 23:04:12 - database - INFO - Database 'document_system' already  exists
+2025-08-06 23:04:12 - database - INFO - Database tables created successfully
+2025-08-06 23:04:13 - database - INFO - Database 'document_system' already  exists
+2025-08-06 23:04:13 - database - INFO - Database tables created successfully
+2025-08-06 23:04:22 - database - INFO - Database 'document_system' already  exists
+2025-08-06 23:04:22 - database - INFO - Database tables created successfully
+2025-08-06 23:05:51 - database - INFO - Document inserted: e5c79beb-cb05-477b-805e-c84ba7e11aa1
+2025-08-06 23:05:52 - database - INFO - Document inserted: ed67234d-5564-458e-8664-0e9dcc9c04bb
+2025-08-06 23:05:52 - database - INFO - Document status updated: e5c79beb-cb05-477b-805e-c84ba7e11aa1 -> extracted
+2025-08-06 23:05:53 - database - INFO - Document status updated: ed67234d-5564-458e-8664-0e9dcc9c04bb -> extracted
+2025-08-06 23:05:55 - database - INFO - Document status updated: e5c79beb-cb05-477b-805e-c84ba7e11aa1 -> classified
+2025-08-06 23:05:55 - database - INFO - Document final path updated: e5c79beb-cb05-477b-805e-c84ba7e11aa1 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\MUGUNTHAN_S.pdf
+2025-08-06 23:05:56 - database - INFO - Document status updated: ed67234d-5564-458e-8664-0e9dcc9c04bb -> classified
+2025-08-06 23:05:56 - database - INFO - Document final path updated: ed67234d-5564-458e-8664-0e9dcc9c04bb -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\MUGUNTHAN_S.pdf
+2025-08-07 08:31:46 - database - INFO - Database 'document_system' already  exists
+2025-08-07 08:31:46 - database - INFO - Database tables created successfully
+2025-08-07 08:31:48 - database - INFO - Database 'document_system' already  exists
+2025-08-07 08:31:48 - database - INFO - Database tables created successfully
+2025-08-07 08:31:59 - database - INFO - Database 'document_system' already  exists
+2025-08-07 08:31:59 - database - INFO - Database tables created successfully
+2025-08-07 08:32:17 - database - INFO - Document inserted: ea46392b-1e65-4acf-ba8f-845494c20ed6
+2025-08-07 08:32:17 - database - INFO - Document inserted: 54ee0b93-71cc-4e52-848b-bc0d68414c2f
+2025-08-07 08:32:17 - database - INFO - Document status updated: ea46392b-1e65-4acf-ba8f-845494c20ed6 -> extracted
+2025-08-07 08:32:18 - database - INFO - Document status updated: 54ee0b93-71cc-4e52-848b-bc0d68414c2f -> extracted
+2025-08-07 08:32:20 - database - INFO - Document status updated: ea46392b-1e65-4acf-ba8f-845494c20ed6 -> classified
+2025-08-07 08:32:20 - database - INFO - Document final path updated: ea46392b-1e65-4acf-ba8f-845494c20ed6 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\Results.pdf
+2025-08-07 08:32:21 - database - INFO - Document status updated: 54ee0b93-71cc-4e52-848b-bc0d68414c2f -> classified
+2025-08-07 08:32:21 - database - INFO - Document final path updated: 54ee0b93-71cc-4e52-848b-bc0d68414c2f -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\Results.pdf
+2025-08-07 09:06:01 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:06:01 - database - INFO - Database tables created successfully
+2025-08-07 09:06:02 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:06:02 - database - INFO - Database tables created successfully
+2025-08-07 09:06:04 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:06:04 - database - INFO - Database tables created successfully
+2025-08-07 09:08:16 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:08:17 - database - INFO - Database tables created successfully
+2025-08-07 09:08:18 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:08:18 - database - INFO - Database tables created successfully
+2025-08-07 09:08:21 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:08:21 - database - INFO - Database tables created successfully
+2025-08-07 09:13:06 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:13:06 - database - INFO - Database tables created successfully
+2025-08-07 09:13:07 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:13:07 - database - INFO - Database tables created successfully
+2025-08-07 09:13:10 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:13:10 - database - INFO - Database tables created successfully
+2025-08-07 09:16:03 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:16:03 - database - INFO - Database tables created successfully
+2025-08-07 09:16:04 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:16:04 - database - INFO - Database tables created successfully
+2025-08-07 09:16:07 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:16:07 - database - INFO - Database tables created successfully
+2025-08-07 09:19:06 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:19:06 - database - INFO - Database tables created successfully
+2025-08-07 09:19:06 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:19:06 - database - INFO - Database tables created successfully
+2025-08-07 09:19:09 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:19:09 - database - INFO - Database tables created successfully
+2025-08-07 09:23:45 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:23:45 - database - INFO - Database tables created successfully
+2025-08-07 09:23:46 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:23:46 - database - INFO - Database tables created successfully
+2025-08-07 09:23:49 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:23:49 - database - INFO - Database tables created successfully
+2025-08-07 09:24:31 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:24:31 - database - INFO - Database tables created successfully
+2025-08-07 09:24:32 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:24:32 - database - INFO - Database tables created successfully
+2025-08-07 09:24:35 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:24:35 - database - INFO - Database tables created successfully
+2025-08-07 09:41:44 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:41:44 - database - INFO - Database tables created successfully
+2025-08-07 09:41:45 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:41:45 - database - INFO - Database tables created successfully
+2025-08-07 09:41:47 - database - INFO - Database 'document_system' already  exists
+2025-08-07 09:41:47 - database - INFO - Database tables created successfully
+2025-08-07 10:33:54 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:33:55 - database - INFO - Database tables created successfully
+2025-08-07 10:33:55 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:33:55 - database - INFO - Database tables created successfully
+2025-08-07 10:33:56 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:33:56 - database - INFO - Database tables created successfully
+2025-08-07 10:34:53 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:34:53 - database - INFO - Database tables created successfully
+2025-08-07 10:34:54 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:34:54 - database - INFO - Database tables created successfully
+2025-08-07 10:34:55 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:34:55 - database - INFO - Database tables created successfully
+2025-08-07 10:43:22 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:43:22 - database - INFO - Database tables created successfully
+2025-08-07 10:43:23 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:43:23 - database - INFO - Database tables created successfully
+2025-08-07 10:43:25 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:43:25 - database - INFO - Database tables created successfully
+2025-08-07 10:45:09 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:45:09 - database - INFO - Database tables created successfully
+2025-08-07 10:45:10 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:45:10 - database - INFO - Database tables created successfully
+2025-08-07 10:45:11 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:45:11 - database - INFO - Database tables created successfully
+2025-08-07 10:47:09 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:47:09 - database - INFO - Database tables created successfully
+2025-08-07 10:47:10 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:47:10 - database - INFO - Database tables created successfully
+2025-08-07 10:47:11 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:47:11 - database - INFO - Database tables created successfully
+2025-08-07 10:48:56 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:48:56 - database - INFO - Database tables created successfully
+2025-08-07 10:48:57 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:48:57 - database - INFO - Database tables created successfully
+2025-08-07 10:48:58 - database - INFO - Database 'document_system' already  exists
+2025-08-07 10:48:58 - database - INFO - Database tables created successfully
+2025-08-07 10:50:00 - database - INFO - Document inserted: ed7df784-f700-4a8d-a0f4-29d20b8933d3
+2025-08-07 10:50:00 - database - INFO - Document inserted: 322fded4-95b8-4fdf-80c5-d7568b261c72
+2025-08-07 10:50:02 - database - INFO - Document inserted: a285e572-b923-4995-9364-a58c2668024e
+2025-08-07 10:50:02 - database - INFO - Document status updated: ed7df784-f700-4a8d-a0f4-29d20b8933d3 -> extracted
+2025-08-07 10:50:02 - database - INFO - Document status updated: ed7df784-f700-4a8d-a0f4-29d20b8933d3 -> classified
+2025-08-07 10:50:02 - database - INFO - Document final path updated: ed7df784-f700-4a8d-a0f4-29d20b8933d3 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\TS_Header_form.png
+2025-08-07 10:50:02 - database - INFO - Document inserted: 54daca0d-6cea-47bb-9974-3433f81e25e7
+2025-08-07 10:50:02 - database - INFO - Document status updated: 322fded4-95b8-4fdf-80c5-d7568b261c72 -> extracted
+2025-08-07 10:50:03 - database - INFO - Document status updated: 322fded4-95b8-4fdf-80c5-d7568b261c72 -> classified
+2025-08-07 10:50:03 - database - INFO - Document final path updated: 322fded4-95b8-4fdf-80c5-d7568b261c72 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\TS_Header_form.png
+2025-08-07 10:50:03 - database - INFO - Document status updated: a285e572-b923-4995-9364-a58c2668024e -> extracted
+2025-08-07 10:50:04 - database - INFO - Document status updated: a285e572-b923-4995-9364-a58c2668024e -> classified
+2025-08-07 10:50:04 - database - INFO - Document final path updated: a285e572-b923-4995-9364-a58c2668024e -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\Smart Stay Hackathon 1.0.png
+2025-08-07 10:50:04 - database - INFO - Document status updated: 54daca0d-6cea-47bb-9974-3433f81e25e7 -> extracted
+2025-08-07 10:50:05 - database - INFO - Document status updated: 54daca0d-6cea-47bb-9974-3433f81e25e7 -> classified
+2025-08-07 10:50:05 - database - INFO - Document final path updated: 54daca0d-6cea-47bb-9974-3433f81e25e7 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\Smart Stay Hackathon 1.0.png
+2025-08-07 10:50:05 - database - INFO - Document inserted: ba5c5238-f540-4eac-bf87-108cc7b0b158
+2025-08-07 10:50:05 - database - INFO - Document inserted: 2fe43b64-23c8-4708-bdca-6d29cc2be2a9
+2025-08-07 10:50:06 - database - INFO - Document status updated: ba5c5238-f540-4eac-bf87-108cc7b0b158 -> extracted
+2025-08-07 10:50:06 - database - INFO - Document status updated: ba5c5238-f540-4eac-bf87-108cc7b0b158 -> classified
+2025-08-07 10:50:06 - database - INFO - Document final path updated: ba5c5238-f540-4eac-bf87-108cc7b0b158 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\07-08-2025.png
+2025-08-07 10:50:07 - database - INFO - Document inserted: 9b773103-eb04-4db4-b82c-5be80a89c435
+2025-08-07 10:50:07 - database - INFO - Document inserted: b28f89f2-df4c-4a7a-b67e-1ab10dfe9a73
+2025-08-07 10:50:07 - database - INFO - Document status updated: 2fe43b64-23c8-4708-bdca-6d29cc2be2a9 -> extracted
+2025-08-07 10:50:07 - database - INFO - Document status updated: 2fe43b64-23c8-4708-bdca-6d29cc2be2a9 -> classified
+2025-08-07 10:50:08 - database - INFO - Document final path updated: 2fe43b64-23c8-4708-bdca-6d29cc2be2a9 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\07-08-2025.png
+2025-08-07 10:50:08 - database - INFO - Document status updated: 9b773103-eb04-4db4-b82c-5be80a89c435 -> extracted
+2025-08-07 10:50:08 - database - INFO - Document status updated: 9b773103-eb04-4db4-b82c-5be80a89c435 -> classified
+2025-08-07 10:50:08 - database - INFO - Document final path updated: 9b773103-eb04-4db4-b82c-5be80a89c435 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\WhatsApp Image 2025-08-06 at 21.05.26_d14b8af2.jpg
+2025-08-07 10:50:08 - database - INFO - Document status updated: b28f89f2-df4c-4a7a-b67e-1ab10dfe9a73 -> extracted
+2025-08-07 10:50:08 - database - INFO - Document status updated: b28f89f2-df4c-4a7a-b67e-1ab10dfe9a73 -> classified
+2025-08-07 10:50:09 - database - INFO - Document final path updated: b28f89f2-df4c-4a7a-b67e-1ab10dfe9a73 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\others\WhatsApp Image 2025-08-06 at 21.05.26_d14b8af2.jpg
+2025-08-07 11:01:28 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:01:28 - database - INFO - Database tables created successfully
+2025-08-07 11:01:29 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:01:29 - database - INFO - Database tables created successfully
+2025-08-07 11:01:30 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:01:30 - database - INFO - Database tables created successfully
+2025-08-07 11:33:22 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:33:22 - database - INFO - Database tables created successfully
+2025-08-07 11:33:23 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:33:23 - database - INFO - Database tables created successfully
+2025-08-07 11:33:24 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:33:24 - database - INFO - Database tables created successfully
+2025-08-07 11:35:46 - database - ERROR - Database connection error: column "gmail_connected" of relation "users" does not exist
+LINE 1: UPDATE users SET gmail_connected = FALSE
+                         ^
+
+2025-08-07 11:37:33 - database - ERROR - Database connection error: column "gmail_connected" of relation "users" does not exist
+LINE 1: UPDATE users SET gmail_connected = FALSE
+                         ^
+
+2025-08-07 11:40:36 - database - ERROR - Database connection error: column "gmail_connected" of relation "users" does not exist
+LINE 1: UPDATE users SET gmail_connected = FALSE
+                         ^
+
+2025-08-07 11:40:58 - database - ERROR - Database connection error: column "gmail_connected" of relation "users" does not exist
+LINE 1: UPDATE users SET gmail_connected = FALSE
+                         ^
+
+2025-08-07 11:41:29 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:41:29 - database - INFO - Database tables created successfully
+2025-08-07 11:41:30 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:41:30 - database - INFO - Database tables created successfully
+2025-08-07 11:41:31 - database - INFO - Database 'document_system' already  exists
+2025-08-07 11:41:31 - database - INFO - Database tables created successfully
+2025-08-07 11:45:32 - database - INFO - Document inserted: 6c83a8cb-787b-4d1e-89e4-82907e2607e5
+2025-08-07 11:45:33 - database - INFO - Document inserted: 86e92abb-699b-4bdb-b31e-093429ae4594
+2025-08-07 11:45:33 - database - INFO - Document status updated: 6c83a8cb-787b-4d1e-89e4-82907e2607e5 -> extracted
+2025-08-07 11:45:33 - database - INFO - Document status updated: 6c83a8cb-787b-4d1e-89e4-82907e2607e5 -> classified
+2025-08-07 11:45:33 - database - INFO - Document final path updated: 6c83a8cb-787b-4d1e-89e4-82907e2607e5 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\Final Resume 211722104037.pdf
+2025-08-07 11:45:33 - database - INFO - Document status updated: 86e92abb-699b-4bdb-b31e-093429ae4594 -> extracted
+2025-08-07 11:45:34 - database - INFO - Document status updated: 86e92abb-699b-4bdb-b31e-093429ae4594 -> classified
+2025-08-07 11:45:34 - database - INFO - Document final path updated: 86e92abb-699b-4bdb-b31e-093429ae4594 -> D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\router\routed_documents\resumes\Final Resume 211722104037.pdf
+2025-08-07 12:50:27 - database - INFO - Database 'document_system' already  exists
+2025-08-07 12:50:27 - database - INFO - Database tables created successfully
+2025-08-07 12:50:29 - database - INFO - Database 'document_system' already  exists
+2025-08-07 12:50:29 - database - INFO - Database tables created successfully
+2025-08-07 12:50:36 - database - INFO - Database 'document_system' already  exists
+2025-08-07 12:50:36 - database - INFO - Database tables created successfully

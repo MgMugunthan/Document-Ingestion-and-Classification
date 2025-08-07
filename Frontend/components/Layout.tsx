@@ -87,16 +87,16 @@ export default function Layout({ children }: LayoutProps) {
           {/* User Profile */}
           <div className="p-4 border-t border-gray-200">
             <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+              <div className="flex items-center space-x-3 min-w-0 flex-1">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
                   user?.user_type === 'admin' ? 'bg-purple-600' : 'bg-[#3452D1]'
                 }`}>
                   <span className="text-white text-sm font-medium">
                     {user?.user_id ? user.user_id.charAt(0).toUpperCase() : 'U'}
                   </span>
                 </div>
-                <div>
-                  <p className="text-sm font-medium text-gray-800">
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm font-medium text-gray-800 truncate">
                     {user?.user_id || 'User'}
                     {user?.user_type === 'admin' && (
                       <span className="ml-2 px-2 py-1 text-xs bg-purple-100 text-purple-800 rounded-full">
@@ -104,7 +104,9 @@ export default function Layout({ children }: LayoutProps) {
                       </span>
                     )}
                   </p>
-                  <p className="text-xs text-gray-500">{user?.email || 'user@dokmanic.com'}</p>
+                  <p className="text-xs text-gray-500 truncate" title={user?.email || 'user@dokmanic.com'}>
+                    {user?.email || 'user@dokmanic.com'}
+                  </p>
                 </div>
               </div>
               <button

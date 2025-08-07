@@ -218,6 +218,23 @@ export const documentApi = {
 
 // Gmail endpoints
 export const gmailApi = {
+  // Start Gmail OAuth authentication
+  startAuth: async () => {
+    const response = await fetch(`${INGESTOR_BASE_URL}/api/gmail/auth/start`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    
+    if (!response.ok) {
+      const error = await response.json()
+      throw new Error(error.error || 'Failed to start Gmail authentication')
+    }
+    
+    return response.json()
+  },
+
   search: async (prompt: string) => {
     const response = await fetch(`${INGESTOR_BASE_URL}/api/gmail/search`, {
       method: 'POST',
@@ -267,6 +284,23 @@ export const gmailApi = {
 
   getStatus: async () => {
     const response = await fetch(`${INGESTOR_BASE_URL}/api/gmail/status`)
+    return response.json()
+  },
+
+  // Disconnect Gmail integration
+  disconnect: async () => {
+    const response = await fetch(`${INGESTOR_BASE_URL}/api/gmail/auth/disconnect`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    
+    if (!response.ok) {
+      const error = await response.json()
+      throw new Error(error.error || 'Failed to disconnect Gmail')
+    }
+    
     return response.json()
   }
 }

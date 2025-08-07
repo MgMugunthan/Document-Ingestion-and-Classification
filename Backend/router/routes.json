@@ -1,6 +1,13 @@
 {
-    "invoice": "routed/invoices/",
-    "receipt": "routed/receipts/",
-    "resume": "routed/resumes/",
-    "default": "routed/others/"
+  "routes": {
+    "resume": "resumes",
+    "cv": "resumes", 
+    "receipt": "receipts",
+    "invoice": "invoices",
+    "bill": "bills"
+  },
+  "default_folder": "others",
+  "needs_action_folder": "needs_action",
+  "confidence_threshold": 0.7,
+  "description": "Document routing configuration. Maps document types to specific folders. Documents with types not in routes go to default_folder. Low confidence documents go to needs_action_folder."
 }

@@ -1,7 +1,6 @@
 import os
 import json
 import sys
-import threading
 from datetime import datetime
 import pdfplumber
 import pytesseract
@@ -90,42 +89,20 @@ def process_messages(consumer, producer):
             processing_time = (datetime.now() - start_time).total_seconds() * 1000
 
             if not text.strip():
-                log.warning(f"No text extracted from '{doc_name}'. Waiting for user input.")
+                log.warning(f"No text extracted from '{doc_name}'. Automatically routing to Needs_Action folder.")
                 
                 # 🔥 NEW: Log warning
                 db_manager.log_processing_step(doc_id, "extraction", "warning", "No text extracted - awaiting user action", int(processing_time))
                 
-                # --- Interactive prompt for blank files ---
-                print("\n" + "="*50)
-                print(f"[ATTENTION] No text extracted from: {doc_name}")
-                print("Options: [d]elete | [r]oute to 'Needs_Action'(default after 15s) | [s]kip ")
+                # Automatically route to Needs_Action folder without user prompt
+                new_path = os.path.join(NEEDS_ACTION_DIR, doc_name)
+                os.rename(path, new_path)
+                log.info(f"Automatically routed blank file to 'Needs_Action': {new_path}")
                 
-                user_choice = {"value": None}
-                def get_input():
-                    user_choice["value"] = input("👉 Your choice: ").strip().lower()
-
-                input_thread = threading.Thread(target=get_input)
-                input_thread.daemon = True
-                input_thread.start()
-                input_thread.join(timeout=15)
-                choice = user_choice["value"] or "r"
-                print("="*50)
-
-                if choice == "d":
-                    os.remove(path)
-                    log.info(f"User chose to delete blank file: {doc_name}")
-                    # 🔥 NEW: Log user action
-                    db_manager.log_processing_step(doc_id, "extraction", "deleted", "User chose to delete blank file")
-                elif choice == "r":
-                    new_path = os.path.join(NEEDS_ACTION_DIR, doc_name)
-                    os.rename(path, new_path)
-                    log.info(f"User chose to route blank file to 'Needs_Action': {new_path}")
-                    # 🔥 NEW: Log user action
-                    db_manager.log_processing_step(doc_id, "extraction", "needs_action", f"Routed to Needs_Action folder: {new_path}")
-                else: # 's' or timeout
-                    log.info(f"Skipping blank file as per user choice/timeout: {doc_name}")
-                    # 🔥 NEW: Log user action
-                    db_manager.log_processing_step(doc_id, "extraction", "skipped", "User chose to skip blank file")
+                # Update document status to needs_action for frontend to handle
+                db_manager.update_document_status(doc_id, "needs_action")
+                db_manager.log_processing_step(doc_id, "extraction", "needs_action", f"Routed to Needs_Action folder: {new_path}")
+                
                 continue # Move to the next message
 
             # --- Process and emit message with extracted text ---

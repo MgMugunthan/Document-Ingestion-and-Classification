@@ -33,6 +33,8 @@ def create_kafka_topics():
             ))
         
         fs = admin_client.create_topics(new_topics=topic_list, validate_only=False)
+        topic_created =0
+        topic_existing = 0
         for topic, f in fs.items():
             try:
                 f.result()
@@ -41,10 +43,17 @@ def create_kafka_topics():
                 log.info(f"Topic '{topic}' already exists")
             except Exception as e:
                 log.error(f"Failed to create topic '{topic}': {e}")
-                
+        if topic_created > 0:
+            log.info(f"Kafka setup complete: {topic_created} topic created, {topic_existing} already existed")
+        else:
+            log.info(f" Kafka setup complete: All {topic_existing} topics already existed")
+            
     except Exception as e:
-        log.warning(f"Kafka not available: {e}")
-        log.info("System will continue without Kafka setup")
+        if "Connection" in str(e) or "timeout" in str(e).lower():
+            log.warning(f"Kafka not available: {e}")
+            log.info("System will continue without kafka setup")
+        else:
+            log.error(f"Kafka setup error: {e}")
 
 # Function to run a Python script in a thread with the unified virtual environment
 import subprocess
@@ -159,7 +168,7 @@ if __name__ == "__main__":
 
     # These are the services that will be started by the orchestrator
     agents = [
-        ("ingestor/ingestor.py", "Unified Ingestor"),
+        ("ingestor/ingestor.py", "Ingestor"),
         ("extractor/extractor.py", "Extractor"),
         ("classifier/classifier.py", "Classifier"),
         ("router/router.py", "Router"),
