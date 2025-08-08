@@ -1,36 +1,35 @@
-import psycopg2
-import psycopg2.extras
+import sys
+import os
 
-# Database connection
-connection_params = {
-    'host': 'localhost',
-    'port': 5432,
-    'database': 'document_system',
-    'user': 'postgres',
-    'password': '1234567890'
-}
+# Add current directory to path for imports
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
+from database.database import db_manager
 
 try:
-    conn = psycopg2.connect(**connection_params)
-    cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+    # Get all documents using the database manager
+    documents = db_manager.get_documents()
     
-    # Get all documents
-    cursor.execute("SELECT document_id, document_name, uploaded_by, processing_status, upload_timestamp FROM documents ORDER BY upload_timestamp DESC LIMIT 10;")
-    documents = cursor.fetchall()
+    if not documents:
+        print("✅ Database is clean - No documents found.")
+        print("🚀 System is ready for fresh start!")
+    else:
+        print(f"⚠️  Found {len(documents)} test documents in database.")
+        response = input("🧹 Clear all test documents? (yes/no): ").lower()
+        if response == 'yes' or response == 'y':
+            # Clear all documents
+            with db_manager.get_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute("DELETE FROM documents")
+                cursor.execute("DELETE FROM processing_logs")
+                conn.commit()
+            print("✅ Database cleared successfully!")
+            print("🚀 System is ready for fresh start!")
+        else:
+            print("📊 Database cleanup skipped.")
     
-    print(f"Found {len(documents)} documents:")
-    for doc in documents:
-        print(f"- {doc['document_name']} | User: {doc['uploaded_by']} | Status: {doc['processing_status']} | ID: {doc['document_id']}")
-    
-    # Get unique users
-    cursor.execute("SELECT DISTINCT uploaded_by FROM documents;")
-    users = cursor.fetchall()
-    
-    print(f"\nUnique users who uploaded documents:")
-    for user in users:
-        print(f"- {user['uploaded_by']}")
+    print(f"\n� Database connection: ✅ Working")
+    print(f"🔧 System status: ✅ Ready")
         
-    conn.close()
-    
 except Exception as e:
-    print(f"Database error: {e}")
+    print(f"❌ Database error: {e}")
+    print("💡 Make sure PostgreSQL is running and accessible.")

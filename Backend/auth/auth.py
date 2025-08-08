@@ -450,15 +450,40 @@ def status():
         'timestamp': datetime.utcnow().isoformat()
     })
 
+@app.route('/api/health', methods=['GET'])
+def health():
+    """Health check endpoint for service monitoring"""
+    try:
+        # Quick database connection test
+        with db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute('SELECT 1')
+        
+        return jsonify({
+            'status': 'healthy',
+            'service': 'Authentication Service',
+            'database': 'connected',
+            'timestamp': datetime.utcnow().isoformat()
+        })
+    except Exception as e:
+        log.error(f"Health check failed: {e}")
+        return jsonify({
+            'status': 'unhealthy',
+            'service': 'Authentication Service',
+            'database': 'disconnected',
+            'error': str(e),
+            'timestamp': datetime.utcnow().isoformat()
+        }), 500
+
 if __name__ == '__main__':
     log.info("Authentication service starting...")
     
     # Initialize database
     try:
         db_manager.initialize_database()
-        log.info("Database connection established")
+        log.info("Auth service database connection ready")
     except Exception as e:
         log.error(f"Database initialization failed: {e}")
         exit(1)
     
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    app.run(host='0.0.0.0', port=5001, debug=False)

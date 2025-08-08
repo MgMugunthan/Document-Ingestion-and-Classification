@@ -934,4 +934,62 @@ def create_routes(ingestor_core, gmail_handler):
                 "error": f"Error downloading document: {str(e)}"
             }), 500
 
+    @routes_bp.route('/api/analytics/dashboard', methods=['GET'])
+    def get_dashboard_analytics():
+        """Get dashboard analytics data."""
+        try:
+            user_id = request.args.get('user_id')
+            
+            # Get analytics from database
+            analytics = ingestor_core.db.get_dashboard_analytics(user_id)
+            
+            return jsonify({
+                "success": True,
+                "data": analytics
+            })
+            
+        except Exception as e:
+            log.error(f"Error getting dashboard analytics: {e}")
+            return jsonify({
+                "success": False,
+                "error": f"Error getting analytics: {str(e)}"
+            }), 500
+
+    @routes_bp.route('/api/analytics/stats', methods=['GET'])
+    def get_stats():
+        """Get basic statistics."""
+        try:
+            user_id = request.args.get('user_id')
+            
+            # Get analytics from database
+            analytics = ingestor_core.db.get_dashboard_analytics(user_id)
+            
+            # Format for compatibility with existing stats endpoint
+            by_status = {}
+            for item in analytics.get('by_status', []):
+                by_status[item['processing_status']] = item['count']
+            
+            by_type = {}
+            for item in analytics.get('by_classification', []):
+                classification = item['classification_type'] or 'unclassified'
+                by_type[classification] = item['count']
+            
+            return jsonify({
+                "success": True,
+                "data": {
+                    "total_documents": analytics.get('total_documents', 0),
+                    "by_status": by_status,
+                    "by_type": by_type,
+                    "avg_confidence": analytics.get('avg_confidence', 0),
+                    "needs_review_count": analytics.get('needs_review_count', 0)
+                }
+            })
+            
+        except Exception as e:
+            log.error(f"Error getting stats: {e}")
+            return jsonify({
+                "success": False,
+                "error": f"Error getting stats: {str(e)}"
+            }), 500
+
     return routes_bp

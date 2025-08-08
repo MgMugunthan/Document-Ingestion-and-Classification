@@ -146,7 +146,7 @@ if __name__ == "__main__":
     # 🔥 NEW: Initialize database
     try:
         db_manager.initialize_database()
-        log.info("Database connection established")
+        log.info("Extractor service database connection ready")
     except Exception as e:
         log.error(f"Database initialization failed: {e}")
         sys.exit(1)

@@ -172,19 +172,37 @@ class GmailHandler:
         self.save_state(current_time)
         self.log.info("Gmail state initialized - will only process new emails from now on")
     
+    def check_network_connectivity(self):
+        """Quick network connectivity check."""
+        try:
+            import socket
+            # Quick test to see if we can reach Google's DNS
+            sock = socket.create_connection(("8.8.8.8", 53), timeout=5)
+            sock.close()
+            return True
+        except:
+            return False
+    
     def fetch_attachments(self, fetch_all=False):
-        """Fetch attachments from Gmail."""
+        """Fetch attachments from Gmail using direct HTTP requests to avoid client library issues."""
         if not self.is_available():
             self.log.info("Gmail integration disabled")
             return
             
+        # Quick connectivity check before attempting API calls
+        if not self.check_network_connectivity():
+            self.log.debug("Network connectivity check failed - skipping Gmail fetch")
+            return
+            
         try:
-            creds = self.setup_auth()
-            if not creds:
+            # Get access token from credentials file
+            access_token = self._get_access_token()
+            if not access_token:
                 self.log.debug("Gmail authentication not available - skipping fetch")
                 return
-                
-            service = build('gmail', 'v1', credentials=creds)
+            
+            # Use direct HTTP requests instead of Google API client
+            import requests
             
             # Build query
             if fetch_all:
@@ -206,7 +224,26 @@ class GmailHandler:
                     self.log.info("First Gmail connection - initialized state")
                     return
             
-            results = service.users().messages().list(userId='me', q=query).execute()
+            # Make direct HTTP request to Gmail API
+            headers = {
+                'Authorization': f'Bearer {access_token}',
+                'Content-Type': 'application/json'
+            }
+            
+            params = {'q': query}
+            url = "https://gmail.googleapis.com/gmail/v1/users/me/messages"
+            
+            response = requests.get(url, headers=headers, params=params, timeout=(10, 30))
+            
+            if response.status_code != 200:
+                if response.status_code == 401:
+                    self.log.warning("Gmail authentication expired - need to re-authenticate")
+                    return
+                else:
+                    self.log.error(f"Gmail API error: {response.status_code} - {response.text}")
+                    return
+            
+            results = response.json()
             messages = results.get('messages', [])
             
             self.log.info(f"Found {len(messages)} emails to process")
@@ -216,29 +253,122 @@ class GmailHandler:
             
             for message in messages:
                 msg_id = message['id']
-                msg = service.users().messages().get(userId='me', id=msg_id).execute()
                 
-                attachments_processed = self.process_message(service, msg)
+                # Get message details using direct HTTP request
+                msg_url = f"https://gmail.googleapis.com/gmail/v1/users/me/messages/{msg_id}"
+                msg_response = requests.get(msg_url, headers=headers, timeout=(10, 30))
+                
+                if msg_response.status_code != 200:
+                    self.log.warning(f"Failed to get message {msg_id}: {msg_response.status_code}")
+                    continue
+                
+                msg = msg_response.json()
+                attachments_processed = self._process_message_direct(msg, headers)
                 if attachments_processed > 0:
                     processed_count += attachments_processed
                 
-                # Mark as read
-                service.users().messages().modify(
-                    userId='me',
-                    id=msg_id,
-                    body={'removeLabelIds': ['UNREAD']}
-                ).execute()
+                # Mark as read using direct HTTP request
+                modify_url = f"https://gmail.googleapis.com/gmail/v1/users/me/messages/{msg_id}/modify"
+                modify_data = {'removeLabelIds': ['UNREAD']}
+                requests.post(modify_url, headers=headers, json=modify_data, timeout=(10, 30))
             
             self.save_state(current_time)
             
             if processed_count > 0:
                 self.log.info(f"Processed {processed_count} Gmail attachments")
             else:
-                self.log.info("No new Gmail attachments to process")
+                self.log.debug("No new Gmail attachments to process")
             
+        except requests.exceptions.Timeout:
+            self.log.warning("Gmail API request timed out - will retry later")
+        except requests.exceptions.ConnectionError as e:
+            self.log.warning(f"Gmail API connection error: {e}")
         except Exception as e:
             self.log.error(f"Gmail processing failed: {e}")
     
+    def _get_access_token(self):
+        """Get access token from credentials file."""
+        try:
+            if os.path.exists(self.config.gmail_token_file):
+                with open(self.config.gmail_token_file, 'r') as f:
+                    creds_data = json.load(f)
+                return creds_data.get('token')
+        except Exception as e:
+            self.log.error(f"Failed to get access token: {e}")
+        return None
+    
+    def _process_message_direct(self, message, headers):
+        """Process Gmail message using direct HTTP approach and extract attachments."""
+        processed_count = 0
+        try:
+            msg_id = message['id']
+            sender = "Gmail"
+            
+            # Get sender info
+            msg_headers = message.get('payload', {}).get('headers', [])
+            for header in msg_headers:
+                if header['name'] == 'From':
+                    sender = header['value']
+                    break
+            
+            # Process parts for attachments
+            parts = message.get('payload', {}).get('parts', [])
+            if not parts:
+                parts = [message.get('payload', {})]
+            
+            for part in parts:
+                if part.get('filename'):
+                    attachment_id = part.get('body', {}).get('attachmentId')
+                    if attachment_id:
+                        # Get attachment using direct HTTP request
+                        attachment = self._get_attachment_direct(msg_id, attachment_id, headers)
+                        if attachment:
+                            file_data = base64.urlsafe_b64decode(attachment['data'])
+                            filename = part['filename']
+                            
+                            if self._is_valid_document(filename):
+                                filepath = os.path.join(self.config.files_dir, filename)
+                                
+                                with open(filepath, 'wb') as f:
+                                    f.write(file_data)
+                                
+                                if self._is_file_size_valid(filepath):
+                                    self.emit_to_kafka(
+                                        filename,
+                                        filepath,
+                                        source="gmail",
+                                        summary=f"Email attachment from {sender}",
+                                        sender=sender
+                                    )
+                                    self.log.info(f"Gmail attachment processed: {filename}")
+                                    processed_count += 1
+                                else:
+                                    os.remove(filepath)
+                                    self.log.warning(f"Gmail attachment too large, skipped: {filename}")
+        
+        except Exception as e:
+            self.log.error(f"Failed to process Gmail message: {e}")
+        
+        return processed_count
+    
+    def _get_attachment_direct(self, message_id, attachment_id, headers):
+        """Get attachment using direct HTTP request."""
+        try:
+            import requests
+            
+            url = f"https://gmail.googleapis.com/gmail/v1/users/me/messages/{message_id}/attachments/{attachment_id}"
+            response = requests.get(url, headers=headers, timeout=(10, 30))
+            
+            if response.status_code == 200:
+                return response.json()
+            else:
+                self.log.warning(f"Failed to get attachment {attachment_id}: {response.status_code}")
+                return None
+                
+        except Exception as e:
+            self.log.error(f"Failed to get attachment {attachment_id}: {e}")
+            return None
+
     def process_message(self, service, message):
         """Process Gmail message and extract attachments."""
         processed_count = 0
@@ -334,16 +464,22 @@ class GmailHandler:
         return filters
     
     def search_by_prompt(self, prompt):
-        """Search Gmail using natural language prompt."""
+        """Search Gmail using natural language prompt with direct HTTP requests."""
         if not self.is_available():
             return {'error': 'Gmail integration not enabled'}
         
         try:
-            creds = self.setup_auth()
-            if not creds:
+            access_token = self._get_access_token()
+            if not access_token:
                 return {'error': 'Gmail authentication failed'}
             
-            service = build('gmail', 'v1', credentials=creds)
+            import requests
+            
+            headers = {
+                'Authorization': f'Bearer {access_token}',
+                'Content-Type': 'application/json'
+            }
+            
             filters = self.extract_prompt_filters(prompt)
             
             # Build query
@@ -363,24 +499,38 @@ class GmailHandler:
             query = ' '.join(query_parts)
             self.log.info(f"Gmail search query: {query}")
             
-            # Search Gmail
-            results = service.users().messages().list(userId='me', q=query).execute()
+            # Search Gmail using direct HTTP
+            params = {'q': query}
+            url = "https://gmail.googleapis.com/gmail/v1/users/me/messages"
+            response = requests.get(url, headers=headers, params=params, timeout=(10, 30))
+            
+            if response.status_code != 200:
+                return {'error': f'Gmail API error: {response.status_code}'}
+            
+            results = response.json()
             messages = results.get('messages', [])
             
             files = []
             for message in messages[:20]:  # Limit to 20 results
-                msg = service.users().messages().get(userId='me', id=message['id']).execute()
+                # Get message details
+                msg_url = f"https://gmail.googleapis.com/gmail/v1/users/me/messages/{message['id']}"
+                msg_response = requests.get(msg_url, headers=headers, timeout=(10, 30))
+                
+                if msg_response.status_code != 200:
+                    continue
+                
+                msg = msg_response.json()
                 
                 # Get headers
-                headers = msg['payload'].get('headers', [])
-                sender = next((h['value'] for h in headers if h['name'] == 'From'), 'Unknown')
-                subject = next((h['value'] for h in headers if h['name'] == 'Subject'), 'No Subject')
-                date = next((h['value'] for h in headers if h['name'] == 'Date'), 'Unknown')
+                msg_headers = msg.get('payload', {}).get('headers', [])
+                sender = next((h['value'] for h in msg_headers if h['name'] == 'From'), 'Unknown')
+                subject = next((h['value'] for h in msg_headers if h['name'] == 'Subject'), 'No Subject')
+                date = next((h['value'] for h in msg_headers if h['name'] == 'Date'), 'Unknown')
                 
                 # Get attachments
-                parts = msg['payload'].get('parts', [])
+                parts = msg.get('payload', {}).get('parts', [])
                 if not parts:
-                    parts = [msg['payload']]
+                    parts = [msg.get('payload', {})]
                 
                 for part in parts:
                     if part.get('filename') and part.get('body', {}).get('attachmentId'):
@@ -402,46 +552,61 @@ class GmailHandler:
                 'total_found': len(files)
             }
             
+        except requests.exceptions.Timeout:
+            self.log.error("Gmail search request timed out")
+            return {'error': 'Request timed out'}
         except Exception as e:
             self.log.error(f"Gmail search failed: {e}")
             return {'error': str(e)}
     
     def process_selected_files(self, file_ids):
-        """Process specific Gmail files by message IDs."""
+        """Process specific Gmail files by message IDs using direct HTTP requests."""
         if not self.is_available():
             return {'error': 'Gmail integration not enabled'}
         
         try:
-            creds = self.setup_auth()
-            if not creds:
+            access_token = self._get_access_token()
+            if not access_token:
                 return {'error': 'Gmail authentication failed'}
             
-            service = build('gmail', 'v1', credentials=creds)
+            import requests
+            
+            headers = {
+                'Authorization': f'Bearer {access_token}',
+                'Content-Type': 'application/json'
+            }
+            
             processed_count = 0
             errors = []
             processed_files = []
             
             for file_id in file_ids:
                 try:
-                    msg = service.users().messages().get(userId='me', id=file_id).execute()
-                    attachments_processed = self.process_message(service, msg)
+                    # Get message details
+                    msg_url = f"https://gmail.googleapis.com/gmail/v1/users/me/messages/{file_id}"
+                    msg_response = requests.get(msg_url, headers=headers, timeout=(10, 30))
+                    
+                    if msg_response.status_code != 200:
+                        errors.append(f"Failed to get message {file_id}: {msg_response.status_code}")
+                        continue
+                    
+                    msg = msg_response.json()
+                    attachments_processed = self._process_message_direct(msg, headers)
                     processed_count += attachments_processed
                     
                     if attachments_processed > 0:
-                        parts = msg['payload'].get('parts', [])
+                        parts = msg.get('payload', {}).get('parts', [])
                         if not parts:
-                            parts = [msg['payload']]
+                            parts = [msg.get('payload', {})]
                         
                         for part in parts:
                             if part.get('filename') and part.get('body', {}).get('attachmentId'):
                                 processed_files.append(part['filename'])
                     
                     # Mark as read
-                    service.users().messages().modify(
-                        userId='me',
-                        id=file_id,
-                        body={'removeLabelIds': ['UNREAD']}
-                    ).execute()
+                    modify_url = f"https://gmail.googleapis.com/gmail/v1/users/me/messages/{file_id}/modify"
+                    modify_data = {'removeLabelIds': ['UNREAD']}
+                    requests.post(modify_url, headers=headers, json=modify_data, timeout=(10, 30))
                     
                 except Exception as e:
                     errors.append(f"Failed to process {file_id}: {str(e)}")
@@ -539,8 +704,9 @@ class GmailHandler:
             # Check for new emails every 30 seconds instead of 10
             # But only when there's no recent activity
             
-            # Initial fetch to establish baseline
-            self.fetch_attachments()
+            # Skip initial fetch to avoid immediate timeout issues
+            # Will be done in polling thread with proper error handling
+            self.log.info("Gmail monitoring setup - skipping initial fetch")
             
             # Set up efficient polling
             last_activity = time.time()
@@ -550,31 +716,73 @@ class GmailHandler:
             def efficient_polling():
                 nonlocal last_activity, idle_interval
                 
+                # Wait a bit before starting polling to avoid immediate timeout
+                time.sleep(5)
+                self.log.info("Gmail efficient polling thread started")
+                
+                consecutive_failures = 0
+                max_failures = 3
+                
                 while True:
                     try:
-                        # Check for new emails
-                        before_count = self.get_email_count()
-                        self.fetch_attachments()
-                        after_count = self.get_email_count()
+                        # Skip polling if we've had too many consecutive failures
+                        if consecutive_failures >= max_failures:
+                            self.log.info(f"Too many consecutive Gmail failures ({consecutive_failures}), backing off for 5 minutes")
+                            time.sleep(300)  # Wait 5 minutes before retry
+                            consecutive_failures = 0  # Reset counter
+                            continue
                         
-                        # If we found new emails, reset to frequent polling
-                        if after_count != before_count:
-                            last_activity = time.time()
-                            idle_interval = 10  # Back to 10 seconds when active
-                            self.log.info("New emails detected, switching to active monitoring")
-                        else:
-                            # Gradually increase interval if no activity
-                            time_since_activity = time.time() - last_activity
-                            if time_since_activity > 300:  # 5 minutes of no activity
-                                idle_interval = min(idle_interval * 1.5, max_interval)
-                                idle_interval = int(idle_interval)
+                        # Check for new emails with timeout handling
+                        self.log.debug("Checking for new Gmail messages...")
+                        
+                        # Quick network check before attempting API calls
+                        if not self.check_network_connectivity():
+                            self.log.debug("Network connectivity check failed - skipping this poll cycle")
+                            time.sleep(idle_interval)
+                            continue
+                        
+                        before_count = self.get_email_count()
+                        
+                        # Fetch attachments with error handling
+                        try:
+                            self.fetch_attachments()
+                            after_count = self.get_email_count()
+                            
+                            # Reset failure counter on success
+                            consecutive_failures = 0
+                            
+                            # If we found new emails, reset to frequent polling
+                            if after_count != before_count:
+                                last_activity = time.time()
+                                idle_interval = 10  # Back to 10 seconds when active
+                                self.log.info("New emails detected, switching to active monitoring")
+                            else:
+                                # Gradually increase interval if no activity
+                                time_since_activity = time.time() - last_activity
+                                if time_since_activity > 300:  # 5 minutes of no activity
+                                    idle_interval = min(idle_interval * 1.5, max_interval)
+                                    idle_interval = int(idle_interval)
+                                    
+                        except Exception as fetch_error:
+                            consecutive_failures += 1
+                            # Handle specific network errors
+                            error_msg = str(fetch_error)
+                            if "10060" in error_msg:
+                                self.log.debug(f"Gmail API timeout (attempt {consecutive_failures}/{max_failures}) - network connectivity issue")
+                                idle_interval = min(idle_interval * 2, max_interval)  # Back off on timeouts
+                            else:
+                                self.log.warning(f"Gmail fetch error (attempt {consecutive_failures}/{max_failures}): {fetch_error}")
+                            
+                            # Continue polling even after errors
                         
                         self.log.debug(f"Next Gmail check in {idle_interval} seconds")
                         time.sleep(idle_interval)
                         
                     except Exception as e:
-                        self.log.error(f"Gmail efficient polling error: {e}")
-                        time.sleep(60)
+                        consecutive_failures += 1
+                        self.log.error(f"Gmail efficient polling error (attempt {consecutive_failures}/{max_failures}): {e}")
+                        # Back off significantly on errors
+                        time.sleep(min(idle_interval * 3, 300))  # Wait 3x interval or max 5 minutes
             
             # Start efficient polling in a separate thread
             polling_thread = threading.Thread(target=efficient_polling, daemon=True)
@@ -587,21 +795,42 @@ class GmailHandler:
             return False
     
     def get_email_count(self):
-        """Get current count of unread emails with attachments."""
+        """Get current count of unread emails with attachments using direct HTTP."""
         try:
-            creds = self.setup_auth()
-            if not creds:
+            access_token = self._get_access_token()
+            if not access_token:
                 return 0
-                
-            service = build('gmail', 'v1', credentials=creds)
-            results = service.users().messages().list(
-                userId='me', 
-                q='is:unread has:attachment',
-                maxResults=1
-            ).execute()
             
-            return results.get('resultSizeEstimate', 0)
+            # Quick network check
+            if not self.check_network_connectivity():
+                self.log.debug("Network not available for email count check")
+                return 0
             
+            import requests
+            
+            headers = {
+                'Authorization': f'Bearer {access_token}',
+                'Content-Type': 'application/json'
+            }
+            
+            params = {
+                'q': 'is:unread has:attachment',
+                'maxResults': 1
+            }
+            
+            url = "https://gmail.googleapis.com/gmail/v1/users/me/messages"
+            response = requests.get(url, headers=headers, params=params, timeout=(10, 15))
+            
+            if response.status_code == 200:
+                results = response.json()
+                return results.get('resultSizeEstimate', 0)
+            else:
+                self.log.debug(f"Gmail count check failed: {response.status_code}")
+                return 0
+            
+        except requests.exceptions.Timeout:
+            self.log.debug("Gmail count check timed out")
+            return 0
         except Exception as e:
             self.log.debug(f"Failed to get email count: {e}")
             return 0

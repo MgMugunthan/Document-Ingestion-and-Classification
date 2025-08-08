@@ -1,18 +1,7 @@
 """
 Document Ingestor Service - Main Entry Point
 
-A modul            # Start file watcher
-            self.core.start_file_watcher()
-            
-            # DON'T start Gmail monitor automatically - only when user connects
-            # Gmail monitoring will be started via API call when user clicks "Connect Gmail"
-            
-            # Start Flask web server
-            self.log.info(f"🌐 Starting web server on port {self.core.config.web_port}...")
-            self.log.info("✅ Document Ingestor Service ready!")
-            self.log.info(f"📂 Monitoring folder: {self.core.config.files_dir}")
-            self.log.info(f"🌍 Web interface: http://localhost:{self.core.config.web_port}")
-            self.log.info(f"📧 Gmail integration: {'✅ Available (on-demand)' if self.gmail_handler.is_available() else '❌ Disabled'}")ingestor that handles file uploads, Gmail integration,
+A modular ingestor that handles file uploads, Gmail integration,
 and document processing pipeline coordination.
 
 Architecture:
