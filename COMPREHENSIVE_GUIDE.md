@@ -284,3 +284,457 @@ These two services are special. They don't work on the main assembly line. Inste
     *   `POST /api/documents/<id>/reroute`: Allows the user to manually move a document to a different folder.
 
 ---
+
+## 🧠 Part 5: The Database Deep Dive – Our Robot’s Memory in Detail
+
+This project uses PostgreSQL as its memory. The file `Backend/database/database.py` is the only doorway to the database. Every service uses the same doorway thanks to a Singleton called `DatabaseManager`.
+
+- Where it lives: host=localhost, port=5432, database=document_system, user=postgres, password=1234567890
+- When the app starts: `DatabaseManager.initialize_database()` creates the database (if missing) and the tables (if missing) exactly once.
+
+Tables we use (columns simplified):
+- users
+  - id (serial, primary key)
+  - user_id (unique), email (unique), password_hash, user_type, department
+  - created_at, last_login
+- documents
+  - id (serial, primary key), document_id (unique)
+  - original_filename, file_path, file_size, file_extension
+  - uploaded_by, upload_timestamp
+  - processing_status (uploaded, extracted, classified, routed, needs_review)
+  - classification_type, classification_confidence, classification_method
+  - final_path, created_at, updated_at
+- processing_logs
+  - id (serial, primary key), document_id
+  - stage (ingestion, extraction, classification, routing, etc.)
+  - status (success/failure), message, processing_time_ms, timestamp
+
+How services talk to the DB (important helper methods):
+- insert_document(doc_data): Add a row to `documents` when a file arrives.
+- update_document_status(doc_id, status, classification_data): Move a document along the pipeline.
+- log_processing_step(doc_id, stage, status, message, processing_time): Keep a diary entry.
+- get_document_status(doc_id): Fetch a single document’s details.
+- get_user_documents(user_id) and get_documents(...): Paginated/filtered lists for the UI.
+- update_document_final_path(doc_id, final_path, status): Save final destination.
+- get_dashboard_analytics(user_id): Aggregated counts and trends for charts.
+
+How to check the database (non-technical):
+- Use any Postgres client (e.g., pgAdmin, TablePlus). Connect with the values above.
+- Look at tables: users, documents, processing_logs. You will see rows appear as documents move.
+
+How to check the database (technical quick checks):
+- Confirm the DB exists: connect to Postgres and ensure `document_system` is listed.
+- Inspect a document: select from `documents` where `document_id` matches what the app shows.
+- See a document’s history: select from `processing_logs` filtered by the same `document_id`.
+
+How to change the schema safely:
+- Add a column in `initialize_database()` and deploy. Postgres’ CREATE TABLE IF NOT EXISTS will not drop your data. For altering existing columns, write an ALTER TABLE block guarded by checks.
+- Update corresponding code paths that read/write the new column (DatabaseManager and the APIs that surface it).
+
+---
+
+## 🧩 Part 6: Backend Code – File-by-File and How It Works
+
+This section explains what each backend file does and how the code flows.
+
+1) Backend/main.py – The Orchestrator
+- Purpose: Starts all services (Auth, API, Ingestor, Extractor, Classifier, Router) in parallel threads.
+- Flow:
+  - Ensures Kafka topics exist.
+  - Spins up each service script with a friendly name.
+  - If the main process exits, all children are stopped.
+- Why this matters: A single command can boot the whole factory.
+
+2) Backend/logger.py – Consistent Logging
+- Purpose: Central helper to create per-service loggers that write to `Backend/logs` and to the console.
+- Why this matters: Uniform logs make debugging simple. Every service calls `logger.get_agent_logger("ServiceName")`.
+
+3) Backend/database/database.py – The DatabaseManager (Singleton)
+- Purpose: One shared gatekeeper for Postgres. Prevents duplicate initialization and duplicated “tables created” logs.
+- Key ideas:
+  - __new__/__init__ ensure a single instance across services.
+  - initialize_database() creates DB and tables if missing.
+  - Context manager get_connection() yields safe connections and closes them.
+  - Query helpers return dict-like rows for easy JSON.
+
+4) Backend/api/api.py – Documents API service
+- Purpose: A small Flask app exposing health/status and mounting the documents blueprint.
+- Endpoints:
+  - GET /api/health – quick health and DB connectivity check.
+  - GET /api/status – basic “I am alive”.
+  - Mounts /api/documents/* from `documents_api.py`.
+
+5) Backend/api/documents_api.py – Documents management endpoints
+- Purpose: Serves the Frontend’s dashboard and admin pages.
+- Important endpoints:
+  - GET /api/documents – list with filtering, searching, sorting, pagination.
+  - GET /api/documents/types – list distinct classification types and counts.
+  - GET /api/documents/routes – read router/routes.json to show routing options.
+  - DELETE /api/documents/<id> – delete the DB row and any physical files.
+  - POST /api/documents/<id>/reroute – move a file to a new folder, update DB paths.
+- Implementation notes:
+  - Uses db_manager.get_documents() then normalizes field names for the UI.
+  - Calculates a human-friendly file size if the file exists on disk.
+  - Reads `router/routes.json` to know valid destinations.
+
+6) Backend/auth/auth.py – Authentication service
+- Purpose: Register, login, verify tokens, refresh sessions, and provide simple admin user management.
+- Data stored in `users` table. Passwords are hashed.
+- Endpoints used by the Frontend are under /api/auth/*.
+
+7) Backend/ingestor/* – The Reception Desk
+- Files:
+  - ingestor.py – boots the service.
+  - ingestor_core.py – core logic: save uploads, register in DB, produce Kafka message `doc.ingested`.
+  - flask_routes.py – all HTTP endpoints for upload, document status, and Gmail integration.
+  - gmail_handler.py – handles OAuth, fetches email attachments safely, hands to core for processing.
+- Flow when a file is uploaded:
+  - The route receives a multipart form with a file.
+  - ingestor_core saves it under `Backend/ingestor/uploads`.
+  - db_manager.insert_document() creates the row.
+  - A Kafka message with the document_id is produced to `doc.ingested`.
+
+8) Backend/extractor/extractor.py – The Reader
+- Purpose: Consume `doc.ingested`, read text depending on file type (PDF, DOCX, TXT, images via OCR), write logs.
+- Flow:
+  - On success: update status to `extracted` and produce to `doc.extracted` with extracted text.
+  - On failure: log a processing_logs entry and mark status accordingly.
+
+9) Backend/classifier/* – The AI Brain
+- Files:
+  - classifier.py – consumes `doc.extracted`, loads model/vectorizer, predicts category + confidence.
+  - genai_utils.py – helper functions (feature prep, thresholds, fallbacks).
+- Flow:
+  - If confidence >= threshold in router/routes.json (e.g., 0.7), keep the predicted category.
+  - Else, set classification_type = needs_action so a human can decide later.
+  - Update DB and publish to `doc.classified`.
+
+10) Backend/router/router.py – The Filer
+- Purpose: Consume `doc.classified`, pick a destination folder from `router/routes.json`, move the file, finalize DB.
+- routes.json controls:
+  - routes: map of category -> subfolder.
+  - default_folder: where unknown types go.
+  - needs_action_folder: special review bin.
+  - confidence_threshold: used by Classification to mark needs_action.
+
+11) Utilities at Backend root
+- create_admin.py – Interactive script to create the first admin user in `users`.
+- check_docs.py – Helper to inspect and optionally clear documents and logs from the DB.
+- check_services.py – Quick health checks across services (API/Auth/others).
+- clear_logs.py – Empties `Backend/logs/*` for a fresh run.
+
+12) Backend/docker-compose.yml – Messaging backbone
+- Starts Zookeeper and Kafka locally.
+- Kafka advertised on localhost:9092; topics are created automatically when first used.
+
+---
+
+## 🖥️ Part 7: Frontend Deep Dive – Your Control Panel
+
+The Frontend is a Next.js (React + TypeScript) app in `Frontend/`. It talks to two backend base URLs:
+- NEXT_PUBLIC_INGESTOR_URL: default http://localhost:5000 (uploads, Gmail, document-status)
+- NEXT_PUBLIC_AUTH_URL: default http://localhost:5001 (register/login/verify/admin)
+
+Important folders and files:
+- app/
+  - login/page.tsx – login screen. Calls Auth service to get a token and stores it in localStorage.
+  - upload/page.tsx – upload UI. Sends files to Ingestor’s /api/receive.
+  - dashboard/page.tsx – overall stats and charts. Reads from documents APIs.
+  - documents/page.tsx – searchable list. Uses filtering and pagination.
+  - review/page.tsx – a place to handle needs_action docs.
+  - admin/page.tsx – user management (create, list, update, delete).
+  - ai-tool/*, gmail-connected/* – utility screens for AI/Gmail flows.
+- contexts/AuthContext.tsx – wraps the app, handles login/logout, and token persistence.
+- lib/api.ts – all fetch calls live here. Changes to endpoints go here.
+- components/* and components/ui/* – reusable UI building blocks (buttons, dialogs, tables, etc.).
+- styles/globals.css, tailwind.config.js – visual style and theme.
+
+How the Frontend calls the Backend:
+- All calls go through `lib/api.ts`.
+- For authenticated calls, `makeAuthenticatedRequest()` automatically adds the Bearer token and tries a refresh once on 401.
+- Document uploads and Gmail actions hit the Ingestor service; admin and auth hit the Auth service; lists and dashboards hit the Documents API.
+
+How a screen is built (example: login/page.tsx):
+- Uses useAuth() from AuthContext to call `authApi.login({ user_id, password })`.
+- On success, stores `auth_token` and redirects to the next page.
+
+Where to change URLs:
+- Update NEXT_PUBLIC_INGESTOR_URL and NEXT_PUBLIC_AUTH_URL in your environment to point to the correct backend hosts.
+
+---
+
+## 🔌 Part 8: How Everything Connects (Backend ⇄ Frontend ⇄ Database ⇄ Kafka)
+
+- Frontend → Backend: via HTTP fetch from `lib/api.ts` to the Auth, Ingestor, and Documents API services.
+- Backend services → Database: through `DatabaseManager` (always the same connection pattern).
+- Backend services talk among themselves: asynchronously through Kafka topics (`doc.ingested`, `doc.extracted`, `doc.classified`).
+
+Adding a new step in the pipeline (example):
+- Create a new microservice (e.g., “validator”) that listens to a new topic (e.g., `doc.validated`).
+- Change the producer in the upstream service to send to `doc.validated` instead of `doc.extracted`.
+- Update DatabaseManager to record any extra fields you need.
+- Update the Documents API if the Frontend must display the new info.
+
+---
+
+## 🛠️ Part 9: Make Changes with Confidence – Common Recipes
+
+Change the folder a document goes to:
+- Edit `Backend/router/routes.json`. Add or change entries under `routes`. Example: add "bill" → "bills".
+- Optionally update the Frontend to show the new category in filters.
+
+Change the confidence threshold:
+- Edit `Backend/router/routes.json` → `confidence_threshold`.
+- The Classifier will mark low-confidence items as needs_action using this value.
+
+Add a new document type the AI can recognize:
+- Update training offline and refresh `classifier/document_classifier.pkl` and `classifier/tfidf_vectorizer.pkl`.
+- Ensure your new label is present in `routes.json` so Router knows where to file it.
+
+Expose a new field in the UI:
+- Add the column in `initialize_database()` if needed.
+- Update DatabaseManager getters to include the field.
+- Map it in `api/documents_api.py` response objects.
+- Read it in the Frontend page (e.g., `documents/page.tsx`).
+
+Add a new page or feature in the Frontend:
+- Create a new route in `Frontend/app/*/page.tsx`.
+- Add API calls in `Frontend/lib/api.ts`.
+- Wire it to `AuthContext` if it needs auth.
+
+Modify authentication rules:
+- Edit `Backend/auth/auth.py` routes and validations.
+- Adjust Frontend guards in `components/ProtectedRoute.tsx` or `contexts/AuthContext.tsx`.
+
+---
+
+## 🚀 Part 10: Run the System (Local, Step-by-Step)
+
+Prerequisites:
+- Python 3.10+ and pip
+- Node.js 18+ and pnpm or npm
+- Docker Desktop running (for Kafka/Zookeeper)
+
+Start services in order:
+1) Kafka: in `Backend/`, start Docker services. Wait until Kafka is healthy on port 9092.
+2) Backend Python deps: in `Backend/`, install requirements and ensure Postgres is running and accessible.
+3) Initialize DB: run the app once (the DatabaseManager creates tables). Optionally run `create_admin.py` to add your admin user.
+4) Start the backend: run the Orchestrator (main.py) – it boots Auth (5001), Ingestor (5000), API (5002), and workers.
+5) Frontend: in `Frontend/`, install deps and start the dev server. Open http://localhost:3000.
+
+Sanity checks:
+- Auth: open its status endpoint; login via the app.
+- Ingestor: open its status endpoint; try a small upload.
+- Documents API: open /api/health; the dashboard should load with zero docs on first run.
+
+Logs to watch:
+- `Backend/logs/*.log` – each service writes its own file. If something fails, check here.
+
+---
+
+## 🧯 Part 11: Troubleshooting (Quick Clues)
+
+- Duplicate “tables created” logs: already fixed by the Singleton + _db_setup_logged flag.
+- Can’t connect to DB: verify host/port/creds in DatabaseManager and that Postgres is running.
+- Files don’t move: confirm `router/routes.json` exists and the destination folders are writable under `router/routed_documents`.
+- Classifier says needs_action too often: lower the confidence threshold in `routes.json` or improve the model.
+- Frontend shows 401 errors: token expired – the app will try refresh once. If it still fails, log in again.
+
+---
+
+## 📚 Part 12: Glossary (For Everyone)
+- API: A waiter that takes orders (requests) and brings food (data).
+- Kafka: A conveyor belt messages ride on.
+- Database: Long-term memory.
+- Microservice: A small worker that does one job well.
+- OCR: A way for computers to read text from pictures.
+- Token: A ticket that proves you’re logged in.
+
+You now have the full map: what each part does, how they talk, how to change things, and how to run everything end-to-end. Make changes in one place at a time, test, watch logs, and iterate.
+
+---
+
+## Appendix A: Full API Reference (Current Endpoints)
+
+Base URLs (default local):
+- Ingestor: http://localhost:5000
+- Auth: http://localhost:5001
+- Documents API: http://localhost:5002
+
+1) Auth Service (/api/auth)
+- POST /api/auth/login – body: { user_id, password } → { token, user }
+- POST /api/auth/verify – body: { token } → { valid: boolean, user? }
+- POST /api/auth/refresh – uses Authorization: Bearer <token> → { token }
+- POST /api/auth/register – body: { user_id, email, password, user_type?, department? }
+- GET  /api/auth/status – service status
+- Admin:
+  - GET    /api/auth/admin/users
+  - POST   /api/auth/admin/users – create user
+  - PUT    /api/auth/admin/users/:userId – update user
+  - DELETE /api/auth/admin/users/:userId – delete user
+  - POST   /api/auth/reset-password – body: { user_id, new_password }
+
+2) Ingestor Service
+- GET  /           – HTML status page
+- GET  /api/status – JSON status
+- POST /api/receive – multipart form: document=<file>, metadata=<json>
+- GET  /api/document/:id/status – document status + processing_logs
+- GET  /api/documents/user/:user_id – list user’s documents
+- GET  /api/documents/all – debug: recent documents (limited)
+- GET  /api/documents/routes – router config (routes.json)
+- DELETE /api/documents/:document_id – delete document + files
+- Gmail integration:
+  - POST /api/gmail/fetch – fetch new attachments
+  - POST /api/gmail/fetch-all – fetch all unread attachments
+  - GET  /api/gmail/status – gmail integration status
+  - POST /api/gmail/reset – reset gmail state
+  - POST /api/gmail/search – body: { prompt }
+  - POST /api/gmail/process-selected – body: { file_ids: string[] }
+  - GET  /api/gmail/auth/start – returns { auth_url }
+  - POST /api/gmail/auth/disconnect – disconnect integration
+  - GET  /api/gmail/auth/callback – OAuth callback (browser flow)
+
+3) Documents API Service
+- GET  /api/health – service + DB health
+- GET  /api/status – service status
+- GET  /api/documents/ – list (query params: user_id, status, type, limit, offset, search, sort_by, sort_order)
+- GET  /api/documents/types – unique classification types + counts
+- GET  /api/documents/routes – available routing options from routes.json
+- GET  /api/documents/stats – basic stats (by_status, by_type)
+- DELETE /api/documents/:document_id – delete document + files
+- POST   /api/documents/:document_id/reroute – body: { route? , folder? }
+
+Note: Some advanced reclassify/view endpoints are not yet implemented in PostgreSQL path and return 501.
+
+---
+
+## Appendix B: Environment & Configuration
+
+Frontend environment variables (create `Frontend/.env.local`):
+- NEXT_PUBLIC_INGESTOR_URL=http://localhost:5000
+- NEXT_PUBLIC_AUTH_URL=http://localhost:5001
+
+Backend configuration:
+- Database connection is currently defined in `Backend/database/database.py` (connection_params). To change:
+  - Edit host, port, database, user, password there; or
+  - Refactor to read from OS env (recommended) and define, for example:
+    - DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD
+- Service ports (defaults):
+  - Ingestor: 5000
+  - Auth: 5001
+  - Documents API: 5002
+- Kafka/Zookeeper via `Backend/docker-compose.yml`:
+  - Zookeeper: 2181
+  - Kafka: 9092 (advertised localhost:9092)
+
+CORS: The API services enable CORS for local development. Adjust origins if hosting remotely.
+
+---
+
+## Appendix C: Database Operations (psql/pgAdmin, Backup/Restore, Migrations)
+
+Quick psql usage (replace credentials as needed):
+- Connect: psql -h localhost -p 5432 -U postgres -d document_system
+- List tables: \dt
+- Inspect a document: SELECT * FROM documents WHERE document_id = '<id>';
+- Recent logs: SELECT * FROM processing_logs ORDER BY timestamp DESC LIMIT 50;
+
+Backup and restore (from a shell):
+- Backup DB: pg_dump -h localhost -p 5432 -U postgres -d document_system -F c -f backup.dump
+- Restore DB: pg_restore -h localhost -p 5432 -U postgres -d document_system --clean --if-exists backup.dump
+
+Schema changes (simple):
+- Add a column safely:
+  - Update `initialize_database()` to include the column (CREATE TABLE IF NOT EXISTS keeps data).
+  - For existing deployments, run: ALTER TABLE documents ADD COLUMN new_col TEXT; (idempotent checks recommended).
+- Consider adopting Alembic for versioned migrations if schema evolves frequently.
+
+pgAdmin/TablePlus:
+- Create a connection with host/port/user/db above.
+- Browse tables, edit rows, run queries in the query tool.
+
+---
+
+## Appendix D: Testing & Verification Checklist
+
+Before first use:
+- Kafka up and reachable at 9092
+- Postgres reachable and `initialize_database()` ran (tables exist)
+- Auth service /api/auth/status returns running
+- Ingestor /api/status returns running
+- Documents API /api/health returns healthy
+
+Happy-path document flow:
+- Login via Frontend (/login)
+- Upload a small PDF in /upload → observe a new row in `documents` with status `uploaded`
+- Extractor updates status to `extracted`; Classifier to `classified`; Router to `routed`
+- File appears under `Backend/router/routed_documents/<folder>/`
+- Dashboard shows updated counts
+
+Gmail flow:
+- Start OAuth via Frontend → open auth URL from /api/gmail/auth/start
+- After connecting, run /api/gmail/fetch to pull attachments
+
+Admin flow:
+- Create user via Auth admin endpoints; verify in `users` table
+
+Negative tests:
+- Upload unsupported file → proper error and no DB corruption
+- Force low confidence → appears in needs_action folder
+
+---
+
+## Appendix E: Performance & Scaling Notes
+
+Database:
+- Add indexes on frequent filters: documents(document_id), documents(uploaded_by), documents(processing_status), documents(classification_type), processing_logs(document_id)
+- Use connection pooling (e.g., psycopg2.pool) if concurrency increases
+- Avoid SELECT * in hot paths; fetch only needed columns
+
+Kafka and services:
+- Keep consumers idempotent (safe on retries)
+- Use partitions and multiple consumers for parallel throughput
+- Tune Kafka retention by size/time based on workload
+
+Classifier:
+- Load model once per process; reuse across messages
+- Consider batching if throughput demands it
+
+Filesystem and routing:
+- Ensure routed_documents is on fast storage; avoid long path issues on Windows
+- Validate and sanitize filenames
+
+Observability:
+- Log levels INFO in prod, DEBUG in dev
+- Centralize logs and add request IDs/document IDs for tracing
+- Add simple health/metrics endpoints if deploying to containers/cloud
+
+Frontend:
+- Use pagination and server-side filtering (already present)
+- Build production assets (Next.js) and enable cache/CDN for static content
+
+Security:
+- Always hash passwords (already implemented)
+- Use HTTPS in production and secure JWT handling
+- Validate all inputs at API boundaries
+
+These appendices complement the guide with concrete references, configs, operational steps, test plans, and scaling guidance.
+
+---
+
+## Appendix F: Base-Level Explanations (Kid‑Friendly Crash Course)
+
+If this is your first tech project, start here. Think of this system as a school with helpers.
+
+- The Receptionist (Ingestor) takes your paper when you hand it in.
+- The Reader (Extractor) reads your paper out loud.
+- The Brain (Classifier) decides what kind of paper it is.
+- The Filer (Router) puts it in the correct shelf.
+- The Librarian (Documents API) tells you where your paper is.
+- The Bouncer (Auth) checks you have permission to enter.
+- The Memory (Database) remembers everything.
+- The Conveyor Belt (Kafka) moves job tickets between helpers.
+
+What happens to one document (in 6 tiny steps):
+1) You upload a file on the website.
+2) Receptionist saves it and writes a note in Memory: “new paper arrived”.
