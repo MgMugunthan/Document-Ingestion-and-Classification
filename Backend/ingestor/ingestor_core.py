@@ -61,6 +61,7 @@ class IngestorCore:
         self.kafka_producer = self._setup_kafka()
         self.db = db_manager
         self.file_observer = None
+        self.api_uploaded_files = set()  # Track files uploaded via API to prevent double processing
         
     def _setup_kafka(self):
         """Initialize Kafka producer with error handling."""
@@ -180,6 +181,9 @@ class IngestorCore:
                 os.remove(filepath)
                 return jsonify({'error': 'File too large'}), 400
             
+            # Mark this file as API uploaded to prevent file watcher from processing it
+            self.api_uploaded_files.add(filename)
+            
             # Extract user_id directly from form or metadata with fallback to IP
             user_id_final = request.form.get('user_id') or metadata.get('user_id') or request.remote_addr or "API"
             
@@ -227,6 +231,12 @@ class IngestorCore:
                 filename = os.path.basename(file_path)
                 
                 if not self.ingestor.is_valid_document(filename):
+                    return
+                
+                # Skip files that were uploaded via API to prevent double processing
+                if filename in self.ingestor.api_uploaded_files:
+                    self.ingestor.log.info(f"Skipping file watcher processing for API uploaded file: {filename}")
+                    self.ingestor.api_uploaded_files.discard(filename)  # Remove from tracking set
                     return
                 
                 # Wait for file to be fully written

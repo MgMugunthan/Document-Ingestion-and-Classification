@@ -16,8 +16,37 @@ log = logger.get_agent_logger("main")
 # Kafka configuration
 KAFKA_TOPICS = ["doc.ingested", "doc.extracted", "doc.classified", "doc.routed"]
 
+def wait_for_kafka(max_retries=30, delay=2):
+    """Wait for Kafka to be available with retry mechanism."""
+    import socket
+    import time
+    
+    for attempt in range(max_retries):
+        try:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(1)
+            result = sock.connect_ex(('localhost', 9092))
+            sock.close()
+            
+            if result == 0:
+                log.info(f"Kafka is available after {attempt + 1} attempts")
+                return True
+        except Exception as e:
+            log.debug(f"Kafka connection attempt {attempt + 1} failed: {e}")
+        
+        if attempt < max_retries - 1:
+            log.info(f"Waiting for Kafka... (attempt {attempt + 1}/{max_retries})")
+            time.sleep(delay)
+    
+    log.error(f"Kafka is not available after {max_retries} attempts")
+    return False
+
 def create_kafka_topics():
     """Create required Kafka topics if they don't exist."""
+    if not wait_for_kafka():
+        log.error("Kafka is not available - skipping topic creation")
+        return False
+    
     try:
         admin_client = KafkaAdminClient(
             bootstrap_servers='localhost:9092',
@@ -32,21 +61,43 @@ def create_kafka_topics():
                 replication_factor=1
             ))
         
+        # Create topics and handle the response properly
         fs = admin_client.create_topics(new_topics=topic_list, validate_only=False)
-        topic_created =0
+        topic_created = 0
         topic_existing = 0
-        for topic, f in fs.items():
-            try:
-                f.result()
-                log.info(f"Topic '{topic}' created successfully")
-            except TopicAlreadyExistsError:
-                log.info(f"Topic '{topic}' already exists")
-            except Exception as e:
-                log.error(f"Failed to create topic '{topic}': {e}")
-        if topic_created > 0:
-            log.info(f"Kafka setup complete: {topic_created} topic created, {topic_existing} already existed")
+        
+        # Handle the response - newer kafka-python versions return different objects
+        if hasattr(fs, 'items'):
+            # Older kafka-python API
+            for topic, f in fs.items():
+                try:
+                    f.result()
+                    log.info(f"Topic '{topic}' created successfully")
+                    topic_created += 1
+                except TopicAlreadyExistsError:
+                    log.info(f"Topic '{topic}' already exists")
+                    topic_existing += 1
+                except Exception as e:
+                    log.error(f"Failed to create topic '{topic}': {e}")
         else:
-            log.info(f" Kafka setup complete: All {topic_existing} topics already existed")
+            # Newer kafka-python API - fs is a dict-like object with topic names as keys
+            for topic in KAFKA_TOPICS:
+                try:
+                    if topic in fs:
+                        fs[topic].result()  # This will raise an exception if creation failed
+                        log.info(f"Topic '{topic}' created successfully")
+                        topic_created += 1
+                except TopicAlreadyExistsError:
+                    log.info(f"Topic '{topic}' already exists")
+                    topic_existing += 1
+                except Exception as e:
+                    log.error(f"Failed to create topic '{topic}': {e}")
+        
+        if topic_created > 0:
+            log.info(f"Kafka setup complete: {topic_created} topics created, {topic_existing} already existed")
+        else:
+            log.info(f"Kafka setup complete: All {len(KAFKA_TOPICS)} topics already existed")
+        return True
             
     except Exception as e:
         if "Connection" in str(e) or "timeout" in str(e).lower():
@@ -54,17 +105,11 @@ def create_kafka_topics():
             log.info("System will continue without kafka setup")
         else:
             log.error(f"Kafka setup error: {e}")
+        return False
 
-# Function to run a Python script in a thread with the unified virtual environment
-import subprocess
-import logger
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-
-log=logger.get_agent_logger("main")
 # Function to run a Python script in a thread with the unified virtual environment
 def run_script(script_path: str, label: str):
-    print(f"{label} Starting...")
+    log.info(f"{label} starting...")
     log.info(f"{label} started via main.py")
     
     # Use the single unified virtual environment for all components
@@ -87,6 +132,66 @@ app.add_middleware(
 @app.get("/api/status")
 def status():
     return {"status": "Backend orchestrator is running"}
+
+@app.get("/api/services/status")
+def services_status():
+    """Get status of all running services."""
+    services = [
+        {"name": "Auth Service", "port": 5001, "endpoint": "http://localhost:5001/api/health"},
+        {"name": "Documents API", "port": 5002, "endpoint": "http://localhost:5002/api/health"},
+        {"name": "Ingestor", "port": 5000, "endpoint": "http://localhost:5000/"},
+        {"name": "Extractor", "port": None, "endpoint": None, "type": "background"},
+        {"name": "Classifier", "port": None, "endpoint": None, "type": "background"},
+        {"name": "Router", "port": None, "endpoint": None, "type": "background"},
+    ]
+    
+    try:
+        import requests
+    except ImportError:
+        # Fallback if requests is not available
+        return {"services": [{"name": s["name"], "status": "unknown", "port": s.get("port")} for s in services]}
+    
+    status_list = []
+    for service in services:
+        service_status = {
+            "name": service["name"],
+            "port": service.get("port"),
+            "status": "unknown",
+            "type": service.get("type", "web_service")
+        }
+        
+        if service.get("endpoint"):
+            try:
+                response = requests.get(service["endpoint"], timeout=3)
+                if response.status_code == 200:
+                    service_status["status"] = "running"
+                    try:
+                        data = response.json()
+                        service_status["details"] = data
+                    except:
+                        pass
+                else:
+                    service_status["status"] = "error"
+                    service_status["error"] = f"HTTP {response.status_code}"
+            except requests.exceptions.ConnectionError:
+                service_status["status"] = "down"
+                service_status["error"] = "Connection refused"
+            except requests.exceptions.Timeout:
+                service_status["status"] = "timeout"
+                service_status["error"] = "Request timeout"
+            except Exception as e:
+                service_status["status"] = "error"
+                service_status["error"] = str(e)
+        else:
+            service_status["status"] = "background_service"
+            
+        status_list.append(service_status)
+    
+    return {
+        "orchestrator": "running",
+        "services": status_list,
+        "timestamp": __import__('datetime').datetime.utcnow().isoformat()
+    }
 
 @app.get("/api/kafka/topics")
 def get_kafka_topics():
@@ -168,6 +273,8 @@ if __name__ == "__main__":
 
     # These are the services that will be started by the orchestrator
     agents = [
+        ("auth/auth.py", "Auth Service"),
+        ("api/api.py", "Documents API"),
         ("ingestor/ingestor.py", "Ingestor"),
         ("extractor/extractor.py", "Extractor"),
         ("classifier/classifier.py", "Classifier"),
@@ -177,6 +284,7 @@ if __name__ == "__main__":
     log.info("Starting all microservices...")
     for script, label in agents:
         t = threading.Thread(target=run_script, args=(script, label))
+        t.daemon = True  # Make threads daemon so they exit when main exits
         t.start()
         threads.append(t)
 

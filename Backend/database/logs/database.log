@@ -1,9 +1,0 @@
-2025-08-05 19:55:18 - database - ERROR - Database creation error:not all arguments converted during string formatting
-2025-08-05 19:55:18 - database - ERROR - Database initialization error: not all arguments converted during string formatting
-2025-08-05 19:55:18 - database - ERROR - Database setup failed: not all arguments converted during string formatting
-2025-08-05 20:07:59 - database - ERROR - Database creation error:not all arguments converted during string formatting
-2025-08-05 20:07:59 - database - ERROR - Database initialization error: not all arguments converted during string formatting
-2025-08-05 20:07:59 - database - ERROR - Database setup failed: not all arguments converted during string formatting
-2025-08-05 20:09:34 - database - INFO - Database 'document_system' created
-2025-08-05 20:09:34 - database - INFO - Database tables created successfully
-2025-08-05 20:09:34 - database - INFO - Database setup completed successfully!

@@ -15,6 +15,9 @@ import sys
 # Add parent directory for database import
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from database.database import db_manager
+import logger
+
+log = logger.get_agent_logger("DocumentsAPI")
 
 # Create Blueprint for documents API
 documents_bp = Blueprint('documents', __name__, url_prefix='/api/documents')
@@ -33,7 +36,7 @@ def get_documents():
         sort_by = request.args.get('sort_by', 'upload_time')
         sort_order = request.args.get('sort_order', 'DESC')
         
-        print(f"Getting documents for user_id: {user_id}, status: {status}, type: {document_type}")
+        log.debug(f"Getting documents for user_id: {user_id}, status: {status}, type: {document_type}")
         
         # Use the database manager to get documents
         documents = db_manager.get_documents(
@@ -42,7 +45,7 @@ def get_documents():
             category=document_type
         )
         
-        print(f"Raw documents from db_manager: {documents}")
+        log.debug(f"Raw documents from db_manager: {len(documents) if documents else 0} items")
         
         if not documents:
             documents = []
@@ -101,7 +104,7 @@ def get_documents():
             
             documents_list.append(doc_dict)
         
-        print(f"Formatted documents: {len(documents_list)} items")
+        log.debug(f"Formatted documents: {len(documents_list)} items")
         
         # Sort documents
         if sort_by in ['upload_time', 'upload_timestamp', 'filename', 'document_name', 'category', 'classification_type', 'confidence', 'confidence_score', 'status', 'processing_status']:
@@ -129,7 +132,7 @@ def get_documents():
         }), 200
         
     except Exception as e:
-        print(f"Error in get_documents: {str(e)}")
+        log.error(f"Error in get_documents: {str(e)}")
         import traceback
         traceback.print_exc()
         return jsonify({
@@ -177,7 +180,7 @@ def get_document_types():
         })
         
     except Exception as e:
-        print(f"Error in get_document_types: {str(e)}")
+        log.error(f"Error in get_document_types: {str(e)}")
         return jsonify({
             "success": False,
             "error": str(e)
@@ -255,7 +258,7 @@ def delete_document(document_id):
                         os.remove(file_path_to_delete)
                         deleted_files.append(file_path_to_delete)
                     except OSError as e:
-                        print(f"Warning: Could not delete file {file_path_to_delete}: {e}")
+                        log.warning(f"Could not delete file {file_path_to_delete}: {e}")
             
             # Delete from database
             cursor.execute("DELETE FROM documents WHERE document_id = %s", (document_id,))
@@ -270,38 +273,6 @@ def delete_document(document_id):
         return jsonify({
             "success": False,
             "error": f"Error deleting document: {str(e)}"
-        }), 500
-
-@documents_bp.route('/routes', methods=['GET'])
-def get_available_routes():
-    """Get available routing options from routes.json."""
-    try:
-        import os
-        import json
-        
-        # Get the router directory path
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        backend_dir = os.path.dirname(current_dir)
-        routes_file = os.path.join(backend_dir, 'router', 'routes.json')
-        
-        if not os.path.exists(routes_file):
-            return jsonify({
-                "success": False,
-                "error": "Routes configuration file not found"
-            }), 404
-        
-        with open(routes_file, 'r') as f:
-            routes_config = json.load(f)
-        
-        return jsonify({
-            "success": True,
-            "routes": routes_config
-        })
-        
-    except Exception as e:
-        return jsonify({
-            "success": False,
-            "error": f"Error loading routes: {str(e)}"
         }), 500
 
 @documents_bp.route('/<document_id>/reroute', methods=['POST'])
@@ -456,7 +427,7 @@ def get_stats():
         })
         
     except Exception as e:
-        print(f"Error in get_stats: {str(e)}")
+        log.error(f"Error in get_stats: {str(e)}")
         return jsonify({
             "success": False,
             "error": str(e)

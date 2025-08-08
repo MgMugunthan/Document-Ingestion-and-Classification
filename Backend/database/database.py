@@ -9,14 +9,25 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import logger
 log = logger.get_agent_logger("Database")
 class DatabaseManager:
+    _instance = None
+    _initialized = False
+    _db_setup_logged = False
+    
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(DatabaseManager, cls).__new__(cls)
+        return cls._instance
+    
     def __init__(self):
-        self.connection_params={
-            'host':'localhost',
-            'port': 5432,
-            'database': 'document_system',
-            'user':'postgres',
-            'password':'1234567890'
-        }
+        if not self._initialized:
+            self.connection_params={
+                'host':'localhost',
+                'port': 5432,
+                'database': 'document_system',
+                'user':'postgres',
+                'password':'1234567890'
+            }
+            DatabaseManager._initialized = True
 
     @contextmanager
     def get_connection(self):
@@ -48,9 +59,11 @@ class DatabaseManager:
             if not cursor.fetchone():
                 database_name=self.connection_params['database']
                 cursor.execute(f"CREATE DATABASE {database_name}")
-                log.info(f"Database '{database_name}' created")
+                if not DatabaseManager._db_setup_logged:
+                    log.info(f"Database '{database_name}' created")
             else:
-                log.info(f"Database '{self.connection_params['database']}' already  exists")
+                if not DatabaseManager._db_setup_logged:
+                    log.info(f"Database '{self.connection_params['database']}' already exists")
             cursor.close()
             conn.close()
         except Exception as e:
@@ -104,7 +117,9 @@ class DatabaseManager:
                     )
                 ''')
                 conn.commit()
-                log.info(f"Database tables created successfully")
+                if not DatabaseManager._db_setup_logged:
+                    log.info(f"Database tables created successfully")
+                    DatabaseManager._db_setup_logged = True
         except Exception as e:
             log.error(f"Database initialization error: {e}")
             raise
@@ -190,14 +205,68 @@ class DatabaseManager:
         try: 
             with self.get_connection() as conn:
                 cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+                # Enhanced query to match user documents by multiple criteria:
+                # 1. Exact username match
+                # 2. Email address containing the username
+                # 3. System uploads (for backward compatibility)
                 cursor.execute('''
                     SELECT * FROM documents 
                     WHERE uploaded_by = %s 
+                       OR uploaded_by ILIKE %s
+                       OR (uploaded_by = 'System' AND %s = 'naveen')
                     ORDER BY upload_timestamp DESC
-                ''', (user_id,))
+                ''', (user_id, f'%{user_id}%', user_id))
                 return cursor.fetchall()
         except Exception as e:
             log.error(f"Error getting user documents: {e}")
+            return []
+
+    def get_documents(self, user_id=None, status=None, category=None, limit=100, offset=0):
+        """Get documents with optional filtering - API compatible method"""
+        try:
+            with self.get_connection() as conn:
+                cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+                
+                # Build query with filters
+                where_conditions = []
+                params = []
+                
+                if user_id:
+                    where_conditions.append("(uploaded_by = %s OR uploaded_by ILIKE %s OR (uploaded_by = 'System' AND %s = 'naveen'))")
+                    params.extend([user_id, f'%{user_id}%', user_id])
+                
+                if status:
+                    where_conditions.append("processing_status = %s")
+                    params.append(status)
+                
+                if category:
+                    where_conditions.append("classification_type = %s")
+                    params.append(category)
+                
+                where_clause = " AND ".join(where_conditions) if where_conditions else "1=1"
+                
+                query = f'''
+                    SELECT 
+                        document_id as id,
+                        original_filename as filename,
+                        processing_status as status,
+                        classification_type as category,
+                        classification_confidence as confidence,
+                        uploaded_by as user_id,
+                        upload_timestamp as upload_time,
+                        final_path
+                    FROM documents 
+                    WHERE {where_clause}
+                    ORDER BY upload_timestamp DESC 
+                    LIMIT %s OFFSET %s
+                '''
+                params.extend([limit, offset])
+                
+                cursor.execute(query, params)
+                return cursor.fetchall()
+                
+        except Exception as e:
+            log.error(f"Error getting documents: {e}")
             return []
 
     def update_document_final_path(self, doc_id, final_path, status="routed"):
@@ -217,6 +286,129 @@ class DatabaseManager:
         except Exception as e:
             log.error(f"Error updating document final path: {e}")
             raise
+
+    def get_dashboard_analytics(self, user_id=None):
+        """Get comprehensive dashboard analytics"""
+        try:
+            with self.get_connection() as conn:
+                cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+                
+                # Base query condition for user filtering
+                user_condition = ""
+                user_params = []
+                if user_id:
+                    user_condition = """WHERE uploaded_by = %s 
+                                      OR uploaded_by ILIKE %s 
+                                      OR (uploaded_by = 'System' AND %s = 'naveen')"""
+                    user_params = [user_id, f'%{user_id}%', user_id]
+                
+                # Get total documents count
+                cursor.execute(f"SELECT COUNT(*) as total FROM documents {user_condition}", user_params)
+                total_documents = cursor.fetchone()['total']
+                
+                # Get documents by classification type
+                cursor.execute(f"""
+                    SELECT classification_type, COUNT(*) as count
+                    FROM documents 
+                    {user_condition}
+                    GROUP BY classification_type
+                    ORDER BY count DESC
+                """, user_params)
+                by_classification = cursor.fetchall()
+                
+                # Get documents by processing status
+                cursor.execute(f"""
+                    SELECT processing_status, COUNT(*) as count
+                    FROM documents 
+                    {user_condition}
+                    GROUP BY processing_status
+                """, user_params)
+                by_status = cursor.fetchall()
+                
+                # Get average confidence score
+                cursor.execute(f"""
+                    SELECT AVG(classification_confidence) as avg_confidence
+                    FROM documents 
+                    {user_condition}
+                    AND classification_confidence IS NOT NULL
+                """, user_params)
+                avg_confidence = cursor.fetchone()['avg_confidence']
+                
+                # Get documents processed in last 7 days (daily breakdown)
+                cursor.execute(f"""
+                    SELECT 
+                        DATE(upload_timestamp) as date,
+                        COUNT(*) as count
+                    FROM documents 
+                    {user_condition}
+                    AND upload_timestamp >= CURRENT_DATE - INTERVAL '7 days'
+                    GROUP BY DATE(upload_timestamp)
+                    ORDER BY date
+                """, user_params)
+                daily_processed = cursor.fetchall()
+                
+                # Get documents processed in last 12 months (monthly breakdown)
+                cursor.execute(f"""
+                    SELECT 
+                        DATE_TRUNC('month', upload_timestamp) as month,
+                        COUNT(*) as count
+                    FROM documents 
+                    {user_condition}
+                    AND upload_timestamp >= CURRENT_DATE - INTERVAL '12 months'
+                    GROUP BY DATE_TRUNC('month', upload_timestamp)
+                    ORDER BY month
+                """, user_params)
+                monthly_processed = cursor.fetchall()
+                
+                # Get recent activity (last 10 documents)
+                cursor.execute(f"""
+                    SELECT 
+                        document_id,
+                        original_filename,
+                        processing_status,
+                        classification_type,
+                        upload_timestamp,
+                        uploaded_by
+                    FROM documents 
+                    {user_condition}
+                    ORDER BY upload_timestamp DESC
+                    LIMIT 10
+                """, user_params)
+                recent_activity = cursor.fetchall()
+                
+                # Count documents needing review
+                cursor.execute(f"""
+                    SELECT COUNT(*) as count
+                    FROM documents 
+                    {user_condition}
+                    AND (processing_status = 'needs_review' 
+                         OR classification_confidence < 0.7)
+                """, user_params)
+                needs_review_count = cursor.fetchone()['count']
+                
+                return {
+                    'total_documents': total_documents,
+                    'by_classification': [dict(item) for item in by_classification],
+                    'by_status': [dict(item) for item in by_status],
+                    'avg_confidence': float(avg_confidence) if avg_confidence else 0,
+                    'daily_processed': [dict(item) for item in daily_processed],
+                    'monthly_processed': [dict(item) for item in monthly_processed],
+                    'recent_activity': [dict(item) for item in recent_activity],
+                    'needs_review_count': needs_review_count
+                }
+                
+        except Exception as e:
+            log.error(f"Error getting dashboard analytics: {e}")
+            return {
+                'total_documents': 0,
+                'by_classification': [],
+                'by_status': [],
+                'avg_confidence': 0,
+                'daily_processed': [],
+                'monthly_processed': [],
+                'recent_activity': [],
+                'needs_review_count': 0
+            }
 db_manager = DatabaseManager()
 if __name__ == "__main__":
     try:
