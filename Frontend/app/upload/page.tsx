@@ -44,28 +44,9 @@ export default function UploadPage() {
   const [gmailConnecting, setGmailConnecting] = useState(false)
   const [gmailDisconnecting, setGmailDisconnecting] = useState(false)
   const [gmailConnected, setGmailConnected] = useState(false)
+  const [gmailNotification, setGmailNotification] = useState("")
   const { user, token, isLoading } = useAuth()
-  const [recentDocuments, setRecentDocuments] = useState<Document[]>([])
   const router = useRouter()
-
-  const loadRecentDocuments = async () => {
-    if (!user || !token) return
-
-    try {
-      const response = await documentApi.list(user.user_id)
-      const formattedDocs = response.documents.map((doc: any) => ({
-        id: doc.document_id,
-        fileName: doc.document_name,
-        uploadedTime: new Date(doc.upload_timestamp).toLocaleString(),
-        classification: doc.classification_type || "Pending",
-        confidence: doc.confidence_score || 0,
-        status: doc.status || "completed"
-      }))
-      setRecentDocuments(formattedDocs)
-    } catch (error) {
-      console.error('Failed to load recent documents:', error)
-    }
-  }
 
   const checkGmailStatus = async () => {
     try {
@@ -85,6 +66,63 @@ export default function UploadPage() {
     }
   }
 
+  const checkForNewGmailDocuments = async () => {
+    if (!user || !token || !gmailConnected) return
+
+    try {
+      // Get recent documents to find new Gmail ones
+      const response = await documentApi.list(user.user_id)
+      const allDocs = response.documents || []
+      
+      // Find documents from last 2 minutes that might be from Gmail 
+      // Since we don't have a direct source field, we'll look for very recent documents
+      // that weren't manually uploaded (not in our processing list)
+      const twoMinutesAgo = new Date(Date.now() - 2 * 60 * 1000)
+      const recentGmailDocs = allDocs.filter((doc: any) => {
+        const uploadTime = new Date(doc.upload_timestamp)
+        const isRecent = uploadTime > twoMinutesAgo
+        const notAlreadyTracking = !processingDocuments.find(pd => pd.document_id === doc.document_id)
+        // Additional check: document wasn't part of a manual upload session
+        const notFromManualUpload = !processingDocuments.length || uploadTime > new Date(Date.now() - 60 * 1000)
+        
+        return isRecent && notAlreadyTracking && notFromManualUpload
+      })
+
+      // Add new Gmail documents to processing list
+      if (recentGmailDocs.length > 0) {
+        console.log(`📧 Found ${recentGmailDocs.length} new Gmail documents:`, recentGmailDocs)
+        
+        // Show a notification
+        setGmailNotification(`📧 Processing ${recentGmailDocs.length} new document${recentGmailDocs.length > 1 ? 's' : ''} from Gmail...`)
+        setTimeout(() => setGmailNotification(""), 5000) // Clear after 5 seconds
+        
+        const newProcessingDocs = recentGmailDocs.map((doc: any) => ({
+          document_id: doc.document_id,
+          fileName: doc.document_name,
+          currentStep: getStepFromStatus(doc.status || 'uploaded'),
+          status: doc.status || 'uploaded' as const
+        }))
+
+        // Add to processing documents
+        setProcessingDocuments(prev => [...prev, ...newProcessingDocs])
+        
+        // Start polling for each new document
+        newProcessingDocs.forEach((doc: ProcessingDocument) => {
+          console.log(`🔄 Starting Gmail document poll: ${doc.document_id}`)
+          pollDocumentStatus(doc.document_id)
+        })
+        
+        // Show processing workflow if not already visible
+        if (!isProcessing && workflowStep === 0) {
+          setWorkflowStep(1)
+          setIsProcessing(true)
+        }
+      }
+    } catch (error) {
+      console.error('Failed to check for new Gmail documents:', error)
+    }
+  }
+
   // Authentication check - redirect to login if not authenticated
   useEffect(() => {
     // Wait for auth loading to complete before checking authentication
@@ -96,11 +134,13 @@ export default function UploadPage() {
     }
   }, [user, token, isLoading, router])
 
-  // Load recent documents and Gmail status on component mount
+  // Load Gmail status on component mount
   useEffect(() => {
     if (user && token && !isLoading) {
-      loadRecentDocuments()
       checkGmailStatus()
+      // Check for new Gmail documents every 30 seconds
+      const gmailCheckInterval = setInterval(checkForNewGmailDocuments, 30000)
+      return () => clearInterval(gmailCheckInterval)
     }
   }, [user, token, isLoading])
 
@@ -165,6 +205,8 @@ export default function UploadPage() {
   }
 
   const handleFiles = (files: File[]) => {
+    console.log(`📁 Handling ${files.length} files:`, files.map(f => ({ name: f.name, size: f.size, type: f.type })))
+    
     const newFiles = files.map((file) => ({
       id: Math.random().toString(36).substr(2, 9),
       name: file.name,
@@ -197,7 +239,14 @@ export default function UploadPage() {
       const uploadPromises = files.map(async (file) => {
         console.log(`🚀 Uploading file: ${file.name}`)
         const uploadResponse = await documentApi.upload(file, { user_id: user.user_id })
-        console.log(`📄 Upload response for ${file.name}:`, uploadResponse)
+        console.log(`📄 Full upload response for ${file.name}:`, JSON.stringify(uploadResponse, null, 2))
+        
+        if (!uploadResponse.document_id) {
+          console.error(`❌ No document_id in response for ${file.name}. Response keys:`, Object.keys(uploadResponse))
+          throw new Error(`No document_id received for ${file.name}. Got response: ${JSON.stringify(uploadResponse)}`)
+        }
+        
+        console.log(`✅ Document ID for ${file.name}: ${uploadResponse.document_id}`)
         
         return {
           document_id: uploadResponse.document_id,
@@ -209,6 +258,12 @@ export default function UploadPage() {
       const uploadedDocs = await Promise.all(uploadPromises)
       console.log(`📊 All uploads completed:`, uploadedDocs)
 
+      // Validate all document IDs
+      const invalidDocs = uploadedDocs.filter(doc => !doc.document_id)
+      if (invalidDocs.length > 0) {
+        throw new Error(`Some uploads failed - missing document IDs: ${invalidDocs.map(d => d.name).join(', ')}`)
+      }
+
       // Transform to ProcessingDocument format
       const processingDocs = uploadedDocs.map(doc => ({
         document_id: doc.document_id,
@@ -218,12 +273,17 @@ export default function UploadPage() {
       }))
 
       setProcessingDocuments(processingDocs)
-      console.log(`⚡ Starting to poll ${processingDocs.length} documents`)
+      console.log(`⚡ Starting to poll ${processingDocs.length} documents with IDs:`, processingDocs.map(d => d.document_id))
       
       // Start polling for status updates
       processingDocs.forEach((doc) => {
-        console.log(`🔄 Starting poll for document: ${doc.document_id}`)
-        pollDocumentStatus(doc.document_id)
+        console.log(`📋 Processing doc structure:`, JSON.stringify(doc, null, 2))
+        if (doc.document_id && doc.document_id !== 'undefined' && doc.document_id !== 'null') {
+          console.log(`🔄 Starting poll for valid document: ${doc.document_id}`)
+          pollDocumentStatus(doc.document_id)
+        } else {
+          console.error(`❌ Invalid document_id for ${doc.fileName}: "${doc.document_id}" (type: ${typeof doc.document_id})`)
+        }
       })
 
     } catch (error) {
@@ -233,15 +293,27 @@ export default function UploadPage() {
   }
 
   const pollDocumentStatus = async (documentId: string) => {
-    if (!token) return
+    if (!token || !documentId || documentId === 'undefined' || documentId === 'null') {
+      console.error(`❌ Cannot poll: invalid documentId. Token: ${!!token}, DocumentId: "${documentId}" (type: ${typeof documentId})`)
+      return
+    }
 
+    console.log(`🔄 Starting poll for document: ${documentId} (type: ${typeof documentId})`)
+    
     const pollInterval = setInterval(async () => {
       try {
+        console.log(`📊 Polling status for document: ${documentId}`)
         const statusResponse = await documentApi.getStatus(documentId)
-        console.log(`📊 Document ${documentId} status:`, statusResponse)
+        console.log(`📊 Full status response for ${documentId}:`, JSON.stringify(statusResponse, null, 2))
         
         // Extract status from the response structure
         const status = statusResponse.document?.processing_status || statusResponse.processing_status
+        console.log(`📊 Extracted status for ${documentId}: ${status}`)
+
+        if (!status) {
+          console.warn(`⚠️ No status found in response for ${documentId}. Response structure:`, Object.keys(statusResponse))
+          return
+        }
 
         // Update processing documents
         setProcessingDocuments(prev => 
@@ -271,6 +343,7 @@ export default function UploadPage() {
 
         // Stop polling when processing is complete
         if (status === "completed" || status === "failed" || status === "routed" || status === "needs_action") {
+          console.log(`🏁 Document ${documentId} finished with status: ${status}`)
           clearInterval(pollInterval)
           
           // Check if all documents are done processing
@@ -288,9 +361,6 @@ export default function UploadPage() {
             if (allDone) {
               setIsProcessing(false)
               
-              // Refresh recent documents
-              loadRecentDocuments()
-              
               // Clear uploaded files after a brief delay to let user see completion
               setTimeout(() => {
                 setUploadedFiles([])
@@ -302,9 +372,14 @@ export default function UploadPage() {
         }
 
       } catch (error) {
-        console.error("Failed to poll document status:", error)
-        // Continue polling even if one request fails, but log the error
-        setError(`Status check failed: ${error instanceof Error ? error.message : 'Unknown error'}`)
+        console.error(`❌ Failed to poll document status for ${documentId}:`, error)
+        // Stop polling on persistent errors
+        if (error instanceof Error && error.message.includes('404')) {
+          console.error(`🛑 Stopping polling for ${documentId} due to 404 error`)
+          clearInterval(pollInterval)
+        }
+        // Continue polling for other errors, but limit retries
+        setError(`Status check failed for ${documentId}: ${error instanceof Error ? error.message : 'Unknown error'}`)
       }
     }, 3000) // Poll every 3 seconds for more responsive updates
 
@@ -508,65 +583,89 @@ export default function UploadPage() {
             </div>
           )}
 
-
-
-          {/* Connect to Mail Button */}
-          {/* Gmail Connection Section - Updated with both Connect and Disconnect */}
-          {gmailConnected ? (
-            <div className="space-y-4">
-              {/* Connected Status */}
-              <div className="w-full py-4 rounded-lg font-medium flex items-center justify-center space-x-2 bg-green-600 text-white">
-                <CheckCircle className="w-5 h-5" />
-                <span>Gmail Connected</span>
+          {/* Gmail Notification */}
+          {gmailNotification && (
+            <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="flex items-center">
+                <div className="flex-shrink-0">
+                  <Mail className="h-5 w-5 text-blue-400" />
+                </div>
+                <div className="ml-3">
+                  <p className="text-sm text-blue-700">{gmailNotification}</p>
+                </div>
+                <button
+                  onClick={() => setGmailNotification("")}
+                  className="ml-auto text-blue-400 hover:text-blue-600"
+                >
+                  <X className="h-4 w-4" />
+                </button>
               </div>
-              
-              {/* Disconnect Button */}
+            </div>
+          )}
+
+
+
+          {/* Gmail Connection Section */}
+          <div className="mt-6">
+            {gmailConnected ? (
+              <div className="space-y-3">
+                {/* Connected Status Indicator */}
+                <div className="flex items-center justify-center space-x-2 p-3 bg-green-50 border border-green-200 rounded-lg">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <CheckCircle className="w-5 h-5 text-green-600" />
+                    <span className="text-green-700 font-medium">Gmail Connected</span>
+                  </div>
+                </div>
+                
+                {/* Disconnect Button */}
+                <button
+                  onClick={handleDisconnectGmail}
+                  disabled={gmailDisconnecting}
+                  className={`w-full py-3 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2 border-2 ${
+                    gmailDisconnecting 
+                      ? 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed' 
+                      : 'bg-white text-red-600 border-red-200 hover:bg-red-50 hover:border-red-300 cursor-pointer'
+                  }`}
+                >
+                  {gmailDisconnecting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-2 border-gray-400 border-t-transparent"></div>
+                      <span>Disconnecting...</span>
+                    </>
+                  ) : (
+                    <>
+                      <X className="w-4 h-4" />
+                      <span>Disconnect Gmail</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            ) : (
+              /* Connect Button */
               <button
-                onClick={handleDisconnectGmail}
-                disabled={gmailDisconnecting}
-                className={`w-full py-3 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2 ${
-                  gmailDisconnecting 
+                onClick={handleConnectGmail}
+                disabled={gmailConnecting}
+                className={`w-full py-4 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2 ${
+                  gmailConnecting 
                     ? 'bg-gray-400 text-white cursor-not-allowed' 
-                    : 'bg-red-600 text-white hover:bg-red-700 cursor-pointer'
+                    : 'bg-[#3452D1] text-white hover:bg-blue-700 cursor-pointer'
                 }`}
               >
-                {gmailDisconnecting ? (
+                {gmailConnecting ? (
                   <>
-                    <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
-                    <span>Disconnecting...</span>
+                    <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
+                    <span>Connecting...</span>
                   </>
                 ) : (
                   <>
-                    <X className="w-4 h-4" />
-                    <span>Disconnect Gmail</span>
+                    <Mail className="w-5 h-5" />
+                    <span>Connect to Gmail</span>
                   </>
                 )}
               </button>
-            </div>
-          ) : (
-            /* Connect Button */
-            <button
-              onClick={handleConnectGmail}
-              disabled={gmailConnecting}
-              className={`w-full mt-6 py-4 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2 ${
-                gmailConnecting 
-                  ? 'bg-gray-400 text-white cursor-not-allowed' 
-                  : 'bg-[#3452D1] text-white hover:bg-blue-700 cursor-pointer'
-              }`}
-            >
-              {gmailConnecting ? (
-                <>
-                  <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
-                  <span>Connecting...</span>
-                </>
-              ) : (
-                <>
-                  <Mail className="w-5 h-5" />
-                  <span>Connect to Gmail</span>
-                </>
-              )}
-            </button>
-          )}          {/* WORKFLOW PROGRESS - ENHANCED AND CLEARLY VISIBLE */}
+            )}
+          </div>          {/* WORKFLOW PROGRESS - ENHANCED AND CLEARLY VISIBLE */}
           {(isProcessing || workflowStep > 0) && (
             <div className="mt-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border-2 border-blue-200 shadow-lg">
               <div className="text-center mb-8">
@@ -745,76 +844,6 @@ export default function UploadPage() {
               </div>
             </div>
           )}
-        </div>
-
-        {/* Recent Documents */}
-        <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-          <div className="p-6 border-b border-gray-200">
-            <h3 className="font-semibold text-gray-800">Recent Documents</h3>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    File Name
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Uploaded Time
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Classification
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Confidence
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Status
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Action
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {recentDocuments.map((doc) => (
-                  <tr key={doc.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{doc.fileName}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{doc.uploadedTime}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{doc.classification}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-16 bg-gray-200 rounded-full h-2">
-                          <div
-                            className={`h-2 rounded-full ${
-                              doc.confidence >= 80
-                                ? "bg-green-500"
-                                : doc.confidence >= 60
-                                  ? "bg-yellow-500"
-                                  : "bg-red-500"
-                            }`}
-                            style={{ width: `${doc.confidence}%` }}
-                          />
-                        </div>
-                        <span>{doc.confidence}%</span>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      <div className="flex items-center space-x-2">
-                        {getStatusIcon(doc.status)}
-                        <span className="capitalize">{doc.status}</span>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {doc.confidence < 80 && (
-                        <button className="text-[#3452D1] hover:text-blue-700 font-medium">Re-classify</button>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
         </div>
       </div>
 

@@ -4,59 +4,359 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useAuth } from "@/contexts/AuthContext"
 import Layout from "@/components/Layout"
-import { AlertTriangle, Check, X, Plus, ChevronDown } from "lucide-react"
+import { AlertTriangle, Check, X, Eye, FileText, Clock, RotateCcw, Trash2, Tag, Download, HardDrive, Calendar } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { useToast } from "@/hooks/use-toast"
 
+// Define the document type based on backend response
 interface ReviewDocument {
-  id: string
-  name: string
-  suggestedClassification: string
-  confidence: number
-  currentClassification: string
-  dateUploaded: string
-  size: string
+  document_id: string
+  original_filename: string
+  user_id: string
+  upload_method: string
+  file_size: number
+  document_classification: string
+  classification_confidence: number
+  classification_method: string
+  status: string
+  final_path: string
+  created_at: string
+  updated_at: string
+  file_type: string
+}
+
+interface RouteOptions {
+  routes: Record<string, string>
+  default_folder: string
+  needs_action_folder: string
+}
+
+interface ReclassifyModalProps {
+  isOpen: boolean
+  onClose: () => void
+  onSubmit: (classification: string) => void
+  routeOptions: RouteOptions | null
+}
+
+function ReclassifyModal({ isOpen, onClose, onSubmit, routeOptions }: ReclassifyModalProps) {
+  const [selectedRoute, setSelectedRoute] = useState("")
+  const [customClassification, setCustomClassification] = useState("")
+
+  if (!isOpen) return null
+
+  const handleSubmit = () => {
+    const classification = selectedRoute === "__manual__" ? customClassification : selectedRoute
+    if (classification.trim()) {
+      onSubmit(classification.trim())
+      setSelectedRoute("")
+      setCustomClassification("")
+      onClose()
+    }
+  }
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div className="bg-white rounded-lg p-6 w-96 max-w-90vw">
+        <h3 className="text-lg font-semibold mb-4">Reclassify Document</h3>
+        
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium mb-2">Predefined Classifications</label>
+            <select 
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              value={selectedRoute}
+              onChange={(e) => setSelectedRoute(e.target.value)}
+            >
+              <option value="">Select a classification...</option>
+              {routeOptions && Object.keys(routeOptions.routes).map((routeKey) => (
+                <option key={routeKey} value={routeKey}>
+                  {routeKey} → {routeOptions.routes[routeKey]}
+                </option>
+              ))}
+              {routeOptions && (
+                <>
+                  <option value="others">others → {routeOptions.default_folder}</option>
+                  <option value="needs_action">needs_action → {routeOptions.needs_action_folder}</option>
+                </>
+              )}
+              <option value="__manual__">Custom...</option>
+            </select>
+          </div>
+
+          {selectedRoute === "__manual__" && (
+            <div>
+              <label className="block text-sm font-medium mb-2">Custom Classification</label>
+              <input
+                type="text"
+                className="w-full border border-gray-300 rounded px-3 py-2"
+                placeholder="e.g., contract, report, memo"
+                value={customClassification}
+                onChange={(e) => setCustomClassification(e.target.value)}
+              />
+            </div>
+          )}
+        </div>
+
+        <div className="flex space-x-3 mt-6">
+          <button
+            onClick={onClose}
+            className="flex-1 px-4 py-2 border border-gray-300 rounded text-gray-700 hover:bg-gray-50"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleSubmit}
+            disabled={!selectedRoute || (selectedRoute === "__manual__" && !customClassification.trim())}
+            className="flex-1 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
+          >
+            Reclassify
+          </button>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default function Review() {
   const { user, token, isLoading } = useAuth()
   const router = useRouter()
-  const [documents, setDocuments] = useState<ReviewDocument[]>([
-    {
-      id: "1",
-      name: "Quarterly_Budget_2024.xlsx",
-      suggestedClassification: "Financial Report",
-      confidence: 72,
-      currentClassification: "Unclassified",
-      dateUploaded: "2024-01-15",
-      size: "1.8 MB",
-    },
-    {
-      id: "2",
-      name: "Vendor_Agreement_Draft.pdf",
-      suggestedClassification: "Contract",
-      confidence: 68,
-      currentClassification: "Legal Document",
-      dateUploaded: "2024-01-14",
-      size: "2.1 MB",
-    },
-    {
-      id: "3",
-      name: "Project_Timeline.docx",
-      suggestedClassification: "Project Document",
-      confidence: 75,
-      currentClassification: "Report",
-      dateUploaded: "2024-01-13",
-      size: "945 KB",
-    },
-    {
-      id: "4",
-      name: "Employee_Handbook_2024.pdf",
-      suggestedClassification: "Policy Document",
-      confidence: 69,
-      currentClassification: "Manual",
-      dateUploaded: "2024-01-12",
-      size: "3.2 MB",
-    },
-  ])
+  const { toast } = useToast()
+  const [documents, setDocuments] = useState<ReviewDocument[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [routeOptions, setRouteOptions] = useState<RouteOptions | null>(null)
+  const [reclassifyModal, setReclassifyModal] = useState<{isOpen: boolean, documentId: string}>({
+    isOpen: false,
+    documentId: ""
+  })
+  const [deleteModal, setDeleteModal] = useState<{isOpen: boolean, documentId: string, filename: string}>({
+    isOpen: false,
+    documentId: "",
+    filename: ""
+  })
+
+  // Fetch documents that need review
+  useEffect(() => {
+    if (user && token) {
+      fetchReviewDocuments()
+      fetchAvailableRoutes()
+    }
+  }, [user, token])
+
+  const fetchReviewDocuments = async () => {
+    try {
+      setLoading(true)
+      const response = await fetch('/api/documents/review')
+      const data = await response.json()
+      
+      if (data.success) {
+        setDocuments(data.documents)
+      } else {
+        setError(data.error || 'Failed to fetch documents')
+      }
+    } catch (err) {
+      setError('Error fetching documents')
+      console.error('Error fetching review documents:', err)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const fetchAvailableRoutes = async () => {
+    try {
+      const response = await fetch('/api/documents/routes')
+      const data = await response.json()
+      if (data.success && data.routes) {
+        setRouteOptions(data.routes as RouteOptions)
+      }
+    } catch (err) {
+      console.error('Error fetching routes:', err)
+    }
+  }
+
+  const handleViewDocument = async (document: ReviewDocument) => {
+    try {
+      // Open document in new tab/window for viewing
+      window.open(`/api/documents/${document.document_id}/download`, '_blank')
+    } catch (err) {
+      console.error('Error viewing document:', err)
+      alert('Error opening document')
+    }
+  }
+
+  const handleReclassify = async (documentId: string, newClassification: string) => {
+    try {
+      const response = await fetch(`/api/documents/${documentId}/reclassify`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          new_classification: newClassification
+        })
+      })
+
+      const data = await response.json()
+      
+      if (data.success) {
+        // Remove the document from the review list since it's been processed
+        setDocuments(prev => prev.filter(doc => doc.document_id !== documentId))
+        toast({
+          title: "Success",
+          description: `Document successfully reclassified as '${newClassification}'`,
+        })
+      } else {
+        toast({
+          title: "Error", 
+          description: data.error || 'Failed to reclassify document',
+          variant: "destructive",
+        })
+      }
+    } catch (err) {
+      console.error('Error reclassifying document:', err)
+      toast({
+        title: "Error",
+        description: "Failed to reclassify document. Please try again.",
+        variant: "destructive",
+      })
+    }
+  }
+
+  const handleDelete = async (documentId: string) => {    
+    try {
+      const response = await fetch(`/api/documents/${documentId}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        }
+      })
+
+      const data = await response.json()
+      
+      if (data.success) {
+        // Remove the document from the review list
+        setDocuments(prev => prev.filter(doc => doc.document_id !== documentId))
+        toast({
+          title: "Success",
+          description: "Document deleted successfully",
+        })
+      } else {
+        toast({
+          title: "Error",
+          description: data.error || 'Failed to delete document',
+          variant: "destructive",
+        })
+      }
+    } catch (err) {
+      console.error('Error deleting document:', err)
+      toast({
+        title: "Error",
+        description: "Failed to delete document. Please try again.",
+        variant: "destructive",
+      })
+    }
+  }
+
+  const formatFileSize = (bytes: number): string => {
+    if (bytes === 0) return '0 B'
+    const k = 1024
+    const sizes = ['B', 'KB', 'MB', 'GB']
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
+  }
+
+  const formatDate = (dateString: string): string => {
+    const date = new Date(dateString)
+    const now = new Date()
+    const diffInHours = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60))
+    const diffInDays = Math.floor(diffInHours / 24)
+
+    // Show relative time for recent uploads
+    if (diffInHours < 1) {
+      const diffInMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60))
+      if (diffInMinutes < 1) return 'Just now'
+      return `${diffInMinutes} minute${diffInMinutes !== 1 ? 's' : ''} ago`
+    } else if (diffInHours < 24) {
+      return `${diffInHours} hour${diffInHours !== 1 ? 's' : ''} ago`
+    } else if (diffInDays < 7) {
+      return `${diffInDays} day${diffInDays !== 1 ? 's' : ''} ago`
+    }
+
+    // For older dates, show formatted date
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    })
+  }
+
+  const formatAbsoluteDate = (dateString: string): string => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true,
+      timeZoneName: 'short'
+    })
+  }
+
+  const handleView = async (documentId: string) => {
+    try {
+      const response = await fetch(`/api/documents/${documentId}/view`)
+      const data = await response.json()
+      
+      if (data.success) {
+        // Open the file in a new tab
+        window.open(`/api/documents/${documentId}/download`, '_blank')
+      } else {
+        alert(data.error || 'File not found')
+      }
+    } catch (err) {
+      console.error('Error viewing document:', err)
+      alert('Error viewing document')
+    }
+  }
+
+  const handleDownload = async (documentId: string) => {
+    try {
+      const response = await fetch(`/api/documents/${documentId}/download`)
+      if (response.ok) {
+        const blob = await response.blob()
+        const url = window.URL.createObjectURL(blob)
+        const filename = response.headers.get('content-disposition')?.split('filename=')[1]?.replace(/"/g, '') || 'document'
+        
+        const a = document.createElement('a')
+        a.href = url
+        a.download = filename
+        document.body.appendChild(a)
+        a.click()
+        window.URL.revokeObjectURL(url)
+        document.body.removeChild(a)
+      } else {
+        alert('Failed to download document')
+      }
+    } catch (err) {
+      console.error('Error downloading document:', err)
+      alert('Error downloading document')
+    }
+  }
 
   // Authentication check - CRITICAL SECURITY FIX
   useEffect(() => {
@@ -69,8 +369,8 @@ export default function Review() {
     }
   }, [user, token, isLoading, router])
 
-  // Show loading while checking authentication
-  if (isLoading || (!user || !token)) {
+  // Show loading spinner while checking authentication
+  if (isLoading || !user || !token) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
@@ -83,249 +383,209 @@ export default function Review() {
     )
   }
 
-  const [showCreateFolder, setShowCreateFolder] = useState<string | null>(null)
-  const [newFolderName, setNewFolderName] = useState("")
-
-  const availableFolders = [
-    "Financial Reports",
-    "Contracts",
-    "HR Documents",
-    "Project Files",
-    "Legal Documents",
-    "Policies",
-    "Invoices",
-    "Reports",
-  ]
-
-  const handleAcceptSuggestion = (id: string) => {
-    setDocuments((docs) =>
-      docs.map((doc) => (doc.id === id ? { ...doc, currentClassification: doc.suggestedClassification } : doc)),
-    )
-  }
-
-  const handleRejectSuggestion = (id: string) => {
-    setDocuments((docs) => docs.filter((doc) => doc.id !== id))
-  }
-
-  const handleManualClassification = (id: string, classification: string) => {
-    setDocuments((docs) => docs.map((doc) => (doc.id === id ? { ...doc, currentClassification: classification } : doc)))
-  }
-
-  const handleCreateFolder = (docId: string) => {
-    if (newFolderName.trim()) {
-      handleManualClassification(docId, newFolderName.trim())
-      setNewFolderName("")
-      setShowCreateFolder(null)
-    }
-  }
-
-  const getConfidenceColor = (confidence: number) => {
-    if (confidence >= 80) return "bg-green-500"
-    if (confidence >= 60) return "bg-yellow-500"
-    return "bg-red-500"
-  }
-
   return (
     <Layout>
-      <div className="p-4 md:p-6 lg:p-8 max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Review & Classification</h1>
-          <p className="text-gray-600">Review documents that need manual classification or re-routing</p>
-        </div>
-
-        {/* Summary Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
-                <AlertTriangle className="w-6 h-6 text-yellow-600" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-gray-600">Pending Review</p>
-                <p className="text-2xl font-bold text-gray-900">{documents.length}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                <Check className="w-6 h-6 text-green-600" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-gray-600">Reviewed Today</p>
-                <p className="text-2xl font-bold text-gray-900">12</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                <X className="w-6 h-6 text-blue-600" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-gray-600">Avg. Confidence</p>
-                <p className="text-2xl font-bold text-gray-900">71%</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
+      <div className="container mx-auto px-4 py-8">
+        
         {/* Documents Table */}
-        <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-          <div className="bg-gray-50 px-6 py-4 border-b border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-800">Documents Requiring Review</h3>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-200">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Document Name
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Suggested Classification
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Current Classification
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Confidence
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {documents.map((doc) => (
-                  <tr key={doc.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                          <AlertTriangle className="w-5 h-5 text-[#3452D1]" />
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium text-gray-900">{doc.name}</p>
-                          <p className="text-sm text-gray-500">
-                            {doc.size} • {doc.dateUploaded}
-                          </p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="flex items-center space-x-2">
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                          {doc.suggestedClassification}
-                        </span>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="relative">
-                        <select
-                          value={doc.currentClassification}
-                          onChange={(e) => handleManualClassification(doc.id, e.target.value)}
-                          className="appearance-none bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 pr-8 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        >
-                          <option value={doc.currentClassification}>{doc.currentClassification}</option>
-                          {availableFolders.map((folder) => (
-                            <option key={folder} value={folder}>
-                              {folder}
-                            </option>
-                          ))}
-                        </select>
-                        <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-16 bg-gray-200 rounded-full h-2">
-                          <div
-                            className={`h-2 rounded-full ${getConfidenceColor(doc.confidence)}`}
-                            style={{ width: `${doc.confidence}%` }}
-                          />
-                        </div>
-                        <span className="text-sm font-medium text-gray-900">{doc.confidence}%</span>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="flex items-center space-x-2">
-                        <button
-                          onClick={() => handleAcceptSuggestion(doc.id)}
-                          className="p-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors"
-                          title="Accept suggestion"
-                        >
-                          <Check className="w-4 h-4" />
-                        </button>
-                        <button
-                          onClick={() => handleRejectSuggestion(doc.id)}
-                          className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-                          title="Reject suggestion"
-                        >
-                          <X className="w-4 h-4" />
-                        </button>
-                        <button
-                          onClick={() => setShowCreateFolder(doc.id)}
-                          className="p-2 text-[#3452D1] hover:bg-blue-50 rounded-lg transition-colors"
-                          title="Create new folder"
-                        >
-                          <Plus className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Empty State */}
-          {documents.length === 0 && (
-            <div className="px-6 py-12 text-center">
-              <Check className="w-12 h-12 text-green-500 mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">All caught up!</h3>
-              <p className="text-gray-500">No documents require review at this time.</p>
+        <Card className="shadow-md bg-white">
+          <CardHeader className="bg-gray-50">
+            <div className="flex justify-between items-center">
+              <CardTitle className="flex items-center gap-2 text-[#3452D1]">
+                <AlertTriangle className="h-5 w-5" />
+                Documents for Review ({documents.length})
+              </CardTitle>
             </div>
-          )}
-        </div>
-
-        {/* Create New Folder Modal */}
-        {showCreateFolder && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-xl p-6 w-full max-w-md">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Create New Folder</h3>
-              <input
-                type="text"
-                value={newFolderName}
-                onChange={(e) => setNewFolderName(e.target.value)}
-                placeholder="Enter folder name..."
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent mb-4"
-                autoFocus
-              />
-              <div className="flex space-x-3">
-                <button
-                  onClick={() => handleCreateFolder(showCreateFolder)}
-                  className="flex-1 bg-[#3452D1] text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
-                >
-                  Create
-                </button>
-                <button
-                  onClick={() => {
-                    setShowCreateFolder(null)
-                    setNewFolderName("")
-                  }}
-                  className="flex-1 bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors"
-                >
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+          </CardHeader>
+          <CardContent>
+            <TooltipProvider>
+              {loading ? (
+                <div className="text-center py-8">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+                  <p className="mt-2 text-gray-600">Loading documents...</p>
+                </div>
+              ) : documents.length === 0 ? (
+                <div className="text-center py-8">
+                  <Check className="h-12 w-12 text-green-400 mx-auto mb-4" />
+                  <p className="text-gray-600">No documents require review</p>
+                </div>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="text-left p-2">Document</th>
+                        <th className="text-left p-2">Status</th>
+                        <th className="text-left p-2">Size</th>
+                        <th className="text-left p-2">Upload Date</th>
+                        <th className="text-left p-2">Confidence</th>
+                        <th className="text-left p-2">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {documents.map((doc) => (
+                        <tr key={doc.document_id} className="border-b hover:bg-gray-50">
+                          <td className="p-2">
+                            <div className="flex items-center gap-3">
+                              <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <FileText className="h-4 w-4 text-blue-600" />
+                              </div>
+                              <div>
+                                <div className="font-medium text-sm">{doc.original_filename}</div>
+                                <div className="text-xs text-gray-500">{doc.file_type}</div>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="p-2">
+                            <Badge variant="secondary" className="bg-orange-100 text-orange-800">
+                              <span className="flex items-center gap-1">
+                                <AlertTriangle className="h-3 w-3" />
+                                Needs Action
+                              </span>
+                            </Badge>
+                          </td>
+                          <td className="p-2 text-sm">
+                            {formatFileSize(doc.file_size)}
+                          </td>
+                          <td className="p-2 text-sm">
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <span className="cursor-help">
+                                  {formatDate(doc.created_at)}
+                                </span>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>{formatAbsoluteDate(doc.created_at)}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </td>
+                          <td className="p-2 text-sm">
+                            {doc.classification_confidence > 0 ? 
+                              <span className={`px-2 py-1 rounded text-xs ${
+                                doc.classification_confidence >= 80 ? 'bg-green-100 text-green-800' :
+                                doc.classification_confidence >= 60 ? 'bg-yellow-100 text-yellow-800' :
+                                'bg-red-100 text-red-800'
+                              }`}>
+                                {doc.classification_confidence.toFixed(1)}%
+                              </span>
+                            : <span className="text-gray-400 text-xs">Unprocessed</span>}
+                          </td>
+                          <td className="p-2">
+                            <div className="flex gap-1">
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <Button
+                                    size="sm"
+                                    variant="outline"
+                                    onClick={() => handleView(doc.document_id)}
+                                  >
+                                    <Eye className="h-4 w-4" />
+                                  </Button>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  <p>View Document</p>
+                                </TooltipContent>
+                              </Tooltip>
+                              
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <Button
+                                    size="sm"
+                                    variant="outline"
+                                    onClick={() => setReclassifyModal({isOpen: true, documentId: doc.document_id})}
+                                  >
+                                    <Tag className="h-4 w-4" />
+                                  </Button>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  <p>Reclassify Document</p>
+                                </TooltipContent>
+                              </Tooltip>
+                              
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <Button
+                                    size="sm"
+                                    variant="outline"
+                                    onClick={() => handleDownload(doc.document_id)}
+                                  >
+                                    <Download className="h-4 w-4" />
+                                  </Button>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  <p>Download Document</p>
+                                </TooltipContent>
+                              </Tooltip>
+                              
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <Button
+                                    size="sm"
+                                    variant="outline"
+                                    onClick={() => setDeleteModal({isOpen: true, documentId: doc.document_id, filename: doc.original_filename})}
+                                  >
+                                    <Trash2 className="h-4 w-4" />
+                                  </Button>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  <p>Delete Document</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </TooltipProvider>
+          </CardContent>
+        </Card>
       </div>
+
+      {/* Reclassify Modal */}
+      <ReclassifyModal
+        isOpen={reclassifyModal.isOpen}
+        onClose={() => setReclassifyModal({isOpen: false, documentId: ""})}
+        onSubmit={(classification) => handleReclassify(reclassifyModal.documentId, classification)}
+        routeOptions={routeOptions}
+      />
+
+      {/* Delete Confirmation Modal */}
+      <Dialog open={deleteModal.isOpen} onOpenChange={(open) => setDeleteModal(prev => ({ ...prev, isOpen: open }))}>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2 text-red-600">
+              <Trash2 className="h-5 w-5" />
+              Delete Document
+            </DialogTitle>
+            <DialogDescription className="pt-2">
+              Are you sure you want to delete <span className="font-medium">"{deleteModal.filename}"</span>? 
+              This action cannot be undone and the document will be permanently removed.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="gap-2 sm:gap-0">
+            <Button
+              variant="outline"
+              onClick={() => setDeleteModal({isOpen: false, documentId: "", filename: ""})}
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="destructive"
+              onClick={() => {
+                handleDelete(deleteModal.documentId)
+                setDeleteModal({isOpen: false, documentId: "", filename: ""})
+              }}
+              className="gap-2"
+            >
+              <Trash2 className="h-4 w-4" />
+              Delete Document
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </Layout>
   )
 }

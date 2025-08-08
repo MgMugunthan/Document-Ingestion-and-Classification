@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from 'react'
+import Layout from '@/components/Layout'
 import { useAuth } from '@/contexts/AuthContext'
 import { authApi } from '@/lib/api'
 import { useRouter } from 'next/navigation'
@@ -189,8 +190,9 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-7xl mx-auto">
+    <Layout>
+      <div className="p-6">
+        <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center justify-between">
@@ -571,5 +573,6 @@ export default function AdminDashboard() {
         )}
       </div>
     </div>
+    </Layout>
   )
 }

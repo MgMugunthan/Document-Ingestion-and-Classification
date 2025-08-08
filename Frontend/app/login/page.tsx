@@ -138,13 +138,6 @@ export default function Login() {
                 )}
               </button>
             </form>
-
-            {/* Default Credentials Info */}
-            <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-              <p className="text-sm text-blue-700">
-                <strong>Default credentials:</strong> admin / admin123
-              </p>
-            </div>
           </div>
         </div>
 
