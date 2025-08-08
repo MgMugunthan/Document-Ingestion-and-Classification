@@ -217,22 +217,185 @@ def get_available_routes():
             "error": str(e)
         }), 500
 
-# Simplified placeholder endpoints for other functionality
+# Functional endpoints for document management
 @documents_bp.route('/<document_id>', methods=['DELETE'])
 def delete_document(document_id):
-    """Delete a document - simplified version."""
-    return jsonify({
-        "success": False,
-        "error": "Delete functionality not yet implemented for PostgreSQL"
-    }), 501
+    """Delete a document and its physical file."""
+    try:
+        # Get document info from database first
+        with db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT file_path, final_path, routed_path 
+                FROM documents 
+                WHERE document_id = %s
+            """, (document_id,))
+            result = cursor.fetchone()
+            
+            if not result:
+                return jsonify({
+                    "success": False,
+                    "error": "Document not found"
+                }), 404
+            
+            file_path, final_path, routed_path = result
+            
+            # Delete physical files
+            import os
+            files_to_delete = [file_path]
+            if final_path and final_path != file_path:
+                files_to_delete.append(final_path)
+            if routed_path and routed_path != file_path and routed_path != final_path:
+                files_to_delete.append(routed_path)
+            
+            deleted_files = []
+            for file_path_to_delete in files_to_delete:
+                if file_path_to_delete and os.path.exists(file_path_to_delete):
+                    try:
+                        os.remove(file_path_to_delete)
+                        deleted_files.append(file_path_to_delete)
+                    except OSError as e:
+                        print(f"Warning: Could not delete file {file_path_to_delete}: {e}")
+            
+            # Delete from database
+            cursor.execute("DELETE FROM documents WHERE document_id = %s", (document_id,))
+            conn.commit()
+            
+            return jsonify({
+                "success": True,
+                "message": f"Document deleted successfully. Files removed: {len(deleted_files)}"
+            })
+            
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": f"Error deleting document: {str(e)}"
+        }), 500
+
+@documents_bp.route('/routes', methods=['GET'])
+def get_available_routes():
+    """Get available routing options from routes.json."""
+    try:
+        import os
+        import json
+        
+        # Get the router directory path
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        backend_dir = os.path.dirname(current_dir)
+        routes_file = os.path.join(backend_dir, 'router', 'routes.json')
+        
+        if not os.path.exists(routes_file):
+            return jsonify({
+                "success": False,
+                "error": "Routes configuration file not found"
+            }), 404
+        
+        with open(routes_file, 'r') as f:
+            routes_config = json.load(f)
+        
+        return jsonify({
+            "success": True,
+            "routes": routes_config
+        })
+        
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": f"Error loading routes: {str(e)}"
+        }), 500
 
 @documents_bp.route('/<document_id>/reroute', methods=['POST'])
 def reroute_document(document_id):
-    """Reroute a document - simplified version."""
-    return jsonify({
-        "success": False,
-        "error": "Reroute functionality not yet implemented for PostgreSQL"
-    }), 501
+    """Reroute a document to a new location."""
+    try:
+        data = request.get_json()
+        route = data.get('route')
+        custom_folder = data.get('folder')
+        
+        if not route and not custom_folder:
+            return jsonify({
+                "success": False,
+                "error": "Either route or custom folder must be specified"
+            }), 400
+        
+        # Get current document info
+        with db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT file_path, final_path, routed_path, original_filename 
+                FROM documents 
+                WHERE document_id = %s
+            """, (document_id,))
+            result = cursor.fetchone()
+            
+            if not result:
+                return jsonify({
+                    "success": False,
+                    "error": "Document not found"
+                }), 404
+            
+            file_path, current_final_path, current_routed_path, original_filename = result
+            
+            # Load routes configuration
+            import os
+            import json
+            import shutil
+            
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            backend_dir = os.path.dirname(current_dir)
+            routes_file = os.path.join(backend_dir, 'router', 'routes.json')
+            
+            with open(routes_file, 'r') as f:
+                routes_config = json.load(f)
+            
+            # Determine new folder
+            if custom_folder:
+                new_folder = custom_folder
+            else:
+                # Use predefined routes
+                if route in routes_config.get('routes', {}):
+                    new_folder = routes_config['routes'][route]
+                elif route == 'others':
+                    new_folder = routes_config.get('default_folder', 'others')
+                elif route == 'needs_action':
+                    new_folder = routes_config.get('needs_action_folder', 'needs_action')
+                else:
+                    return jsonify({
+                        "success": False,
+                        "error": "Invalid route specified"
+                    }), 400
+            
+            # Create new path
+            routed_documents_dir = os.path.join(backend_dir, 'router', 'routed_documents')
+            new_dir = os.path.join(routed_documents_dir, new_folder)
+            os.makedirs(new_dir, exist_ok=True)
+            
+            new_file_path = os.path.join(new_dir, original_filename)
+            
+            # Move the file
+            source_file = current_final_path or current_routed_path or file_path
+            if os.path.exists(source_file):
+                shutil.move(source_file, new_file_path)
+            
+            # Update database
+            cursor.execute("""
+                UPDATE documents 
+                SET final_path = %s, routed_path = %s, updated_at = CURRENT_TIMESTAMP
+                WHERE document_id = %s
+            """, (new_file_path, new_file_path, document_id))
+            conn.commit()
+            
+            return jsonify({
+                "success": True,
+                "message": f"Document successfully rerouted to {new_folder}",
+                "new_path": new_file_path
+            })
+            
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": f"Error rerouting document: {str(e)}"
+        }), 500
 
 @documents_bp.route('/<document_id>/reclassify', methods=['POST'])
 def reclassify_document(document_id):

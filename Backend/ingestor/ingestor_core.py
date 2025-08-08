@@ -160,6 +160,12 @@ class IngestorCore:
             metadata = json.loads(metadata_json)
         except:
             metadata = {}
+        
+        # Extract user_id from form data if not in metadata
+        if 'user_id' not in metadata:
+            user_id_from_form = request.form.get('user_id')
+            if user_id_from_form:
+                metadata['user_id'] = user_id_from_form
 
         if not self.is_valid_document(doc_file.filename):
             return jsonify({'error': 'Invalid document type'}), 400
@@ -174,14 +180,21 @@ class IngestorCore:
                 os.remove(filepath)
                 return jsonify({'error': 'File too large'}), 400
             
-            # Emit to Kafka
+            # Extract user_id directly from form or metadata with fallback to IP
+            user_id_final = request.form.get('user_id') or metadata.get('user_id') or request.remote_addr or "API"
+            
+            # Emit to Kafka with correct user_id
             result_metadata = self.emit_to_kafka(
                 filename,
                 filepath,
                 source="api_upload",
                 summary=metadata.get('summary', 'API upload'),
-                sender=metadata.get('sender', request.remote_addr or "API")
+                sender=user_id_final
             )
+            
+            # Debug logging
+            self.log.info(f"API upload metadata: {metadata}")
+            self.log.info(f"User ID used: {user_id_final}")
             
             if result_metadata:
                 self.log.info(f"API upload successful: {filename}")

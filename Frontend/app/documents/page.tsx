@@ -9,6 +9,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { 
   FileText, 
   Search, 
@@ -30,11 +36,13 @@ import {
 import { useToast } from "@/hooks/use-toast"
 import { useAuth } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
+import { documentApi } from '@/lib/api'
 
 interface Document {
   document_id: string
   user_id: string
   document_name: string
+  original_filename: string
   file_path: string
   file_size: number
   file_size_formatted: string
@@ -42,9 +50,13 @@ interface Document {
   upload_timestamp: string
   processing_status: string
   classification_type: string
+  classification_confidence: string
+  classification_method: string
   confidence_score: number
   routed_path: string
+  final_path: string
   updated_at: string
+  created_at: string
 }
 
 interface DocumentType {
@@ -93,8 +105,9 @@ export default function DocumentsPage() {
   const [newFolder, setNewFolder] = useState('')
   const [newClassification, setNewClassification] = useState('')
 
-  // Authentication check
+  // Authentication check - redirect to login if not authenticated
   useEffect(() => {
+    // Wait for auth loading to complete before checking authentication
     if (isLoading) return
     
     if (!user || !token) {
@@ -125,41 +138,93 @@ export default function DocumentsPage() {
     
     try {
       setLoading(true)
-      const params = new URLSearchParams({
-        limit: pageSize.toString(),
-        offset: ((currentPage - 1) * pageSize).toString(),
-        sort_by: sortBy,
-        sort_order: sortOrder
-      })
       
-      // Add user filtering - only admins can see all documents
-      if (user.user_type !== 'admin') {
-        params.append('user_id', user.user_id)
-      }
+      // Use the proper documentApi to get documents
+      const result = await documentApi.list(user.user_id)
       
-      if (searchTerm) params.append('search', searchTerm)
-      if (selectedType && selectedType !== 'all') params.append('type', selectedType)
-      if (selectedStatus && selectedStatus !== 'all') params.append('status', selectedStatus)
-      
-      const response = await fetch(`/api/documents?${params}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
+      if (result.documents) {
+        // Map API response to Document interface
+        const mappedDocs = result.documents.map((doc: any) => ({
+          ...doc,
+          document_name: doc.original_filename || doc.document_name || 'Unknown Document',
+          confidence_score: doc.classification_confidence ? parseFloat(doc.classification_confidence) : 0,
+          routed_path: doc.final_path || doc.routed_path
+        }))
+
+        // Filter documents based on search and status
+        let filteredDocs = mappedDocs
+        
+        // Apply search filter
+        if (searchTerm) {
+          filteredDocs = filteredDocs.filter((doc: Document) => 
+            doc.document_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            doc.classification_type?.toLowerCase().includes(searchTerm.toLowerCase())
+          )
         }
-      })
-      const result = await safeJsonParse(response, 'loadDocuments')
-      
-      if (result.success) {
-        setDocuments(result.data)
-        setTotalCount(result.pagination.total)
+        
+        // Apply status filter
+        if (selectedStatus && selectedStatus !== 'all') {
+          filteredDocs = filteredDocs.filter((doc: Document) => 
+            doc.processing_status === selectedStatus
+          )
+        }
+        
+        // Apply type filter
+        if (selectedType && selectedType !== 'all') {
+          filteredDocs = filteredDocs.filter((doc: Document) => 
+            doc.classification_type === selectedType
+          )
+        }
+        
+        // Apply sorting
+        filteredDocs.sort((a: Document, b: Document) => {
+          let aValue: any, bValue: any
+          
+          switch (sortBy) {
+            case 'upload_timestamp':
+              aValue = new Date(a.upload_timestamp).getTime()
+              bValue = new Date(b.upload_timestamp).getTime()
+              break
+            case 'document_name':
+              aValue = a.document_name.toLowerCase()
+              bValue = b.document_name.toLowerCase()
+              break
+            case 'file_size':
+              aValue = a.file_size
+              bValue = b.file_size
+              break
+            case 'confidence_score':
+              aValue = a.confidence_score || 0
+              bValue = b.confidence_score || 0
+              break
+            default:
+              aValue = a.upload_timestamp
+              bValue = b.upload_timestamp
+          }
+          
+          if (sortOrder === 'ASC') {
+            return aValue < bValue ? -1 : aValue > bValue ? 1 : 0
+          } else {
+            return aValue > bValue ? -1 : aValue < bValue ? 1 : 0
+          }
+        })
+        
+        // Apply pagination
+        const startIndex = (currentPage - 1) * pageSize
+        const paginatedDocs = filteredDocs.slice(startIndex, startIndex + pageSize)
+        
+        setDocuments(paginatedDocs)
+        setTotalCount(filteredDocs.length)
+        
+        console.log(`📄 Loaded ${result.documents.length} documents, showing ${paginatedDocs.length} after filters`)
       } else {
-        throw new Error(result.error)
+        throw new Error('No documents data in response')
       }
     } catch (error) {
       console.error('Error loading documents:', error)
       toast({
         title: "Error",
-        description: "Failed to load documents",
+        description: `Failed to load documents: ${error instanceof Error ? error.message : 'Unknown error'}`,
         variant: "destructive",
       })
     } finally {
@@ -172,37 +237,25 @@ export default function DocumentsPage() {
     if (!user || !token) return
     
     try {
-      const params = new URLSearchParams()
+      // Get documents to extract types
+      const result = await documentApi.list(user.user_id)
       
-      // Add user filtering for document types - only admins can see all types
-      if (user.user_type !== 'admin') {
-        params.append('user_id', user.user_id)
-      }
-      
-      const url = `/api/documents/types${params.toString() ? `?${params}` : ''}`
-      const response = await fetch(url, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      })
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
-      }
-      
-      const text = await response.text()
-      let result
-      try {
-        result = JSON.parse(text)
-      } catch (parseError) {
-        console.error('JSON parse error in loadDocumentTypes:', parseError)
-        console.error('Response text:', text)
-        return
-      }
-      
-      if (result.success) {
-        setDocumentTypes(result.data)
+      if (result.documents) {
+        // Extract unique document types from the documents
+        const types = result.documents.reduce((acc: DocumentType[], doc: Document) => {
+          if (doc.classification_type) {
+            const existingType = acc.find(t => t.type === doc.classification_type)
+            if (existingType) {
+              existingType.count++
+            } else {
+              acc.push({ type: doc.classification_type, count: 1 })
+            }
+          }
+          return acc
+        }, [])
+        
+        setDocumentTypes(types)
+        console.log(`📊 Found ${types.length} document types:`, types)
       }
     } catch (error) {
       console.error('Error loading document types:', error)
@@ -215,31 +268,41 @@ export default function DocumentsPage() {
     
     try {
       const response = await fetch('/api/documents/routes', {
+        method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
         }
       })
       
-      if (!response.ok) {
+      if (response.ok) {
+        const result = await response.json()
+        if (result.success && result.routes) {
+          setRouteOptions(result.routes)
+          console.log('📁 Loaded route options from server:', result.routes)
+        } else {
+          throw new Error('Failed to get routes from server')
+        }
+      } else {
         throw new Error(`HTTP error! status: ${response.status}`)
-      }
-      
-      const text = await response.text()
-      let result
-      try {
-        result = JSON.parse(text)
-      } catch (parseError) {
-        console.error('JSON parse error in loadRouteOptions:', parseError)
-        console.error('Response text:', text)
-        return
-      }
-      
-      if (result.success) {
-        setRouteOptions(result.data)
       }
     } catch (error) {
       console.error('Error loading route options:', error)
+      // Fallback to default routes if server fails
+      const defaultRoutes = {
+        routes: {
+          "resume": "resumes",
+          "cv": "resumes",
+          "receipt": "receipts",
+          "invoice": "invoices",
+          "bill": "bills"
+        },
+        folders: ["resumes", "receipts", "invoices", "bills", "others"],
+        default_folder: "others",
+        needs_action_folder: "needs_action"
+      }
+      setRouteOptions(defaultRoutes)
+      console.log('📁 Using fallback route options')
     }
   }
 
@@ -276,7 +339,7 @@ export default function DocumentsPage() {
         setShowDeleteModal(false)
         setSelectedDocument(null)
       } else {
-        throw new Error(result.error)
+        throw new Error(result.error || 'Failed to delete document')
       }
     } catch (error) {
       console.error('Error deleting document:', error)
@@ -290,6 +353,15 @@ export default function DocumentsPage() {
 
   const handleReroute = async () => {
     if (!selectedDocument || !user || !token) return
+    
+    if (!newRoute && !newFolder) {
+      toast({
+        title: "Error", 
+        description: "Please select a route or enter a custom folder",
+        variant: "destructive"
+      })
+      return
+    }
     
     try {
       const body: any = {}
@@ -318,7 +390,7 @@ export default function DocumentsPage() {
         setNewRoute('')
         setNewFolder('')
       } else {
-        throw new Error(result.error)
+        throw new Error(result.error || 'Failed to reroute document')
       }
     } catch (error) {
       console.error('Error rerouting document:', error)
@@ -376,7 +448,45 @@ export default function DocumentsPage() {
   }
 
   const formatDate = (dateString: string): string => {
-    return new Date(dateString).toLocaleDateString() + ' ' + new Date(dateString).toLocaleTimeString()
+    const date = new Date(dateString)
+    const now = new Date()
+    const diffInHours = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60))
+    const diffInDays = Math.floor(diffInHours / 24)
+
+    // Show relative time for recent uploads
+    if (diffInHours < 1) {
+      const diffInMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60))
+      if (diffInMinutes < 1) return 'Just now'
+      return `${diffInMinutes} minute${diffInMinutes !== 1 ? 's' : ''} ago`
+    } else if (diffInHours < 24) {
+      return `${diffInHours} hour${diffInHours !== 1 ? 's' : ''} ago`
+    } else if (diffInDays < 7) {
+      return `${diffInDays} day${diffInDays !== 1 ? 's' : ''} ago`
+    }
+
+    // For older dates, show formatted date and time in local timezone
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    })
+  }
+
+  const formatAbsoluteDate = (dateString: string): string => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true,
+      timeZoneName: 'short'
+    })
   }
 
   const getStatusBadgeVariant = (status: string) => {
@@ -390,6 +500,7 @@ export default function DocumentsPage() {
         return 'secondary'
       case 'error':
       case 'failed':
+      case 'needs_action':
         return 'destructive'
       default:
         return 'outline'
@@ -407,14 +518,15 @@ export default function DocumentsPage() {
         return <Clock className="h-4 w-4" />
       case 'error':
       case 'failed':
+      case 'needs_action':
         return <AlertCircle className="h-4 w-4" />
       default:
         return <FileText className="h-4 w-4" />
     }
   }
 
-  // Show loading while checking authentication
-  if (isLoading || (!user || !token)) {
+  // Show loading spinner while checking authentication
+  if (isLoading || !user || !token) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
@@ -424,7 +536,7 @@ export default function DocumentsPage() {
           </p>
         </div>
       </div>
-    );
+    )
   }
 
   const totalPages = Math.ceil(totalCount / pageSize)
@@ -500,6 +612,7 @@ export default function DocumentsPage() {
                   <SelectItem value="extracted">Extracted</SelectItem>
                   <SelectItem value="classified">Classified</SelectItem>
                   <SelectItem value="routed">Routed</SelectItem>
+                  <SelectItem value="needs_action">Needs Action</SelectItem>
                   <SelectItem value="error">Error</SelectItem>
                 </SelectContent>
               </Select>
@@ -563,149 +676,191 @@ export default function DocumentsPage() {
           </div>
         </CardHeader>
         <CardContent>
-          {loading ? (
-            <div className="text-center py-8">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
-              <p className="mt-2 text-gray-600">Loading documents...</p>
-            </div>
-          ) : documents.length === 0 ? (
-            <div className="text-center py-8">
-              <FileText className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600">No documents found</p>
-            </div>
-          ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b">
-                    <th className="text-left p-2">Document</th>
-                    <th className="text-left p-2">Type</th>
-                    <th className="text-left p-2">Status</th>
-                    <th className="text-left p-2">Size</th>
-                    <th className="text-left p-2">Upload Date</th>
-                    <th className="text-left p-2">Confidence</th>
-                    <th className="text-left p-2">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {documents.map((doc) => (
-                    <tr key={doc.document_id} className="border-b hover:bg-gray-50">
-                      <td className="p-2">
-                        <div>
-                          <div className="font-medium">{doc.document_name}</div>
-                          <div className="text-sm text-gray-500">{doc.file_extension}</div>
-                        </div>
-                      </td>
-                      <td className="p-2">
-                        <Badge variant="outline">
-                          {doc.classification_type || 'Unknown'}
-                        </Badge>
-                      </td>
-                      <td className="p-2">
-                        <Badge variant={getStatusBadgeVariant(doc.processing_status)}>
-                          <span className="flex items-center gap-1">
-                            {getStatusIcon(doc.processing_status)}
-                            {doc.processing_status}
-                          </span>
-                        </Badge>
-                      </td>
-                      <td className="p-2 text-sm">
-                        {formatFileSize(doc.file_size)}
-                      </td>
-                      <td className="p-2 text-sm">
-                        {formatDate(doc.upload_timestamp)}
-                      </td>
-                      <td className="p-2 text-sm">
-                        {doc.confidence_score ? 
-                          <span className={`px-2 py-1 rounded text-xs ${
-                            doc.confidence_score >= 0.8 ? 'bg-green-100 text-green-800' :
-                            doc.confidence_score >= 0.6 ? 'bg-yellow-100 text-yellow-800' :
-                            'bg-red-100 text-red-800'
-                          }`}>
-                            {(doc.confidence_score * 100).toFixed(1)}%
-                          </span>
-                        : 'N/A'}
-                      </td>
-                      <td className="p-2">
-                        <div className="flex gap-1">
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            onClick={() => {
-                              setSelectedDocument(doc)
-                              setShowViewModal(true)
-                            }}
-                          >
-                            <Eye className="h-4 w-4" />
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            onClick={() => {
-                              setSelectedDocument(doc)
-                              setShowRerouteModal(true)
-                            }}
-                          >
-                            <Route className="h-4 w-4" />
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            onClick={() => {
-                              setSelectedDocument(doc)
-                              setShowReclassifyModal(true)
-                            }}
-                          >
-                            <Tag className="h-4 w-4" />
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            onClick={() => {
-                              setSelectedDocument(doc)
-                              setShowDeleteModal(true)
-                            }}
-                          >
-                            <Trash2 className="h-4 w-4" />
-                          </Button>
-                        </div>
-                      </td>
+          <TooltipProvider>
+            {loading ? (
+              <div className="text-center py-8">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+                <p className="mt-2 text-gray-600">Loading documents...</p>
+              </div>
+            ) : documents.length === 0 ? (
+              <div className="text-center py-8">
+                <FileText className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                <p className="text-gray-600">No documents found</p>
+              </div>
+            ) : (
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b">
+                      <th className="text-left p-2">Document</th>
+                      <th className="text-left p-2">Type</th>
+                      <th className="text-left p-2">Status</th>
+                      <th className="text-left p-2">Size</th>
+                      <th className="text-left p-2">Upload Date</th>
+                      <th className="text-left p-2">Confidence</th>
+                      <th className="text-left p-2">Actions</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
+                  </thead>
+                  <tbody>
+                    {documents.map((doc) => (
+                      <tr key={doc.document_id} className="border-b hover:bg-gray-50">
+                        <td className="p-2">
+                          <div>
+                            <div className="font-medium">{doc.document_name}</div>
+                            <div className="text-sm text-gray-500">{doc.file_extension}</div>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <Badge variant="outline">
+                            {doc.classification_type || 'Unknown'}
+                          </Badge>
+                        </td>
+                        <td className="p-2">
+                          <Badge variant={getStatusBadgeVariant(doc.processing_status)}>
+                            <span className="flex items-center gap-1">
+                              {getStatusIcon(doc.processing_status)}
+                              {doc.processing_status}
+                            </span>
+                          </Badge>
+                        </td>
+                        <td className="p-2 text-sm">
+                          {formatFileSize(doc.file_size)}
+                        </td>
+                        <td className="p-2 text-sm">
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <span className="cursor-help">
+                                {formatDate(doc.upload_timestamp)}
+                              </span>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>{formatAbsoluteDate(doc.upload_timestamp)}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </td>
+                        <td className="p-2 text-sm">
+                          {doc.confidence_score ? 
+                            <span className={`px-2 py-1 rounded text-xs ${
+                              doc.confidence_score >= 0.8 ? 'bg-green-100 text-green-800' :
+                              doc.confidence_score >= 0.6 ? 'bg-yellow-100 text-yellow-800' :
+                              'bg-red-100 text-red-800'
+                            }`}>
+                              {(doc.confidence_score * 100).toFixed(1)}%
+                            </span>
+                          : 'N/A'}
+                        </td>
+                        <td className="p-2">
+                          <div className="flex gap-1">
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  onClick={() => {
+                                    setSelectedDocument(doc)
+                                    setShowViewModal(true)
+                                  }}
+                                >
+                                  <Eye className="h-4 w-4" />
+                                </Button>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>View Details</p>
+                              </TooltipContent>
+                            </Tooltip>
+                            
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  onClick={() => {
+                                    setSelectedDocument(doc)
+                                    setShowRerouteModal(true)
+                                  }}
+                                >
+                                  <Route className="h-4 w-4" />
+                                </Button>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Re-route Document</p>
+                              </TooltipContent>
+                            </Tooltip>
+                            
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  onClick={() => {
+                                    setSelectedDocument(doc)
+                                    setShowReclassifyModal(true)
+                                  }}
+                                >
+                                  <Tag className="h-4 w-4" />
+                                </Button>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Re-classify Document</p>
+                              </TooltipContent>
+                            </Tooltip>
+                            
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  onClick={() => {
+                                    setSelectedDocument(doc)
+                                    setShowDeleteModal(true)
+                                  }}
+                                >
+                                  <Trash2 className="h-4 w-4" />
+                                </Button>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Delete Document</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
 
-          {/* Pagination */}
-          {totalPages > 1 && (
-            <div className="flex justify-between items-center mt-4">
-              <div className="text-sm text-gray-600">
-                Showing {((currentPage - 1) * pageSize) + 1} to {Math.min(currentPage * pageSize, totalCount)} of {totalCount} documents
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="flex justify-between items-center mt-4">
+                <div className="text-sm text-gray-600">
+                  Showing {((currentPage - 1) * pageSize) + 1} to {Math.min(currentPage * pageSize, totalCount)} of {totalCount} documents
+                </div>
+                <div className="flex gap-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                    disabled={currentPage === 1}
+                  >
+                    Previous
+                  </Button>
+                  <span className="px-3 py-1 text-sm">
+                    Page {currentPage} of {totalPages}
+                  </span>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+                    disabled={currentPage === totalPages}
+                  >
+                    Next
+                  </Button>
+                </div>
               </div>
-              <div className="flex gap-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-                  disabled={currentPage === 1}
-                >
-                  Previous
-                </Button>
-                <span className="px-3 py-1 text-sm">
-                  Page {currentPage} of {totalPages}
-                </span>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-                  disabled={currentPage === totalPages}
-                >
-                  Next
-                </Button>
-              </div>
-            </div>
-          )}
+            )}
+          </TooltipProvider>
         </CardContent>
       </Card>
 
@@ -746,11 +901,11 @@ export default function DocumentsPage() {
                 </div>
                 <div>
                   <Label>Upload Date</Label>
-                  <p className="text-sm">{formatDate(selectedDocument.upload_timestamp)}</p>
+                  <p className="text-sm">{formatAbsoluteDate(selectedDocument.upload_timestamp)}</p>
                 </div>
                 <div>
                   <Label>Last Updated</Label>
-                  <p className="text-sm">{formatDate(selectedDocument.updated_at)}</p>
+                  <p className="text-sm">{formatAbsoluteDate(selectedDocument.updated_at)}</p>
                 </div>
               </div>
               <div>

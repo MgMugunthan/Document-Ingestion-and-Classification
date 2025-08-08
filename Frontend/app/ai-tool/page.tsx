@@ -36,8 +36,8 @@ export default function AITool() {
     }
   }, [user, token, isLoading, router])
 
-  // Show loading while checking authentication
-  if (isLoading || (!user || !token)) {
+  // Show loading spinner while checking authentication
+  if (isLoading || !user || !token) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">

@@ -20,26 +20,9 @@ app.config['SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY', 'dev-key-change-in-p
 class AuthService:
     def __init__(self):
         self.db = db_manager
-        self.initialize_default_user()
-    def initialize_default_user(self):
-        try:
-            with self.db.get_connection() as conn:
-                cursor = conn.cursor()
-                cursor.execute("""
-                    SELECT user_id FROM users WHERE user_id = %s
-                """, ('admin',))
-                if not cursor.fetchone():
-                    password_hash = generate_password_hash('admin123')
-                    cursor.execute("""
-                        INSERT INTO users (user_id, email, password_hash, user_type, department)
-                        VALUES (%s, %s, %s, %s, %s)
-                    """, ('admin', 'admin@system.com', password_hash, 'admin', 'IT'))
-                    conn.commit()
-                    log.info("Default admin user created: admin/admin123")
-                else:
-                    log.info("Default admin user already exists")
-        except Exception as e:
-            log.error(f"Error initializing default user: {e}")
+        # Note: Default admin user creation has been removed for security
+        # Create admin users through the admin interface or direct database access
+        
     def authenticate_user(self, user_id, password):
         try:
             with self.db.get_connection() as conn:

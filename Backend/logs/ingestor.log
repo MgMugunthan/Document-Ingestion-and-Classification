@@ -2841,3 +2841,234 @@ TypeError: emit_event() got an unexpected keyword argument 'file_path'
 2025-08-07 12:50:28 - ingestor - INFO -  Web interface: http://localhost:5000
 2025-08-07 12:50:28 - ingestor - INFO -  Gmail integration:  Enabled
 2025-08-07 12:59:27 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-07 13:22:08 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 13:22:08 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 13:22:08 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 13:22:08 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\ingestor\uploads
+2025-08-07 13:22:08 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 13:22:08 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-07 13:23:39 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-07 13:23:47 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 13:23:47 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 13:23:47 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 13:23:47 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\ingestor\uploads
+2025-08-07 13:23:47 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 13:23:47 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-07 13:44:03 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 13:44:03 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 13:44:03 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 13:44:03 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-07 13:44:03 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 13:44:03 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-07 13:44:03 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-07 13:45:40 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-07 13:45:58 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 13:45:58 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 13:45:58 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 13:45:58 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\ingestor\uploads
+2025-08-07 13:45:58 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 13:45:58 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-07 14:04:02 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-07 14:04:06 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 14:04:06 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 14:04:06 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 14:04:06 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\ingestor\uploads
+2025-08-07 14:04:06 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 14:04:06 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-07 14:15:59 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-07 14:16:08 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 14:16:08 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 14:16:08 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 14:16:08 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\ingestor\uploads
+2025-08-07 14:16:08 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 14:16:08 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-07 14:17:06 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-07 14:17:10 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 14:17:10 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 14:17:10 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 14:17:10 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\ingestor\uploads
+2025-08-07 14:17:10 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 14:17:10 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-07 14:59:38 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-07 15:00:16 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 15:00:16 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 15:00:16 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 15:00:16 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-07 15:00:16 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 15:00:16 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-07 15:12:45 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 15:12:45 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 15:12:45 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 15:12:45 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-07 15:12:45 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 15:12:45 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-07 15:14:59 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 15:14:59 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 15:14:59 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 15:14:59 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-07 15:14:59 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 15:14:59 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-07 18:30:51 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 18:30:51 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 18:30:51 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 18:30:51 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-07 18:30:51 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 18:30:51 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-07 18:32:04 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 18:32:04 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 18:32:04 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 18:32:04 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-07 18:32:04 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 18:32:04 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-07 18:33:20 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 18:33:20 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 18:33:20 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 18:33:20 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-07 18:33:20 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 18:33:20 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-07 18:35:16 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 18:35:16 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 18:35:16 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 18:35:16 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-07 18:35:16 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 18:35:16 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-07 18:36:10 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 18:36:10 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 18:36:10 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 18:36:10 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-07 18:36:10 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 18:36:10 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-07 18:38:34 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 18:38:34 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 18:38:34 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 18:38:34 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-07 18:38:34 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 18:38:34 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-07 18:41:40 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 18:41:40 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 18:41:40 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 18:41:40 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-07 18:41:40 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 18:41:40 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-07 18:44:06 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-07 18:48:32 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-07 18:48:32 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-07 18:48:32 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-07 18:48:32 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-07 18:48:32 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-07 18:48:32 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 09:50:06 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-08 09:52:36 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-08 09:52:36 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-08 09:52:36 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-08 09:52:36 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-08 09:52:36 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-08 09:52:36 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 10:27:22 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-08 10:27:56 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-08 10:27:56 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-08 10:27:56 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-08 10:27:56 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-08 10:27:56 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-08 10:27:56 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 10:43:53 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-08 10:45:04 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-08 10:45:04 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-08 10:45:04 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-08 10:45:04 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-08 10:45:04 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-08 10:45:04 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 11:01:48 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-08 11:02:03 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-08 11:02:03 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-08 11:02:03 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-08 11:02:03 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-08 11:02:03 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-08 11:02:03 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 11:24:31 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-08 11:27:15 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-08 11:27:15 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-08 11:27:15 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-08 11:27:15 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\ingestor\uploads
+2025-08-08 11:27:15 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-08 11:27:15 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 11:44:20 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-08 11:44:20 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-08 11:44:20 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-08 11:44:20 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-08 11:44:20 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-08 11:44:20 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 11:44:35 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-08 11:47:21 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-08 11:47:45 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-08 11:47:45 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-08 11:47:45 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-08 11:47:45 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\ingestor\uploads
+2025-08-08 11:47:45 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-08 11:47:45 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 11:57:51 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-08 11:57:57 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-08 11:57:57 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-08 11:57:57 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-08 11:57:57 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-08 11:57:57 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-08 11:57:57 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 12:38:21 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-08 12:38:29 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-08 12:38:29 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-08 12:38:29 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-08 12:38:29 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-08 12:38:29 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-08 12:38:29 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 12:41:46 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-08 12:41:46 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-08 12:41:46 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-08 12:41:46 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-08 12:41:46 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-08 12:41:46 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 12:53:40 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-08 12:53:40 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-08 12:53:40 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-08 12:53:40 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-08 12:53:40 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-08 12:53:40 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 12:56:26 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-08 12:56:26 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-08 12:56:26 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-08 12:56:26 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-08 12:56:26 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-08 12:56:26 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 13:55:52 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-08 13:56:34 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-08 13:56:34 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-08 13:56:34 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-08 13:56:34 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\ingestor\uploads
+2025-08-08 13:56:34 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-08 13:56:34 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 14:21:54 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-08 14:21:54 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-08 14:21:54 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-08 14:21:54 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-08 14:21:54 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-08 14:21:54 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 15:17:54 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-08 15:18:12 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-08 15:18:12 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-08 15:18:12 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-08 15:18:12 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\Backend\ingestor\uploads
+2025-08-08 15:18:12 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-08 15:18:12 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 15:38:51 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-08 15:38:51 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-08 15:38:51 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-08 15:38:51 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\ingestor\uploads
+2025-08-08 15:38:51 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-08 15:38:51 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 15:41:12 - ingestor - INFO -  Document Ingestor Service shutdown complete.
+2025-08-08 15:42:18 - ingestor - INFO -  Starting Document Ingestor Service...
+2025-08-08 15:42:18 - ingestor - INFO -  Starting web server on port 5000...
+2025-08-08 15:42:18 - ingestor - INFO -  Document Ingestor Service ready!
+2025-08-08 15:42:18 - ingestor - INFO -  Monitoring folder: D:\Langs\Team_Docs\Local working prototype\Document-Ingestion-and-Classification\backend\ingestor\uploads
+2025-08-08 15:42:18 - ingestor - INFO -  Web interface: http://localhost:5000
+2025-08-08 15:42:18 - ingestor - INFO -  Gmail integration:  Enabled
+2025-08-08 15:42:44 - ingestor - INFO -  Document Ingestor Service shutdown complete.
